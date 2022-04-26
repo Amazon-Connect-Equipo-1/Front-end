@@ -1,0 +1,16 @@
+.usuario-contenedor {
+    width: 500px;
+    min-height: 670px;
+    background-color: #b1aaaa;
+    margin-top: 10px;
+    margin-left: 450px;
+    padding: 1rem;
+    -webkit-box-shadow: -1px 1px 0px 7px rgba(0,0,0,0.2); 
+    box-shadow: -1px 1px 0px 7px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 7px;
+    border: 1px solid white;
+    cursor: pointer;
+}
