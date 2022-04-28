@@ -11,15 +11,16 @@ const Usuario =(props)=>{
                     <div>
                     <span>
                         <span className="usuario-chatbot"></span>
-                        <span className="usuario-llamada">
-                            <h1 className="usuario-texto">
+                        <button className="usuario-llamada">
+                            <p className="usuario-texto">
                                 Call
-                            </h1>
-                        </span>
+                            </p>
+                        </button>
                     </span>
                     </div>
                     
                 </div>
+                    
             </div>
         </div>
     )

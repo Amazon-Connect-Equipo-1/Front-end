@@ -6,7 +6,7 @@
     padding: 0.5rem;
     -webkit-box-shadow: -1px 1px 0px 7px rgba(0,0,0,0.2); 
     box-shadow: -1px 1px 0px 7px rgba(0,0,0,0.2);
-    display: flex;
+    
     justify-content: space-between;
     align-items: center;
     border-radius: 3px;
@@ -21,7 +21,7 @@
 }
 .usuario-chatEjemplo{
     display: block;
-
+    cursor: pointer;
     background-color: #415164;
 
 }
@@ -29,11 +29,13 @@
     text-align: center;
     color: rgb(255, 255, 255);
     font-size: 25px;
-    padding-top: 0.5rem;
+    margin-top: 5px;
+    font-weight: bold;
+    cursor: pointer;
 
 }
 .usuario-chatbot-contenedor{
-    display: block;
+    
 
     width: 380px;
     height: 615px;
@@ -45,10 +47,11 @@
     cursor: pointer;
     background-color: #132535;
     
-    margin-top: 3rem;
+    margin-top: 0.2rem;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: auto;
+    
     
     
     text-align: center;
@@ -87,11 +90,11 @@
     
 }
 .usuario-imagen{
-    display: block;
-    display: flex;
+    display: inline-block;
+    
     clear: left;
-    margin-bottom:auto;
-    width: 60px;
-    height:30px;
+    padding-right: 300px;
+    width: 70px;
+    height:25px;
     
 }
