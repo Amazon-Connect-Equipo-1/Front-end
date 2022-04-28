@@ -1,12 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import Login from './components/Login/Login';
 import Usuario from './components/Usuario/Usuario';
 
 
 function App() {
+  const n = 1;
   return (
     <div className='App'>
-      <Usuario/>
+      {
+        n === 0 && <Usuario/>
+      }
+      {
+        n === 1 && <Login/>
+      }
     </div>
     
   );
