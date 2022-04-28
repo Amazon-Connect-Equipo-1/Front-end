@@ -11,10 +11,7 @@ const Usuario =(props)=>{
                     <div>
                     <span>
                         <span className="usuario-chatbot">
-                        <script src="https://d2c72ljk85v2ia.cloudfront.net/lex-web-ui-loader.min.js"></script>
-                        <script>
-                            
-                        </script>
+                        <iframe className="chatbot" src="https://d2c72ljk85v2ia.cloudfront.net/index.html" frameborder="0" allowfullscreen></iframe>
                         </span>
                         <button className="usuario-llamada">
                             <p className="usuario-texto">
