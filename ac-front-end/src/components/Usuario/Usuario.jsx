@@ -10,7 +10,12 @@ const Usuario =(props)=>{
                 <div className="usuario-chatbot">
                     <div>
                     <span>
-                        <span className="usuario-chatbot"></span>
+                        <span className="usuario-chatbot">
+                        <script src="https://d2c72ljk85v2ia.cloudfront.net/lex-web-ui-loader.min.js"></script>
+                        <script>
+                            
+                        </script>
+                        </span>
                         <button className="usuario-llamada">
                             <p className="usuario-texto">
                                 Call
