@@ -1,16 +1,84 @@
 .usuario-contenedor {
-    width: 500px;
-    min-height: 670px;
-    background-color: #b1aaaa;
-    margin-top: 10px;
-    margin-left: 450px;
-    padding: 1rem;
+    display: block;
+
+    width: 380px;
+    height: 660px;
+    padding: 0.5rem;
     -webkit-box-shadow: -1px 1px 0px 7px rgba(0,0,0,0.2); 
     box-shadow: -1px 1px 0px 7px rgba(0,0,0,0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 7px;
-    border: 1px solid white;
+    border-radius: 3px;
     cursor: pointer;
+    background-color: #233445;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    border: 0.5px solid rgb(0, 0, 0);
+    text-align: center;
+}
+.usuario-chatEjemplo{
+    display: block;
+
+    background-color: #415164;
+
+}
+.usuario-texto{
+
+}
+.usuario-chatbot-contenedor{
+    display: block;
+    
+    width: 380px;
+    height: 590px;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1px;
+    cursor: pointer;
+    background-color: #132535;
+    
+    margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    
+    
+    text-align: center;
+    -webkit-border-radius: 10px;
+    border-radius: 22px;
+    
+}
+.usuario-chatbot{
+    display: block;
+    width: 360px;
+    height: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1px;
+    cursor: pointer;
+    background-color: #415164;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    text-align: center;
+    -webkit-border-radius: 10px;
+    border-radius: 22px;
+    
+}
+.usuario-llamada{
+    display: block;
+    clear: left;
+    width: 200px;
+    height: 300px;
+    margin-top: -100px;
+}
+.usuario-imagen{
+    margin-top:100px;
+    
 }
