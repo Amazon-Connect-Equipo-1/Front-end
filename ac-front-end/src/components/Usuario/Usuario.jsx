@@ -8,8 +8,12 @@ const Usuario =(props)=>{
                 <div className="usuario-chatbot">
                     <div>
                     <span>
-                        <span className="usuario-llamada">hey</span>
-                        <span className="usuario-llamada">call</span>
+                        <span className="usuario-chatbot"></span>
+                        <span className="usuario-llamada">
+                            <h1 className="usuario-texto">
+                                Call
+                            </h1>
+                        </span>
                     </span>
                     </div>
                     

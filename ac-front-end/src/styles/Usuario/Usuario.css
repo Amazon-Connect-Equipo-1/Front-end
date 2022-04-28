@@ -26,13 +26,17 @@
 
 }
 .usuario-texto{
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    padding-top: 0.5rem;
 
 }
 .usuario-chatbot-contenedor{
     display: block;
-    
+
     width: 380px;
-    height: 590px;
+    height: 615px;
     
     display: flex;
     justify-content: space-between;
@@ -54,7 +58,7 @@
 }
 .usuario-chatbot{
     display: block;
-    width: 360px;
+    width: 350px;
     height: 500px;
     display: flex;
     justify-content: space-between;
@@ -62,7 +66,7 @@
     border-radius: 1px;
     cursor: pointer;
     background-color: #415164;
-    margin-top: 1rem;
+    margin-top: 2.5rem;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: auto;
@@ -74,9 +78,13 @@
 .usuario-llamada{
     display: block;
     clear: left;
-    width: 200px;
-    height: 300px;
-    margin-top: -100px;
+    width: 350px;
+    height: 50px;
+    margin-top: 2.5rem;
+    background-color: #9FACBD;
+    -webkit-border-radius: 10px;
+    border-radius: 16px;
+    
 }
 .usuario-imagen{
     margin-top:100px;
