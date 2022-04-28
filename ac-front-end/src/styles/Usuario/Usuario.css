@@ -87,6 +87,11 @@
     
 }
 .usuario-imagen{
-    margin-top:100px;
+    display: block;
+    display: flex;
+    clear: left;
+    margin-bottom:auto;
+    width: 60px;
+    height:30px;
     
 }

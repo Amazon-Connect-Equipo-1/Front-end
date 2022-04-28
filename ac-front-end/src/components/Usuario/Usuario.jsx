@@ -1,9 +1,11 @@
 import "../../styles/Usuario/Usuario.css";
-import "../../images/logo_bbva.png" 
+import logo from"../../images/logo_bbva.png"; 
+
 const Usuario =(props)=>{
     return(
         
         <div className="usuario-contenedor">
+            <img className="usuario-imagen" src= {logo}/>
             <div className="usuario-chatbot-contenedor">
                 <div className="usuario-chatbot">
                     <div>
@@ -18,7 +20,6 @@ const Usuario =(props)=>{
                     </div>
                     
                 </div>
-                    
             </div>
         </div>
     )
