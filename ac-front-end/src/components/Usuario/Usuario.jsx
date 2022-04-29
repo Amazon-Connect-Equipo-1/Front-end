@@ -1,7 +1,6 @@
 import "../../styles/Usuario/Usuario.css";
 import logo from "../../images/logo_bbva.png";
-import Chatbots from "./Chatbots";
-import Llamada from "./Llamada";
+import Llamada from "../Usuario/llamada";
 import { useState } from "react";
 
 const Usuario = (props) => {
@@ -11,21 +10,19 @@ const Usuario = (props) => {
 
   const enllamada = () => {
     setInCall(!incall);
-    {
-      if (incall === true) {
-        setStateCall("Call");
-        setOption("usuario-en-llamada");
-      }
-      if (incall === false) {
-        setStateCall("Cancel");
-        setOption("usuario-no-llamada");
-      }
+    if (incall === true) {
+      setStateCall("Call");
+      setOption("usuario-en-llamada");
+    }
+    if (incall === false) {
+      setStateCall("Cancel");
+      setOption("usuario-no-llamada");
     }
   };
 
   return (
     <div className="usuario-contenedor">
-      <img className="usuario-imagen" src={logo} />
+      <img className="usuario-imagen" src={logo} alt=""/>
 
       <div className="usuario-chatbot-contenedor">
         <div className="usuario-chatbot">
