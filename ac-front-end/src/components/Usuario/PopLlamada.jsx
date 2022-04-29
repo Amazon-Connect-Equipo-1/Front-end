@@ -1,6 +1,6 @@
 import "../../styles/Usuario/PopLlamada.css";
-import logo from "../../images/logo_bbva.png";
-import Chatbots from "./Chatbots";
+//import logo from "../../images/logo_bbva.png";
+//import Chatbots from "../Usuario/Chatbots";
 
 const PopLlamada = (props) => {
   return (
