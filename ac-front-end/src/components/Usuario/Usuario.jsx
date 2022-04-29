@@ -22,7 +22,7 @@ const Usuario = (props) => {
 
   return (
     <div className="usuario-contenedor">
-      <img className="usuario-imagen" src={logo} alt=""/>
+      <img className="usuario-imagen" src={logo} alt="Logo BBVA" />
 
       <div className="usuario-chatbot-contenedor">
         <div className="usuario-chatbot">

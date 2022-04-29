@@ -9,6 +9,7 @@
   margin-bottom: auto;
   margin-left: auto;
   margin-right: auto;
+  cursor: pointer;
 }
 .PopLlamada-boton-left {
   width: 125px;
@@ -22,6 +23,7 @@
   border-width: 1px;
   color: #589ad4;
   font-weight: 700;
+  cursor: pointer;
 }
 .PopLlamada-boton-right {
   width: 125px;
@@ -35,10 +37,20 @@
   border-width: 1px;
   color: #589ad4;
   font-weight: 700;
+  cursor: pointer;
 }
 .PopLlamada-texto {
   text-align: center;
   font-weight: 700;
-  margin-top: 1.5rem;
-  margin-bottom: auto;
+  padding-bottom: 0.3rem;
+  padding-top: 1.6rem;
+  cursor: pointer;
+}
+.PopLlamada-img {
+  padding-top: 1.4rem;
+  width: 22rem;
+  height: 33rem;
+  cursor: pointer;
+  -webkit-border-radius: 10px;
+  border-radius: 16px;
 }

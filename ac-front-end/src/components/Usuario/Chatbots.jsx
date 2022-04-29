@@ -1,5 +1,5 @@
 import "../../styles/Usuario/Usuario.css";
-//import "../../styles/Usuario/Chatbot.css";
+import "../../styles/Usuario/Chatbot.css";
 //import logo from "../../images/logo_bbva.png";
 const Chatbots = (props) => {
   return (
@@ -9,8 +9,8 @@ const Chatbots = (props) => {
           className="chatbot"
           src="https://d2c72ljk85v2ia.cloudfront.net/index.html"
           frameborder="0"
-          allowfullscreen>
-        </iframe>
+          allowfullscreen
+        ></iframe>
       </span>
     </div>
   );
