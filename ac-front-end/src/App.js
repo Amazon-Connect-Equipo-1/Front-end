@@ -5,9 +5,11 @@ import Usuario from "./components/Usuario/Usuario";
 function App() {
   const n = 0;
   return (
-    <div className="App">
-      {n === 0 && <Usuario />}
-      {n === 1 && <Login />}
+    <div>
+      <div className="App">
+        {n === 0 && <Usuario />}
+        {n === 1 && <Login />}
+      </div>
     </div>
   );
 }

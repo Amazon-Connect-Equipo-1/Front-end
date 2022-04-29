@@ -1,0 +1,71 @@
+/*Initials: lgf*/
+
+/* Main tags */
+.lgf-input {
+  padding: 0.6rem;
+  border: none;
+  font-size: 2rem;
+  border-radius: 9px;
+}
+
+.lgf-button {
+  border-radius: 10px;
+  padding: 0.6rem;
+  border: none;
+  font-size: 2rem;
+}
+
+.lgf-label {
+  font-size: 2rem;
+}
+
+/* Classes */
+.lgf-main-container {
+  width: 40rem;
+  background-color: #415164;
+  color: white;
+}
+
+.lgf-container {
+  padding: 3rem;
+}
+
+.lgf-form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.lgf-form-title {
+  font-size: 3rem;
+}
+
+.lgf-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lgf-forgot-text {
+  align-self: flex-end;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.lgf-margin-bottom-sm {
+  margin-bottom: 0.6rem;
+}
+
+.lgf-margin-top-sm {
+  margin-top: 0.6rem;
+}
+
+.lgf-margin-top-md {
+  margin-top: 1.2rem;
+}
+
+.lgf-margin-top-lg {
+  margin-top: 4rem;
+}
