@@ -13,10 +13,15 @@
   padding: 0.6rem;
   border: none;
   font-size: 2rem;
+  background-color: #9facbd;
+  color: #ffff;
+  font-weight: bold;
+  margin-top: 2rem;
 }
 
 .lgf-label {
   font-size: 2rem;
+  font-weight: bold;
 }
 
 /* Classes */
@@ -37,7 +42,8 @@
 }
 
 .lgf-form-title {
-  font-size: 3rem;
+  font-size: 4rem;
+  font-weight: bold;
 }
 
 .lgf-flex {

@@ -7,10 +7,7 @@ const LoginForm = (props) => {
       <div className="lgf-container ">
         <form className="lgf-form">
           <p className="lgf-form-title">Sign in</p>
-          <label
-            className="lgf-label lgf-margin-bottom-sm lgf-margin-top-lg"
-            for="lgf-email"
-          >
+          <label className="lgf-label lgf-margin-bottom-sm " for="lgf-email">
             Email
           </label>
           <input id="lgf-email" type="email" className="lgf-input" />
@@ -23,8 +20,8 @@ const LoginForm = (props) => {
             </a>
           </div>
           <input type="password" className="lgf-input" />
-          <button type="submit" className="lgf-button lgf-margin-top-lg">
-            Sign up
+          <button type="submit" className="lgf-button">
+            Sign in
           </button>
         </form>
       </div>
