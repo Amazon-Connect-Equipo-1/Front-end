@@ -1,15 +1,17 @@
 import "./App.css";
 import Login from "./components/Login/Login";
+import Recordings from "./components/Recordings/Recordings";
+import RecordingsCard from "./components/Recordings/RecordingsCard";
 import Usuario from "./components/Usuario/Usuario";
 
 function App() {
-  const n = 0;
+  const isUser = false;
   return (
     <div>
-      <div className="App">
-        {n === 0 && <Usuario />}
-        {n === 1 && <Login />}
-      </div>
+      {/* {isUser && <Usuario />}
+      {!isUser && <Login />} */}
+      <Login />
+      <Recordings />
     </div>
   );
 }

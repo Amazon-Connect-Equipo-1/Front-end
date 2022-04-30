@@ -1,0 +1,40 @@
+/* Initials: re */
+
+.re-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #132535;
+  margin: 2rem;
+  border-radius: 10px;
+}
+
+.re-container {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  margin: 3rem 0 3rem 0;
+}
+
+.re-search-container {
+  display: flex;
+  grid-column: 1 / -1;
+  gap: 1.5rem;
+  justify-self: end;
+}
+
+.re-input {
+  font-size: 2rem;
+  border-radius: 10px;
+  padding: 1rem 1rem 1rem 2rem;
+}
+
+.re-select {
+  font-size: 2rem;
+  border-radius: 10px;
+  padding: 1rem;
+  background-color: #9facbd;
+  color: white;
+}

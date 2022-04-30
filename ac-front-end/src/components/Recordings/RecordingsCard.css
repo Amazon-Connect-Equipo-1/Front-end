@@ -1,0 +1,67 @@
+/* Initials: rec */
+
+.rec-main-container {
+  width: 40rem;
+  color: white;
+  background-color: #415164;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.rec-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+  padding: 2rem;
+}
+
+.rec-video-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2rem;
+}
+
+.rec-video-img {
+  height: 10rem;
+}
+
+.rec-video-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.rec-agent-name {
+  font-size: 2.6rem;
+  text-align: end;
+}
+
+.rec-date {
+  font-size: 2rem;
+  text-align: end;
+}
+
+.rec-score {
+  text-align: end;
+  font-size: 2.4rem;
+}
+
+.rec-tag-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 2rem;
+  row-gap: 1rem;
+}
+
+.rec-tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  padding: 0.5rem 1.5rem;
+  font-size: 2rem;
+  color: white;
+  border-radius: 10px;
+}

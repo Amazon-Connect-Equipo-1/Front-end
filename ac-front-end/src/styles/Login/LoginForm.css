@@ -2,21 +2,24 @@
 
 /* Main tags */
 .lgf-input {
-  padding: 0.6rem;
+  display: block;
+  padding: 0.6rem 0.6rem 0.6rem 1.2rem;
+
   border: none;
   font-size: 2rem;
   border-radius: 9px;
 }
 
 .lgf-button {
-  border-radius: 10px;
-  padding: 0.6rem;
-  border: none;
   font-size: 2rem;
+  font-weight: bold;
+  padding: 0.6rem;
   background-color: #9facbd;
   color: #ffff;
-  font-weight: bold;
   margin-top: 2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .lgf-label {
@@ -29,6 +32,7 @@
   width: 40rem;
   background-color: #415164;
   color: white;
+  border-radius: 10px;
 }
 
 .lgf-container {
@@ -54,8 +58,8 @@
 
 .lgf-forgot-text {
   align-self: flex-end;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
   color: inherit;
   text-decoration: none;
 }
