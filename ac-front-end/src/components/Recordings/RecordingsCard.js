@@ -9,7 +9,9 @@ const RecordingsCard = (props) => {
     <Card className="rec-main-container">
       <div className="rec-container">
         <div className="rec-video-section">
-          <img src={logo} className="rec-video-img" />
+          <div className="rec-video">
+            <img src={logo} className="rec-video-img" />
+          </div>
           <div className="rec-video-info">
             <h2 className="rec-agent-name">Jim Halpert</h2>
             <h3 className="rec-date">25/12/2022</h3>
@@ -18,8 +20,8 @@ const RecordingsCard = (props) => {
         </div>
         <div className="rec-tag-section">
           {/* Logic of tags (.map()) */}
-          <Card className="rec-tag">Work</Card>
           <Card className="rec-tag">Bussiness</Card>
+          <Card className="rec-tag">Work</Card>
           <Card className="rec-tag">Theft</Card>
         </div>
       </div>

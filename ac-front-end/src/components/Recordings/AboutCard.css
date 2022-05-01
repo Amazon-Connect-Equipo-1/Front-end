@@ -1,0 +1,69 @@
+/* Iniitals abc */
+
+.abc-main-container {
+  width: 30rem;
+  color: white;
+  background-color: #415164;
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 1.5rem;
+  margin: 4rem;
+  box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 8%);
+}
+
+.abc-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: white;
+  padding: 2rem;
+}
+
+.abc-container h3 {
+  font-weight: 500;
+}
+
+.abc-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.abc-feeback-score {
+  font-size: 3rem;
+}
+
+.abc-tag-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 2rem;
+  grid-auto-flow: column;
+  row-gap: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.abc-tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(135, 42, 42);
+  height: 4rem;
+  padding: 0 1.5rem;
+  font-size: 1.5rem;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  /* box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 8%); */
+}
+
+.abc-feedback-btn {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  background-color: #9facbd;
+  border-radius: 3px;
+  padding: 1rem;
+  cursor: pointer;
+  color: #e1e1e1;
+}

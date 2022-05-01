@@ -5,7 +5,7 @@ const Profile = (props) => {
     <div className="prfl-main-container">
       <div className="prfl-sub-container">
         <div className="prfl-container">
-          <img src={prfl_ic} alt="profile_ic" className="profile-ic" />
+          <img src={prfl_ic} alt="profile_ic" className="prfl-ic" />
           <div className="prfl-info-container">
             <p className="prfl-name">Jim Halpert</p>
             <br />

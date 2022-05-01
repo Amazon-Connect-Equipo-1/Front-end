@@ -33,6 +33,7 @@
   background-color: #415164;
   color: white;
   border-radius: 10px;
+  box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
 }
 
 .lgf-container {
