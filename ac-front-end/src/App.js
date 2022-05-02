@@ -1,4 +1,5 @@
 import "./App.css";
+import AgListSet from "./components/AgentList/AgListSet";
 import Login from "./components/Login/Login";
 import Profile from "./components/Profile/Profile";
 import AboutCard from "./components/Recordings/AboutCard";
@@ -10,12 +11,17 @@ function App() {
   const isUser = false;
   return (
     <div>
-      {/* {isUser && <Usuario />}
-      {!isUser && <Login />} */}
+      {
+        /* {isUser && <Usuario />}
+      {!isUser && <Login />} 
       <Login />
       <Recordings />
       <Profile />
       <AboutCard />
+      <AgListSet />
+      }*/
+        <AgListSet />
+      }
     </div>
   );
 }
