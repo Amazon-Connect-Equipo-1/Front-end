@@ -1,0 +1,55 @@
+/*Initials: aal*/
+
+.aal-main-container {
+  width: 40rem;
+  background-color: #415164;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
+}
+
+.aal-title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  text-align: center;
+}
+
+.aal-profile-picture {
+  height: 3rem;
+  width: auto;
+  margin-left: 2rem;
+}
+
+.aal-telephone-picture {
+  height: 3rem;
+  width: auto;
+  margin-right: 2rem;
+}
+
+.aal-row-container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  column-gap: 4rem;
+  grid-template-columns: 0.5fr 4fr 0.5fr 0.5fr;
+  margin-bottom: 2rem;
+}
+
+.aal-text {
+  font-size: 1.5rem;
+  font-weight: lighter;
+  text-align: left;
+}
+
+.circulo {
+  width: 15px;
+  height: 15px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background: #5cb85c;
+}

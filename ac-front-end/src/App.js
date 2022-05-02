@@ -7,22 +7,22 @@ import Recordings from "./components/Recordings/Recordings";
 import RecordingsCard from "./components/Recordings/RecordingsCard";
 import Usuario from "./components/Usuario/Usuario";
 import UserType from "./components/UserType/UserType";
+import AgentList from "./components/AgentList/AgentList";
 
 function App() {
   const isUser = false;
   return (
     <div>
       {
-        /* {isUser && <Usuario />}
+        /*
+      {isUser && <Usuario />}
       {!isUser && <Login />} 
       <Login />
       <Recordings />
       <Profile />
       <AboutCard />
-      <AgListSet />
-      <UserType />
-      }*/
-        <UserType />
+      <AgListSet />*/
+        <AgentList />
       }
     </div>
   );
