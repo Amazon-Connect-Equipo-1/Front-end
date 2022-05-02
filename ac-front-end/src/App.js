@@ -6,6 +6,7 @@ import AboutCard from "./components/Recordings/AboutCard";
 import Recordings from "./components/Recordings/Recordings";
 import RecordingsCard from "./components/Recordings/RecordingsCard";
 import Usuario from "./components/Usuario/Usuario";
+import UserType from "./components/UserType/UserType";
 
 function App() {
   const isUser = false;
@@ -19,8 +20,9 @@ function App() {
       <Profile />
       <AboutCard />
       <AgListSet />
+      <UserType />
       }*/
-        <AgListSet />
+        <UserType />
       }
     </div>
   );
