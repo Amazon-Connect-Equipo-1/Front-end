@@ -31,3 +31,45 @@
   column-gap: 4rem;
   grid-template-columns: 1fr 1fr 1fr;
 }
+
+.agl-menu-container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  column-gap: 4rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  margin-bottom: 2rem;
+}
+
+.agl-select {
+  font-size: 2rem;
+  border-radius: 10px;
+  background-color: #9facbd;
+  color: white;
+}
+
+.agl-search {
+  font-size: 1rem;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+}
+
+.agl-button-main {
+  cursor: pointer;
+  border-color: transparent;
+  background-color: transparent;
+  color: white;
+  text-decoration: underline;
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.agl-button-settings {
+  cursor: pointer;
+  border-color: transparent;
+  background-color: transparent;
+  color: gray;
+  font-size: 4rem;
+  font-weight: bold;
+}
