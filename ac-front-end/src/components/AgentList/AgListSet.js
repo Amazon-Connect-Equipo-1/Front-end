@@ -1,4 +1,5 @@
 import "../../styles/AgentList/AgListSet.css";
+import AgentListSetting from "./AgentListSetting";
 const AgListSet = (props) => {
   return (
     <div className="al-container">
@@ -8,46 +9,10 @@ const AgListSet = (props) => {
 
           <span className="al-text">(min:1 ; max:4)</span>
           <div className="al-divider"></div>
-
-          <span className="al-settings">ActiveCalls</span>
-          <span></span>
-          <span>
-            <label class="switchBtn">
-              <input type="checkbox" />
-              <div class="slide round"></div>
-            </label>
-          </span>
-          <div></div>
-
-          <span className="al-settings">All Agents</span>
-          <span></span>
-          <span>
-            <label class="switchBtn">
-              <input type="checkbox" />
-              <div class="slide round"></div>
-            </label>
-          </span>
-          <div></div>
-
-          <span className="al-settings">Online Agents</span>
-          <span></span>
-          <span>
-            <label class="switchBtn">
-              <input type="checkbox" />
-              <div class="slide round"></div>
-            </label>
-          </span>
-          <div></div>
-
-          <span className="al-settings">Oline Agents</span>
-          <span></span>
-          <span>
-            <label class="switchBtn">
-              <input type="checkbox" />
-              <div class="slide round"></div>
-            </label>
-          </span>
-          <div></div>
+          <AgentListSetting setting={"Active Calls"} />
+          <AgentListSetting setting={"All Agents"} />
+          <AgentListSetting setting={"Online Agents"} />
+          <AgentListSetting setting={"Offline Agents"} />
         </div>
       </div>
     </div>

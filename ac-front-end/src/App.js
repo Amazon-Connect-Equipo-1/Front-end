@@ -23,9 +23,10 @@ function App() {
       
       <Profile />
       <AgListSet />
+      <RecordingsVideo />
       <AgentList />
     */}
-      <RecordingsVideo />
+      <AgListSet />
     </div>
   );
 }
