@@ -5,9 +5,12 @@ const AboutCard = (props) => {
   return (
     <Card className="abc-main-container">
       <div className="abc-container">
-        <h2 className="abc-title">About</h2>
+        <div className="abc-navbar">
+          <h2 className="abc-title">About</h2>
+          <h2 className="abc-title">Feedback</h2>
+        </div>
         <h3>
-          ID: #<span>120372</span>
+          ID: <span>120372</span>
         </h3>
         <h3>
           Duration: <span>00:12:41</span>

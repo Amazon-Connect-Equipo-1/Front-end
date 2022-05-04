@@ -8,22 +8,24 @@ import RecordingsCard from "./components/Recordings/RecordingsCard";
 import Usuario from "./components/Usuario/Usuario";
 import UserType from "./components/UserType/UserType";
 import AgentList from "./components/AgentList/AgentList";
+import GiveFeedbackCard from "./components/Recordings/GiveFeedbackCard";
+import AgentFeedbackCard from "./components/Recordings/AgentFeedbackCard";
+import RecordingsVideo from "./components/Recordings/RecordingsVideo";
 
 function App() {
   const isUser = false;
   return (
     <div>
-      {
-        /*
+      {/*
       {isUser && <Usuario />}
       {!isUser && <Login />} 
       <Login />
-      <Recordings />
+      
       <Profile />
-      <AboutCard />
-      <AgListSet />*/
-        <AgentList />
-      }
+      <AgListSet />
+      <AgentList />
+    */}
+      <RecordingsVideo />
     </div>
   );
 }

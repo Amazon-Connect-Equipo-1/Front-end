@@ -1,0 +1,23 @@
+/* Initials: rev */
+
+.rev-main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #132535;
+  margin: 2rem;
+  border-radius: 10px;
+}
+
+.rev-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding: 3rem;
+  align-items: center;
+  column-gap: 3rem;
+}
+
+.rev-video {
+  height: 60rem;
+  align-self: start;
+}
