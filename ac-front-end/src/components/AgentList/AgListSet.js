@@ -1,19 +1,21 @@
 import "../../styles/AgentList/AgListSet.css";
+import AgentListMenu from "./AgentListMenu";
 import AgentListSetting from "./AgentListSetting";
+
 const AgListSet = (props) => {
   return (
-    <div className="al-container">
-      <div className="al-content-container">
-        <div className="al-contain-container">
-          <span className="al-title">Always show</span>
-
-          <span className="al-text">(min:1 ; max:4)</span>
+    <div className="al-main-container">
+      <AgentListMenu />
+      <div className="al-sub-container">
+        <div className="al-card-container">
+          <p className="al-title">Always show</p>
           <div className="al-divider"></div>
           <AgentListSetting setting={"Active Calls"} />
           <AgentListSetting setting={"All Agents"} />
           <AgentListSetting setting={"Online Agents"} />
           <AgentListSetting setting={"Offline Agents"} />
         </div>
+        <div className="al-card-container-transparent"></div>
       </div>
     </div>
   );

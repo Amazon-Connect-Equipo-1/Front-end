@@ -40,10 +40,13 @@
   margin-top: -25rem;
 }
 .al-title {
-  font-weight: 500;
   font-size: 4rem;
-  padding-left: 18rem;
-
+  font-weight: bold;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  text-align: center;
   color: white;
   text-align: center;
 }
@@ -74,4 +77,35 @@
 .al-switch {
   vertical-align: middle;
   margin-left: 4px;
+}
+
+.al-sub-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2rem 0 2rem 0;
+}
+
+.al-main-container {
+  background-color: #132535;
+  margin: 2rem;
+  border-radius: 10px;
+  height: 95vh;
+}
+
+.al-card-container {
+  width: 600px;
+  background-color: #415164;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
+  min-height: 600px;
+}
+
+.al-card-container-transparent {
+  width: 600px;
+  background-color: transparent;
+  min-height: 600px;
 }

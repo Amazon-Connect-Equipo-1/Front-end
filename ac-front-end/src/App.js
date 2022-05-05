@@ -8,7 +8,6 @@ import Recordings from "./components/Recordings/Recordings";
 import RecordingsCard from "./components/Recordings/RecordingsCard";
 import Usuario from "./components/Usuario/Usuario";
 import UserType from "./components/UserType/UserType";
-import AgentList from "./components/AgentList/AgentList";
 import GiveFeedbackCard from "./components/Recordings/GiveFeedbackCard";
 import AgentFeedbackCard from "./components/Recordings/AgentFeedbackCard";
 import RecordingsVideo from "./components/Recordings/RecordingsVideo";
@@ -16,9 +15,10 @@ import Navbar from "./components/Menu/Navbar";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Statistics from "./components/Statistics/Statistics";
 import Settings from "./components/Settings/Settings";
+import AgentList from "./components/AgentList/AgentList";
 
 function App() {
-  const isUser = false;
+  //const isUser = false;
   return (
     <div>
       {/*

@@ -1,75 +1,18 @@
 /* Initials: agl*/
 
 .agl-main-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 95vh;
   background-color: #132535;
   margin: 2rem;
   border-radius: 10px;
+  height: 95vh;
 }
 
-.agl-container {
-  display: grid;
-  justify-content: center;
+.agl-card-container {
+  display: flex;
+  justify-content: space-around;
   align-items: center;
-  column-gap: 2rem;
-  grid-template-columns: 1fr 1fr;
-}
-
-.agl-logo {
-  height: 100px;
-  justify-self: center;
-}
-
-.agl-sub-container {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  column-gap: 4rem;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-.agl-menu-container {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  column-gap: 4rem;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  margin-bottom: 2rem;
-}
-
-.agl-select {
-  font-size: 2rem;
-  border-radius: 10px;
-  background-color: #9facbd;
-  color: white;
-}
-
-.agl-search {
-  font-size: 1rem;
-  border-radius: 10px;
-  background-color: white;
-  color: black;
-}
-
-.agl-button-main {
-  cursor: pointer;
-  border-color: transparent;
-  background-color: transparent;
-  color: white;
-  text-decoration: underline;
-  font-size: 4rem;
-  font-weight: bold;
-}
-
-.agl-button-settings {
-  cursor: pointer;
-  border-color: transparent;
-  background-color: transparent;
-  color: gray;
-  font-size: 4rem;
-  font-weight: bold;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2rem 0 2rem 0;
+  min-height: max-content;
 }

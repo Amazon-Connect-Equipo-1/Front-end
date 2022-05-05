@@ -1,0 +1,57 @@
+/* Initials: aglm*/
+
+.aglm-menu-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 2.5rem 0 2rem;
+  gap: 2rem;
+  height: fit-content;
+}
+
+.aglm-button-container {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.aglm-filter-container {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.aglm-select {
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 6px;
+  background-color: #9facbd;
+  color: white;
+  border-color: transparent;
+}
+
+.aglm-search {
+  font-size: 2rem;
+  border-radius: 6px;
+  background-color: white;
+  margin-right: 2rem;
+  color: black;
+  border-color: transparent;
+}
+
+.aglm-button-main {
+  cursor: pointer;
+  border-color: transparent;
+  background-color: transparent;
+  color: white;
+  text-decoration: underline;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.aglm-button-settings {
+  cursor: pointer;
+  border-color: transparent;
+  background-color: transparent;
+  color: gray;
+  font-size: 3rem;
+  font-weight: bold;
+}
