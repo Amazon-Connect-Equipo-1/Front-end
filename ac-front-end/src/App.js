@@ -1,4 +1,5 @@
 import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AgListSet from "./components/AgentList/AgListSet";
 import Login from "./components/Login/Login";
 import Profile from "./components/Profile/Profile";
@@ -11,6 +12,10 @@ import AgentList from "./components/AgentList/AgentList";
 import GiveFeedbackCard from "./components/Recordings/GiveFeedbackCard";
 import AgentFeedbackCard from "./components/Recordings/AgentFeedbackCard";
 import RecordingsVideo from "./components/Recordings/RecordingsVideo";
+import Navbar from "./components/Menu/Navbar";
+import Dashboard from "./components/Dashboard/Dashboard";
+import Statistics from "./components/Statistics/Statistics";
+import Settings from "./components/Settings/Settings";
 
 function App() {
   const isUser = false;
@@ -27,6 +32,16 @@ function App() {
       <AgentList />
     */}
       <AgListSet />
+      {/* <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" exact component={Dashboard}></Route>
+          <Route path="/recordings" component={Recordings}></Route>
+          <Route path="/agents" component={AgentList}></Route>
+          <Route path="/statistics" component={Statistics}></Route>
+          <Route path="/settings" component={Settings}></Route>
+        </Routes>
+      </Router> */}
     </div>
   );
 }
