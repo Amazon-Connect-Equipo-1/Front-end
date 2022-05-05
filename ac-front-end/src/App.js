@@ -31,7 +31,7 @@ function App() {
       <RecordingsVideo />
       <AgentList />
     */}
-      <AgListSet />
+      <Dashboard />
       {/* <Router>
         <Navbar />
         <Routes>
