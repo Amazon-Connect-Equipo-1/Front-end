@@ -25,13 +25,13 @@ function App() {
       {isUser && <Usuario />}
       {!isUser && <Login />} 
       <Login />
-      
+      <Dashboard />
       <Profile />
       <AgListSet />
       <RecordingsVideo />
       <AgentList />
     */}
-      <Dashboard />
+      <Settings />
       {/* <Router>
         <Navbar />
         <Routes>
