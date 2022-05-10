@@ -7,7 +7,7 @@ import { IconContext } from "react-icons";
 function Navbar() {
   return (
     <>
-      <IconContext.Provider value={{ color: "red" }}>
+      <IconContext.Provider value={{ color: "white", size: 70 }}>
         <div className="navbar">
           <Link to="#" className="menu-bars">
             <img src={logo} className="nav-icon" />

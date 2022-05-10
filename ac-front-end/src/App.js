@@ -35,11 +35,11 @@ function App() {
       {/* <Router>
         <Navbar />
         <Routes>
-          <Route path="/" exact component={Dashboard}></Route>
-          <Route path="/recordings" component={Recordings}></Route>
-          <Route path="/agents" component={AgentList}></Route>
-          <Route path="/statistics" component={Statistics}></Route>
-          <Route path="/settings" component={Settings}></Route>
+          <Route path="/" exact element={<Dashboard />} />
+          <Route path="/recordings" element={<Recordings />} />
+          <Route path="/agents" element={<AgentList />} />
+          <Route path="/statistics" element={<Statistics />} />
+          <Route path="/settings" element={<Settings />} />
         </Routes>
       </Router> */}
     </div>
