@@ -16,12 +16,21 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import Statistics from "./components/Statistics/Statistics";
 import Settings from "./components/Settings/Settings";
 import AgentList from "./components/AgentList/AgentList";
+import { createContext, useState } from "react";
+
+export const ThemeContext = createContext(null);
 
 function App() {
   //const isUser = false;
+  const [theme, setTheme] = useState("dark");
+
+  const toggleTheme = () => {
+    setTheme((curr) => (curr === "dark" ? "light" : "dark"));
+  };
   return (
-    <div>
-      {/*
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <div classname="App" id={theme}>
+        {/*
       {isUser && <Usuario />}
       {!isUser && <Login />} 
       <Login />
@@ -31,9 +40,10 @@ function App() {
       <RecordingsVideo />
       <AgentList />
     */}
-      <Settings />
-      {/* <Router>
-        <Navbar />
+        <Settings />
+
+        {/* <Router>
+        
         <Routes>
           <Route path="/" exact element={<Dashboard />} />
           <Route path="/recordings" element={<Recordings />} />
@@ -42,7 +52,8 @@ function App() {
           <Route path="/settings" element={<Settings />} />
         </Routes>
       </Router> */}
-    </div>
+      </div>
+    </ThemeContext.Provider>
   );
 }
 
