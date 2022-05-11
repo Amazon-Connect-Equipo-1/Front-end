@@ -7,7 +7,7 @@ const AgentListMenu = (props) => {
         <button className="aglm-button-main">Main</button>
         <button className="aglm-button-settings">Settings</button>
       </div>
-      <div>
+      <div className="aglm-search-container">
         <input
           className="aglm-search"
           id="aglm-search"

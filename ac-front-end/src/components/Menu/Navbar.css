@@ -1,15 +1,31 @@
+/* Initials; nav */
+
 .navbar {
-  background-color: #233445;
-  height: 80px;
   display: flex;
-  justify-content: start;
   align-items: center;
+  height: 100px;
+  background-color: #233445;
+  gap: 2rem;
 }
 
 .menu-bars {
   margin-left: 2rem;
   font-size: 2rem;
   background: none;
+}
+
+.nav-icon {
+  height: 2.5rem;
+}
+
+.nav-welcome-text {
+  color: white;
+  font-size: 5rem;
+}
+
+.nav-user-icon {
+  margin: 0 auto;
+  justify-self: end;
 }
 
 .nav-menu {
@@ -19,7 +35,7 @@
   display: flex;
   justify-content: center;
   position: fixed;
-  top: 80px;
+  top: 100px;
   transition: 850ms;
 }
 
@@ -63,14 +79,10 @@
   justify-content: start;
   align-items: center;
 }
-
+/* 
 span {
   margin-left: 16px;
-}
-
-.nav-icon {
-  height: 5rem;
-}
+} */
 
 .side-icon {
   height: 8rem;

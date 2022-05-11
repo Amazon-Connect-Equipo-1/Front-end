@@ -6,35 +6,34 @@
   align-items: center;
   margin: 0 2.5rem 0 2rem;
   gap: 2rem;
-  height: fit-content;
 }
 
 .aglm-button-container {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 4.5rem;
+  margin-bottom: 1rem;
 }
 
 .aglm-filter-container {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin: 3rem 0 3rem 0;
 }
 
-.aglm-select {
-  font-size: 2rem;
-  font-weight: bold;
-  border-radius: 6px;
-  background-color: #9facbd;
-  color: white;
-  border-color: transparent;
+.aglm-search-container {
+  display: flex;
+  gap: 1.5rem;
 }
 
 .aglm-search {
   font-size: 2rem;
-  border-radius: 6px;
-  background-color: white;
-  margin-right: 2rem;
-  color: black;
-  border-color: transparent;
+  border-radius: 10px;
+  padding: 1rem 1rem 1rem 2rem;
+}
+
+.aglm-select {
+  font-size: 2rem;
+  border-radius: 10px;
+  padding: 1rem;
+  background-color: #9facbd;
+  color: white;
 }
 
 .aglm-button-main {

@@ -1,18 +1,16 @@
-/* Initials: agl*/
+/* Initials: dsb */
 
-.agl-main-container {
+.dsb-main-container {
   background-color: #132535;
+  margin: 2rem;
   border-radius: 10px;
   height: 85vh;
   margin: 1rem 2rem 2rem 100px;
 }
 
-.agl-card-container {
+.dsb-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  padding: 2rem 0 2rem 0;
-  min-height: max-content;
+  padding: 2rem;
 }

@@ -5,8 +5,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 body {
-  /*background-color: #233445;*/
+  background-color: #233445;
   margin: 0;
   font-family: "Amazon Ember", -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",

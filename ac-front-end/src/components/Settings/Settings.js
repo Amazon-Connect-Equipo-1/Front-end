@@ -1,14 +1,15 @@
 import React from "react";
 import "../../styles/Settings/Settings.css";
+import Card from "../UI/Card";
 function Settings() {
   return (
-    <div className="stngs-main-container">
+    <Card className="stngs-main-container">
       <div className="stngs-container">
         <div className="stngs-option">
           <p>Text Size</p>
           <select className="stngs-select">
-            <option value="Normal">Normal</option>
             <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
             <option value="Big">Big</option>
           </select>
         </div>
@@ -27,7 +28,7 @@ function Settings() {
           </select>
         </div>
       </div>
-    </div>
+    </Card>
   );
 }
 
