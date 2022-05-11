@@ -18,19 +18,10 @@ import Settings from "./components/Settings/Settings";
 import AgentList from "./components/AgentList/AgentList";
 import { createContext, useState } from "react";
 
-export const ThemeContext = createContext(null);
-
 function App() {
-  //const isUser = false;
-  const [theme, setTheme] = useState("dark");
-
-  const toggleTheme = () => {
-    setTheme((curr) => (curr === "dark" ? "light" : "dark"));
-  };
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      <div classname="App" id={theme}>
-        {/*
+    <div classname="App">
+      {/*
       {isUser && <Usuario />}
       {!isUser && <Login />} 
       <Login />
@@ -39,21 +30,20 @@ function App() {
       <AgListSet />
       <RecordingsVideo />
       <AgentList />
-        <Settings />
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" exact element={<Dashboard />} />
+          <Route path="/recordings" element={<Recordings />} />
+          <Route path="/agents" element={<AgentList />} />
+          <Route path="/statistics" element={<Statistics />} />
+          <Route path="/settings" element={<Settings />} />
+        </Routes>
+      </Router>
+      
     */}
-
-        <Router>
-          <Navbar />
-          <Routes>
-            <Route path="/" exact element={<Dashboard />} />
-            <Route path="/recordings" element={<Recordings />} />
-            <Route path="/agents" element={<AgentList />} />
-            <Route path="/statistics" element={<Statistics />} />
-            <Route path="/settings" element={<Settings />} />
-          </Routes>
-        </Router>
-      </div>
-    </ThemeContext.Provider>
+      <Settings />
+    </div>
   );
 }
 
