@@ -30,6 +30,9 @@ function App() {
       <AgListSet />
       <RecordingsVideo />
       <AgentList />
+      
+      
+    */}
       <Router>
         <Navbar />
         <Routes>
@@ -40,9 +43,6 @@ function App() {
           <Route path="/settings" element={<Settings />} />
         </Routes>
       </Router>
-      
-    */}
-      <Settings />
     </div>
   );
 }

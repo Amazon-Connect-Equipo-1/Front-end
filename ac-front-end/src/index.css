@@ -18,6 +18,8 @@
 
   --text-color-dark: #fff;
   --text-color-light: #132535;
+
+  --highlight-color: #9facbd;
 }
 
 body {

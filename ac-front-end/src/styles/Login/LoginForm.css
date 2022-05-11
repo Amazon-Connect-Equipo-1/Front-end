@@ -14,8 +14,8 @@
   font-size: 2rem;
   font-weight: bold;
   padding: 0.6rem;
-  background-color: #9facbd;
-  color: #ffff;
+  background-color: var(--highlight-color);
+  color: var(--text-color);
   margin-top: 2rem;
   border: none;
   border-radius: 10px;
@@ -30,8 +30,8 @@
 /* Classes */
 .lgf-main-container {
   width: 40rem;
-  background-color: #415164;
-  color: white;
+  background-color: var(--sub-card-background);
+  color: var(--text-color);
   border-radius: 10px;
   box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
 }
