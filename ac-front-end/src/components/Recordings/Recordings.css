@@ -38,3 +38,53 @@
   background-color: #9facbd;
   color: white;
 }
+
+/*Media queries for Recordings*/
+/*****************************/
+/* BELOW 90*16 = 1450px (Smaller desktops) */
+/*****************************/
+@media (max-width: 90em) {
+  .rec-main-container {
+    width: 35rem;
+  }
+  .rec-agent-name {
+    font-size: 2rem;
+  }
+  .rec-score {
+    font-size: 1.8rem;
+  }
+}
+
+/* BELOW 80*16 = 1280px (Smaller desktops) */
+@media (max-width: 80em) {
+  .re-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* BELOW 73*16 = 1180px (Smaller desktops) */
+@media (max-width: 73em) {
+  .rec-main-container {
+    width: 35rem;
+  }
+}
+
+/* BELOW 57*16 = 920px (Smaller desktops) */
+@media (max-width: 57em) {
+  .rec-main-container {
+    width: 35rem;
+  }
+  .re-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* BELOW 37*16 = 600px (Smaller desktops) */
+@media (max-width: 37em) {
+  .re-input {
+    font-size: 1.2rem;
+  }
+  .re-select {
+    font-size: 1.2rem;
+  }
+}
