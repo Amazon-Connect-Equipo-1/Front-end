@@ -3,6 +3,7 @@ import "../../styles/Settings/Settings.css";
 import Card from "../UI/Card";
 function Settings() {
   const body = document.body;
+
   const lightTheme = "light";
   const darkTheme = "dark";
   const darkTheme_Protanopia = "dark_protanopia";
@@ -13,9 +14,34 @@ function Settings() {
   const darkTheme_Tritanomaly = "dark_tritanomaly";
   let theme;
 
+  const smallTxtSize = "small";
+  const mediumTxtSize = "medium";
+  const bigTxtSize = "big";
+  let txtSize;
+
   if (localStorage) {
     theme = localStorage.getItem("theme");
+    txtSize = localStorage.getItem("txtSize");
   }
+
+  if (
+    txtSize === smallTxtSize ||
+    txtSize === mediumTxtSize ||
+    txtSize === bigTxtSize
+  ) {
+    body.classList.add(txtSize);
+  } else {
+    body.classList.add(smallTxtSize);
+    body.classList.add(mediumTxtSize);
+    body.classList.add(bigTxtSize);
+  }
+
+  const switchTxtSize = (s) => {
+    console.log(s);
+    body.classList.replace(txtSize, s);
+    localStorage.setItem("txtSize", s);
+    txtSize = s;
+  };
 
   if (
     theme === lightTheme ||
@@ -50,10 +76,13 @@ function Settings() {
       <div className="stngs-container">
         <div className="stngs-option">
           <p>Text Size</p>
-          <select className="stngs-select">
-            <option value="Small">Small</option>
-            <option value="Medium">Medium</option>
-            <option value="Big">Big</option>
+          <select
+            className="stngs-select"
+            onChange={(j) => switchTxtSize(j.target.value)}
+          >
+            <option value="small">Small</option>
+            <option value="medium">Medium (Default)</option>
+            <option value="big">Big</option>
           </select>
         </div>
         <div className="stngs-option">

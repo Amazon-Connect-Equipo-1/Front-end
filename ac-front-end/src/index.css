@@ -50,6 +50,10 @@
   --highlight-color-protanomaly: #a1a7ba;
   --highlight-color-deuteranomaly: #a1a8ba;
   --highlight-color-tritanomaly: #9fb0b9;
+
+  --h1-title-medium: 5rem;
+  --h1-title-small: 3rem;
+  --h1-title-big: 7rem;
 }
 
 body {
@@ -108,6 +112,15 @@ body.dark_tritanomaly {
   --main-card-background: var(--main-card-dark-tritanomaly);
   --sub-card-background: var(--sub-card-dark-tritanomaly);
   --text-color: var(--text-color-dark-tritanomaly);
+}
+body.small {
+  --h1-title: var(--h1-title-small);
+}
+body.medium {
+  --h1-title: var(--h1-title-medium);
+}
+body.big {
+  --h1-title: var(--h1-title-big);
 }
 html {
   /* Format rem */
