@@ -9,17 +9,47 @@
 :root {
   --background-dark: #233445;
   --background-light: #fafafa;
+  --background-dark-protanopia: #2a2a40;
+  --background-dark-deuteranopia: #29283f;
+  --background-dark-tritanopia: #233d3c;
+  --background-dark-protanomaly: #262e42;
+  --background-dark-deuteranomaly: #262f42;
+  --background-dark-tritanomaly: #233841;
 
   --main-card-dark: #132535;
   --main-card-light: #e9e9e9;
+  --main-card-dark-protanopia: #1a1a31;
+  --main-card-dark-deuteranopia: #191830;
+  --main-card-dark-tritanopia: #132e2d;
+  --main-card-dark-protanomaly: #161f33;
+  --main-card-dark-deuteranomaly: #162032;
+  --main-card-dark-tritanomaly: #132932;
 
   --sub-card-dark: #415164;
   --sub-card-light: #fdfdfd;
+  --sub-card-dark-protanopia: #47485f;
+  --sub-card-dark-deuteranopia: #47455e;
+  --sub-card-dark-tritanopia: #415b5a;
+  --sub-card-dark-protanomaly: #434b61;
+  --sub-card-dark-deuteranomaly: #444c61;
+  --sub-card-dark-tritanomaly: #415660;
 
   --text-color-dark: #fff;
   --text-color-light: #132535;
+  --text-color-dark-protanopia: #feffff;
+  --text-color-dark-deuteranopia: #fff;
+  --text-color-dark-tritanopia: #fffeff;
+  --text-color-dark-protanomaly: #feffff;
+  --text-color-dark-deuteranomaly: #fff;
+  --text-color-dark-tritanomaly: #fefffe;
 
   --highlight-color: #9facbd;
+  --highlight-color-protanopia: #a4a4b8;
+  --highlight-color-deuteranopia: #a3a2b7;
+  --highlight-color-tritanopia: #9fb5b4;
+  --highlight-color-protanomaly: #a1a7ba;
+  --highlight-color-deuteranomaly: #a1a8ba;
+  --highlight-color-tritanomaly: #9fb0b9;
 }
 
 body {
@@ -42,6 +72,42 @@ body.light {
   --main-card-background: var(--main-card-light);
   --sub-card-background: var(--sub-card-light);
   --text-color: var(--text-color-light);
+}
+body.dark_protanopia {
+  --background-color: var(--background-dark-protanopia);
+  --main-card-background: var(--main-card-dark-protanopia);
+  --sub-card-background: var(--sub-card-dark-protanopia);
+  --text-color: var(--text-color-dark-protanopia);
+}
+body.dark_deuteranopia {
+  --background-color: var(--background-dark-deuteranopia);
+  --main-card-background: var(--main-card-dark-deuteranopia);
+  --sub-card-background: var(--sub-card-dark-deuteranopia);
+  --text-color: var(--text-color-dark-deuteranopia);
+}
+body.dark_tritanopia {
+  --background-color: var(--background-dark-tritanopia);
+  --main-card-background: var(--main-card-dark-tritanopia);
+  --sub-card-background: var(--sub-card-dark-tritanopia);
+  --text-color: var(--text-color-dark-tritanopia);
+}
+body.dark_protanomaly {
+  --background-color: var(--background-dark-protanomaly);
+  --main-card-background: var(--main-card-dark-protanomaly);
+  --sub-card-background: var(--sub-card-dark-protanomaly);
+  --text-color: var(--text-color-dark-protanomaly);
+}
+body.dark_deuteranomaly {
+  --background-color: var(--background-dark-deuteranomaly);
+  --main-card-background: var(--main-card-dark-deuteranomaly);
+  --sub-card-background: var(--sub-card-dark-deuteranomaly);
+  --text-color: var(--text-color-dark-deuteranomaly);
+}
+body.dark_tritanomaly {
+  --background-color: var(--background-dark-tritanomaly);
+  --main-card-background: var(--main-card-dark-tritanomaly);
+  --sub-card-background: var(--sub-card-dark-tritanomaly);
+  --text-color: var(--text-color-dark-tritanomaly);
 }
 html {
   /* Format rem */
