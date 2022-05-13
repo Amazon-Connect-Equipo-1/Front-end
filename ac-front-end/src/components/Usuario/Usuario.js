@@ -1,6 +1,6 @@
 import "../../styles/Usuario/Usuario.css";
 import logo from "../../images/logo_bbva.png";
-import Llamada from "../Usuario/llamada";
+import Llamada from "./llamada";
 import { useState } from "react";
 
 const Usuario = (props) => {

@@ -16,12 +16,30 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import Statistics from "./components/Statistics/Statistics";
 import Settings from "./components/Settings/Settings";
 import AgentList from "./components/AgentList/AgentList";
-import { createContext, useState } from "react";
+import { createContext, Suspense, useState } from "react";
+import LocaleContext from "./LocaleContext";
+import i18n from "./i18n";
+import Loading from "./components/Loading";
 
 function App() {
+  const [locale, setLocale] = useState(i18n.language);
+  i18n.on("languageChanged", (lng) => setLocale(i18n.language));
+
   return (
-    <div classname="App">
-      {/*
+    <div className="App">
+      <LocaleContext.Provider value={{ locale, setLocale }}>
+        <Suspense fallback={<Loading />}>
+          <Settings />
+        </Suspense>
+      </LocaleContext.Provider>
+    </div>
+  );
+}
+
+export default App;
+
+/*
+{/*
       {isUser && <Usuario />}
       {!isUser && <Login />} 
       <Login />
@@ -31,8 +49,6 @@ function App() {
       <RecordingsVideo />
       <AgentList />
       
-      
-    */}
       <Router>
         <Navbar />
         <Routes>
@@ -44,7 +60,5 @@ function App() {
         </Routes>
       </Router>
     </div>
-  );
-}
-
-export default App;
+      
+    */

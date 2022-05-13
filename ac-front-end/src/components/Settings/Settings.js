@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../../styles/Settings/Settings.css";
 import Card from "../UI/Card";
+import { useTranslation } from "react-i18next";
+import LocaleContext from "../../LocaleContext";
+import i18n from "../../i18n";
+
 function Settings() {
   const body = document.body;
 
@@ -71,11 +75,22 @@ function Settings() {
     theme = e;
   };
 
+  // Language
+  const { t } = useTranslation();
+
+  const { locale } = useContext(LocaleContext);
+
+  function changeLocale(l) {
+    if (locale !== l) {
+      i18n.changeLanguage(l);
+    }
+  }
+
   return (
     <Card className="stngs-main-container">
       <div className="stngs-container">
         <div className="stngs-option">
-          <p>Text Size</p>
+          <p>{t("textSize")}</p>
           <select
             className="stngs-select"
             onChange={(j) => switchTxtSize(j.target.value)}
@@ -86,7 +101,7 @@ function Settings() {
           </select>
         </div>
         <div className="stngs-option">
-          <p>Theme</p>
+          <p>{t("theme")}</p>
           <select
             className="stngs-select"
             onChange={(i) => switchTheme(i.target.value)}
@@ -104,11 +119,17 @@ function Settings() {
           </select>
         </div>
         <div className="stngs-option">
-          <p>Language</p>
-          <select className="stngs-select">
-            <option value="English">English</option>
-            <option value="Spanish">Spanish</option>
+          <p>{t("language")}</p>
+          <select className="stngs-select" onChange="changeLocale(value)">
+            <option value="en" href="#">
+              English
+            </option>
+            <option value="es" href="#">
+              Spanish
+            </option>
           </select>
+          <button onClick={() => changeLocale("es")}>Español</button>
+          <button onClick={() => changeLocale("en")}>English</button>
         </div>
       </div>
     </Card>
