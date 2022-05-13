@@ -80,7 +80,8 @@ function Settings() {
 
   const { locale } = useContext(LocaleContext);
 
-  function changeLocale(l) {
+  function changeLocale() {
+    const l = document.getElementById("lang").value
     if (locale !== l) {
       i18n.changeLanguage(l);
     }
@@ -120,20 +121,24 @@ function Settings() {
         </div>
         <div className="stngs-option">
           <p>{t("language")}</p>
-          <select className="stngs-select" onChange="changeLocale(value)">
-            <option value="en" href="#">
+          <select id="lang" className="stngs-select" onChange= {()=> changeLocale()}>
+            <option value="en">
               English
             </option>
-            <option value="es" href="#">
+            <option value="es">
               Spanish
             </option>
           </select>
-          <button onClick={() => changeLocale("es")}>Español</button>
-          <button onClick={() => changeLocale("en")}>English</button>
+          
         </div>
       </div>
     </Card>
   );
 }
 
+
+/*
+<button onClick={() => changeLocale("es")}>Español</button>
+<button onClick={() => changeLocale("en")}>English</button>
+*/
 export default Settings;
