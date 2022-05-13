@@ -27,11 +27,22 @@ function App() {
 
   return (
     <div className="App">
-      <LocaleContext.Provider value={{ locale, setLocale }}>
+      {/* <LocaleContext.Provider value={{ locale, setLocale }}>
         <Suspense fallback={<Loading />}>
           <Settings />
         </Suspense>
-      </LocaleContext.Provider>
+      </LocaleContext.Provider> */}
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" exact element={<Dashboard />} />
+          <Route path="/recordings" element={<Recordings />} />
+          <Route path="/agents" element={<AgentList />} />
+          <Route path="/statistics" element={<Statistics />} />
+          <Route path="/settings" element={<Settings />} />
+        </Routes>
+      </Router>
+      <RecordingsVideo />
     </div>
   );
 }

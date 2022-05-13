@@ -6,7 +6,7 @@
   color: white;
   border-radius: 10px;
   box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
-  min-height: 500px;
+  min-height: 50rem;
 }
 
 .sa-title {
@@ -39,7 +39,7 @@
 }
 
 .sa-text {
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: lighter;
   margin-bottom: 2rem;
   margin-left: 2rem;
