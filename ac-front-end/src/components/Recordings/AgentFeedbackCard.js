@@ -9,7 +9,6 @@ const AgentFeedbackCard = (props) => {
           <h2 className="afc-title">QA Feedback</h2>
         </div>
         <h3 className="afc-feeback-score">🖖🖖🖖🖖🖖</h3>
-
         <Card className="afc-feedback">
           Nice job Dwight, next time try to talk louder.
         </Card>

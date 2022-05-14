@@ -36,6 +36,7 @@
 
 .abc-container h3 {
   font-weight: 500;
+  font-size: 1.6rem;
 }
 
 .abc-feeback-score {
@@ -44,9 +45,10 @@
 
 .abc-tag-section {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   column-gap: 2rem;
-  grid-auto-flow: column;
+  /* grid-auto-flow: column; */
+  justify-content: center;
   row-gap: 1rem;
   margin-bottom: 1rem;
   margin-top: 1rem;
@@ -58,7 +60,7 @@
   align-items: center;
   background-color: rgb(135, 42, 42);
   height: 4rem;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
   font-size: 1.5rem;
   color: white;
   border-radius: 3px;

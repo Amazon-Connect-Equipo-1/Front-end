@@ -32,7 +32,7 @@ function App() {
           <Settings />
         </Suspense>
       </LocaleContext.Provider> */}
-      <Router>
+      {/* <Router>
         <Navbar />
         <Routes>
           <Route path="/" exact element={<Dashboard />} />
@@ -41,7 +41,7 @@ function App() {
           <Route path="/statistics" element={<Statistics />} />
           <Route path="/settings" element={<Settings />} />
         </Routes>
-      </Router>
+      </Router> */}
       <RecordingsVideo />
     </div>
   );

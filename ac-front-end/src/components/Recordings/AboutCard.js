@@ -40,6 +40,9 @@ const AboutCard = (props) => {
           <Card className="abc-tag">Work</Card>
           <Card className="abc-tag">Bussiness</Card>
           <Card className="abc-tag">Theft</Card>
+          <Card className="abc-tag">Bussiness</Card>
+          <Card className="abc-tag">Theft</Card>
+          <Card className="abc-tag">Wodddrk</Card>
         </div>
         <Card className="abc-feedback-btn">Give Feedback</Card>
       </div>

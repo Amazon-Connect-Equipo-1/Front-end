@@ -22,3 +22,83 @@
   border-radius: 11px;
   align-self: start;
 }
+
+/*Media queries for RecordingsVideo*/
+/*****************************/
+/* BELOW 90*16 = 1500px (Smaller desktops) */
+/*****************************/
+@media (max-width: 93em) {
+  .rev-video {
+    width: 90rem;
+    height: 50rem;
+  }
+  .abc-main-container,
+  .gfc-main-container,
+  .afc-main-container {
+    width: 25rem;
+    height: 50rem;
+  }
+
+  /*About card*/
+  .abc-title {
+    font-size: 2rem;
+  }
+
+  .abc-container h3 {
+    font-size: 1.4rem;
+  }
+
+  .abc-tag {
+    height: 3rem;
+    padding: 0 0.5rem;
+    font-size: 1.2rem;
+  }
+
+  .abc-feedback-btn,
+  .gbc-feedback-btn {
+    font-size: 1.5rem;
+    padding: 1rem;
+    cursor: pointer;
+    color: #e1e1e1;
+  }
+  /*About card*/
+
+  /* Give feedback card */
+  .gfc-container h3 {
+    font-size: 1.4rem;
+  }
+
+  .gfc-title {
+    font-size: 2rem;
+  }
+
+  .gfc-input {
+    height: 25rem;
+    border-radius: 10px;
+    padding: 0.6rem 0.6rem 0.6rem 1.2rem;
+    border: none;
+    font-size: 2rem;
+    border-radius: 10px;
+  }
+  /* Give feedback card */
+
+  /* Agent Feedback card */
+  .afc-title {
+    font-size: 2rem;
+  }
+
+  .afc-feedback {
+    height: 25rem;
+  }
+  /* Agent Feedback card */
+}
+
+/*****************************/
+/* BELOW 84*16 = 1350px (Smaller desktops) */
+/*****************************/
+@media (max-width: 84em) {
+  .rev-video {
+    width: 80rem;
+    height: 40rem;
+  }
+}

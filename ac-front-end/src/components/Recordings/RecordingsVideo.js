@@ -6,7 +6,7 @@ import GiveFeedbackCard from "./GiveFeedbackCard";
 import AgentFeedbackCard from "./AgentFeedbackCard";
 
 const RecordingsVideo = (props) => {
-  const card = 2; //1: about, 2: Feedback, 3: Agent Feedback
+  const card = 1; //1: about, 2: Feedback, 3: Agent Feedback
 
   return (
     <Card className="rev-main-container">
