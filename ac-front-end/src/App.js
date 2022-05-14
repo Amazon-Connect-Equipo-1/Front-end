@@ -16,6 +16,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import Statistics from "./components/Statistics/Statistics";
 import Settings from "./components/Settings/Settings";
 import AgentList from "./components/AgentList/AgentList";
+import Tutorials from "./components/Tutorials/Tutorials";
 import { createContext, Suspense, useState } from "react";
 import LocaleContext from "./LocaleContext";
 import i18n from "./i18n";
@@ -42,7 +43,7 @@ function App() {
           <Route path="/settings" element={<Settings />} />
         </Routes>
       </Router> */}
-      <RecordingsVideo />
+      <Tutorials />
     </div>
   );
 }
