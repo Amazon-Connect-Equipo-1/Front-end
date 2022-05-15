@@ -21,10 +21,13 @@ import { createContext, Suspense, useState } from "react";
 import LocaleContext from "./LocaleContext";
 import i18n from "./i18n";
 import Loading from "./components/Loading";
+import RecordingsSupplier from "./components/RecordingsSupplier";
 
 function App() {
   const [locale, setLocale] = useState(i18n.language);
   i18n.on("languageChanged", (lng) => setLocale(i18n.language));
+
+  const a = ["mike", "mmike"];
 
   return (
     <div className="App">
@@ -39,7 +42,14 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" exact element={<Dashboard />} />
-          <Route path="/recordings" element={<Recordings />} />
+          <Route
+            path="/recordings"
+            element={
+              <RecordingsSupplier>
+                <Recordings />
+              </RecordingsSupplier>
+            }
+          />
           <Route path="/agents" element={<AgentList />} />
           <Route path="/statistics" element={<Statistics />} />
           <Route path="/settings" element={<Settings />} />

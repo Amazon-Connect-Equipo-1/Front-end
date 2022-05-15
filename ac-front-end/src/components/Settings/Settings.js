@@ -4,8 +4,11 @@ import Card from "../UI/Card";
 import { useTranslation } from "react-i18next";
 import LocaleContext from "../../LocaleContext";
 import i18n from "../../i18n";
+import { saveKeys, saveClick } from "../MonitorModule.js";
 
 function Settings() {
+  const INPUT_NAME = "settings";
+
   const body = document.body;
 
   const lightTheme = "light";
@@ -97,6 +100,7 @@ function Settings() {
         <div className="stngs-option">
           <p>{t("textSize")}</p>
           <select
+            onClick={() => saveClick(`${INPUT_NAME} font size`)}
             id="size-select"
             className="stngs-select"
             onChange={(j) => switchTxtSize(j.target.value)}
@@ -109,6 +113,7 @@ function Settings() {
         <div className="stngs-option">
           <p>{t("theme")}</p>
           <select
+            onClick={() => saveClick(`${INPUT_NAME} theme`)}
             id="theme-select"
             className="stngs-select"
             onChange={(i) => switchTheme(i.target.value)}
@@ -128,6 +133,7 @@ function Settings() {
         <div className="stngs-option">
           <p>{t("language")}</p>
           <select
+            onClick={() => saveClick(`${INPUT_NAME} language`)}
             id="lang"
             className="stngs-select"
             onChange={() => changeLocale()}

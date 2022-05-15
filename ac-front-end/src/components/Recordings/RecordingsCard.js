@@ -4,6 +4,20 @@ import "./RecordingsCard.css";
 
 const RecordingsCard = (props) => {
   //Logic to determine the tags
+  const getRating = (rating) => {
+    return "🖖".repeat(rating);
+  };
+
+  const getColor = (tagName) => {
+    switch (tagName) {
+      case "Work":
+        return "red";
+      case "Business":
+        return "blue";
+      default:
+        return "green";
+    }
+  };
 
   return (
     <Card className="rec-main-container">
@@ -13,16 +27,15 @@ const RecordingsCard = (props) => {
             <img src={logo} className="rec-video-img" />
           </div>
           <div className="rec-video-info">
-            <h2 className="rec-agent-name">Jim Halpert</h2>
-            <h3 className="rec-date">25/12/2022</h3>
-            <h3 className="rec-score">🖖🖖🖖🖖🖖</h3>
+            <h2 className="rec-agent-name">{props.record.agent_name}</h2>
+            <h3 className="rec-date">{props.record.date}</h3>
+            <h3 className="rec-score">{getRating(props.record.rating)}</h3>
           </div>
         </div>
         <div className="rec-tag-section">
-          {/* Logic of tags (.map()) */}
-          <Card className="rec-tag">Bussiness</Card>
-          <Card className="rec-tag">Work</Card>
-          <Card className="rec-tag">Theft</Card>
+          {props.record.tags.map((tag) => (
+            <Card className={`rec-tag ${getColor(tag)}-tag `}>{tag}</Card>
+          ))}
         </div>
       </div>
     </Card>
