@@ -1,7 +1,7 @@
 /* Initials: agl*/
 
 .agl-main-container {
-  background-color: #132535;
+  background-color: var(--main-card-background);
   border-radius: 10px;
   height: 85vh;
   margin: 1rem 2rem 2rem 100px;

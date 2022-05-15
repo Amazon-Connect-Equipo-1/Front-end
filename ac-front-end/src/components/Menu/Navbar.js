@@ -9,10 +9,10 @@ function Navbar() {
   //funcion para poner el nombre del admin o quality analyst
   return (
     <>
-      <IconContext.Provider value={{ color: "white", size: 60 }}>
+      <IconContext.Provider value={{ color: "var(--text-color)", size: 60 }}>
         <div className="navbar">
           <Link to="#" className="menu-bars">
-            <img src={logo} className="nav-icon" />
+            <img className="nav-icon" />
           </Link>
           <h1 className="nav-welcome-text">Welcome back, Michael</h1>
           <FaUserCircle className="nav-user-icon" />

@@ -2,8 +2,8 @@
 
 .sa-main-container {
   width: 40rem;
-  background-color: #415164;
-  color: white;
+  background-color: var(--sub-card-background);
+  color: var(--text-color);
   border-radius: 10px;
   box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
   min-height: 50rem;

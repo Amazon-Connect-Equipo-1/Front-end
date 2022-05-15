@@ -2,7 +2,7 @@
 
 .al-container {
   display: flex;
-  background-color: #132535;
+  background-color: var(--main-card-background);
   width: auto;
   height: auto;
   border-radius: 10px;

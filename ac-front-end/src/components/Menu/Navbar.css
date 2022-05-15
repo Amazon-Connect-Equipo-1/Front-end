@@ -15,7 +15,9 @@
   font-size: 2rem;
   background: none;
 }
-
+.menu-bars img {
+  content: var(--logo-bbva);
+}
 .nav-icon {
   height: 2.5rem;
 }

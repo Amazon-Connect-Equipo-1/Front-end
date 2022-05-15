@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../../styles/Settings/Settings.css";
 import Card from "../UI/Card";
 import { useTranslation } from "react-i18next";
@@ -55,7 +55,7 @@ function Settings() {
     theme === darkTheme_Tritanopia ||
     theme === darkTheme_Protanomaly ||
     theme === darkTheme_Deuteranomaly ||
-    theme == darkTheme_Tritanomaly
+    theme === darkTheme_Tritanomaly
   ) {
     body.classList.add(theme);
   } else {
@@ -81,29 +81,35 @@ function Settings() {
   const { locale } = useContext(LocaleContext);
 
   function changeLocale() {
-    const l = document.getElementById("lang").value
+    const l = document.getElementById("lang").value;
     if (locale !== l) {
       i18n.changeLanguage(l);
     }
   }
 
+  useEffect(() => {
+    document.getElementById("theme-select").value = theme;
+    document.getElementById("size-select").value = txtSize;
+  });
   return (
     <Card className="stngs-main-container">
       <div className="stngs-container">
         <div className="stngs-option">
           <p>{t("textSize")}</p>
           <select
+            id="size-select"
             className="stngs-select"
             onChange={(j) => switchTxtSize(j.target.value)}
           >
-            <option value="small">Small</option>
             <option value="medium">Medium (Default)</option>
+            <option value="small">Small</option>
             <option value="big">Big</option>
           </select>
         </div>
         <div className="stngs-option">
           <p>{t("theme")}</p>
           <select
+            id="theme-select"
             className="stngs-select"
             onChange={(i) => switchTheme(i.target.value)}
           >
@@ -121,21 +127,19 @@ function Settings() {
         </div>
         <div className="stngs-option">
           <p>{t("language")}</p>
-          <select id="lang" className="stngs-select" onChange= {()=> changeLocale()}>
-            <option value="en">
-              English
-            </option>
-            <option value="es">
-              Spanish
-            </option>
+          <select
+            id="lang"
+            className="stngs-select"
+            onChange={() => changeLocale()}
+          >
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
           </select>
-          
         </div>
       </div>
     </Card>
   );
 }
-
 
 /*
 <button onClick={() => changeLocale("es")}>Español</button>

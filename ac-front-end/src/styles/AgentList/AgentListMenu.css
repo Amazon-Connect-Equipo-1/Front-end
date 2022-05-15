@@ -32,15 +32,15 @@
   font-size: 2rem;
   border-radius: 10px;
   padding: 1rem;
-  background-color: #9facbd;
-  color: white;
+  background-color: var(--highlight-color);
+  color: var(--text-color);
 }
 
 .aglm-button-main {
   cursor: pointer;
   border-color: transparent;
   background-color: transparent;
-  color: white;
+  color: var(--text-color);
   text-decoration: underline;
   font-size: 3rem;
   font-weight: bold;
