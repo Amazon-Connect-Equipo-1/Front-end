@@ -38,23 +38,30 @@ function App() {
       </LocaleContext.Provider> */}
       {/* <Tutorials /> */}
 
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" exact element={<Dashboard />} />
-          <Route
-            path="/recordings"
-            element={
-              <RecordingsSupplier>
-                <Recordings />
-              </RecordingsSupplier>
-            }
-          />
-          <Route path="/agents" element={<AgentList />} />
-          <Route path="/statistics" element={<Statistics />} />
-          <Route path="/settings" element={<Settings />} />
-        </Routes>
-      </Router>
+      {/*MODULO DE CLIENTE*/}
+
+      {/*MODULO DE AGENTE*/}
+
+      {
+        /* MODULO DE ADMINISTRADOR */
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" exact element={<Dashboard />} />
+            <Route
+              path="/recordings"
+              element={
+                <RecordingsSupplier>
+                  <Recordings />
+                </RecordingsSupplier>
+              }
+            />
+            <Route path="/agents" element={<AgentList />} />
+            <Route path="/statistics" element={<Statistics />} />
+            <Route path="/settings" element={<Settings />} />
+          </Routes>
+        </Router>
+      }
     </div>
   );
 }
