@@ -1,8 +1,11 @@
 import "../../styles/AgentList/AllAgentsList.css";
 import profile_thumbnail from "../../images/profile_icon.png";
 import telephone from "../../images/telephone_call.png";
+import { useTranslation } from "react-i18next";
 
 const AgentRow = (props) => {
+  // Language
+  const { t } = useTranslation();
   return (
     <div className="aal-row-container">
       <img
@@ -10,7 +13,7 @@ const AgentRow = (props) => {
         src={profile_thumbnail}
         alt="Profile picture"
       />
-      <p className="aal-text">Agent Jim Halpert</p>
+      <p className="aal-text">{t("nameAgent")}</p>
       <div className="circulo"></div>
       <img
         className="aal-telephone-picture"

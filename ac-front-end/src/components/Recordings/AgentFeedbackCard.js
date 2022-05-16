@@ -1,12 +1,15 @@
 import Card from "../UI/Card";
 import "./AgentFeedbackCard.css";
+import { useTranslation } from "react-i18next";
 
 const AgentFeedbackCard = (props) => {
+  // Language
+  const { t } = useTranslation();
   return (
     <Card className="afc-main-container">
       <div className="afc-container">
         <div>
-          <h2 className="afc-title">QA Feedback</h2>
+          <h2 className="afc-title">{t("qaFeedback")}</h2>
         </div>
         <h3 className="afc-feeback-score">🖖🖖🖖🖖🖖</h3>
         <Card className="afc-feedback">

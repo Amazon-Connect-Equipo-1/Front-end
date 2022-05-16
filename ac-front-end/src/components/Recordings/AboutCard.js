@@ -1,39 +1,42 @@
 import Card from "../UI/Card";
 import "./AboutCard.css";
+import { useTranslation } from "react-i18next";
 
 const AboutCard = (props) => {
+  // Language
+  const { t } = useTranslation();
   return (
     <Card className="abc-main-container">
       <div className="abc-container">
         <div className="abc-navbar">
-          <h2 className="abc-title">About</h2>
-          <h2 className="abc-title">Feedback</h2>
+          <h2 className="abc-title">{t("about")}</h2>
+          <h2 className="abc-title">{t("feedback")}</h2>
         </div>
         <h3>
           ID: <span>120372</span>
         </h3>
         <h3>
-          Duration: <span>00:12:41</span>
+          {t("duration")} <span>00:12:41</span>
         </h3>
         <h3 className="margin-top-md">
-          Agent: <span>Dwight Schrute</span>
+          {t("agent")} <span>Dwight Schrute</span>
         </h3>
         <h3>
-          Client: <span>Stanley Hudson</span>
+          {t("client")} <span>Stanley Hudson</span>
         </h3>
         <h3>
-          Client's Problem: <span>Lost card</span>
+          {t("clientsProblem")} <span>{t("lostCard")}</span>
         </h3>
         <h3>
-          Third Party Service: <span>Uber</span>
+          {t("thirdPartyService")} <span>Uber</span>
         </h3>
         <div className="margin-top-md">
-          <h3>Client's Feedback:</h3>
+          <h3>{t("clientsFeedback")}</h3>
           <h3 className="abc-feeback-score">🖖🖖🖖🖖🖖</h3>
         </div>
         <div className="margin-top-md">
-          <h3>Your Feedback:</h3>
-          <h3>No Feedback Submited</h3>
+          <h3>{t("yourFeedback")}</h3>
+          <h3>{t("noFeedback")}</h3>
         </div>
         <div className="abc-tag-section">
           {/* Logic of tags (.map()) */}

@@ -3,8 +3,11 @@ import "./Recordings.css";
 import { RecordingsContext } from "../RecordingsSupplier";
 import { useContext } from "react";
 import { saveKeys, saveClick } from "../MonitorModule.js";
+import { useTranslation } from "react-i18next";
 
 const Recordings = (props) => {
+  // Language
+  const { t } = useTranslation();
   //Logica para generar las cards
   const [arrRecordings] = useContext(RecordingsContext);
   const INPUT_NAME = "recordings";
@@ -27,9 +30,9 @@ const Recordings = (props) => {
             className="re-select"
             onClick={() => saveClick(`${INPUT_NAME} filter scroller`)}
           >
-            <option>Search</option>
-            <option value="date">Date</option>
-            <option value="tag">Tag</option>
+            <option>{t("search")}</option>
+            <option value="date">{t("date")}</option>
+            <option value="tag">{t("tag")}</option>
           </select>
         </div>
         {arrRecordings.map((record_info) => (

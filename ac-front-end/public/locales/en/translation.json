@@ -32,5 +32,26 @@
   "tag": "Tag",
   "status": "Status",
   "alwayShow": "Always show",
-  "allAgents": "All agents"
+  "allAgents": "All agents",
+  "nameAgent": "Agent Jim Halpert",
+
+  "__recordings__": "----------Recordings Interface----------",
+  "about": "About",
+  "feedback": "Feedback",
+  "duration": "Duration:",
+  "agent": "Agent:",
+  "client": "Client:",
+  "clientsProblem": "Client's Problem:",
+  "lostCard": "Lost card",
+  "thirdPartyService": "Third Party Service:",
+  "clientsFeedback": "Client's Feedback:",
+  "yourFeedback": "Your Feedback:",
+  "noFeedback": "No Feedback Submited",
+  "qaFeedback": "QA Feedback",
+  "search": "Search",
+
+  "__userType__": "----------User Type Interface----------",
+  "selectUserType": "Select user type:",
+  "utAgent": "Agent",
+  "utClient": "Client"
 }

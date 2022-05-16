@@ -32,5 +32,26 @@
   "tag": "Etiqueta",
   "status": "Estado",
   "alwayShow": "Mostrar siempre",
-  "allAgents": "Todos los agentes"
+  "allAgents": "Todos los agentes",
+  "nameAgent": "Agente Jim Halpert",
+
+  "__recordings__": "----------Recordings Interface----------",
+  "about": "Acerca de",
+  "feedback": "Retroalimentación",
+  "duration": "Duración:",
+  "agent": "Agente:",
+  "client": "Cliente:",
+  "clientsProblem": "Problema del cliente:",
+  "lostCard": "Tarjeta perdida",
+  "thirdPartyService": "Servicio de terceros:",
+  "clientsFeedback": "Opinión del cliente:",
+  "yourFeedback": "Tu opinión:",
+  "noFeedback": "No se han enviado comentarios",
+  "qaFeedback": "Comentarios del QA",
+  "search": "Buscar",
+
+  "__userType__": "----------User Type Interface----------",
+  "selectUserType": "Sseleccionar tipo de usuario:",
+  "utAgent": "Agente",
+  "utClient": "Cliente"
 }
