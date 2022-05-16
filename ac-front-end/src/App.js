@@ -23,13 +23,15 @@ import i18n from "./i18n";
 import Loading from "./components/Loading";
 import RecordingsSupplier from "./components/RecordingsSupplier";
 import Error from "./components/Error/Error";
+import AgentMain from "./components/AgentMain/AgentMain";
+import QualityControl from "./components/QualityControl/QualityControl";
 
 function App() {
   const [locale, setLocale] = useState(i18n.language);
   i18n.on("languageChanged", (lng) => setLocale(i18n.language));
 
   //Variable that determines the user type
-  const USER = "QA"; //Amdin, QA, Agent, Client
+  const USER = "Agent"; //Amdin, QA, Agent, Client
 
   return (
     <div className="App">
@@ -48,8 +50,8 @@ function App() {
         <Router>
           <Navbar sidebarData={USER} />
           <Routes>
-            <Route path="/" exact element={<Dashboard />} />
-            {/* Aqui pones tus rutas */}
+            <Route path="/" exact element={<AgentMain />} />
+            <Route path="/QualityControl" exact element={<QualityControl />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="*" element={<Error />} />
           </Routes>
