@@ -31,7 +31,7 @@ function App() {
   i18n.on("languageChanged", (lng) => setLocale(i18n.language));
 
   //Variable that determines the user type
-  const USER = "Agent"; //Amdin, QA, Agent, Client
+  const USER = "Client"; //Amdin, QA, Agent, Client
 
   return (
     <div className="App">
@@ -113,5 +113,4 @@ export default App;
       <RecordingsVideo />
       <AgentList />
     </div>
-       
     */

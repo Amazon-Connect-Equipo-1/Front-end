@@ -7,9 +7,10 @@ const Chatbots = (props) => {
       <span className="usuario-chatbot">
         <iframe
           className="chatbot"
-          src="https://d2c72ljk85v2ia.cloudfront.net/index.html"
+          src="https://widget.kommunicate.io/chat?appId=2ab92030927ade8fc112f89b5f867a9c0"
           frameborder="0"
           allowfullscreen
+          allow="microphone; geolocation;"
         ></iframe>
       </span>
     </div>
