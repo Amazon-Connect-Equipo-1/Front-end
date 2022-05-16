@@ -1,5 +1,31 @@
 {
+  "__settings__": "Settings screen",
   "textSize": "Text size",
   "theme": "Theme",
-  "language": "Language"
+  "language": "Language",
+  "mediumFont": "Medium (Default)",
+  "smallFont": "Small",
+  "bigFont": "Big",
+
+  "__loginForm__": "Login screen",
+  "signIn": "Sign in",
+  "password": "Password",
+  "fyp": "Forgot your password?",
+  "signInBtn": "Sign in",
+  
+
+  "__agentList__": "Agent list screen",
+  "activeCalls": "Active Calls",
+  "main": "Main", 
+  "settings": "Settings",
+  "filter": "Filter",
+  "date": "Date",
+  "tag": "Tag",
+  "status": "Status",
+  "alwayShow": "Always show",
+  "allAgents": "All agents"
+
+
+
+
 }

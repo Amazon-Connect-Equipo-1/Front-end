@@ -1,5 +1,28 @@
 {
+  "__settings__": "Pantalla settings",
   "textSize": "Tamaño de texto",
   "theme": "Tema",
-  "language": "Idioma"
+  "language": "Idioma",
+  "mediumFont": "Mediano (Default)",
+  "smallFont": "Pequeño",
+  "bigFont": "Grande",
+
+  "__loginForm__": "Pantalla login",
+  "signIn": "Iniciar sesión",
+  "password": "Contraseña",
+  "fyp": "¿Olvidaste tu contraseña?",
+  "signInBtn": "Iniciar sesión",
+  
+  "__agentList__": "Pantalla lista agentes",
+  "activeCalls": "Llamadas activas",
+  "main": "Menú", 
+  "settings": "Configuración",
+  "filter": "Filtro",
+  "date": "Día",
+  "tag": "Etiqueta",
+  "status": "Estado",
+  "alwayShow": "Mostrar siempre",
+  "allAgents": "Todos los agentes"
+
 }
+

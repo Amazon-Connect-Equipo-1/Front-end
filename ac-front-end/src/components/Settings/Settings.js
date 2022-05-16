@@ -105,9 +105,9 @@ function Settings() {
             className="stngs-select"
             onChange={(j) => switchTxtSize(j.target.value)}
           >
-            <option value="medium">Medium (Default)</option>
-            <option value="small">Small</option>
-            <option value="big">Big</option>
+            <option value="medium">{t("mediumFont")}</option>
+            <option value="small">{t("smallFont")}</option>
+            <option value="big">{t("bigFont")}</option>
           </select>
         </div>
         <div className="stngs-option">
@@ -139,7 +139,7 @@ function Settings() {
             onChange={() => changeLocale()}
           >
             <option value="en">English</option>
-            <option value="es">Spanish</option>
+            <option value="es">Español</option>
           </select>
         </div>
       </div>

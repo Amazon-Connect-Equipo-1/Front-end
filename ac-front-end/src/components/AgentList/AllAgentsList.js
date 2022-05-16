@@ -1,10 +1,14 @@
 import "../../styles/AgentList/AllAgentsList.css";
 import AgentRow from "./AgentRow";
+import { useTranslation } from "react-i18next";
+
 
 const AllAgentList = (props) => {
+  // Language
+  const { t } = useTranslation();
   return (
     <div className="aal-main-container">
-      <p className="aal-title">All Agents</p>
+      <p className="aal-title">{t("allAgents")}</p>
       <div>
         <AgentRow />
         <AgentRow />
