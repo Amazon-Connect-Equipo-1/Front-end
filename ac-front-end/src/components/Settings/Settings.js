@@ -105,9 +105,9 @@ function Settings() {
             className="stngs-select"
             onChange={(j) => switchTxtSize(j.target.value)}
           >
-            <option value="medium">{t("mediumFont")}</option>
-            <option value="small">{t("smallFont")}</option>
-            <option value="big">{t("bigFont")}</option>
+            <option value="medium">{t("textMediumSize")}</option>
+            <option value="small">{t("textSmallSize")}</option>
+            <option value="big">{t("textBigSize")}</option>
           </select>
         </div>
         <div className="stngs-option">
@@ -118,16 +118,22 @@ function Settings() {
             className="stngs-select"
             onChange={(i) => switchTheme(i.target.value)}
           >
-            <option value="dark">Dark Mode (Default)</option>
-            <option value="light">Light Mode</option>
-            <option value="dark_protanopia">Dark Mode (Protanopia)</option>
-            <option value="dark_deuteranopia">Dark Mode (Deuteranopia)</option>
-            <option value="dark_tritanopia">Dark Mode (Tritanopia)</option>
-            <option value="dark_protanomaly">Dark Mode (Protanomaly)</option>
-            <option value="dark_deuteranomaly">
-              Dark Mode (Deuteranomaly)
+            <option value="dark">{t("darkTheme")}</option>
+            <option value="light">{t("lightTheme")}</option>
+            <option value="dark_protanopia">{t("darkProtanopiaTheme")}</option>
+            <option value="dark_deuteranopia">
+              {t("darkDeuteranopiaTheme")}
             </option>
-            <option value="dark_tritanomaly">Dark Mode (Tritanomaly)</option>
+            <option value="dark_tritanopia">{t("darkTritanopiaTheme")}</option>
+            <option value="dark_protanomaly">
+              {t("darkProtanomalyTheme")}
+            </option>
+            <option value="dark_deuteranomaly">
+              {t("darkDeuteranomalyTheme")}
+            </option>
+            <option value="dark_tritanomaly">
+              {t("darkTritanomalyTheme")}
+            </option>
           </select>
         </div>
         <div className="stngs-option">
@@ -138,8 +144,8 @@ function Settings() {
             className="stngs-select"
             onChange={() => changeLocale()}
           >
-            <option value="en">English</option>
-            <option value="es">Español</option>
+            <option value="en">{t("englishLanguage")}</option>
+            <option value="es">{t("spanishLanguage")}</option>
           </select>
         </div>
       </div>
@@ -147,8 +153,4 @@ function Settings() {
   );
 }
 
-/*
-<button onClick={() => changeLocale("es")}>Español</button>
-<button onClick={() => changeLocale("en")}>English</button>
-*/
 export default Settings;

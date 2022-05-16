@@ -1,22 +1,31 @@
 {
-  "__settings__": "Settings screen",
+  "__settingsInterface__": "----------Settings Interface----------",
   "textSize": "Text size",
   "theme": "Theme",
   "language": "Language",
-  "mediumFont": "Medium (Default)",
-  "smallFont": "Small",
-  "bigFont": "Big",
+  "textMediumSize": "Medium (Default)",
+  "textSmallSize": "Small",
+  "textBigSize": "Big",
+  "englishLanguage": "English",
+  "spanishLanguage": "Spanish",
+  "darkTheme": "Dark Mode (Default)",
+  "lightTheme": "Light Mode",
+  "darkProtanopiaTheme": "Dark Mode (Protanopia)",
+  "darkDeuteranopiaTheme": "Dark Mode (Deuteranopia)",
+  "darkTritanopiaTheme": "Dark Mode (Tritanopia)",
+  "darkProtanomalyTheme": "Dark Mode (Protanomaly)",
+  "darkDeuteranomalyTheme": "Dark Mode (Deuteranomaly)",
+  "darkTritanomalyTheme": "Dark Mode (Tritanomaly)",
 
-  "__loginForm__": "Login screen",
+  "__loginForm__": "----------Login Interface----------",
   "signIn": "Sign in",
   "password": "Password",
   "fyp": "Forgot your password?",
   "signInBtn": "Sign in",
-  
 
-  "__agentList__": "Agent list screen",
+  "__agentList__": "----------Agent List Interface----------",
   "activeCalls": "Active Calls",
-  "main": "Main", 
+  "main": "Main",
   "settings": "Settings",
   "filter": "Filter",
   "date": "Date",
@@ -24,8 +33,4 @@
   "status": "Status",
   "alwayShow": "Always show",
   "allAgents": "All agents"
-
-
-
-
 }

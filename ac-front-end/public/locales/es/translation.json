@@ -1,21 +1,31 @@
 {
-  "__settings__": "Pantalla settings",
+  "__settingsInterface__": "----------Settings Interface----------",
   "textSize": "Tamaño de texto",
   "theme": "Tema",
   "language": "Idioma",
-  "mediumFont": "Mediano (Default)",
-  "smallFont": "Pequeño",
-  "bigFont": "Grande",
+  "textMediumSize": "Mediano (Predeterminado)",
+  "textSmallSize": "Pequeño",
+  "textBigSize": "Grande",
+  "englishLanguage": "Inglés",
+  "spanishLanguage": "Español",
+  "darkTheme": "Modo Oscuro (Predeterminado)",
+  "lightTheme": "Modo Claro",
+  "darkProtanopiaTheme": "Modo Oscuro (Protanopia)",
+  "darkDeuteranopiaTheme": "Modo Oscuro (Deuteranopia)",
+  "darkTritanopiaTheme": "Modo Oscuro (Tritanopia)",
+  "darkProtanomalyTheme": "Modo Oscuro (Protanomaly)",
+  "darkDeuteranomalyTheme": "Modo Oscuro (Deuteranomaly)",
+  "darkTritanomalyTheme": "Modo Oscuro (Tritanomaly)",
 
-  "__loginForm__": "Pantalla login",
+  "__loginForm__": "----------Login Interface----------",
   "signIn": "Iniciar sesión",
   "password": "Contraseña",
   "fyp": "¿Olvidaste tu contraseña?",
   "signInBtn": "Iniciar sesión",
-  
-  "__agentList__": "Pantalla lista agentes",
+
+  "__agentList__": "----------Agent List Interface----------",
   "activeCalls": "Llamadas activas",
-  "main": "Menú", 
+  "main": "Menú",
   "settings": "Configuración",
   "filter": "Filtro",
   "date": "Día",
@@ -23,6 +33,4 @@
   "status": "Estado",
   "alwayShow": "Mostrar siempre",
   "allAgents": "Todos los agentes"
-
 }
-
