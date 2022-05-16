@@ -27,7 +27,8 @@ function App() {
   const [locale, setLocale] = useState(i18n.language);
   i18n.on("languageChanged", (lng) => setLocale(i18n.language));
 
-  const a = ["mike", "mmike"];
+  //Variable that determines the user type
+  const USER = "QA"; //Amdin, QA, Agent, Client
 
   return (
     <div className="App">
@@ -38,13 +39,38 @@ function App() {
       </LocaleContext.Provider> */}
       {/* <Tutorials /> */}
 
-      {/*MODULO DE CLIENTE*/ <Usuario></Usuario>}
+      {/* MODULO DE CLIENTE*/}
+      {USER == "Client" && <Usuario></Usuario>}
 
       {/*MODULO DE AGENTE*/}
-
-      {/* MODULO DE ADMINISTRADOR 
+      {USER == "Agent" && (
         <Router>
-          <Navbar />
+          <Navbar sidebarData={USER} />
+          <Routes>
+            <Route path="/" exact element={<Dashboard />} />
+            {/* Aqui pones tus rutas */}
+            <Route path="/settings" element={<Settings />} />
+          </Routes>
+        </Router>
+      )}
+
+      {/* MODULO DE ADMINISTRADOR  */}
+      {USER == "Admin" && (
+        <Router>
+          <Navbar sidebarData={USER} />
+          <Routes>
+            <Route path="/" exact element={<Dashboard />} />
+            <Route path="/agents" element={<AgentList />} />
+            <Route path="/statistics" element={<Statistics />} />
+            <Route path="/settings" element={<Settings />} />
+          </Routes>
+        </Router>
+      )}
+
+      {/* MODULO DE QUALITY ANALYST  */}
+      {USER == "QA" && (
+        <Router>
+          <Navbar sidebarData={USER} />
           <Routes>
             <Route path="/" exact element={<Dashboard />} />
             <Route
@@ -60,7 +86,7 @@ function App() {
             <Route path="/settings" element={<Settings />} />
           </Routes>
         </Router>
-            */}
+      )}
     </div>
   );
 }
@@ -77,17 +103,6 @@ export default App;
       <AgListSet />
       <RecordingsVideo />
       <AgentList />
-      
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" exact element={<Dashboard />} />
-          <Route path="/recordings" element={<Recordings />} />
-          <Route path="/agents" element={<AgentList />} />
-          <Route path="/statistics" element={<Statistics />} />
-          <Route path="/settings" element={<Settings />} />
-        </Routes>
-      </Router>
     </div>
       
     */

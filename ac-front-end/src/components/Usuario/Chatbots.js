@@ -1,5 +1,5 @@
 import "../../styles/Usuario/Usuario.css";
-import "../../styles/Usuario/Chatbot.css";
+import "../../styles/Usuario/chatbot.css";
 //import logo from "../../images/logo_bbva.png";
 const Chatbots = (props) => {
   return (

@@ -1,12 +1,27 @@
 import { Link } from "react-router-dom";
 import logo from "../../images/logo_bbva.png";
-import { SidebarData } from "./SidebarData";
+import { QASidebarData } from "./QASidebarData";
+import { AdminSidebarData } from "./AdminSidebarData";
+import { AgentSidebarData } from "./AgentSidebarData";
 import "./Navbar.css";
 import { IconContext } from "react-icons";
 import { FaUserCircle } from "react-icons/fa";
 
-function Navbar() {
+const Navbar = (props) => {
   //funcion para poner el nombre del admin o quality analyst
+
+  const getSidebarData = () => {
+    const sidebarData = props.sidebarData + "SidebarData";
+    switch (sidebarData) {
+      case "AdminSidebarData":
+        return AdminSidebarData;
+      case "QASidebarData":
+        return QASidebarData;
+      default:
+        return AgentSidebarData;
+    }
+  };
+
   return (
     <>
       <IconContext.Provider value={{ color: "var(--text-color)", size: 60 }}>
@@ -19,7 +34,7 @@ function Navbar() {
         </div>
         <nav className="nav-menu">
           <ul className="nav-menu-items">
-            {SidebarData.map((item, index) => {
+            {getSidebarData().map((item, index) => {
               return (
                 <li key={index} className={item.cName}>
                   <Link to={item.path}>{item.icon}</Link>
@@ -31,6 +46,6 @@ function Navbar() {
       </IconContext.Provider>
     </>
   );
-}
+};
 
 export default Navbar;

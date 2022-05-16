@@ -4,19 +4,14 @@ import { FiUsers, FiTrendingUp } from "react-icons/fi";
 import { IoSettingsSharp } from "react-icons/io5";
 import { VscRecord } from "react-icons/vsc";
 
-export const SidebarData = [
+export const AdminSidebarData = [
   {
     title: "Dashboard",
     path: "/",
     icon: <MdDashboard />,
     cName: "nav-text",
   },
-  {
-    title: "Recordings",
-    path: "/recordings",
-    icon: <VscRecord />,
-    cName: "nav-text",
-  },
+
   {
     title: "Agents",
     path: "/agents",
