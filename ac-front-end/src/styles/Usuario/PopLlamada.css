@@ -15,7 +15,7 @@
   width: 125px;
   height: 40px;
   background-color: #ffffff;
-  margin-top: 1rem;
+  margin-top: 2.8rem;
   margin-left: auto;
   margin-right: auto;
   -webkit-border-radius: 0px 0px 0px 10px;
@@ -29,7 +29,7 @@
   width: 125px;
   height: 40px;
   background-color: #ffffff;
-  margin-top: 1rem;
+  margin-top: 2.8rem;
   margin-left: auto;
   margin-right: auto;
   -webkit-border-radius: 0px 0px 10px 0px;
@@ -47,10 +47,11 @@
   cursor: pointer;
 }
 .PopLlamada-img {
-  padding-top: 1.4rem;
-  width: 22rem;
-  height: 33rem;
+  padding-top: 1.1rem;
+  margin-top: 2rem;
+  width: 35rem;
+  height: 54rem;
   cursor: pointer;
   -webkit-border-radius: 10px;
-  border-radius: 16px;
+  border-radius: 10px;
 }

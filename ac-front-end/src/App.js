@@ -38,12 +38,11 @@ function App() {
       </LocaleContext.Provider> */}
       {/* <Tutorials /> */}
 
-      {/*MODULO DE CLIENTE*/}
+      {/*MODULO DE CLIENTE*/ <Usuario></Usuario>}
 
       {/*MODULO DE AGENTE*/}
 
-      {
-        /* MODULO DE ADMINISTRADOR */
+      {/* MODULO DE ADMINISTRADOR 
         <Router>
           <Navbar />
           <Routes>
@@ -61,7 +60,7 @@ function App() {
             <Route path="/settings" element={<Settings />} />
           </Routes>
         </Router>
-      }
+            */}
     </div>
   );
 }
