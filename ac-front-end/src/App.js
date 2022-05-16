@@ -22,6 +22,7 @@ import LocaleContext from "./LocaleContext";
 import i18n from "./i18n";
 import Loading from "./components/Loading";
 import RecordingsSupplier from "./components/RecordingsSupplier";
+import Error from "./components/Error/Error";
 
 function App() {
   const [locale, setLocale] = useState(i18n.language);
@@ -40,22 +41,23 @@ function App() {
       {/* <Tutorials /> */}
 
       {/* MODULO DE CLIENTE*/}
-      {USER == "Client" && <Usuario></Usuario>}
+      {USER === "Client" && <Usuario></Usuario>}
 
       {/*MODULO DE AGENTE*/}
-      {USER == "Agent" && (
+      {USER === "Agent" && (
         <Router>
           <Navbar sidebarData={USER} />
           <Routes>
             <Route path="/" exact element={<Dashboard />} />
             {/* Aqui pones tus rutas */}
             <Route path="/settings" element={<Settings />} />
+            <Route path="*" element={<Error />} />
           </Routes>
         </Router>
       )}
 
       {/* MODULO DE ADMINISTRADOR  */}
-      {USER == "Admin" && (
+      {USER === "Admin" && (
         <Router>
           <Navbar sidebarData={USER} />
           <Routes>
@@ -63,12 +65,13 @@ function App() {
             <Route path="/agents" element={<AgentList />} />
             <Route path="/statistics" element={<Statistics />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="*" element={<Error />} />
           </Routes>
         </Router>
       )}
 
       {/* MODULO DE QUALITY ANALYST  */}
-      {USER == "QA" && (
+      {USER === "QA" && (
         <Router>
           <Navbar sidebarData={USER} />
           <Routes>
@@ -81,9 +84,10 @@ function App() {
                 </RecordingsSupplier>
               }
             />
-            <Route path="/agents" element={<AgentList />} />
-            <Route path="/statistics" element={<Statistics />} />
-            <Route path="/settings" element={<Settings />} />
+            <Route path="/agents" exact element={<AgentList />} />
+            <Route path="/statistics" exact element={<Statistics />} />
+            <Route path="/settings" exact element={<Settings />} />
+            <Route path="*" element={<Error />} />
           </Routes>
         </Router>
       )}
