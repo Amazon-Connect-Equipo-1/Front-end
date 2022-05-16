@@ -1,5 +1,5 @@
 import Card from "../UI/Card";
-import "./AgentFeedbackCard.css";
+import "../../styles/Recordings/AgentFeedbackCard.css";
 import { useTranslation } from "react-i18next";
 
 const AgentFeedbackCard = (props) => {

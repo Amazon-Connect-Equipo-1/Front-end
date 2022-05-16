@@ -3,7 +3,7 @@ import logo from "../../images/logo_bbva.png";
 import { QASidebarData } from "./QASidebarData";
 import { AdminSidebarData } from "./AdminSidebarData";
 import { AgentSidebarData } from "./AgentSidebarData";
-import "./Navbar.css";
+import "../../styles/Menu/Navbar.css";
 import { IconContext } from "react-icons";
 import { FaUserCircle } from "react-icons/fa";
 

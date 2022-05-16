@@ -1,5 +1,5 @@
 import Card from "../UI/Card";
-import "./AboutCard.css";
+import "../../styles/Recordings/AboutCard.css";
 import { useTranslation } from "react-i18next";
 
 const AboutCard = (props) => {

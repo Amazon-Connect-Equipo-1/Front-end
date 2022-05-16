@@ -1,6 +1,6 @@
 import Card from "../UI/Card";
 import logo from "../../images/bbva_video.PNG";
-import "./RecordingsCard.css";
+import "../../styles/Recordings/RecordingsCard.css";
 
 const RecordingsCard = (props) => {
   //Logic to determine the tags

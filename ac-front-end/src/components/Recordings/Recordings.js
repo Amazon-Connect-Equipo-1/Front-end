@@ -1,5 +1,5 @@
 import RecordingsCard from "./RecordingsCard";
-import "./Recordings.css";
+import "../../styles/Recordings/Recordings.css";
 import { RecordingsContext } from "../RecordingsSupplier";
 import { useContext } from "react";
 import { saveKeys, saveClick } from "../MonitorModule.js";

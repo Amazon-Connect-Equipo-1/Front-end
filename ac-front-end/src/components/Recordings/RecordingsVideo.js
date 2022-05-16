@@ -1,4 +1,4 @@
-import "./RecordingsVideo.css";
+import "../../styles/Recordings/RecordingsVideo.css";
 import video from "../../images/bbva_video.PNG";
 import AboutCard from "./AboutCard";
 import Card from "../UI/Card";
