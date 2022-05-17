@@ -3,8 +3,11 @@ import { Worker } from "@react-pdf-viewer/core";
 import { Viewer } from "@react-pdf-viewer/core";
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "../../styles/Tutorials/Tutorials.css";
+import CardBlocking from "../../pdf/CardBlocking.pdf";
 
 function Tutorials() {
+  const pdfFile = CardBlocking;
+  /*
   const [pdfFile, setPdfFile] = useState(null);
   const [pdfError, setPdfError] = useState("");
 
@@ -26,9 +29,10 @@ function Tutorials() {
     } else {
       console.log("please select a PDF");
     }
-  };
-
+  };*/
+  /*
   return (
+    
     <div className="container">
       <form>
         <label>
@@ -48,12 +52,20 @@ function Tutorials() {
       <div className="viewer">
         {pdfFile && (
           <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.13.216/build/pdf.worker.min.js">
-            <Viewer fileUrl={pdfFile}></Viewer>
+            <Viewer fileUrl="https://written-pdf-tutorials.s3.us-west-2.amazonaws.com/Card+blocking.pdf"></Viewer>
+            // <Viewer fileUrl={pdfFile}></Viewer>
           </Worker>
         )}
 
         {!pdfFile && <>No file is selected yet</>}
       </div>
+    </div>
+  );*/
+  return (
+    <div className="viewer">
+      <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.13.216/build/pdf.worker.min.js">
+        <Viewer fileUrl={pdfFile}></Viewer>
+      </Worker>
     </div>
   );
 }
