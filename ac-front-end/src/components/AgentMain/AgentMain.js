@@ -1,7 +1,12 @@
+import "../../styles/AgentMain/AgentMain.css";
+import ThirdPartyContainer from "./ThirdPartyContainer";
+
 const AgentMain = (props) => {
   return (
-    <div className="dsb-main-container">
-      <div className="dsb-container"></div>
+    <div className="agM-main-container">
+      <div className="agM-card-container">
+        <ThirdPartyContainer />
+      </div>
     </div>
   );
 };
