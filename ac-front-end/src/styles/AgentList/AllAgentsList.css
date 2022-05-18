@@ -52,5 +52,12 @@
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
+}
+
+.aal-online {
   background: var(--online-color);
+}
+
+.aal-offline {
+  background: var(--offline-color);
 }

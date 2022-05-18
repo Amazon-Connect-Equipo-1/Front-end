@@ -1,37 +1,75 @@
 import "../../styles/AgentMain/ThirdParty.css";
 import ThirdParty from "./ThirdParty";
+import { saveKeys, saveClick } from "../MonitorModule.js";
 
 const OxxoForm = (props) => {
+  const INPUT_NAME = "oxxo form";
+
   return (
     <div>
       <div className="tp-title">Oxxo Service</div>
       <form>
         <label className="tp-name-label">
           Client:
-          <input type="text" className="tp-input-label" />
+          <input
+            type="text"
+            onKeyDown={saveKeys}
+            onClick={() => saveClick(`${INPUT_NAME} input`)}
+            className="tp-input-label"
+          />
         </label>
         <label className="tp-name-label">
           Email:
-          <input type="text" className="tp-input-label" />
+          <input
+            type="text"
+            onKeyDown={saveKeys}
+            onClick={() => saveClick(`${INPUT_NAME} input`)}
+            className="tp-input-label"
+          />
         </label>
         <label className="tp-name-label">
           Cellphone:
-          <input type="text" className="tp-input-label" />
+          <input
+            type="text"
+            onKeyDown={saveKeys}
+            onClick={() => saveClick(`${INPUT_NAME} input`)}
+            className="tp-input-label"
+          />
         </label>
         <label className="tp-name-label">
           Client location:
-          <input type="text" className="tp-input-label" />
+          <input
+            type="text"
+            onKeyDown={saveKeys}
+            onClick={() => saveClick(`${INPUT_NAME} input`)}
+            className="tp-input-label"
+          />
         </label>
         <label className="tp-name-label">
           Quantity:
-          <input type="text" className="tp-input-label" />
+          <input
+            type="text"
+            onKeyDown={saveKeys}
+            onClick={() => saveClick(`${INPUT_NAME} input`)}
+            className="tp-input-label"
+          />
         </label>
         <label className="tp-name-label">
           Account Number:
-          <input type="text" className="tp-input-label" />
+          <input
+            type="text"
+            onKeyDown={saveKeys}
+            onClick={() => saveClick(`${INPUT_NAME} input`)}
+            className="tp-input-label"
+          />
         </label>
         <div className="tp-submit">
-          <input type="submit" value="Ask for service" />
+          <input
+            type="submit"
+            onKeyDown={saveKeys}
+            onClick={() => saveClick(`${INPUT_NAME} input`)}
+            value="Ask for service"
+          />
         </div>
       </form>
     </div>

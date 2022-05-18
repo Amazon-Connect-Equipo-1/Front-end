@@ -16,7 +16,11 @@ const AllAgentList = (props) => {
       <p className="aal-title">{t("allAgents")}</p>
       <div>
         {arrAgents.map((agent) => (
-          <AgentRow agentName={agent.agentName} />
+          <AgentRow
+            agentName={agent.agentName}
+            isActiveCalls={props.isActiveCalls}
+            isWorking={agent.working}
+          />
         ))}
       </div>
     </div>

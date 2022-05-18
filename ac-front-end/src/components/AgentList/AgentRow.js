@@ -4,7 +4,7 @@ import telephone from "../../images/telephone_call.png";
 import { useTranslation } from "react-i18next";
 
 const AgentRow = (props) => {
-  const circleColor = "red";
+  const circleColor = props.isWorking ? "aal-online" : "aal-offline";
 
   return (
     <div className="aal-row-container">
@@ -14,7 +14,7 @@ const AgentRow = (props) => {
         alt="Profile picture"
       />
       <p className="aal-text">{props.agentName}</p>
-      <div className="circulo"></div>
+      {props.isActiveCalls && <div className={`circulo ${circleColor}`}></div>}
       <img
         className="aal-telephone-picture"
         src={telephone}

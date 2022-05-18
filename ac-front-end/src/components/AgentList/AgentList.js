@@ -22,8 +22,8 @@ const AgentList = (props) => {
       <AgentListMenu />
       <div className="agl-card-container">
         <SingleAgent agent={agentInfo} />
-        <AllAgentList onSelectAgent={selectAgentHandler} />
-        <AgentActiveCalls />
+        <AllAgentList onSelectAgent={selectAgentHandler} isActiveCalls={true} />
+        <AgentActiveCalls isActiveCalls={false} />
       </div>
     </div>
   );

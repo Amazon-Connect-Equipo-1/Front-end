@@ -6,7 +6,7 @@ const AgentMain = (props) => {
   return (
     <div className="agM-main-container">
       <div className="agM-card-container">
-        {<TutorialsContainer />}
+        <TutorialsContainer />
         <ThirdPartyContainer />
       </div>
     </div>

@@ -17,9 +17,11 @@ import SelectBestVideos from "../../pdf/SelectBestVideos.pdf";
 import SolicitarNuevoPlastico from "../../pdf/SolicitarNuevoPlastico.pdf";
 import SolicitarServicioTerceros from "../../pdf/SolicitarServicioTerceros.pdf";
 import TarjetaRechazada from "../../pdf/TarjetaRechazada.pdf";
+import { saveClick } from "../MonitorModule.js";
 
-function Tutorials() {
-  var pdfFile = CardBlocking;
+const Tutorials = () => {
+  const INPUT_NAME = "agent tutorials";
+  let pdfFile = CardBlocking;
 
   function choosePdf(n) {
     if (n === 1) {
@@ -38,7 +40,8 @@ function Tutorials() {
       pdfFile = SelectBestVideos;
     }
   }
-  function setPdf() {}
+  const setPdf = () => {};
+
   return (
     <div>
       <div className="t-container">
@@ -47,7 +50,14 @@ function Tutorials() {
             <div className="t-row-container">
               <p className="t-text">Card blocking</p>
               {/*<button className="t-btn" onClick={choosePdf(1)}>*/}
-              <button type="submit" className="t-btn" onClick={choosePdf(1)}>
+              <button
+                type="submit"
+                className="t-btn"
+                onClick={() => {
+                  choosePdf(1);
+                  saveClick(`${INPUT_NAME} button`);
+                }}
+              >
                 Read
               </button>
             </div>
@@ -57,7 +67,13 @@ function Tutorials() {
           {
             <div className="t-row-container">
               <p className="t-text">Card rejected</p>
-              <button className="t-btn" onClick={choosePdf(2)}>
+              <button
+                className="t-btn"
+                onClick={() => {
+                  choosePdf(2);
+                  saveClick(`${INPUT_NAME} button`);
+                }}
+              >
                 Read
               </button>
             </div>
@@ -67,7 +83,13 @@ function Tutorials() {
           {
             <div className="t-row-container">
               <p className="t-text">Card cancellation</p>
-              <button className="t-btn" onClick={choosePdf(3)}>
+              <button
+                className="t-btn"
+                onClick={() => {
+                  choosePdf(3);
+                  saveClick(`${INPUT_NAME} button`);
+                }}
+              >
                 Read
               </button>
             </div>
@@ -81,6 +103,6 @@ function Tutorials() {
       </div>
     </div>
   );
-}
+};
 
 export default Tutorials;
