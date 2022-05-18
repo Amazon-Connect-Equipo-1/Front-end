@@ -1,10 +1,10 @@
 import "../../styles/AgentMain/ThirdParty.css";
 import ThirdParty from "./ThirdParty";
 
-const UberForm = (props) => {
+const UberEatsForm = (props) => {
   return (
     <div>
-      <div className="tp-title">Uber Service</div>
+      <div className="tp-title">Uber Eats Service</div>
       <form>
         <label className="tp-name-label">
           Client:
@@ -23,7 +23,7 @@ const UberForm = (props) => {
           <input type="text" className="tp-input-label" />
         </label>
         <label className="tp-name-label">
-          Destination:
+          Order:
           <input type="text" className="tp-input-label" />
         </label>
         <div className="tp-submit">
@@ -33,4 +33,4 @@ const UberForm = (props) => {
     </div>
   );
 };
-export default UberForm;
+export default UberEatsForm;
