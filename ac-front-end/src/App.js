@@ -25,6 +25,7 @@ import RecordingsSupplier from "./components/RecordingsSupplier";
 import Error from "./components/Error/Error";
 import AgentMain from "./components/AgentMain/AgentMain";
 import QualityControl from "./components/QualityControl/QualityControl";
+import AgentsAAndQASupplier from "./components/AgentsAAndQASupplier";
 
 function App() {
   const body = document.body;
@@ -86,7 +87,7 @@ function App() {
   i18n.on("languageChanged", (lng) => setLocale(i18n.language));
 
   //Variable that determines the user type
-  const USER = "Agent"; //Amdin, QA, Agent, Client
+  const USER = "Admin"; //Amdin, QA, Agent, Client
 
   return (
     <div className="App">
@@ -120,7 +121,14 @@ function App() {
               <Navbar sidebarData={USER} />
               <Routes>
                 <Route path="/" exact element={<Dashboard />} />
-                <Route path="/agents" element={<AgentList />} />
+                <Route
+                  path="/agents"
+                  element={
+                    <AgentsAAndQASupplier>
+                      <AgentList />
+                    </AgentsAAndQASupplier>
+                  }
+                />
                 <Route path="/statistics" element={<Statistics />} />
                 <Route path="/settings" element={<Settings />} />
                 <Route path="*" element={<Error />} />
@@ -142,7 +150,15 @@ function App() {
                     </RecordingsSupplier>
                   }
                 />
-                <Route path="/agents" exact element={<AgentList />} />
+                <Route
+                  path="/agents"
+                  exact
+                  element={
+                    <AgentsAAndQASupplier>
+                      <AgentList />
+                    </AgentsAAndQASupplier>
+                  }
+                />
                 <Route path="/statistics" exact element={<Statistics />} />
                 <Route path="/settings" exact element={<Settings />} />
                 <Route path="*" element={<Error />} />

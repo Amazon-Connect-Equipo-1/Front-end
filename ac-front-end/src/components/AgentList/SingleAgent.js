@@ -5,7 +5,7 @@ import percent from "../../images/porcentaje.png";
 const SingleAgent = (props) => {
   return (
     <div className="sa-main-container">
-      <p className="sa-title">Agent Jim Halpert</p>
+      <p className="sa-title">{props.agent.agentName}</p>
       <div>
         <img
           className="sa-profile-picture"
@@ -15,11 +15,7 @@ const SingleAgent = (props) => {
         <img className="sa-percent-picture" src={percent} alt="%" />
       </div>
       <br />
-      <p className="sa-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      </p>
+      <p className="sa-text">{props.agent.description}</p>
     </div>
   );
 };

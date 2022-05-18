@@ -8,19 +8,19 @@ const AgentsAAndQASupplier = ({ children }) => {
   const dummyAgents = [
     {
       id: 1,
-      agent_name: "Jim Halpert",
+      agentName: "Jim Halpert",
       description: "He is a good guy",
       working: true,
     },
     {
       id: 2,
-      agent_name: "Dwight Schrute",
+      agentName: "Dwight Schrute",
       description: "He is a bad guy",
       working: false,
     },
     {
       id: 3,
-      agent_name: "Pam Beesly",
+      agentName: "Pam Beesly",
       description: ":)",
       working: true,
     },
@@ -36,7 +36,7 @@ const AgentsAAndQASupplier = ({ children }) => {
   const getAgent = (videoId) => {};
 
   return (
-    <AgentAAndQAContext.Provider value={[arrRecordings]}>
+    <AgentAAndQAContext.Provider value={[arrAgents]}>
       {children}
     </AgentAAndQAContext.Provider>
   );

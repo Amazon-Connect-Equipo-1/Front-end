@@ -2,24 +2,22 @@ import "../../styles/AgentList/AllAgentsList.css";
 import AgentRow from "./AgentRow";
 import { useTranslation } from "react-i18next";
 import { useContext } from "react";
+import { AgentAAndQAContext } from "../AgentsAAndQASupplier";
 
 const AllAgentList = (props) => {
   // Language
   const { t } = useTranslation();
 
   //Logic to generate the rows
-  // const [arrAgents] = useContext(AgentsContext);
+  const [arrAgents] = useContext(AgentAAndQAContext);
 
   return (
     <div className="aal-main-container">
       <p className="aal-title">{t("allAgents")}</p>
       <div>
-        <AgentRow />
-        <AgentRow />
-        <AgentRow />
-        <AgentRow />
-        <AgentRow />
-        <AgentRow />
+        {arrAgents.map((agent) => (
+          <AgentRow agentName={agent.agentName} />
+        ))}
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import logo from "../../images/logo_bbva.png";
 import { QASidebarData } from "./QASidebarData";
 import { AdminSidebarData } from "./AdminSidebarData";
 import { AgentSidebarData } from "./AgentSidebarData";
@@ -26,10 +25,10 @@ const Navbar = (props) => {
   const name = "Michael";
 
   return (
-    <>
+    <div className="nav-container">
       <IconContext.Provider value={{ color: "var(--text-color)", size: 60 }}>
-        <div className="navbar">
-          <Link to="#" className="menu-bars">
+        <div className="nav-bar">
+          <Link to="#" className="nav-menu-bars">
             <img className="nav-icon" />
           </Link>
           <h1 className="nav-welcome-text">{t("welcomeText") + ", " + name}</h1>
@@ -47,7 +46,7 @@ const Navbar = (props) => {
           </ul>
         </nav>
       </IconContext.Provider>
-    </>
+    </div>
   );
 };
 
