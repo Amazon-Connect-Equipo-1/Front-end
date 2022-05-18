@@ -2,8 +2,8 @@
 
 .rec-main-container {
   width: 40rem;
-  color: white;
-  background-color: #415164;
+  color: var(--text-color);
+  background-color: var(--sub-card-background);
   border-radius: 10px;
   overflow: hidden;
 }

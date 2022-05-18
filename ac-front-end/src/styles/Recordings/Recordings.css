@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #132535;
+  background-color: var(--main-card-background);
   margin: 1rem 2rem 2rem 100px;
   border-radius: 10px;
 }
@@ -26,17 +26,17 @@
 }
 
 .re-input {
-  font-size: 2rem;
+  font-size: var(--option-text);
   border-radius: 10px;
   padding: 1rem 1rem 1rem 2rem;
 }
 
 .re-select {
-  font-size: 2rem;
+  font-size: var(--option-text);
   border-radius: 10px;
   padding: 1rem;
-  background-color: #9facbd;
-  color: white;
+  background-color: var(--highlight-color);
+  color: var(--text-color);
 }
 
 /*Media queries for Recordings*/

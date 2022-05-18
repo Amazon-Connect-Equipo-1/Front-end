@@ -87,7 +87,7 @@ function App() {
   i18n.on("languageChanged", (lng) => setLocale(i18n.language));
 
   //Variable that determines the user type
-  const USER = "Admin"; //Amdin, QA, Agent, Client
+  const USER = "QA"; //Amdin, QA, Agent, Client
 
   return (
     <div className="App">

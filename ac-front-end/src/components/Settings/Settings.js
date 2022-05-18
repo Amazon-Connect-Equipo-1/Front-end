@@ -26,6 +26,7 @@ function Settings() {
   const bigTxtSize = "big";
   let txtSize;
 
+  let lang;
   if (localStorage) {
     theme = localStorage.getItem("theme");
     txtSize = localStorage.getItem("txtSize");
