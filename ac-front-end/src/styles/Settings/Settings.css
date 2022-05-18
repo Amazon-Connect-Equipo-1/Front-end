@@ -16,7 +16,7 @@
 }
 
 .stngs-option {
-  font-size: 3rem;
+  font-size: var(--sub-title);
   font-weight: bold;
   display: flex;
   gap: 2rem;
@@ -25,7 +25,7 @@
   padding: 2rem;
 }
 .stngs-select {
-  font-size: 2rem;
+  font-size: var(--option-text);
   font-weight: bold;
   border-radius: 6px;
   border-color: transparent;

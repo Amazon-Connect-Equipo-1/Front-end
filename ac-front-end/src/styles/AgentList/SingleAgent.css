@@ -10,7 +10,7 @@
 }
 
 .sa-title {
-  font-size: 4rem;
+  font-size: var(--sub-title);
   font-weight: bold;
   margin-bottom: 2rem;
   margin-top: 2rem;
