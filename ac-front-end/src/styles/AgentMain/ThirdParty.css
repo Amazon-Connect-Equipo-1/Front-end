@@ -37,3 +37,26 @@
   padding: 2rem 0 2rem 0;
   min-height: max-content;
 }
+.tp-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+  margin-left: 6rem;
+  margin-top: 2rem;
+  min-height: max-content;
+}
+.tp-submit {
+  display: flex;
+  justify-content: center;
+  align-items: right;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2rem 0 2rem 0;
+  min-height: max-content;
+}
+.tp-name-label {
+  padding-bottom: 2rem;
+  margin-left: 2rem;
+}
