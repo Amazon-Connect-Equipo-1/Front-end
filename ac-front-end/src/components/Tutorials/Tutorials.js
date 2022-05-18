@@ -3,69 +3,82 @@ import { Worker } from "@react-pdf-viewer/core";
 import { Viewer } from "@react-pdf-viewer/core";
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "../../styles/Tutorials/Tutorials.css";
+import BloqueoTarjeta from "../../pdf/BloqueoTarjeta.pdf";
+import CancelacionTarjeta from "../../pdf/CancelacionTarjeta.pdf";
 import CardBlocking from "../../pdf/CardBlocking.pdf";
+import CardCancellation from "../../pdf/CardCancellation.pdf";
+import CardRejected from "../../pdf/CardRejected.pdf";
+import ReportarCargosNoReconocidos from "../../pdf/ReportarCargosNoReconocidos.pdf";
+import ReportUnrecognizedCharges from "../../pdf/ReportUnrecognizedCharges.pdf";
+import RequestNewPlastic from "../../pdf/RequestNewPlastic.pdf";
+import RequestThirdPartyService from "../../pdf/RequestThirdPartyService.pdf";
+import SeleccionarMejoresVideos from "../../pdf/SeleccionarMejoresVideos.pdf";
+import SelectBestVideos from "../../pdf/SelectBestVideos.pdf";
+import SolicitarNuevoPlastico from "../../pdf/SolicitarNuevoPlastico.pdf";
+import SolicitarServicioTerceros from "../../pdf/SolicitarServicioTerceros.pdf";
+import TarjetaRechazada from "../../pdf/TarjetaRechazada.pdf";
 
 function Tutorials() {
-  const pdfFile = CardBlocking;
-  /*
-  const [pdfFile, setPdfFile] = useState(null);
-  const [pdfError, setPdfError] = useState("");
+  var pdfFile = CardBlocking;
 
-  const allowedFiles = ["application/pdf"];
-  const handleFile = (e) => {
-    let selectedFile = e.target.files[0];
-    if (selectedFile) {
-      if (selectedFile && allowedFiles.includes(selectedFile.type)) {
-        let reader = new FileReader();
-        reader.readAsDataURL(selectedFile);
-        reader.onloadend = (e) => {
-          setPdfError("");
-          setPdfFile(e.target.result);
-        };
-      } else {
-        setPdfError("Not a valid pdf: Please select only PDF");
-        setPdfFile("");
-      }
-    } else {
-      console.log("please select a PDF");
+  function choosePdf(n) {
+    if (n === 1) {
+      pdfFile = CardBlocking;
+    } else if (n === 2) {
+      pdfFile = CardCancellation;
+    } else if (n === 3) {
+      pdfFile = CardRejected;
+    } else if (n === 4) {
+      pdfFile = ReportUnrecognizedCharges;
+    } else if (n === 5) {
+      pdfFile = RequestNewPlastic;
+    } else if (n === 6) {
+      pdfFile = RequestThirdPartyService;
+    } else if (n === 7) {
+      pdfFile = SelectBestVideos;
     }
-  };*/
-  /*
+  }
+  function setPdf() {}
   return (
-    
-    <div className="container">
-      <form>
-        <label>
-          <h5>Upload PDF</h5>
-        </label>
-        <br></br>
-
-        <input
-          type="file"
-          className="form-control"
-          onChange={handleFile}
-        ></input>
-        {pdfError && <span className="text-danger">{pdfError}</span>}
-      </form>
-
-      <h5>View PDF</h5>
-      <div className="viewer">
-        {pdfFile && (
-          <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.13.216/build/pdf.worker.min.js">
-            <Viewer fileUrl="https://written-pdf-tutorials.s3.us-west-2.amazonaws.com/Card+blocking.pdf"></Viewer>
-            // <Viewer fileUrl={pdfFile}></Viewer>
-          </Worker>
-        )}
-
-        {!pdfFile && <>No file is selected yet</>}
+    <div>
+      <div className="t-container">
+        <div>
+          {
+            <div className="t-row-container">
+              <p className="t-text">Card blocking</p>
+              {/*<button className="t-btn" onClick={choosePdf(1)}>*/}
+              <button type="submit" className="t-btn" onClick={choosePdf(1)}>
+                Read
+              </button>
+            </div>
+          }
+        </div>
+        <div>
+          {
+            <div className="t-row-container">
+              <p className="t-text">Card rejected</p>
+              <button className="t-btn" onClick={choosePdf(2)}>
+                Read
+              </button>
+            </div>
+          }
+        </div>
+        <div>
+          {
+            <div className="t-row-container">
+              <p className="t-text">Card cancellation</p>
+              <button className="t-btn" onClick={choosePdf(3)}>
+                Read
+              </button>
+            </div>
+          }
+        </div>
       </div>
-    </div>
-  );*/
-  return (
-    <div className="viewer">
-      <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.13.216/build/pdf.worker.min.js">
-        <Viewer fileUrl={pdfFile}></Viewer>
-      </Worker>
+      <div className="viewer">
+        <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.13.216/build/pdf.worker.min.js">
+          <div>{<Viewer fileUrl={pdfFile}></Viewer>}</div>
+        </Worker>
+      </div>
     </div>
   );
 }

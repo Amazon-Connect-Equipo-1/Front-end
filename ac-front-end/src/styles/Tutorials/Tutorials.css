@@ -1,17 +1,82 @@
+/*
 form {
   margin: 30px 0px;
 }
 
 .viewer {
-  background-color: #e4e4e4;
+  background-color: var(--sub-card-background);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 500px;
   overflow-y: auto;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 span {
   margin-top: 3px;
+}
+*/
+/*Initials: t*/
+.rpv-core__inner-page {
+  background-color: var(--sub-card-background);
+}
+
+.t-row-container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  column-gap: 5rem;
+  grid-template-columns: 4fr 1.5fr;
+  margin-bottom: 2rem;
+}
+
+.t-container {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.t-main-container {
+  width: 40rem;
+  background-color: var(--sub-card-background);
+  color: var(--text-color);
+  border-radius: 10px;
+  box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
+  min-height: 50rem;
+}
+
+.t-title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  text-align: center;
+}
+
+.t-text {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.t-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2rem 0 2rem 0;
+  min-height: max-content;
+}
+
+.t-btn {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 0.6rem;
+  background-color: #9facbd;
+  color: #ffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
