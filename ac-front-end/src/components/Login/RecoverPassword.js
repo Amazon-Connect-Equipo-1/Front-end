@@ -1,0 +1,19 @@
+import "../../styles/Login/RecoverPassword.css";
+import logo from "../../images/logo_bbva.png";
+import LoginForm from "./LoginForm";
+import ForgottenPasswordForm from "./ForgottenPasswordForm";
+import NewPasswordForm from "./NewPasswordForm";
+
+const RecoverPassword = (props) => {
+  return (
+    <div className="rp-main-container">
+      <div className="rp-container">
+        <img src={logo} alt="logo" className="rp-logo" />
+        {/*<ForgottenPasswordForm />*/}
+        <NewPasswordForm />
+      </div>
+    </div>
+  );
+};
+
+export default RecoverPassword;

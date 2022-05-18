@@ -6,7 +6,7 @@
   "textMediumSize": "Medium (Default)",
   "textSmallSize": "Small",
   "textBigSize": "Big",
-  "englishLanguage": "English",
+  "englishLanguage": "English (Default)",
   "spanishLanguage": "Spanish",
   "darkTheme": "Dark Mode (Default)",
   "lightTheme": "Light Mode",
@@ -22,6 +22,18 @@
   "password": "Password",
   "fyp": "Forgot your password?",
   "signInBtn": "Sign in",
+
+  "__recoverPassword__": "----------Recover Password Interface----------",
+  "changePassword": "Recover password",
+  "rpEmail": "Email",
+  "recoverPasswordBtn": "Continue",
+  "token": "Confirmation token",
+
+  "__newPassword__": "----------New Password Interface----------",
+  "setNewPassword": "Set new password",
+  "newPassword": "New password",
+  "setNewPasswordBtn": "Save new password",
+  "confirmNewPassword": "Confirm password",
 
   "__agentList__": "----------Agent List Interface----------",
   "activeCalls": "Active Calls",

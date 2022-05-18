@@ -6,7 +6,7 @@
   "textMediumSize": "Mediano (Predeterminado)",
   "textSmallSize": "Pequeño",
   "textBigSize": "Grande",
-  "englishLanguage": "Inglés",
+  "englishLanguage": "Inglés (Predeterminado)",
   "spanishLanguage": "Español",
   "darkTheme": "Modo Oscuro (Predeterminado)",
   "lightTheme": "Modo Claro",
@@ -22,6 +22,18 @@
   "password": "Contraseña",
   "fyp": "¿Olvidaste tu contraseña?",
   "signInBtn": "Iniciar sesión",
+
+  "__recoverPassword__": "----------Recover Password Interface----------",
+  "changePassword": "Recuperar contraseña",
+  "rpEmail": "Correo electrónico",
+  "recoverPasswordBtn": "Continuar",
+  "token": "Token de confirmación",
+
+  "__newPassword__": "----------New Password Interface----------",
+  "setNewPassword": "Crear nueva contraseña",
+  "newPassword": "Nueva contraseña",
+  "setNewPasswordBtn": "Guardar nueva contraseña",
+  "confirmNewPassword": "Confirmar contraseña",
 
   "__agentList__": "----------Agent List Interface----------",
   "activeCalls": "Llamadas activas",
