@@ -65,5 +65,8 @@
   "__userType__": "----------User Type Interface----------",
   "selectUserType": "Select user type:",
   "utAgent": "Agent",
-  "utClient": "Client"
+  "utClient": "Client",
+
+  "__menu_-": "----------Menu Interface----------",
+  "welcomeText": "Welcome back"
 }

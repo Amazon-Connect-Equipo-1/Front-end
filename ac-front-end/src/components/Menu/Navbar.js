@@ -6,6 +6,7 @@ import { AgentSidebarData } from "./AgentSidebarData";
 import "../../styles/Menu/Navbar.css";
 import { IconContext } from "react-icons";
 import { FaUserCircle } from "react-icons/fa";
+import { t } from "i18next";
 
 const Navbar = (props) => {
   //funcion para poner el nombre del admin o quality analyst
@@ -22,6 +23,8 @@ const Navbar = (props) => {
     }
   };
 
+  const name = "Michael";
+
   return (
     <>
       <IconContext.Provider value={{ color: "var(--text-color)", size: 60 }}>
@@ -29,7 +32,7 @@ const Navbar = (props) => {
           <Link to="#" className="menu-bars">
             <img className="nav-icon" />
           </Link>
-          <h1 className="nav-welcome-text">Welcome back, Michael</h1>
+          <h1 className="nav-welcome-text">{t("welcomeText") + ", " + name}</h1>
           <FaUserCircle className="nav-user-icon" />
         </div>
         <nav className="nav-menu">
