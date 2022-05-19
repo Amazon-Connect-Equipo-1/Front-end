@@ -8,11 +8,14 @@ const Dashboard = (props) => {
         <iframe
           width="960"
           height="720"
-          src="https://us-west-2.quicksight.aws.amazon.com/sn/dashboards/bcab7222-bf07-44e9-94ef-f78bc4115e99/views/3dfaa089-4e21-4bf8-b970-755cda0597ba"
-        ></iframe>
+          src="https://us-west-2.quicksight.aws.amazon.com/sn/embed/share/accounts/559202700801/dashboards/f0f0db32-74b6-4fef-8a26-89103d50737b?directory_alias=amazonconnectbancos">
+        </iframe>
       </div>
     </div>
   );
 };
 
 export default Dashboard;
+
+
+
