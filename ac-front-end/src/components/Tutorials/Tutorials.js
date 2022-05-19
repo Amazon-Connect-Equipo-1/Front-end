@@ -45,24 +45,21 @@ const Tutorials = () => {
   return (
     <div>
       <div className="t-container">
-        <div>
-          {
-            <div className="t-row-container">
-              <p className="t-text">Card blocking</p>
-              {/*<button className="t-btn" onClick={choosePdf(1)}>*/}
-              <button
-                type="submit"
-                className="t-btn"
-                onClick={() => {
-                  choosePdf(1);
-                  saveClick(`${INPUT_NAME} button`);
-                }}
-              >
-                Read
-              </button>
-            </div>
-          }
+        <div className="t-row-container">
+          <p className="t-text">Card blocking</p>
+          {/*<button className="t-btn" onClick={choosePdf(1)}>*/}
+          <button
+            type="submit"
+            className="t-btn"
+            onClick={() => {
+              choosePdf(1);
+              saveClick(`${INPUT_NAME} button`);
+            }}
+          >
+            Read
+          </button>
         </div>
+
         <div>
           {
             <div className="t-row-container">

@@ -60,9 +60,11 @@ const UberForm = (props) => {
             onKeyDown={saveKeys}
             onClick={(e) => {
               e.preventDefault();
+              props.onChange("Main");
               saveClick(`${INPUT_NAME} input`);
             }}
             value="Ask for service"
+            className="tp-submit-button"
           />
         </div>
       </form>

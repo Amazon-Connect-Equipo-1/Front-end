@@ -80,16 +80,16 @@ const ThirdParty = (props) => {
     );
   }
   if (tps === "Uber") {
-    return <UberForm />;
+    return <UberForm onChange={settps} />;
   }
   if (tps === "UberEats") {
-    return <UberEatsForm />;
+    return <UberEatsForm onChange={settps} />;
   }
   if (tps === "Oxxo") {
-    return <OxxoForm />;
+    return <OxxoForm onChange={settps} />;
   }
   if (tps === "Police") {
-    return <PoliceForm />;
+    return <PoliceForm onChange={settps} />;
   }
 };
 
