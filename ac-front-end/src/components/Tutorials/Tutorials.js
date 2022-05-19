@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Worker } from "@react-pdf-viewer/core";
 import { Viewer } from "@react-pdf-viewer/core";
 import "@react-pdf-viewer/core/lib/styles/index.css";
@@ -18,26 +17,29 @@ import SolicitarNuevoPlastico from "../../pdf/SolicitarNuevoPlastico.pdf";
 import SolicitarServicioTerceros from "../../pdf/SolicitarServicioTerceros.pdf";
 import TarjetaRechazada from "../../pdf/TarjetaRechazada.pdf";
 import { saveClick } from "../MonitorModule.js";
+import { useState } from "react";
 
 const Tutorials = () => {
   const INPUT_NAME = "agent tutorials";
-  var pdfFile = CardBlocking;
+
+  const [pdfFile, setPdfFile] = useState(CardBlocking);
+  
 
   function choosePdf(n) {
     if (n === 1) {
-      pdfFile = CardBlocking;
+      setPdfFile(CardBlocking);
     } else if (n === 2) {
-      pdfFile = CardCancellation;
+      setPdfFile(CardRejected);
     } else if (n === 3) {
-      pdfFile = CardRejected;
+      setPdfFile(CardCancellation);
     } else if (n === 4) {
-      pdfFile = ReportUnrecognizedCharges;
+      setPdfFile(ReportUnrecognizedCharges);
     } else if (n === 5) {
-      pdfFile = RequestNewPlastic;
+      setPdfFile(RequestNewPlastic);
     } else if (n === 6) {
-      pdfFile = RequestThirdPartyService;
+      setPdfFile(RequestThirdPartyService);
     } else if (n === 7) {
-      pdfFile = SelectBestVideos;
+      setPdfFile(SelectBestVideos);
     }
   }
 
