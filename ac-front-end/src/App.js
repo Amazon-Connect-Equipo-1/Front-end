@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AgListSet from "./components/AgentList/AgListSet";
 import Login from "./components/Login/Login";
+import RecoverPassword from "./components/Login/RecoverPassword";
 import Profile from "./components/Profile/Profile";
 import AboutCard from "./components/Recordings/AboutCard";
 import Recordings from "./components/Recordings/Recordings";
@@ -97,6 +98,9 @@ function App() {
 
           {/* MODULO DE CLIENTE*/}
           {USER === "Client" && <Usuario></Usuario>}
+
+          {/* Login*/}
+          {USER === "General" && <RecoverPassword />}
 
           {/*MODULO DE AGENTE*/}
           {USER === "Agent" && (

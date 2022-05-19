@@ -16,15 +16,15 @@ const LoginForm = (props) => {
           <input id="lgf-email" type="email" className="lgf-input" />
           <div className="lgf-flex">
             <label className=" lgf-label lgf-margin-bottom-sm lgf-margin-top-md">
-            {t("password")}
+              {t("password")}
             </label>
             <a href="/" className="lgf-forgot-text">
-            {t("fyp")}
+              {t("fyp")}
             </a>
           </div>
           <input type="password" className="lgf-input" />
           <button type="submit" className="lgf-button">
-          {t("signInBtn")}
+            {t("signInBtn")}
           </button>
         </form>
       </div>

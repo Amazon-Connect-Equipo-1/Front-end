@@ -4,6 +4,25 @@ import { useTranslation } from "react-i18next";
 import Card from "../UI/Card";
 
 const NewPasswordForm = (props) => {
+  /*
+  //Parsing data within the token query(FRONT)
+  var cipher_data = req.query.token?.toString().split("$");
+
+  //Encrypted token and its keys to be dencrypted
+  const encrypted_token = Buffer.from(cipher_data[0], "hex");
+  const iv = Buffer.from(cipher_data[1], "hex");
+  const key = Buffer.from(cipher_data[2], "hex");
+
+  //Creating the decipher for the token
+  const decipher = crypto.createDecipheriv("aes-256-cbc", Buffer.from(key), iv);
+
+  //Dencrypting the token
+  var decrypted_token = decipher.update(encrypted_token);
+  decrypted_token = Buffer.concat([decrypted_token, decipher.final()]);
+
+  //Original token
+  const token = decrypted_token.toString();*/
+
   // Language
   const { t } = useTranslation();
   return (
