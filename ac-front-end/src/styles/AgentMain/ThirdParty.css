@@ -15,7 +15,7 @@
   font-size: 4rem;
   font-weight: bold;
   margin: 2rem;
-  text-align: left;
+  text-align: center;
 }
 .tp-button {
   display: flex;
@@ -81,7 +81,7 @@
   width: 50%;
 }
 .tp-submit-button {
-  background-color: var(--main-card-background);
+  background-color: var(--highlight-color);
   color: var(--text-color);
 
   font-size: 2rem;
