@@ -21,7 +21,7 @@ import { saveClick } from "../MonitorModule.js";
 
 const Tutorials = () => {
   const INPUT_NAME = "agent tutorials";
-  let pdfFile = CardBlocking;
+  var pdfFile = CardBlocking;
 
   function choosePdf(n) {
     if (n === 1) {
@@ -40,10 +40,10 @@ const Tutorials = () => {
       pdfFile = SelectBestVideos;
     }
   }
-  const setPdf = () => {};
 
   return (
     <div>
+      <div className="t-title">System Help</div>
       <div className="t-container">
         <div className="t-row-container">
           <p className="t-text">Card blocking</p>

@@ -76,7 +76,7 @@ span {
 .t-btn {
   font-size: 2rem;
   font-weight: bold;
-  padding: 0.6rem;
+  display: flex;
   background-color: #9facbd;
   color: #ffff;
   border: none;
