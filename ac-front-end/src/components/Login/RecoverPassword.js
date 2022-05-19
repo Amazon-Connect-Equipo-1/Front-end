@@ -10,7 +10,7 @@ const RecoverPassword = (props) => {
       <div className="rp-container">
         <img src={logo} alt="logo" className="rp-logo" />
         {/*<ForgottenPasswordForm />*/}
-        <NewPasswordForm />
+        <ForgottenPasswordForm />
       </div>
     </div>
   );
