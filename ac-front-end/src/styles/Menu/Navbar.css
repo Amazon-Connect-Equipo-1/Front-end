@@ -82,12 +82,7 @@
 .nav-text a:hover {
   background-color: var(--highlight-color);
 }
-
-/* .nav-text a:hover:nth-child(1)::after {
-  content: "america";
-  width: 10px;
-  height: 10px;
-}
+/*
 .nav-text a:hover:nth-child(2)::after {
   content: "ama";
   width: 10px;

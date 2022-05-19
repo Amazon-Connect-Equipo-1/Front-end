@@ -6,6 +6,7 @@ import "../../styles/Menu/Navbar.css";
 import { IconContext } from "react-icons";
 import { FaUserCircle } from "react-icons/fa";
 import { t } from "i18next";
+import React, { useState } from "react";
 
 const Navbar = (props) => {
   //funcion para poner el nombre del admin o quality analyst
@@ -24,6 +25,20 @@ const Navbar = (props) => {
 
   const name = "Michael";
 
+  let timeout;
+  const [active, setActive] = useState(false);
+
+  const showTip = () => {
+    timeout = setTimeout(() => {
+      setActive(true);
+    }, props.delay || 400);
+  };
+
+  const hideTip = () => {
+    clearInterval(timeout);
+    setActive(false);
+  };
+
   return (
     <div className="nav-container">
       <IconContext.Provider value={{ color: "var(--text-color)", size: 60 }}>
@@ -38,7 +53,12 @@ const Navbar = (props) => {
           <ul className="nav-menu-items">
             {getSidebarData().map((item, index) => {
               return (
-                <li key={index} className={item.cName}>
+                <li
+                  key={index}
+                  className={item.cName}
+                  title={item.title}
+                  onMouseOver={item.title}
+                >
                   <Link to={item.path}>{item.icon}</Link>
                 </li>
               );

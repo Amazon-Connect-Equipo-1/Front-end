@@ -33,9 +33,11 @@
 
 .re-select {
   font-size: var(--option-text);
-  border-radius: 10px;
-  padding: 1rem;
-  background-color: var(--highlight-color);
+  font-weight: bold;
+  border-radius: 6px;
+  border-color: transparent;
+  padding: 1.2rem;
+  background-color: var(--sub-card-background);
   color: var(--text-color);
 }
 
