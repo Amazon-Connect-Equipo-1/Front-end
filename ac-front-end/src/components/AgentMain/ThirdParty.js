@@ -8,6 +8,7 @@ import UberForm from "./UberForm";
 import UberEatsForm from "./UberEatsForm";
 import OxxoForm from "./OxxoForm";
 import { saveKeys, saveClick } from "../MonitorModule.js";
+import PoliceForm from "./PoliceForm";
 
 const ThirdParty = (props) => {
   const INPUT_NAME = "agent tutorials";
@@ -88,6 +89,7 @@ const ThirdParty = (props) => {
     return <OxxoForm />;
   }
   if (tps === "Police") {
+    return <PoliceForm />;
   }
 };
 

@@ -69,6 +69,7 @@ const OxxoForm = (props) => {
             onKeyDown={saveKeys}
             onClick={() => saveClick(`${INPUT_NAME} input`)}
             value="Ask for service"
+            className="tp-submit-button "
           />
         </div>
       </form>

@@ -76,3 +76,9 @@
 
   min-height: max-content;
 }
+.tp-submit-button {
+  background-color: var(--main-card-background);
+  border-radius: 10px;
+  box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
+  color: var(--text-color);
+}
