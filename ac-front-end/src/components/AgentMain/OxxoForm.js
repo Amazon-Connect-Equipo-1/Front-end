@@ -3,7 +3,11 @@ import ThirdParty from "./ThirdParty";
 import { saveKeys, saveClick } from "../MonitorModule.js";
 
 const OxxoForm = (props) => {
-  const INPUT_NAME = "oxxo form";
+  const INPUT_NAME = "Oxxo form";
+
+  const onSubmitHandler = (event) => {
+    event.preventDefault();
+  };
 
   return (
     <div>
@@ -67,9 +71,12 @@ const OxxoForm = (props) => {
           <input
             type="submit"
             onKeyDown={saveKeys}
-            onClick={() => saveClick(`${INPUT_NAME} input`)}
+            onClick={(e) => {
+              e.preventDefault();
+              saveClick(`${INPUT_NAME} input`);
+            }}
             value="Ask for service"
-            className="tp-submit-button "
+            className="tp-submit-button"
           />
         </div>
       </form>

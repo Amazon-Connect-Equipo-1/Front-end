@@ -1,26 +1,26 @@
 /*Initials: tp*/
 
 .tp-main-container {
-  width: 30rem;
+  width: 40rem;
   background-color: var(--sub-card-background);
   color: var(--text-color);
   border-radius: 10px;
   box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
-  min-height: 50rem;
+  min-height: 60rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .tp-title {
   font-size: 4rem;
   font-weight: bold;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
-  text-align: center;
+  margin: 2rem;
+  text-align: left;
 }
 .tp-button {
+  display: flex;
   width: 7rem;
   height: 7rem;
-  display: flex;
 }
 .tp-image {
   width: 7rem;
@@ -57,10 +57,10 @@
   min-height: max-content;
 }
 .tp-name-label {
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   justify-content: right;
-
+  font-size: 2rem;
   align-items: center;
   gap: 2rem;
   flex-wrap: wrap;
@@ -73,8 +73,12 @@
   align-items: right;
   gap: 2rem;
   flex-wrap: wrap;
-
+  font-size: var(--option-text);
+  border-radius: 10px;
+  padding: 1rem 1rem 1rem 2rem;
   min-height: max-content;
+
+  width: 50%;
 }
 .tp-submit-button {
   background-color: var(--main-card-background);

@@ -12,9 +12,6 @@ const Recordings = (props) => {
   const [arrRecordings] = useContext(RecordingsContext);
   const INPUT_NAME = "recordings";
 
-  //Dummy list (delete)
-  const keyList = [];
-
   return (
     <div className="re-main-container">
       <div className="re-container">
