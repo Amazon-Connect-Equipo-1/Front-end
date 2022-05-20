@@ -23,82 +23,35 @@ const Tutorials = () => {
   const INPUT_NAME = "agent tutorials";
 
   const [pdfFile, setPdfFile] = useState(CardBlocking);
-  
 
   function choosePdf(n) {
-    if (n === 1) {
-      setPdfFile(CardBlocking);
-    } else if (n === 2) {
-      setPdfFile(CardRejected);
-    } else if (n === 3) {
-      setPdfFile(CardCancellation);
-    } else if (n === 4) {
-      setPdfFile(ReportUnrecognizedCharges);
-    } else if (n === 5) {
-      setPdfFile(RequestNewPlastic);
-    } else if (n === 6) {
-      setPdfFile(RequestThirdPartyService);
-    } else if (n === 7) {
-      setPdfFile(SelectBestVideos);
-    }
+    setPdfFile(n);
   }
 
   return (
-    <div>
-      <div className="t-title">System Help</div>
+    <div className="t-sub-container">
+      <h2 className="t-title">System Help</h2>
       <div className="t-container">
-        <div className="t-row-container">
-          <p className="t-text">Card blocking</p>
-          {/*<button className="t-btn" onClick={choosePdf(1)}>*/}
-          <button
-            type="submit"
-            className="t-btn"
-            onClick={() => {
-              choosePdf(1);
-              saveClick(`${INPUT_NAME} button`);
-            }}
-          >
-            Read
-          </button>
-        </div>
-
-        <div>
-          {
-            <div className="t-row-container">
-              <p className="t-text">Card rejected</p>
-              <button
-                className="t-btn"
-                onClick={() => {
-                  choosePdf(2);
-                  saveClick(`${INPUT_NAME} button`);
-                }}
-              >
-                Read
-              </button>
-            </div>
-          }
-        </div>
-        <div>
-          {
-            <div className="t-row-container">
-              <p className="t-text">Card cancellation</p>
-              <button
-                className="t-btn"
-                onClick={() => {
-                  choosePdf(3);
-                  saveClick(`${INPUT_NAME} button`);
-                }}
-              >
-                Read
-              </button>
-            </div>
-          }
-        </div>
+        <select
+          className="t-select"
+          onChange={(t) => choosePdf(t.target.value)}
+        >
+          <option value={CardBlocking}>Card Blocking</option>
+          <option value={CardRejected}>Card Rejected</option>
+          <option value={CardCancellation}>Card Cancellation</option>
+          <option value={RequestNewPlastic}>Request New Plastic</option>
+          <option value={RequestThirdPartyService}>
+            Request Third Party Services
+          </option>
+        </select>
       </div>
       <div className="viewer">
-        <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.13.216/build/pdf.worker.min.js">
-          <div>{<Viewer fileUrl={pdfFile}></Viewer>}</div>
-        </Worker>
+        <iframe
+          classname="t-pdf"
+          src={`${pdfFile}#toolbar=0&navpanes=0`}
+          width="100%"
+          height="400px"
+        />
       </div>
     </div>
   );

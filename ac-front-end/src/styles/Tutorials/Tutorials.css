@@ -47,9 +47,12 @@ span {
   justify-content: center;
   align-items: center;
 }
+.t-sub-container {
+  width: 90%;
+}
 
 .t-title {
-  font-size: 4rem;
+  font-size: var(--sub-title);
   font-weight: bold;
   margin-bottom: 2rem;
   margin-top: 2rem;
@@ -82,4 +85,17 @@ span {
   border: none;
   border-radius: 10px;
   cursor: pointer;
+}
+.t-select {
+  font-size: var(--option-text);
+  font-weight: bold;
+  border-radius: 6px;
+  border-color: transparent;
+  width: 100%;
+  padding: 1.2rem;
+  background-color: var(--highlight-color);
+  color: var(--text-color);
+}
+.viewer {
+  padding-top: 2rem;
 }
