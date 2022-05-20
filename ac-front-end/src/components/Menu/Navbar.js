@@ -7,6 +7,7 @@ import { IconContext } from "react-icons";
 import { FaUserCircle } from "react-icons/fa";
 import { t } from "i18next";
 import React, { useState } from "react";
+import ReactTooltip from "react-tooltip";
 
 const Navbar = (props) => {
   //funcion para poner el nombre del admin o quality analyst
@@ -56,10 +57,20 @@ const Navbar = (props) => {
                 <li
                   key={index}
                   className={item.cName}
-                  title={item.title}
-                  onMouseOver={item.title}
+                  data-tip
+                  data-for={item.title}
                 >
                   <Link to={item.path}>{item.icon}</Link>
+                  <ReactTooltip
+                    classname="tool-tip"
+                    id={item.title}
+                    effect="solid"
+                    backgroundColor="var(--highlight-color)"
+                    textColor="var(--text-color)"
+                    place="right"
+                  >
+                    <span>{item.title}</span>
+                  </ReactTooltip>
                 </li>
               );
             })}

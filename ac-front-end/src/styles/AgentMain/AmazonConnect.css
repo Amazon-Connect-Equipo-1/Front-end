@@ -7,14 +7,14 @@
 }
 
 .ac-title {
-  font-size: 4rem;
+  font-size: var(--sub-title);
   font-weight: bold;
   margin: 2rem;
   text-align: center;
 }
 
 .ac-main-container {
-  width: 40rem;
+  width: 45rem;
   background-color: var(--sub-card-background);
   color: var(--text-color);
   border-radius: 10px;
