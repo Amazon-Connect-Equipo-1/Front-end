@@ -5,13 +5,13 @@ import { MdDashboard } from "react-icons/md";
 
 export const AgentSidebarData = [
   {
-    title: "AgentMain",
+    title: "Dashboard",
     path: "/",
     icon: <MdDashboard />,
     cName: "nav-text",
   },
   {
-    title: "QualityControl",
+    title: "Feedback",
     path: "/qualityControl",
     icon: <MdOutlineCheckBox />,
     cName: "nav-text",

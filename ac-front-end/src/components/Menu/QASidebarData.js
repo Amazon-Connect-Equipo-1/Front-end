@@ -18,7 +18,7 @@ export const QASidebarData = [
     cName: "nav-text",
   },
   {
-    title: "Agents",
+    title: "Agent List",
     path: "/agents",
     icon: <FiUsers />,
     cName: "nav-text",

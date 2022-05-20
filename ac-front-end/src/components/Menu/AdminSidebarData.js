@@ -13,7 +13,7 @@ export const AdminSidebarData = [
   },
 
   {
-    title: "Agents",
+    title: "Agent List",
     path: "/agents",
     icon: <FiUsers />,
     cName: "nav-text",
