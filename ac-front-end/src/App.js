@@ -108,6 +108,7 @@ function App() {
               <Navbar sidebarData={USER} />
               <Routes>
                 <Route path="/" exact element={<AgentMain />} />
+                <Route path="/profile" exact element={<Profile />} />
                 <Route
                   path="/QualityControl"
                   exact
@@ -125,6 +126,7 @@ function App() {
               <Navbar sidebarData={USER} />
               <Routes>
                 <Route path="/" exact element={<Dashboard />} />
+                <Route path="/profile" exact element={<Profile />} />
                 <Route
                   path="/agents"
                   element={
@@ -146,6 +148,7 @@ function App() {
               <Navbar sidebarData={USER} />
               <Routes>
                 <Route path="/" exact element={<Dashboard />} />
+                <Route path="/profile" exact element={<Profile />} />
                 <Route
                   path="/recordings"
                   element={

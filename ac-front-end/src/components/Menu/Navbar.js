@@ -48,7 +48,9 @@ const Navbar = (props) => {
             <img className="nav-icon" />
           </Link>
           <h1 className="nav-welcome-text">{t("welcomeText") + ", " + name}</h1>
-          <FaUserCircle className="nav-user-icon" />
+          <Link to="/profile">
+            <FaUserCircle className="nav-user-icon" />
+          </Link>
         </div>
         <nav className="nav-menu">
           <ul className="nav-menu-items">
