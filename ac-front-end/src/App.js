@@ -151,6 +151,7 @@ function App() {
                 <Routes>
                   <Route path="/" exact element={<Dashboard />} />
                   <Route path="/profile" exact element={<Profile />} />
+
                   <Route
                     path="/recordings"
                     element={
@@ -158,7 +159,19 @@ function App() {
                         <Recordings />
                       </RecordingsSupplier>
                     }
-                  />
+                  >
+                    <Route
+                      path="main"
+                      index
+                      element={
+                        <RecordingsSupplier>
+                          <Recordings />
+                        </RecordingsSupplier>
+                      }
+                    />
+                    <Route path="video" element={<RecordingsVideo />} />
+                  </Route>
+
                   <Route
                     path="/agents"
                     exact

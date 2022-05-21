@@ -1,6 +1,8 @@
 import Card from "../UI/Card";
 import logo from "../../images/bbva_video.PNG";
 import "../../styles/Recordings/RecordingsCard.css";
+import { v4 as uuidv4 } from "uuid";
+import { Link } from "react-router-dom";
 
 const RecordingsCard = (props) => {
   //Logic to determine the tags
@@ -24,6 +26,8 @@ const RecordingsCard = (props) => {
       <div className="rec-container">
         <div className="rec-video-section">
           <div className="rec-video">
+            <Link to="video">Mike</Link>
+
             <img
               src={logo}
               className="rec-video-img"
@@ -38,7 +42,9 @@ const RecordingsCard = (props) => {
         </div>
         <div className="rec-tag-section" onClick={props.onClickCard}>
           {props.record.tags.map((tag) => (
-            <Card className={`rec-tag ${getColor(tag)}-tag `}>{tag}</Card>
+            <Card key={uuidv4()} className={`rec-tag ${getColor(tag)}-tag `}>
+              {tag}
+            </Card>
           ))}
         </div>
       </div>

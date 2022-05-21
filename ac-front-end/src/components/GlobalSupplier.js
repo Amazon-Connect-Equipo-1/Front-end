@@ -5,7 +5,7 @@ export const GlobalContext = createContext();
 
 const GlobalSupplier = ({ children }) => {
   // State to keep last state in recordings
-  const [showVideoCard, setShowVideoCard] = useState(false);
+  const [showVideoCard, setShowVideoCard] = useState(true);
 
   return (
     <GlobalContext.Provider value={[showVideoCard, setShowVideoCard]}>

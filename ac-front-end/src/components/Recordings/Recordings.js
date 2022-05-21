@@ -1,11 +1,10 @@
 import RecordingsCard from "./RecordingsCard";
 import "../../styles/Recordings/Recordings.css";
 import { RecordingsContext } from "../RecordingsSupplier";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { saveKeys, saveClick } from "../MonitorModule.js";
 import { useTranslation } from "react-i18next";
-import RecordingsVideo from "./RecordingsVideo";
-import { GlobalContext } from "../GlobalSupplier";
+import { Outlet, useOutlet } from "react-router-dom";
 
 const Recordings = (props) => {
   // Language
@@ -14,15 +13,11 @@ const Recordings = (props) => {
   const [arrRecordings] = useContext(RecordingsContext);
   const INPUT_NAME = "recordings";
 
-  const [showVideoCard, setShowVideoCard] = useContext(GlobalContext);
-
-  const onClickCard = () => {
-    setShowVideoCard(!showVideoCard);
-  };
+  const outlet = useOutlet();
 
   return (
-    <div>
-      {showVideoCard && (
+    <>
+      {outlet || (
         <div className="re-main-container">
           <div className="re-container">
             <div className="re-search-container">
@@ -44,16 +39,16 @@ const Recordings = (props) => {
             </div>
             {arrRecordings.map((record_info) => (
               <RecordingsCard
+                id={record_info.id}
                 key={record_info.id}
                 record={record_info}
-                onClickCard={onClickCard}
               />
             ))}
           </div>
+          <Outlet />
         </div>
       )}
-      {!showVideoCard && <RecordingsVideo />}
-    </div>
+    </>
   );
 };
 
