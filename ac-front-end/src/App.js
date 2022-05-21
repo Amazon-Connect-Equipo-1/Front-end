@@ -27,6 +27,7 @@ import Error from "./components/Error/Error";
 import AgentMain from "./components/AgentMain/AgentMain";
 import QualityControl from "./components/QualityControl/QualityControl";
 import AgentsAAndQASupplier from "./components/AgentsAAndQASupplier";
+import GlobalSupplier from "./components/GlobalSupplier";
 
 function App() {
   const body = document.body;
@@ -88,92 +89,94 @@ function App() {
   i18n.on("languageChanged", (lng) => setLocale(i18n.language));
 
   //Variable that determines the user type
-  const USER = "Agent"; //Amdin, QA, Agent, Client
+  const USER = "QA"; //Amdin, QA, Agent, Client
 
   return (
     <div className="App">
-      <LocaleContext.Provider value={{ locale, setLocale }}>
-        <Suspense fallback={<Loading />}>
-          {/* <Tutorials /> */}
+      <GlobalSupplier>
+        <LocaleContext.Provider value={{ locale, setLocale }}>
+          <Suspense fallback={<Loading />}>
+            {/* <Tutorials /> */}
 
-          {/* MODULO DE CLIENTE*/}
-          {USER === "Client" && <Usuario></Usuario>}
+            {/* MODULO DE CLIENTE*/}
+            {USER === "Client" && <Usuario></Usuario>}
 
-          {/* Login*/}
-          {USER === "General" && <RecoverPassword />}
+            {/* Login*/}
+            {USER === "General" && <RecoverPassword />}
 
-          {/*MODULO DE AGENTE*/}
-          {USER === "Agent" && (
-            <Router>
-              <Navbar sidebarData={USER} />
-              <Routes>
-                <Route path="/" exact element={<AgentMain />} />
-                <Route path="/profile" exact element={<Profile />} />
-                <Route
-                  path="/QualityControl"
-                  exact
-                  element={<QualityControl />}
-                />
-                <Route exact path="/settings" element={<Settings />} />
-                <Route path="*" element={<Error />} />
-              </Routes>
-            </Router>
-          )}
+            {/*MODULO DE AGENTE*/}
+            {USER === "Agent" && (
+              <Router>
+                <Navbar sidebarData={USER} />
+                <Routes>
+                  <Route path="/" exact element={<AgentMain />} />
+                  <Route path="/profile" exact element={<Profile />} />
+                  <Route
+                    path="/QualityControl"
+                    exact
+                    element={<QualityControl />}
+                  />
+                  <Route exact path="/settings" element={<Settings />} />
+                  <Route path="*" element={<Error />} />
+                </Routes>
+              </Router>
+            )}
 
-          {/* MODULO DE ADMINISTRADOR  */}
-          {USER === "Admin" && (
-            <Router>
-              <Navbar sidebarData={USER} />
-              <Routes>
-                <Route path="/" exact element={<Dashboard />} />
-                <Route path="/profile" exact element={<Profile />} />
-                <Route
-                  path="/agents"
-                  element={
-                    <AgentsAAndQASupplier>
-                      <AgentList />
-                    </AgentsAAndQASupplier>
-                  }
-                />
-                <Route path="/statistics" element={<Statistics />} />
-                <Route path="/settings" element={<Settings />} />
-                <Route path="*" element={<Error />} />
-              </Routes>
-            </Router>
-          )}
+            {/* MODULO DE ADMINISTRADOR  */}
+            {USER === "Admin" && (
+              <Router>
+                <Navbar sidebarData={USER} />
+                <Routes>
+                  <Route path="/" exact element={<Dashboard />} />
+                  <Route path="/profile" exact element={<Profile />} />
+                  <Route
+                    path="/agents"
+                    element={
+                      <AgentsAAndQASupplier>
+                        <AgentList />
+                      </AgentsAAndQASupplier>
+                    }
+                  />
+                  <Route path="/statistics" element={<Statistics />} />
+                  <Route path="/settings" element={<Settings />} />
+                  <Route path="*" element={<Error />} />
+                </Routes>
+              </Router>
+            )}
 
-          {/* MODULO DE QUALITY ANALYST  */}
-          {USER === "QA" && (
-            <Router>
-              <Navbar sidebarData={USER} />
-              <Routes>
-                <Route path="/" exact element={<Dashboard />} />
-                <Route path="/profile" exact element={<Profile />} />
-                <Route
-                  path="/recordings"
-                  element={
-                    <RecordingsSupplier>
-                      <Recordings />
-                    </RecordingsSupplier>
-                  }
-                />
-                <Route
-                  path="/agents"
-                  exact
-                  element={
-                    <AgentsAAndQASupplier>
-                      <AgentList />
-                    </AgentsAAndQASupplier>
-                  }
-                />
-                <Route path="/statistics" exact element={<Statistics />} />
-                <Route path="/settings" exact element={<Settings />} />
-                <Route path="*" element={<Error />} />
-              </Routes>
-            </Router>
-          )}
-        </Suspense>
-      </LocaleContext.Provider>
+            {/* MODULO DE QUALITY ANALYST  */}
+            {USER === "QA" && (
+              <Router>
+                <Navbar sidebarData={USER} />
+                <Routes>
+                  <Route path="/" exact element={<Dashboard />} />
+                  <Route path="/profile" exact element={<Profile />} />
+                  <Route
+                    path="/recordings"
+                    element={
+                      <RecordingsSupplier>
+                        <Recordings />
+                      </RecordingsSupplier>
+                    }
+                  />
+                  <Route
+                    path="/agents"
+                    exact
+                    element={
+                      <AgentsAAndQASupplier>
+                        <AgentList />
+                      </AgentsAAndQASupplier>
+                    }
+                  />
+                  <Route path="/statistics" exact element={<Statistics />} />
+                  <Route path="/settings" exact element={<Settings />} />
+                  <Route path="*" element={<Error />} />
+                </Routes>
+              </Router>
+            )}
+          </Suspense>
+        </LocaleContext.Provider>
+      </GlobalSupplier>
     </div>
   );
 }

@@ -24,15 +24,19 @@ const RecordingsCard = (props) => {
       <div className="rec-container">
         <div className="rec-video-section">
           <div className="rec-video">
-            <img src={logo} className="rec-video-img" />
+            <img
+              src={logo}
+              className="rec-video-img"
+              onClick={props.onClickCard}
+            />
           </div>
-          <div className="rec-video-info">
+          <div className="rec-video-info" onClick={props.onClickCard}>
             <h2 className="rec-agent-name">{props.record.agent_name}</h2>
             <h3 className="rec-date">{props.record.date}</h3>
             <h3 className="rec-score">{getRating(props.record.rating)}</h3>
           </div>
         </div>
-        <div className="rec-tag-section">
+        <div className="rec-tag-section" onClick={props.onClickCard}>
           {props.record.tags.map((tag) => (
             <Card className={`rec-tag ${getColor(tag)}-tag `}>{tag}</Card>
           ))}
