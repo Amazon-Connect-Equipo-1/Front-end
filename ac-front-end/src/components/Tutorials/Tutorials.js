@@ -37,12 +37,16 @@ const Tutorials = () => {
           onChange={(t) => choosePdf(t.target.value)}
         >
           <option value={CardBlocking}>Card Blocking</option>
-          <option value={CardRejected}>Card Rejected</option>
           <option value={CardCancellation}>Card Cancellation</option>
+          <option value={CardRejected}>Card Rejected</option>
+          <option value={ReportUnrecognizedCharges}>
+            Report Unrecognized Charges
+          </option>
           <option value={RequestNewPlastic}>Request New Plastic</option>
           <option value={RequestThirdPartyService}>
             Request Third Party Services
           </option>
+          <option value={SelectBestVideos}>Select Best Videos</option>
         </select>
       </div>
       <div className="viewer">
