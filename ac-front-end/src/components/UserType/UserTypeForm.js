@@ -1,6 +1,7 @@
 import Card from "../UI/Card";
 import "../../styles/UserType/UserTypeForm.css";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const UserTypeForm = (props) => {
   // Language
@@ -10,10 +11,12 @@ const UserTypeForm = (props) => {
       <div className="utf-container ">
         <form className="utf-form">
           <p className="utf-form-title">{t("selectUserType")}</p>
-
-          <button className="utf-button">{t("utAgent")}</button>
-
-          <button className="utf-button">{t("utClient")}</button>
+          <Link to="login">
+            <button className="utf-button">{t("utAgent")}</button>
+          </Link>
+          <Link to="login">
+            <button className="utf-button">{t("utClient")}</button>
+          </Link>
         </form>
       </div>
     </Card>

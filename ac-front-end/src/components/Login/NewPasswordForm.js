@@ -26,21 +26,21 @@ const NewPasswordForm = (props) => {
   // Language
   const { t } = useTranslation();
   return (
-    <Card className="fpf-main-container">
-      <div className="fpf-container ">
-        <form className="fpf-form">
-          <p className="fpf-form-title">{t("setNewPassword")}</p>
-          <label className="fpf-label fpf-margin-bottom-sm " for="lgf-email">
+    <Card className="npf-main-container">
+      <div className="npf-container ">
+        <form className="npf-form">
+          <p className="npf-form-title">{t("setNewPassword")}</p>
+          <label className="npf-label npf-margin-bottom-sm " for="lgf-email">
             {t("newPassword")}
           </label>
-          <input id="fpf-email" type="password" className="fpf-input" />
-          <div className="fpf-flex">
-            <label className=" fpf-label fpf-margin-bottom-sm fpf-margin-top-md">
+          <input id="npf-email" type="password" className="npf-input" />
+          <div className="npf-flex">
+            <label className=" npf-label npf-margin-bottom-sm npf-margin-top-md">
               {t("confirmNewPassword")}
             </label>
           </div>
-          <input type="password" className="fpf-input" />
-          <button type="submit" className="fpf-button">
+          <input type="password" className="npf-input" />
+          <button type="submit" className="npf-button">
             {t("setNewPasswordBtn")}
           </button>
         </form>

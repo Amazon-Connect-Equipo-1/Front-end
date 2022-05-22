@@ -6,15 +6,17 @@
   color: var(--text-color);
   border-radius: 10px;
   box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
-  min-height: 60rem;
+  min-height: 65rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 }
 .tp-title {
   font-size: var(--sub-title);
+  /* font-size: 3rem; */
   font-weight: bold;
-  margin: 2rem;
+  padding: 1rem;
   text-align: center;
 }
 .tp-button {
@@ -34,7 +36,7 @@
   align-items: center;
   gap: 2rem;
   flex-wrap: wrap;
-  padding: 2rem 0 2rem 0;
+  padding: 2rem;
   min-height: max-content;
 }
 .tp-label {
@@ -57,38 +59,40 @@
   min-height: max-content;
 }
 .tp-name-label {
-  /* width: 100%; */
   display: flex;
   justify-content: right;
-  font-size: 2rem;
-  align-items: center;
-  gap: 2rem;
+  flex-direction: column;
+  font-size: var(--option-text);
+  align-items: flex-start;
   flex-wrap: wrap;
-  padding: 2rem 2rem 2rem 0;
+  gap: 0.2rem;
+  padding: 0.8rem 0.5rem 0.5rem 0.5rem;
   min-height: max-content;
 }
 .tp-input-label {
   display: flex;
-  justify-content: center;
-  align-items: right;
+  justify-content: flex-start;
+  text-align: end;
+  align-items: center;
   gap: 2rem;
   flex-wrap: wrap;
   font-size: var(--option-text);
   border-radius: 10px;
   padding: 1rem 1rem 1rem 2rem;
   min-height: max-content;
-
-  width: 50%;
+  width: 100%;
+  border: none;
 }
 .tp-submit-button {
   background-color: var(--highlight-color);
   color: var(--text-color);
 
-  font-size: 2rem;
+  font-size: var(--option-text);
   font-weight: bold;
-  padding: 0.6rem;
+  padding: 1rem;
 
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  width: 95%;
 }

@@ -32,6 +32,7 @@
 
 .abc-title:nth-child(2) {
   color: #9facbd;
+  cursor: pointer;
 }
 
 .abc-container h3 {
@@ -77,4 +78,5 @@
   padding: 1rem;
   cursor: pointer;
   color: #e1e1e1;
+  border: none;
 }

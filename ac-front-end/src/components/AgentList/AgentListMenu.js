@@ -2,7 +2,6 @@ import "../../styles/AgentList/AgentListMenu.css";
 import { saveKeys, saveClick } from "../MonitorModule.js";
 import { useTranslation } from "react-i18next";
 
-
 const AgentListMenu = (props) => {
   const INPUT_NAME = "agent";
   // Language
@@ -10,7 +9,7 @@ const AgentListMenu = (props) => {
 
   return (
     <div className="aglm-menu-container">
-      <div className="aglm-button-container">
+      {/* <div className="aglm-button-container">
         <button
           onClick={() => saveClick(`${INPUT_NAME} main button`)}
           className="aglm-button-main"
@@ -23,7 +22,7 @@ const AgentListMenu = (props) => {
         >
           {t("settings")}
         </button>
-      </div>
+      </div> */}
       <div className="aglm-search-container">
         <input
           className="aglm-search"
@@ -37,7 +36,6 @@ const AgentListMenu = (props) => {
           className="aglm-select"
           onClick={() => saveClick(`${INPUT_NAME} filter scroller`)}
         >
-          <option>{t("filter")}</option>
           <option value="Name">{t("date")}</option>
           <option value="Active Calls">{t("tag")}</option>
           <option value="Active Calls">{t("status")}</option>

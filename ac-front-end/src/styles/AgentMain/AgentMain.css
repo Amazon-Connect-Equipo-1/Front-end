@@ -1,5 +1,8 @@
 /* Initials: agM*/
 .agM-main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--main-card-background);
   border-radius: 10px;
   height: 85vh;

@@ -5,12 +5,15 @@ import { useTranslation } from "react-i18next";
 const AboutCard = (props) => {
   // Language
   const { t } = useTranslation();
+
   return (
     <Card className="abc-main-container">
       <div className="abc-container">
         <div className="abc-navbar">
           <h2 className="abc-title">{t("about")}</h2>
-          <h2 className="abc-title">{t("feedback")}</h2>
+          <h2 className="abc-title" onClick={props.onChangeCard}>
+            {t("feedback")}
+          </h2>
         </div>
         <h3>
           ID: <span>120372</span>
@@ -47,7 +50,7 @@ const AboutCard = (props) => {
           <Card className="abc-tag">Theft</Card>
           <Card className="abc-tag">Wodddrk</Card>
         </div>
-        <Card className="abc-feedback-btn">Give Feedback</Card>
+        {/* <Card className="abc-feedback-btn">Give Feedback</Card> */}
       </div>
     </Card>
   );

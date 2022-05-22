@@ -1,16 +1,18 @@
 import React from "react";
 import "../../styles/Error/Error.css";
 
-function Error() {
+const Error = (props) => {
+  const errorType = props.interface === "Login" ? "lerr" : "";
+
   return (
-    <div className="err-container">
-      <h1 className="err-title">404</h1>
-      <h2 className="err-subtitle">Not found</h2>
-      <p className="err-description">
+    <div className={`err-container ${errorType}`}>
+      <h1 className={`err-title ${errorType}`}>404</h1>
+      <h2 className={`err-subtitle ${errorType}`}>Not found</h2>
+      <p className={`err-description ${errorType}`}>
         The source requested could not be found on this server!
       </p>
     </div>
   );
-}
+};
 
 export default Error;

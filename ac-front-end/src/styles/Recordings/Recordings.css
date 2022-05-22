@@ -8,6 +8,7 @@
   background-color: var(--main-card-background);
   margin: 1rem 2rem 2rem 100px;
   border-radius: 10px;
+  min-height: 85vh;
 }
 
 .re-container {

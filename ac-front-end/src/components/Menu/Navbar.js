@@ -6,11 +6,13 @@ import "../../styles/Menu/Navbar.css";
 import { IconContext } from "react-icons";
 import { FaUserCircle } from "react-icons/fa";
 import { t } from "i18next";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import ReactTooltip from "react-tooltip";
+import { GlobalContext } from "../GlobalSupplier";
 
 const Navbar = (props) => {
   //funcion para poner el nombre del admin o quality analyst
+  const [, , userInfo] = useContext(GlobalContext);
 
   const getSidebarData = () => {
     const sidebarData = props.sidebarData + "SidebarData";
@@ -23,8 +25,6 @@ const Navbar = (props) => {
         return AgentSidebarData;
     }
   };
-
-  const name = "Michael";
 
   let timeout;
   const [active, setActive] = useState(false);
@@ -47,7 +47,9 @@ const Navbar = (props) => {
           <Link to="#" className="nav-menu-bars">
             <img className="nav-icon" />
           </Link>
-          <h1 className="nav-welcome-text">{t("welcomeText") + ", " + name}</h1>
+          <h1 className="nav-welcome-text">
+            {t("welcomeText") + ", " + userInfo.name}
+          </h1>
           <Link to="/profile">
             <FaUserCircle className="nav-user-icon" />
           </Link>

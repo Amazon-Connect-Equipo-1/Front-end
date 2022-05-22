@@ -1,6 +1,7 @@
 import Card from "../UI/Card";
 import "../../styles/Login/LoginForm.css";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const LoginForm = (props) => {
   //Language
@@ -18,9 +19,9 @@ const LoginForm = (props) => {
             <label className=" lgf-label lgf-margin-bottom-sm lgf-margin-top-md">
               {t("password")}
             </label>
-            <a href="/" className="lgf-forgot-text">
+            <Link to="/forgot-password" className="lgf-forgot-text">
               {t("fyp")}
-            </a>
+            </Link>
           </div>
           <input type="password" className="lgf-input" />
           <button type="submit" className="lgf-button">

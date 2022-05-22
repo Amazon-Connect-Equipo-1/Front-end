@@ -11,12 +11,19 @@
   color: white;
   height: 85vh;
 }
+.lerr {
+  margin: 2rem;
+  height: 95vh;
+}
+
 .err-title {
   font-size: 10rem;
 }
+
 .err-subtitle {
   font-size: 4rem;
 }
+
 .err-description {
   font-size: 2rem;
 }

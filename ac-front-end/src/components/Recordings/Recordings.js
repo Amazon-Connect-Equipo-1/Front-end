@@ -13,6 +13,8 @@ const Recordings = (props) => {
   const [arrRecordings] = useContext(RecordingsContext);
   const INPUT_NAME = "recordings";
 
+  //Variable to verify if an outlet exists
+  // It is expected that the outlet is <RecordingsVideo />
   const outlet = useOutlet();
 
   return (
@@ -45,7 +47,6 @@ const Recordings = (props) => {
               />
             ))}
           </div>
-          <Outlet />
         </div>
       )}
     </>

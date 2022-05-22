@@ -22,14 +22,18 @@ span {
   background-color: var(--sub-card-background);
 }
 
-.t-row-container {
+.t-sub-container {
+  width: 90%;
+}
+
+/* .t-row-container {
   display: grid;
   justify-content: center;
   align-items: center;
   column-gap: 5rem;
   grid-template-columns: 4fr 1.5fr;
   margin-bottom: 2rem;
-}
+} */
 
 .t-container {
   padding-left: 2rem;
@@ -37,27 +41,22 @@ span {
 }
 
 .t-main-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
   width: 40rem;
   background-color: var(--sub-card-background);
   color: var(--text-color);
   border-radius: 10px;
   box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
-  min-height: 60rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.t-sub-container {
-  width: 90%;
+  min-height: 65rem;
 }
 
 .t-title {
   font-size: var(--sub-title);
   font-weight: bold;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin: 2rem;
   text-align: center;
 }
 
@@ -98,4 +97,9 @@ span {
 }
 .viewer {
   padding-top: 2rem;
+}
+
+.t-pdf {
+  width: "100%";
+  height: "400px";
 }

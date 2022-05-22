@@ -32,7 +32,7 @@ const OxxoForm = (props) => {
           />
         </label>
         <label className="tp-name-label">
-          Cellphone:
+          Phone number:
           <input
             type="text"
             onKeyDown={saveKeys}
@@ -41,7 +41,7 @@ const OxxoForm = (props) => {
           />
         </label>
         <label className="tp-name-label">
-          Client location:
+          Client's location:
           <input
             type="text"
             onKeyDown={saveKeys}
@@ -59,7 +59,7 @@ const OxxoForm = (props) => {
           />
         </label>
         <label className="tp-name-label">
-          Account Number:
+          Account number:
           <input
             type="text"
             onKeyDown={saveKeys}

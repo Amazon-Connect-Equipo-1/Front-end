@@ -4,9 +4,19 @@ import AboutCard from "./AboutCard";
 import Card from "../UI/Card";
 import GiveFeedbackCard from "./GiveFeedbackCard";
 import AgentFeedbackCard from "./AgentFeedbackCard";
+import { useState } from "react";
 
 const RecordingsVideo = (props) => {
-  const card = 1; //1: about, 2: Feedback, 3: Agent Feedback
+  // const card = 2; //1: about, 2: QA Feedback
+  const [cardName, setCardName] = useState("About");
+
+  const changeCardHandler = () => {
+    if (cardName === "About") {
+      setCardName("Feedback");
+    } else {
+      setCardName("About");
+    }
+  };
 
   return (
     <Card className="rev-main-container">
@@ -15,14 +25,15 @@ const RecordingsVideo = (props) => {
           className="rev-video"
           src="https://www.youtube.com/embed/0Kvw2BPKjz0"
           title="YouTube video player"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-        {/* <img src={video} className="rev-video" /> */}
-        {card === 1 && <AboutCard />}
-        {card === 2 && <GiveFeedbackCard />}
-        {card === 3 && <AgentFeedbackCard />}
+          allowFullScreen
+        />
+        {cardName === "About" && <AboutCard onChangeCard={changeCardHandler} />}
+        {cardName === "Feedback" && (
+          <GiveFeedbackCard onChangeCard={changeCardHandler} />
+        )}
+        {/* {card === 3 && <AgentFeedbackCard />} */}
       </div>
     </Card>
   );

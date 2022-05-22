@@ -7,90 +7,84 @@ import { createContext, Suspense, useState } from "react";
 import UberForm from "./UberForm";
 import UberEatsForm from "./UberEatsForm";
 import OxxoForm from "./OxxoForm";
-import { saveKeys, saveClick } from "../MonitorModule.js";
+import { saveClick } from "../MonitorModule.js";
 import PoliceForm from "./PoliceForm";
 
 const ThirdParty = (props) => {
   const INPUT_NAME = "agent tutorials";
 
-  const [tps, settps] = useState("Main");
+  const [tps, setTps] = useState("Main");
 
   const tpAssignUber = () => {
-    settps("Uber");
+    setTps("Uber");
   };
   const tpAssignUberEats = () => {
-    settps("UberEats");
+    setTps("UberEats");
   };
   const tpAssignOxxo = () => {
-    settps("Oxxo");
+    setTps("Oxxo");
   };
   const tpAssignPolice = () => {
-    settps("Police");
+    setTps("Police");
   };
 
-  if (tps === "Main") {
-    return (
-      <div>
-        <div className="tp-title">Third Party Services</div>
-        <div className="tp-button-container">
-          <button
-            className="tp-button"
-            onClick={() => {
-              tpAssignUber();
-              saveClick(`${INPUT_NAME} button`);
-            }}
-          >
-            <img src={uberlogo} className="tp-image" />
-          </button>
+  return (
+    <>
+      {tps === "Main" && (
+        <div>
+          <div className="tp-title">Third Party Services</div>
+          <div className="tp-button-container">
+            <button
+              className="tp-button"
+              onClick={() => {
+                tpAssignUber();
+                saveClick(`${INPUT_NAME} button`);
+              }}
+            >
+              <img src={uberlogo} className="tp-image" />
+            </button>
+          </div>
+          <div className="tp-button-container">
+            <button
+              className="tp-button"
+              onClick={() => {
+                tpAssignUberEats();
+                saveClick(`${INPUT_NAME} button`);
+              }}
+            >
+              <img src={ubereatslogo} className="tp-image" />
+            </button>
+          </div>
+          <div className="tp-button-container">
+            <button
+              className="tp-button"
+              onClick={() => {
+                tpAssignOxxo();
+                saveClick(`${INPUT_NAME} button`);
+              }}
+            >
+              <img src={oxxologo} className="tp-image" />
+            </button>
+          </div>
+          <div className="tp-button-container">
+            <button
+              className="tp-button"
+              onClick={() => {
+                tpAssignPolice();
+                saveClick(`${INPUT_NAME} button`);
+              }}
+            >
+              <img src={policelogo} className="tp-image" />
+            </button>
+          </div>
         </div>
-        <div className="tp-button-container">
-          <button
-            className="tp-button"
-            onClick={() => {
-              tpAssignUberEats();
-              saveClick(`${INPUT_NAME} button`);
-            }}
-          >
-            <img src={ubereatslogo} className="tp-image" />
-          </button>
-        </div>
-        <div className="tp-button-container">
-          <button
-            className="tp-button"
-            onClick={() => {
-              tpAssignOxxo();
-              saveClick(`${INPUT_NAME} button`);
-            }}
-          >
-            <img src={oxxologo} className="tp-image" />
-          </button>
-        </div>
-        <div className="tp-button-container">
-          <button
-            className="tp-button"
-            onClick={() => {
-              tpAssignPolice();
-              saveClick(`${INPUT_NAME} button`);
-            }}
-          >
-            <img src={policelogo} className="tp-image" />
-          </button>
-        </div>
-      </div>
-    );
-  }
-  if (tps === "Uber") {
-    return <UberForm onChange={settps} />;
-  }
-  if (tps === "UberEats") {
-    return <UberEatsForm onChange={settps} />;
-  }
-  if (tps === "Oxxo") {
-    return <OxxoForm onChange={settps} />;
-  }
-  if (tps === "Police") {
-    return <PoliceForm onChange={settps} />;
-  }
+      )}
+      {tps === "Uber" && <UberForm onChange={setTps} />}
+      {tps === "UberEats" && <UberEatsForm onChange={setTps} />}
+      {tps === "Oxxo" && <OxxoForm onChange={setTps} />}
+      {tps === "Police" && <PoliceForm onChange={setTps} />}
+    </>
+  );
 };
 
 export default ThirdParty;

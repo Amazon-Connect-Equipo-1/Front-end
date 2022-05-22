@@ -13,7 +13,7 @@
 .lgf-button {
   font-size: 2rem;
   font-weight: bold;
-  padding: 0.6rem;
+  padding: 1rem;
   background-color: var(--highlight-color);
   color: var(--text-color);
   margin-top: 2rem;
@@ -29,11 +29,16 @@
 
 /* Classes */
 .lgf-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   width: 40rem;
   background-color: var(--sub-card-background);
   color: var(--text-color);
   border-radius: 10px;
   box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
+  min-height: 35rem;
 }
 
 .lgf-container {
@@ -47,6 +52,7 @@
 }
 
 .lgf-form-title {
+  margin-bottom: 2rem;
   font-size: 4rem;
   font-weight: bold;
 }

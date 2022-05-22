@@ -51,10 +51,10 @@ const Tutorials = () => {
       </div>
       <div className="viewer">
         <iframe
-          classname="t-pdf"
+          className="t-pdf"
           src={`${pdfFile}#toolbar=0&navpanes=0`}
           width="100%"
-          height="400px"
+          height="450rem"
         />
       </div>
     </div>

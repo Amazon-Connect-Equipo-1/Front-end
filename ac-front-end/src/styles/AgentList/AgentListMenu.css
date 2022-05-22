@@ -2,7 +2,7 @@
 
 .aglm-menu-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
   margin: 0 2.5rem 0 2rem;
   gap: 2rem;
@@ -20,6 +20,7 @@
 .aglm-search-container {
   display: flex;
   gap: 1.5rem;
+  margin: 4.5rem 1rem 1rem 0;
 }
 
 .aglm-search {

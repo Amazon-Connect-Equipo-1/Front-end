@@ -87,17 +87,41 @@
   color: white;
   border-radius: 3px;
   cursor: pointer;
-  /* box-shadow: 0 1.2rem 1.2rem rgb(0 0 0 / 8%); */
 }
 
-.red-tag {
-  background-color: red;
+.card-declined {
+  color: red;
 }
-
-.blue-tag {
-  background-color: blue;
+.lost-card {
+  color: blue;
 }
-
-.green-tag {
-  background-color: green;
+.stolen-card {
+  color: green;
+}
+.cancel-card {
+  color: orange;
+}
+.credit-card {
+  color: grey;
+}
+.savings-account {
+  color: purple;
+}
+.assurance {
+  color: burlywood;
+}
+.withdrawal {
+  color: lightseagreen;
+}
+.loans {
+  color: palevioletred;
+}
+.investments {
+  color: khaki;
+}
+.problem-solved {
+  color: teal;
+}
+.problem-not-solved {
+  color: coral;
 }
