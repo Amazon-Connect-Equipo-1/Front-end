@@ -24,6 +24,7 @@ import AgentsAAndQASupplier from "./components/AgentsAAndQASupplier";
 import GlobalSupplier from "./components/GlobalSupplier";
 import { loadUserPreferences } from "./components/UserPreferences";
 import NewPassword from "./components/Login/NewPassword";
+import "amazon-connect-streams";
 
 function App() {
   //Variable that determines the user type
