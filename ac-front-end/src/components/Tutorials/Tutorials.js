@@ -18,6 +18,7 @@ import SolicitarServicioTerceros from "../../pdf/SolicitarServicioTerceros.pdf";
 import TarjetaRechazada from "../../pdf/TarjetaRechazada.pdf";
 import { saveClick } from "../MonitorModule.js";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Tutorials = () => {
   const INPUT_NAME = "agent tutorials";
@@ -28,25 +29,28 @@ const Tutorials = () => {
     setPdfFile(n);
   }
 
+  // Language
+  const { t } = useTranslation();
+
   return (
     <div className="t-sub-container">
-      <h2 className="t-title">System Help</h2>
+      <h2 className="t-title">{t("systemHelp")}</h2>
       <div className="t-container">
         <select
           className="t-select"
           onChange={(t) => choosePdf(t.target.value)}
         >
-          <option value={CardBlocking}>Card Blocking</option>
-          <option value={CardCancellation}>Card Cancellation</option>
-          <option value={CardRejected}>Card Rejected</option>
+          <option value={CardBlocking}>{t("cardBlocking")}</option>
+          <option value={CardCancellation}>{t("cardCancellation")}</option>
+          <option value={CardRejected}>{t("cardRejected")}</option>
           <option value={ReportUnrecognizedCharges}>
-            Report Unrecognized Charges
+            {t("reportUnrecognizedCharges")}
           </option>
-          <option value={RequestNewPlastic}>Request New Plastic</option>
+          <option value={RequestNewPlastic}>{t("requestNewPlastic")}</option>
           <option value={RequestThirdPartyService}>
-            Request Third Party Services
+            {t("requestThirdPartyServices")}
           </option>
-          <option value={SelectBestVideos}>Select Best Videos</option>
+          <option value={SelectBestVideos}>{t("selectBestVideos")}</option>
         </select>
       </div>
       <div className="viewer">

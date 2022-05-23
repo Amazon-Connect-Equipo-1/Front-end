@@ -64,10 +64,20 @@
   "search": "Buscar",
 
   "__userType__": "----------User Type Interface----------",
-  "selectUserType": "Sseleccionar tipo de usuario:",
+  "selectUserType": "Seleccionar tipo de usuario:",
   "utAgent": "Agente",
   "utClient": "Cliente",
 
   "__menu_-": "----------Menu Interface----------",
-  "welcomeText": "Bienvenido"
+  "welcomeText": "Bienvenido",
+
+  "__tutorials__": "----------Tutorials Interface----------",
+  "systemHelp": "Ayuda del Sistema",
+  "cardBlocking": "Bloqueo de Tarjeta",
+  "cardCancellation": "Cancelación de la Tarjeta",
+  "cardRejected": "Tarjeta Rechazada",
+  "reportUnrecognizedCharges": "Reportar Cargos No Reconocidos",
+  "requestNewPlastic": "Solicitar Nuevo Plástico",
+  "requestThirdPartyServices": "Solicitar Servicios de Terceros",
+  "selectBestVideos": "Seleccionar los Mejores Vídeos"
 }
