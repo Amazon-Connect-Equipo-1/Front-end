@@ -79,5 +79,8 @@
   "reportUnrecognizedCharges": "Reportar Cargos No Reconocidos",
   "requestNewPlastic": "Solicitar Nuevo Plástico",
   "requestThirdPartyServices": "Solicitar Servicios de Terceros",
-  "selectBestVideos": "Seleccionar los Mejores Vídeos"
+  "selectBestVideos": "Seleccionar los Mejores Vídeos",
+
+  "__thirdPartyServices__": "----------Third Party Services Interface----------",
+  "thirdPartyServices": "Servicio de Terceros"
 }

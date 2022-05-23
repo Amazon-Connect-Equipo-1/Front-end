@@ -79,5 +79,8 @@
   "reportUnrecognizedCharges": "Report Unrecognized Charges",
   "requestNewPlastic": "Request New Plastic",
   "requestThirdPartyServices": "Request Third Party Services",
-  "selectBestVideos": "Select Best Videos"
+  "selectBestVideos": "Select Best Videos",
+
+  "__thirdPartyServices__": "----------Third Party Services Interface----------",
+  "thirdPartyServices": "Third Party Services"
 }

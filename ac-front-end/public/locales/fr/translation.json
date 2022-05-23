@@ -73,11 +73,14 @@
 
   "__tutorials__": "----------Tutorials Interface----------",
   "systemHelp": "Aide Système",
-  "cardBlocking": "Blocage des Cartes",
+  "cardBlocking": "Blocage de Carte",
   "cardCancellation": "Annulation de la Carte",
   "cardRejected": "Carte Rejetée",
   "reportUnrecognizedCharges": "Déclarer les Charges Non Comptabilisées",
   "requestNewPlastic": "Demander un Nouveau Plastique",
-  "requestThirdPartyServices": "Demander des Services à des Tiers",
-  "selectBestVideos": "Sélectionnez les Meilleures Vidéos"
+  "requestThirdPartyServices": "Demander le Service d'un Tiers",
+  "selectBestVideos": "Sélectionnez les Meilleures Vidéos",
+
+  "__thirdPartyServices__": "----------Third Party Services Interface----------",
+  "thirdPartyServices": "Services de Tierce Partie"
 }

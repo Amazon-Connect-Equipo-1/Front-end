@@ -9,6 +9,7 @@ import UberEatsForm from "./UberEatsForm";
 import OxxoForm from "./OxxoForm";
 import { saveClick } from "../MonitorModule.js";
 import PoliceForm from "./PoliceForm";
+import { useTranslation } from "react-i18next";
 
 const ThirdParty = (props) => {
   const INPUT_NAME = "agent tutorials";
@@ -28,11 +29,14 @@ const ThirdParty = (props) => {
     setTps("Police");
   };
 
+  // Language
+  const { t } = useTranslation();
+
   return (
     <>
       {tps === "Main" && (
         <div>
-          <div className="tp-title">Third Party Services</div>
+          <div className="tp-title">{t("thirdPartyServices")}</div>
           <div className="tp-button-container">
             <button
               className="tp-button"
