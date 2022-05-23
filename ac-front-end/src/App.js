@@ -86,14 +86,6 @@ function App() {
                     <Route path="/" exact element={<Dashboard />} />
                     <Route path="/profile" exact element={<Profile />} />
                     <Route
-                      path="/main"
-                      element={
-                        <RecordingsSupplier>
-                          <Recordings />
-                        </RecordingsSupplier>
-                      }
-                    />
-                    <Route
                       path="/agents"
                       element={
                         <AgentsAAndQASupplier>
@@ -102,14 +94,24 @@ function App() {
                       }
                     />
                     <Route
-                      path="recordings"
+                      path="/recordings"
                       element={
                         <RecordingsSupplier>
                           <Recordings />
                         </RecordingsSupplier>
                       }
-                    />
-                    <Route path="video" element={<RecordingsVideo />} />
+                    >
+                      <Route
+                        path="main"
+                        index
+                        element={
+                          <RecordingsSupplier>
+                            <Recordings />
+                          </RecordingsSupplier>
+                        }
+                      />
+                      <Route path="video" element={<RecordingsVideo />} />
+                    </Route>
                     <Route path="/statistics" exact element={<Statistics />} />
                     <Route path="/settings" exact element={<Settings />} />
                     <Route path="*" element={<Error interface="QA" />} />
