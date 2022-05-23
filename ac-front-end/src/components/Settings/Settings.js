@@ -147,6 +147,7 @@ function Settings() {
           >
             <option value="en">{t("englishLanguage")}</option>
             <option value="es">{t("spanishLanguage")}</option>
+            <option value="fr">{t("frenchLanguage")}</option>
           </select>
         </div>
       </div>
