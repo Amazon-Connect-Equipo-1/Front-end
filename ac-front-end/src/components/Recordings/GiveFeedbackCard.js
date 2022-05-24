@@ -38,11 +38,11 @@ const GiveFeedbackCard = (props) => {
             <h2 className="gfc-title">{t("feedback")}</h2>
           </div>
         </div>
-        <div>
+        {/* <div>
           <h3>{t("yourFeedback")}</h3>
           <h3 className="gfc-feeback-score">🖖🖖🖖🖖🖖</h3>
-        </div>
-        <input
+        </div> */}
+        <textarea
           className="gfc-input"
           type="text"
           onChange={changeFeedbackHandler}

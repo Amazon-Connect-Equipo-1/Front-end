@@ -15,28 +15,48 @@ const AboutCard = (props) => {
             {t("feedback")}
           </h2>
         </div>
+        <h2>Call</h2>
         <h3>
           ID: <span>120372</span>
         </h3>
         <h3>
           {t("duration")} <span>00:12:41</span>
         </h3>
+        <h3>
+          Start of call: <span>00:12:41</span>
+        </h3>
+        <h3>
+          End of call: <span>00:12:41</span>
+        </h3>
         <h3 className="margin-top-md">
           {t("agent")} <span>Dwight Schrute</span>
         </h3>
-        <h3>
+        {/* <h3>
           {t("client")} <span>Stanley Hudson</span>
-        </h3>
-        <h3>
+        </h3> */}
+        {/* <h3>
           {t("clientsProblem")} <span>{t("lostCard")}</span>
+        </h3> */}
+        <h2>Analysis</h2>
+        <h3>
+          Agent interruptions: <span>4</span>
         </h3>
         <h3>
-          {t("thirdPartyService")} <span>Uber</span>
+          User interruptions: <span>10</span>
         </h3>
-        <div className="margin-top-md">
+        <h3>
+          Agent's general sentiment: <span>10</span>
+        </h3>
+        <h3>
+          User's general sentiment: <span>10</span>
+        </h3>
+        {/* <h3>
+          {t("thirdPartyService")} <span>Uber</span>
+        </h3> */}
+        {/* <div className="margin-top-md">
           <h3>{t("clientsFeedback")}</h3>
           <h3 className="abc-feeback-score">🖖🖖🖖🖖🖖</h3>
-        </div>
+        </div> */}
         <div className="margin-top-md">
           <h3>{t("yourFeedback")}</h3>
           <h3>{t("noFeedback")}</h3>

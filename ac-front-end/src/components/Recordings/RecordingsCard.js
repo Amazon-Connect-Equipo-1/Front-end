@@ -30,8 +30,8 @@ const RecordingsCard = (props) => {
   // };
 
   return (
-    <Link to="video">
-      <Card to="video" className="rec-main-container">
+    <Link to="/video">
+      <Card className="rec-main-container">
         <div className="rec-container">
           <div className="rec-video-section">
             <div className="rec-video">
