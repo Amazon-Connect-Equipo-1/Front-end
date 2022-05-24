@@ -1,3 +1,8 @@
+/* Agent List
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import { useContext, useState } from "react";
 import "../../styles/AgentList/AgentList.css";
 import { AgentAAndQAContext } from "../AgentsAAndQASupplier";
@@ -6,6 +11,7 @@ import AgentListMenu from "./AgentListMenu";
 import AllAgentList from "./AllAgentsList";
 import SingleAgent from "./SingleAgent";
 
+//Create Constant Agent List
 const AgentList = (props) => {
   //Logic to generate the rows
   const [arrAgents] = useContext(AgentAAndQAContext);

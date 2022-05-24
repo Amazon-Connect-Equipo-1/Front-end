@@ -1,7 +1,12 @@
+/* Oxxo Form
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import "../../styles/AgentMain/ThirdParty.css";
 import ThirdParty from "./ThirdParty";
 import { saveKeys, saveClick } from "../MonitorModule.js";
-
+//Creates Oxxo Form
 const OxxoForm = (props) => {
   const INPUT_NAME = "Oxxo form";
 

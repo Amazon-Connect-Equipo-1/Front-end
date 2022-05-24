@@ -1,3 +1,8 @@
+/* Tutorial
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import { Worker } from "@react-pdf-viewer/core";
 import { Viewer } from "@react-pdf-viewer/core";
 import "@react-pdf-viewer/core/lib/styles/index.css";

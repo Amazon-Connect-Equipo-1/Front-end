@@ -1,3 +1,8 @@
+/* Agent Sidebar Data
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import React from "react";
 import { MdOutlineCheckBox } from "react-icons/md";
 import { IoSettingsSharp } from "react-icons/io5";

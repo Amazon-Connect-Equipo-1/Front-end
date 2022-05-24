@@ -1,3 +1,8 @@
+/* Tutorials Container
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import "../../styles/Tutorials/Tutorials.css";
 import Tutorials from "./Tutorials";
 

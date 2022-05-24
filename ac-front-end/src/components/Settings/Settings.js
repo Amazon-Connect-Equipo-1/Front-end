@@ -1,3 +1,8 @@
+/* Settings
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import React, { useContext, useEffect, useState } from "react";
 import "../../styles/Settings/Settings.css";
 import Card from "../UI/Card";
@@ -6,6 +11,7 @@ import LocaleContext from "../../LocaleContext";
 import i18n from "../../i18n";
 import { saveKeys, saveClick } from "../MonitorModule.js";
 
+//Creates functions Settings and its constants
 function Settings() {
   const INPUT_NAME = "settings";
 

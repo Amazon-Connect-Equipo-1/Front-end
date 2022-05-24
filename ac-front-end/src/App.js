@@ -1,3 +1,8 @@
+/* APP
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import "./App.css";
 import Login from "./components/Login/Login";
 import RecoverPassword from "./components/Login/RecoverPassword";

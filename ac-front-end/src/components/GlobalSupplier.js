@@ -1,3 +1,8 @@
+/* Global Supplier
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import { createContext, useState } from "react";
 
 //Create recordings context

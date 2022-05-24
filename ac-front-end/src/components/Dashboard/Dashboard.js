@@ -1,3 +1,8 @@
+/* Dashboard
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import React from "react";
 import "../../styles/Dashboard/Dashboard.css";
 import "../../styles/AgentList/AllAgentsList.css";

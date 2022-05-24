@@ -1,3 +1,8 @@
+/* Navigation Bar
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import { Link } from "react-router-dom";
 import { QASidebarData } from "./QASidebarData";
 import { AdminSidebarData } from "./AdminSidebarData";

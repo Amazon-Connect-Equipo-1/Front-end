@@ -1,3 +1,8 @@
+/* Authentication
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import { createContext, useContext, useState } from "react";
 
 export const AuthenticationContext = createContext();

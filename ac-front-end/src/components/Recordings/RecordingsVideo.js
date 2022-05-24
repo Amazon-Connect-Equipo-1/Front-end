@@ -1,3 +1,8 @@
+/* Recordings Video
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import "../../styles/Recordings/RecordingsVideo.css";
 import video from "../../images/bbva_video.PNG";
 import AboutCard from "./AboutCard";

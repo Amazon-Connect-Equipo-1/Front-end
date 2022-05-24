@@ -1,3 +1,8 @@
+/* Admin Side Bar Data
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import React from "react";
 import { MdDashboard } from "react-icons/md";
 import { FiUsers, FiTrendingUp } from "react-icons/fi";

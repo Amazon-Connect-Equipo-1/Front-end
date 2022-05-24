@@ -1,8 +1,14 @@
+/* Agent Row
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import "../../styles/AgentList/AllAgentsList.css";
 import profile_thumbnail from "../../images/profile_icon.png";
 import telephone from "../../images/telephone_call.png";
 import { useTranslation } from "react-i18next";
 
+//Creates the constant Agent Row
 const AgentRow = (props) => {
   const circleColor = props.isWorking ? "aal-online" : "aal-offline";
 

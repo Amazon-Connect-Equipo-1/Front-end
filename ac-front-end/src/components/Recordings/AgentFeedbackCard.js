@@ -1,3 +1,8 @@
+/* Agent FeedbackCard
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import Card from "../UI/Card";
 import "../../styles/Recordings/AgentFeedbackCard.css";
 import { useTranslation } from "react-i18next";

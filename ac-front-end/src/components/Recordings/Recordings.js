@@ -1,3 +1,8 @@
+/* Recordings
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import RecordingsCard from "./RecordingsCard";
 import "../../styles/Recordings/Recordings.css";
 import { RecordingsContext } from "../RecordingsSupplier";

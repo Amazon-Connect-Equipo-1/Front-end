@@ -1,3 +1,8 @@
+/* Profile
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import "../../styles/Profile/Profile.css";
 import prfl_ic from "../../images/profile_icon.png";
 import { useContext } from "react";

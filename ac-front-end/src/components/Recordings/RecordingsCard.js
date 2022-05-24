@@ -1,3 +1,8 @@
+/* Recordings Card
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import Card from "../UI/Card";
 import logo from "../../images/bbva_video.PNG";
 import "../../styles/Recordings/RecordingsCard.css";

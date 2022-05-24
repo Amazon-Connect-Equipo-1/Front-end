@@ -1,3 +1,8 @@
+/* Agent List Set
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import "../../styles/AgentList/AgListSet.css";
 import AgentListMenu from "./AgentListMenu";
 import AgentListSetting from "./AgentListSetting";

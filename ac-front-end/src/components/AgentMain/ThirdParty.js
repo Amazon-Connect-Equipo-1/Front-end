@@ -1,3 +1,8 @@
+/* Third Party
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import "../../styles/AgentMain/ThirdParty.css";
 import uberlogo from "../../images/uber.png";
 import ubereatslogo from "../../images/uber-eats.png";
@@ -15,6 +20,7 @@ const ThirdParty = (props) => {
   const INPUT_NAME = "agent tutorials";
 
   const [tps, setTps] = useState("Main");
+  //Creates All tpAssing
 
   const tpAssignUber = () => {
     setTps("Uber");

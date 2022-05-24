@@ -1,3 +1,8 @@
+/* Index
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";

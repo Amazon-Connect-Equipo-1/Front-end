@@ -1,3 +1,8 @@
+/* New Password Form
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import "../../styles/Login/NewPasswordForm.css";
 import logo from "../../images/logo_bbva.png";
 import { useTranslation } from "react-i18next";

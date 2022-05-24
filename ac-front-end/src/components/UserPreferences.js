@@ -1,3 +1,8 @@
+/* User Preference
+Authors:
+        A01777771 Stephen Strange*/
+
+//Exports Modules
 export const loadUserPreferences = () => {
   const body = document.body;
   const lightTheme = "light";
