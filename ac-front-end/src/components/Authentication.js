@@ -5,7 +5,7 @@ export const AuthenticationContext = createContext();
 const AuthenticationProvider = ({ children }) => {
   // State for Authentication
   const [user, setUser] = useState("Jorge");
-  const [userType, setUserType] = useState("QA");
+  const [userType, setUserType] = useState("Agent");
   //const [user, setUser] = useState(null);
 
   // Login
