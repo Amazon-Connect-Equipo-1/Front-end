@@ -18,6 +18,7 @@ const Dashboard = (props) => {
           height="700"
           src="https://us-west-2.quicksight.aws.amazon.com/sn/embed/share/accounts/559202700801/dashboards/f0f0db32-74b6-4fef-8a26-89103d50737b?directory_alias=amazonconnectbancos">
         </iframe>
+        <AgentActiveCalls isActiveCalls={false} />
       </div>
       
     </div>

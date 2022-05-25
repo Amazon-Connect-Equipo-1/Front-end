@@ -3,16 +3,6 @@ Authors:
         A01777771 Stephen Strange*/
 /* Initials: dsb */
 
-.agl-card-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  padding: 2rem 0 2rem 0;
-  min-height: max-content;
-}
-
 .dsb-main-container {
   background-color: var(--main-card-background);
   margin: 2rem;
