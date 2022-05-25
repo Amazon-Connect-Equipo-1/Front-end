@@ -11,7 +11,7 @@ const AgentFeedbackCard = (props) => {
   // Language
   const { t } = useTranslation();
   return (
-    <Card className="afc-main-container">
+    <Card className={`afc-main-container ${props.className}`}>
       <div className="afc-container">
         <div>
           <h2 className="afc-title">{t("qaFeedback")}</h2>

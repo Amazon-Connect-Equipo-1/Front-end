@@ -8,7 +8,7 @@ import video from "../../images/bbva_video.PNG";
 import AboutCard from "./AboutCard";
 import Card from "../UI/Card";
 import GiveFeedbackCard from "./GiveFeedbackCard";
-import AgentFeedbackCard from "./AgentFeedbackCard";
+import AgentFeedbackCard from "../QualityControl/AgentFeedbackCard";
 import { useState } from "react";
 
 const RecordingsVideo = (props) => {

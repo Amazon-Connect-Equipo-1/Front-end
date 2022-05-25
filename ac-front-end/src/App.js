@@ -31,6 +31,7 @@ import NewPassword from "./components/Login/NewPassword";
 import "amazon-connect-streams";
 import { Route, Router, Routes } from "react-router-dom";
 import { AuthenticationContext } from "./components/Authentication";
+import AgentRecordingsSupplier from "./components/AgentRecordingsSupplier";
 
 function App() {
   //Variable that determines the user type
@@ -135,7 +136,11 @@ function App() {
                     <Route
                       path="/QualityControl"
                       exact
-                      element={<QualityControl />}
+                      element={
+                        <AgentRecordingsSupplier>
+                          <QualityControl />
+                        </AgentRecordingsSupplier>
+                      }
                     />
                     <Route path="/settings" element={<Settings />} />
                     <Route path="*" element={<Error interface="Agent" />} />
