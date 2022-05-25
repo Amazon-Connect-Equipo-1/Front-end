@@ -5,6 +5,7 @@ import { Component } from "spinners-react";
 const EmbedConnect = (props) => {
   useEffect(() => {
     const container = document.getElementById("ccp");
+    // eslint-disable-next-line no-undef
     connect.core.initCCP(container, {
       ccpUrl: "https://itesm2022amazonconnect.my.connect.aws/connect/ccp-v2/", // REQUIRED
       loginPopup: true, // optional, defaults to `true`
@@ -34,6 +35,7 @@ const EmbedConnect = (props) => {
       ccpLoadTimeout: 10000, //optional, defaults to 5000 (ms)
     });
 
+    // eslint-disable-next-line no-undef
     connect.core.onAccessDenied(function auth2() {
       console.log("no pudiste entrar XD");
     });
