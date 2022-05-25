@@ -153,7 +153,14 @@ const RecordingsSupplier = ({ children }) => {
   const getVideo = (videoId) => {};
 
   return (
-    <RecordingsContext.Provider value={[arrRecordings, setArrRecordings]}>
+    <RecordingsContext.Provider
+      value={[
+        arrRecordings,
+        setArrRecordings,
+        selectedVideoInfo,
+        setSelectedVideoInfo,
+      ]}
+    >
       {children}
     </RecordingsContext.Provider>
   );
