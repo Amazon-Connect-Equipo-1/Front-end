@@ -1,6 +1,7 @@
 /* CSS of AmazonConnect
 Authors:
-        A01777771 Stephen Strange*/
+        A01378688 Daniel Garcia
+*/
 /*Initials: ac*/
 
 .ac-image {
@@ -22,7 +23,7 @@ Authors:
   color: var(--text-color);
   border-radius: 10px;
   box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
-  min-height: 65rem;
+  min-height: 70rem;
 }
 .ac-viewer {
   display: flex;
