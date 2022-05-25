@@ -4,18 +4,37 @@ Authors:
 /*Initials: tp*/
 
 .tp-main-container {
-  width: 35rem;
-  background-color: var(--sub-card-background);
-  color: var(--text-color);
-  border-radius: 10px;
-  box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
-  min-height: 50rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  gap: 1.5rem;
+  height: 50rem;
+  width: 35rem;
+  overflow-y: auto;
+  background-color: var(--sub-card-background);
+  color: var(--text-color);
+  border-radius: 10px;
+  box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
   padding: 1rem;
 }
+
+.tp-main-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.tp-main-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.tp-main-container::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.tp-main-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .tp-title {
   font-size: var(--sub-title);
   /* font-size: 3rem; */
@@ -38,9 +57,7 @@ Authors:
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
   flex-wrap: wrap;
-  padding: 1.5rem;
   min-height: max-content;
 }
 .tp-label {

@@ -41,7 +41,7 @@ const ThirdParty = (props) => {
   return (
     <>
       {tps === "Main" && (
-        <div>
+        <>
           <div className="tp-title">{t("thirdPartyServices")}</div>
           <div className="tp-button-container">
             <button
@@ -87,7 +87,7 @@ const ThirdParty = (props) => {
               <img src={policelogo} className="tp-image" />
             </button>
           </div>
-        </div>
+        </>
       )}
       {tps === "Uber" && <UberForm onChange={setTps} />}
       {tps === "UberEats" && <UberEatsForm onChange={setTps} />}
