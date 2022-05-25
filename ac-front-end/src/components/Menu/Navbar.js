@@ -45,6 +45,8 @@ const Navbar = (props) => {
     setActive(false);
   };
 
+  const [text, setText] = React.useState("");
+
   return (
     <div className="nav-container">
       <IconContext.Provider value={{ color: "var(--text-color)", size: 60 }}>
@@ -53,9 +55,14 @@ const Navbar = (props) => {
             <img className="nav-icon" />
           </Link>
           <h1 className="nav-welcome-text">
-            {t("welcomeText") + ", " + userInfo.name}
+            {text || t("welcomeText") + ", " + userInfo.name}
           </h1>
-          <Link to="/profile">
+          <Link
+            to="/profile"
+            onClick={(e) => {
+              setText(t("welcomeText") + ", " + userInfo.name);
+            }}
+          >
             <FaUserCircle className="nav-user-icon" />
           </Link>
         </div>
@@ -69,7 +76,18 @@ const Navbar = (props) => {
                   data-tip
                   data-for={item.title}
                 >
-                  <Link to={item.path}>{item.icon}</Link>
+                  <Link
+                    to={item.path}
+                    onClick={(e) => {
+                      if (item.title !== "Dashboard") {
+                        setText(item.title);
+                      } else {
+                        setText(t("welcomeText") + ", " + userInfo.name);
+                      }
+                    }}
+                  >
+                    {item.icon}
+                  </Link>
                   <ReactTooltip
                     classname="tool-tip"
                     id={item.title}
