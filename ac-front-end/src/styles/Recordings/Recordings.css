@@ -25,24 +25,32 @@ Authors:
 .re-search-container {
   display: flex;
   grid-column: 1 / -1;
-  gap: 1.5rem;
+  /* gap: 1.5rem; */
   justify-self: end;
 }
 
 .re-input {
   font-size: var(--option-text);
-  border-radius: 10px;
   padding: 1rem 1rem 1rem 2rem;
+  border: none;
 }
 
-.re-select {
+.re-select,
+.re-btn {
   font-size: var(--option-text);
   font-weight: bold;
   border-radius: 6px;
   border-color: transparent;
   padding: 1.2rem;
-  background-color: var(--sub-card-background);
+  border-radius: 10px 0 0 10px;
+  background-color: var(--highlight-color);
   color: var(--text-color);
+}
+
+.re-btn {
+  color: white;
+  background-color: #415164;
+  border-radius: 0 10px 10px 0;
 }
 
 /*Media queries for Recordings*/

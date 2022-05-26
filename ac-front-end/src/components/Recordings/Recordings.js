@@ -32,6 +32,14 @@ const Recordings = (props) => {
             data-aos-duration="1000"
           >
             <div className="re-search-container">
+              <select
+                className="re-select"
+                onClick={() => saveClick(`${INPUT_NAME} filter scroller`)}
+              >
+                {/* <option>{t("search")}</option> */}
+                <option value="date">{t("date")}</option>
+                <option value="tag">{t("tag")}</option>
+              </select>
               <input
                 onKeyDown={saveKeys}
                 onClick={() => saveClick(`${INPUT_NAME} input`)}
@@ -39,14 +47,9 @@ const Recordings = (props) => {
                 type="text"
                 placeholder="Search"
               />
-              <select
-                className="re-select"
-                onClick={() => saveClick(`${INPUT_NAME} filter scroller`)}
-              >
-                <option>{t("search")}</option>
-                <option value="date">{t("date")}</option>
-                <option value="tag">{t("tag")}</option>
-              </select>
+              <button href="/" className="re-btn">
+                {t("search")}
+              </button>
             </div>
             {arrRecordings.map((record_info) => (
               <RecordingsCard

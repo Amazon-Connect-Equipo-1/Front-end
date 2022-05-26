@@ -29,13 +29,6 @@ const AgentRecordings = () => {
         <div className="arc-main-container" data-aos="fade-up">
           <div className="arc-container">
             <div className="arc-search-container">
-              <input
-                onKeyDown={saveKeys}
-                onClick={() => saveClick(`${INPUT_NAME} input`)}
-                className="arc-input"
-                type="text"
-                placeholder="Search"
-              />
               <select
                 className="arc-select"
                 onClick={() => saveClick(`${INPUT_NAME} filter scroller`)}
@@ -44,6 +37,16 @@ const AgentRecordings = () => {
                 <option value="date">{t("date")}</option>
                 <option value="tag">{t("tag")}</option>
               </select>
+              <input
+                onKeyDown={saveKeys}
+                onClick={() => saveClick(`${INPUT_NAME} input`)}
+                className="arc-input"
+                type="text"
+                placeholder="Search"
+              />
+              <button href="/" className="arc-btn">
+                {t("search")}
+              </button>
             </div>
             {arrRecordings.map((record_info) => (
               <RecordingsCard
