@@ -4,21 +4,22 @@ Authors:
 
 //Import Modules
 import React from "react";
+import "../../styles/Dashboard/SingleDashboard.css";
+import "../../styles/Dashboard/Dashboard.css";
 
 const Statistics = (props) => {
   return (
     <div className="dsb-main-container">
-      <div className="dsb-container">
-        <iframe
-          width="1500"
-          height="700"
-          src="https://us-west-2.quicksight.aws.amazon.com/sn/embed/share/accounts/559202700801/dashboards/725b2251-61ba-4b57-8dfa-1e37f8cc8b94?directory_alias=amazonconnectbancos">
-  </iframe>
+      <div className="dsb-card-container">
+        <div className="sdsb-main-container-statistics">
+          <iframe
+            className="sdsb-quicksight-statistics"
+            src="https://us-west-2.quicksight.aws.amazon.com/sn/embed/share/accounts/559202700801/dashboards/725b2251-61ba-4b57-8dfa-1e37f8cc8b94?directory_alias=amazonconnectbancos"
+          ></iframe>
+        </div>
       </div>
     </div>
   );
 };
 
 export default Statistics;
-
-
