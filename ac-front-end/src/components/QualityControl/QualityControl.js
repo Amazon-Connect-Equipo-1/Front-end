@@ -9,10 +9,10 @@ import AgentFeedbackCard from "./AgentFeedbackCard";
 const QualityControl = (props) => {
   return (
     <div className="aqc-main-container">
-      {/* <div className="aqc-container"> */}
-      <AgentRecordings />
-      <AgentFeedbackCard className="aqc-feedback-card" />
-      {/* </div> */}
+      <div className="aqc-container">
+        <AgentRecordings />
+        <AgentFeedbackCard className="aqc-feedback-card" />
+      </div>
     </div>
   );
 };

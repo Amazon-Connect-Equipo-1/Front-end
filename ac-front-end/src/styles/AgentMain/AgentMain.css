@@ -15,7 +15,7 @@ Authors:
 .agM-card-container {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 2rem;
   flex-wrap: wrap;
   padding: 2rem 0 2rem 0;

@@ -9,14 +9,14 @@ Authors:
   align-items: center;
   flex-direction: column;
   gap: 1.5rem;
-  height: 50rem;
+  height: 45rem;
   width: 35rem;
   overflow-y: auto;
   background-color: var(--sub-card-background);
   color: var(--text-color);
   border-radius: 10px;
   box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
-  padding: 1rem;
+  padding: 0 1rem 0 1rem;
 }
 
 .tp-main-container::-webkit-scrollbar {
@@ -35,31 +35,39 @@ Authors:
   background: #555;
 }
 
+.tp-container {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 4rem;
+}
+
 .tp-title {
   font-size: var(--sub-title);
   /* font-size: 3rem; */
   font-weight: bold;
   padding: 1rem;
   text-align: center;
+  grid-column: 1 / -1;
+  /* margin-top: 2rem; */
 }
 .tp-button {
-  display: flex;
-  width: 7rem;
-  height: 7rem;
+  /* display: flex; */
+  width: 9rem;
+  height: 9rem;
+  border-radius: 10px;
+  align-self: center;
+  justify-self: center;
 }
 .tp-image {
-  width: 7rem;
-  height: 7rem;
+  width: 9rem;
+  height: 9rem;
   margin-left: -0.8rem;
   margin-top: -0.3rem;
+  border-radius: 10px;
 }
-.tp-button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  min-height: max-content;
-}
+
 .tp-label {
   display: flex;
   justify-content: center;

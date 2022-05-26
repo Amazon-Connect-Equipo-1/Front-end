@@ -23,7 +23,7 @@ Authors:
   color: var(--text-color);
   border-radius: 10px;
   box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
-  min-height: 70rem;
+  height: 65rem;
 }
 .ac-viewer {
   display: flex;
