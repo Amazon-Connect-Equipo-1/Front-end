@@ -7,9 +7,18 @@ import "../../styles/Profile/Profile.css";
 import prfl_ic from "../../images/profile_icon.png";
 import { useContext } from "react";
 import { GlobalContext } from "../GlobalSupplier";
+import { AuthenticationContext } from "../Authentication";
+
 const Profile = (props) => {
   const [, , userInfo] = useContext(GlobalContext);
   console.log(userInfo);
+
+  const [, , , , logout] = useContext(AuthenticationContext);
+
+  const logoutHandler = (event) => {
+    logout();
+  };
+
   return (
     <div className="prfl-main-container" data-aos="fade-up">
       <div
@@ -27,6 +36,9 @@ const Profile = (props) => {
             <br />
             <p className="prfl-label">Email</p>
             <p className="prfl-label-info">{userInfo.email}</p>
+            <button className="prfl-button" onClick={logoutHandler}>
+              Logout
+            </button>
           </div>
         </div>
       </div>

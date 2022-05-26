@@ -49,3 +49,16 @@ Authors:
   font-size: 1.5rem;
   font-weight: bold;
 }
+
+.prfl-button {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 1rem;
+  background-color: var(--highlight-color);
+  color: var(--text-color);
+  margin-top: 2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+}

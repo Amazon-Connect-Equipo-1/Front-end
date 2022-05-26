@@ -12,7 +12,7 @@ import { VscRecord } from "react-icons/vsc";
 export const AdminSidebarData = [
   {
     title: "Dashboard",
-    path: "/",
+    path: "/admin",
     icon: <MdDashboard />,
     cName: "nav-text",
   },

@@ -12,7 +12,7 @@ import { VscRecord } from "react-icons/vsc";
 export const QASidebarData = [
   {
     title: "Dashboard",
-    path: "/",
+    path: "/qa",
     icon: <MdDashboard />,
     cName: "nav-text",
   },

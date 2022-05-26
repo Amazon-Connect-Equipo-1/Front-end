@@ -8,16 +8,18 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AuthenticationProvider from "./components/Authentication";
 
 ReactDOM.render(
   <React.StrictMode>
-    <AuthenticationProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </AuthenticationProvider>
+    <BrowserRouter>
+      <AuthenticationProvider>
+        <Routes>
+          <Route path="/*" element={<App />} />
+        </Routes>
+      </AuthenticationProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
