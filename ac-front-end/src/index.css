@@ -2,7 +2,6 @@
 Authors:
         A01777771 Stephen Strange*/
 
-
 /* Import Amazon Ember Font*/
 @import url("https://cdn.jsdelivr.net/gh/GoCloudHub/font-amazon-ember/fonts/amazonember/amazonember.css");
 
@@ -83,6 +82,10 @@ Authors:
   --option-text-medium: 2rem;
   --option-text-small: 1.5rem;
   --option-text-big: 2.5rem;
+
+  --sub-option-text-medium: 1.5rem;
+  --sub-option-text-small: 1rem;
+  --sub-option-text-big: 2rem;
 
   --logo-bbva-dark: url("images/logo_bbva.png");
   --logo-bbva-light: url("images/logo_bbva_light.png");
@@ -181,16 +184,19 @@ body.small {
   --h1-title: var(--h1-title-small);
   --sub-title: var(--sub-title-small);
   --option-text: var(--option-text-small);
+  --sub-option-text: var(--sub-option-text-small);
 }
 body.medium {
   --h1-title: var(--h1-title-medium);
   --sub-title: var(--sub-title-medium);
   --option-text: var(--option-text-medium);
+  --sub-option-text: var(--sub-option-text-medium);
 }
 body.big {
   --h1-title: var(--h1-title-big);
   --sub-title: var(--sub-title-big);
   --option-text: var(--option-text-big);
+  --sub-option-text: var(--sub-option-text-big);
 }
 html {
   /* Format rem */
