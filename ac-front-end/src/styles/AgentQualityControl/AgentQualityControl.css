@@ -2,14 +2,15 @@
 
 .aqc-main-container {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-end;
+  align-items: baseline;
   background-color: var(--main-card-background);
   border-radius: 10px;
   /* height: 85vh; */
   gap: 2rem;
   margin: 1rem 2rem 2rem 100px;
   position: relative;
+  flex-direction: row;
 }
 
 .aqc-container {
@@ -20,7 +21,8 @@
 .aqc-feedback-card {
   position: fixed;
   /* position: sticky; */
-  right: 0;
+  z-index: 999;
+  margin: 20px;
   /* width: 150px; */
   /* overflow-y: scroll;
   top: 0;

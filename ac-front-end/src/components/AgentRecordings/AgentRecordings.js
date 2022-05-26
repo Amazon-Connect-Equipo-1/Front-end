@@ -26,7 +26,7 @@ const AgentRecordings = () => {
   return (
     <>
       {outlet || (
-        <div className="arc-main-container">
+        <div className="arc-main-container" data-aos="fade-up">
           <div className="arc-container">
             <div className="arc-search-container">
               <input
