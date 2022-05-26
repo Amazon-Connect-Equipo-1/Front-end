@@ -6,25 +6,22 @@ Authors:
 import React from "react";
 import "../../styles/Dashboard/Dashboard.css";
 import AgentActiveCalls from "../AgentList/AgentActiveCalls";
-
+import AgentsAAndQASupplier, {
+  AgentAAndQAContext,
+} from "../AgentsAAndQASupplier";
+import SingleDashboard from "./SingleDashboard";
 
 const Dashboard = (props) => {
-
   return (
     <div className="dsb-main-container">
-      <div className="dsb-container">
-        <iframe
-          width="960"
-          height="700"
-          src="https://us-west-2.quicksight.aws.amazon.com/sn/embed/share/accounts/559202700801/dashboards/f0f0db32-74b6-4fef-8a26-89103d50737b?directory_alias=amazonconnectbancos">
-        </iframe>
+      <div className="dsb-card-container">
+        <SingleDashboard />
+        <AgentsAAndQASupplier>
+          <AgentActiveCalls isActiveCalls={false} />
+        </AgentsAAndQASupplier>
       </div>
-      
     </div>
   );
 };
 
 export default Dashboard;
-
-
-
