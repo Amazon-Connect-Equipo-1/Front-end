@@ -11,8 +11,12 @@ const Profile = (props) => {
   const [, , userInfo] = useContext(GlobalContext);
   console.log(userInfo);
   return (
-    <div className="prfl-main-container">
-      <div className="prfl-sub-container">
+    <div className="prfl-main-container" data-aos="fade-up">
+      <div
+        className="prfl-sub-container"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
         <div className="prfl-container">
           <img src={prfl_ic} alt="profile_ic" className="prfl-ic" />
           <div className="prfl-info-container">

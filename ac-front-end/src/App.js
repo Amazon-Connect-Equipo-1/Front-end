@@ -16,7 +16,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import Statistics from "./components/Statistics/Statistics";
 import Settings from "./components/Settings/Settings";
 import AgentList from "./components/AgentList/AgentList";
-import { Fragment, Suspense, useContext, useState } from "react";
+import { Fragment, Suspense, useContext, useEffect, useState } from "react";
 import LocaleContext from "./LocaleContext";
 import i18n from "./i18n";
 import Loading from "./components/Loading";
@@ -32,6 +32,8 @@ import "amazon-connect-streams";
 import { Route, Router, Routes } from "react-router-dom";
 import { AuthenticationContext } from "./components/Authentication";
 import AgentRecordingsSupplier from "./components/AgentRecordingsSupplier";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
   //Variable that determines the user type
@@ -49,6 +51,10 @@ function App() {
   //console.log(user);
   //console.log(userType);
 
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
     <div className="App">
       <GlobalSupplier>

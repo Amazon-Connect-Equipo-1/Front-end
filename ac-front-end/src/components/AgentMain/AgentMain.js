@@ -12,8 +12,12 @@ import RecordScreen from "./RecordScreen";
 //Creates Main Agent
 const AgentMain = (props) => {
   return (
-    <div className="agM-main-container">
-      <div className="agM-card-container">
+    <div className="agM-main-container" data-aos="fade-up">
+      <div
+        className="agM-card-container"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
         <TutorialsContainer />
         <div>
           <ThirdPartyContainer />

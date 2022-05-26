@@ -3,7 +3,7 @@ Authors:
         A01777771 Stephen Strange*/
 
 //Import Modules
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "../../styles/AgentList/AgentList.css";
 import { AgentAAndQAContext } from "../AgentsAAndQASupplier";
 import AgentActiveCalls from "./AgentActiveCalls";
@@ -24,9 +24,13 @@ const AgentList = (props) => {
   };
 
   return (
-    <div className="agl-main-container">
+    <div className="agl-main-container" data-aos="fade-up">
       <AgentListMenu />
-      <div className="agl-card-container">
+      <div
+        className="agl-card-container"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
         <SingleAgent agent={agentInfo} />
         <AllAgentList onSelectAgent={selectAgentHandler} isActiveCalls={true} />
         <AgentActiveCalls isActiveCalls={false} />

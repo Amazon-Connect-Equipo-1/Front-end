@@ -25,8 +25,12 @@ const Recordings = (props) => {
   return (
     <>
       {outlet || (
-        <div className="re-main-container">
-          <div className="re-container">
+        <div className="re-main-container" data-aos="fade-up">
+          <div
+            className="re-container"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+          >
             <div className="re-search-container">
               <input
                 onKeyDown={saveKeys}

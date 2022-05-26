@@ -101,9 +101,10 @@ function Settings() {
     document.getElementById("theme-select").value = theme;
     document.getElementById("size-select").value = txtSize;
   });
+
   return (
     <Card className="stngs-main-container">
-      <div className="stngs-container">
+      <div className="stngs-container" data-aos="fade-up">
         <div className="stngs-option">
           <p>{t("textSize")}</p>
           <select
