@@ -15,6 +15,14 @@ const RecordScreen = (props) => {
     mediaBlobUrl,
   } = useReactMediaRecorder({ screen: true });
   
+  function stopRecordFunct(){
+  stopRecording()
+  console.log("Subiendo----");
+  setTimeout(() => {
+    document.getElementById("uploadButton").click()
+  }, 4000);
+  }
+  
   const uploadVideo = async () => {
     const API_ENDPOINT = "https://gmfy1qbiac.execute-api.us-west-2.amazonaws.com/default/getSignedURL"
     const mediaBlob =  await fetch(mediaBlobUrl)
@@ -44,7 +52,7 @@ const RecordScreen = (props) => {
         <button className="rs-button" onClick={startRecording}>
           <VscRecord />
         </button>
-        <button className="rs-button" onClick={stopRecording}>
+        <button className="rs-button" onClick={stopRecordFunct}>
           <VscStopCircle />
         </button>
         <button className="rs-button" id='uploadButton' onClick={uploadVideo}>
