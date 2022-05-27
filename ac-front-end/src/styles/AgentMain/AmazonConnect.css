@@ -25,8 +25,18 @@ Authors:
   box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
   height: 65rem;
 }
+
 .ac-viewer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/*****************************/
+/* BELOW 50*16 = 800px (Smaller desktops) */
+/*****************************/
+@media (max-height: 50em) {
+  .ac-main-container {
+    height: 60rem;
+  }
 }

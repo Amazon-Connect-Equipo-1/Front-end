@@ -52,12 +52,7 @@ const Tutorials = () => {
         </select>
       </div>
       <div className="viewer">
-        <iframe
-          className="t-pdf"
-          src={`${pdfFile}#toolbar=0&navpanes=0`}
-          width="100%"
-          height="450rem"
-        />
+        <iframe className="t-pdf" src={`${pdfFile}#toolbar=0&navpanes=0`} />
       </div>
     </div>
   );

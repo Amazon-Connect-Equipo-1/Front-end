@@ -125,3 +125,12 @@ Authors:
   cursor: pointer;
   width: 95%;
 }
+
+/*****************************/
+/* BELOW 50*16 = 800px (Smaller desktops) */
+/*****************************/
+@media (max-height: 50em) {
+  .tp-main-container {
+    height: 40rem;
+  }
+}

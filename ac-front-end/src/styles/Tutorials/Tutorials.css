@@ -103,8 +103,8 @@ span {
 }
 
 .t-pdf {
-  width: "100%";
-  height: "400px";
+  width: 100%;
+  height: 400px;
 }
 
 /*Media queries for Recordings*/
@@ -120,5 +120,19 @@ span {
   }
   .rec-score {
     font-size: 1.8rem;
+  }
+}
+
+/*****************************/
+/* BELOW 50*16 = 800px (Smaller desktops) */
+/*****************************/
+@media (max-height: 50em) {
+  .t-main-container {
+    height: 60rem;
+  }
+
+  .t-pdf {
+    width: 100%;
+    height: 300px;
   }
 }
