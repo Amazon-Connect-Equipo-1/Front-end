@@ -82,7 +82,7 @@ span {
   font-size: 2rem;
   font-weight: bold;
   display: flex;
-  background-color: #9facbd;
+  background-color: var(--highlight-color);
   color: #ffff;
   border: none;
   border-radius: 10px;

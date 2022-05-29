@@ -19,10 +19,7 @@ const AgentMain = (props) => {
         data-aos-duration="1000"
       >
         <TutorialsContainer />
-        <div>
-          <ThirdPartyContainer />
-          <RecordScreen />
-        </div>
+        <ThirdPartyContainer />
         <AmazonConnect />
       </div>
     </div>

@@ -9,7 +9,7 @@ Authors:
   align-items: center;
   flex-direction: column;
   gap: 1.5rem;
-  height: 45rem;
+  height: 65rem;
   width: 35rem;
   overflow-y: auto;
   background-color: var(--sub-card-background);
@@ -131,6 +131,6 @@ Authors:
 /*****************************/
 @media (max-height: 50em) {
   .tp-main-container {
-    height: 40rem;
+    height: 60rem;
   }
 }
