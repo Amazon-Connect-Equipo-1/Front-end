@@ -62,7 +62,7 @@ Authors:
 }
 
 .rec-agent-name {
-  font-size: 2.4rem;
+  font-size: var(--option-text);
   text-align: end;
 }
 
@@ -75,7 +75,7 @@ Authors:
 }
 
 .rec-date {
-  font-size: 1.8rem;
+  font-size: var(--sub-option-text);
   text-align: end;
 }
 
@@ -99,44 +99,45 @@ Authors:
   align-items: center;
   height: 5rem;
   padding: 0 1.5rem;
-  font-size: 2rem;
-  color: white;
-  border-radius: 3px;
+  font-size: var(--sub-option-text);
+  color: var(--text-color);
+  border-radius: 8px;
   cursor: pointer;
 }
 
 .card-declined {
-  background-color: red;
+  background-color: var(--offline-color);
 }
 .lost-card {
-  background-color: blue;
+  background-color: var(--other-dark-blue-color);
 }
 .stolen-card {
-  background-color: green;
+  background-color: var(--online-color);
 }
 .cancel-card {
-  background-color: orange;
+  background-color: var(--other-orange-color);
 }
 .credit-card {
-  background-color: grey;
+  background-color: var(--other-brown-color);
 }
 .savings-account {
-  background-color: purple;
+  background-color: var(--other-purple-color);
 }
 .inssurance {
   background-color: burlywood;
 }
 .withdrawal {
-  background-color: lightseagreen;
+  background-color: var(--online-color);
 }
 .loans {
-  background-color: palevioletred;
+  background-color: var(--other-pink-color);
 }
 .investments {
-  background-color: khaki;
+  background-color: var(--other-yellow-color);
+  color: var(--text-color-light);
 }
 .problem-solved {
-  background-color: teal;
+  background-color: var(--other-blue-color);
 }
 .problem-not-solved {
   background-color: coral;
