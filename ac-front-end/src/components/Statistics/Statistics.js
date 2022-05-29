@@ -9,8 +9,12 @@ import "../../styles/Dashboard/Dashboard.css";
 
 const Statistics = (props) => {
   return (
-    <div className="dsb-main-container">
-      <div className="dsb-card-container">
+    <div className="dsb-main-container" data-aos="fade-up">
+      <div
+        className="dsb-card-container"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
         <div className="sdsb-main-container-statistics">
           <iframe
             className="sdsb-quicksight-statistics"

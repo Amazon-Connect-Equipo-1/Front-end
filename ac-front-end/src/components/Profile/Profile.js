@@ -37,7 +37,7 @@ const Profile = (props) => {
             <p className="prfl-label">Email</p>
             <p className="prfl-label-info">{userInfo.email}</p>
             <button className="prfl-button" onClick={logoutHandler}>
-              Logout
+              Log Out
             </button>
           </div>
         </div>

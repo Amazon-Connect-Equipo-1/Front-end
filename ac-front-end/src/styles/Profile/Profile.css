@@ -62,3 +62,10 @@ Authors:
   cursor: pointer;
   width: 100%;
 }
+
+.prfl-button:hover {
+  transform: translateY(-3px);
+  transition: 0.3s ease-out;
+  opacity: 0.9;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}

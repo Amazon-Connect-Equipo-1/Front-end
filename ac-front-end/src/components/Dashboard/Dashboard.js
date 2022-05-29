@@ -13,8 +13,12 @@ import SingleDashboard from "./SingleDashboard";
 
 const Dashboard = (props) => {
   return (
-    <div className="dsb-main-container">
-      <div className="dsb-card-container">
+    <div className="dsb-main-container" data-aos="fade-up">
+      <div
+        className="dsb-card-container"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
         <SingleDashboard />
         <AgentsAAndQASupplier>
           <AgentActiveCalls isActiveCalls={false} />
