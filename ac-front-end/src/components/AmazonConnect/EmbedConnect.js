@@ -25,7 +25,7 @@ import { useReactMediaRecorder } from "react-media-recorder";
 const EmbedConnect = (props) => {
   
   // Save the contact id (id of the call)
-  const[cid,setCid] = useState("NoContactId");
+  var cid;
 
   // Initialize React Media recorder
   const {
@@ -114,12 +114,21 @@ const EmbedConnect = (props) => {
     // Code to be executed once a call starts
     // eslint-disable-next-line no-undef
     connect.contact(function(contact){
-      // Code to execute once an agent receives a call
       contact.onConnected(async function(contact){
-        setCid(contact.getContactId()) ;
-        await startRecording();
+        cid = contact.getContactId()
+        window.alert(cid);
+        startRecording();
+        //await startRecording();
+        var attributeMap = contact.getAttributes();
+        window.alert('"You were not authenticated"')
+        var auth = JSON.stringify(attributeMap["boolAuth"]["value"]);
+        if(auth == '"You were not authenticated"'){
+          window.alert("Not Authenticated PIN")
+        }else{
+          window.alert("Authenticated PIN")
+        }
+        console.log("Estado de la variable Auth: " + auth)
       });
-      
     });
 
     // Agent subscriptions
