@@ -80,6 +80,10 @@ Authors:
   text-decoration: none;
 }
 
+.lgf-forgot-text:hover {
+  text-decoration: underline var(--text-color-dark);
+}
+
 .lgf-margin-bottom-sm {
   margin-bottom: 0.6rem;
 }

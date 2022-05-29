@@ -67,12 +67,12 @@ Authors:
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(135, 42, 42);
-  height: 4rem;
-  padding: 0 1rem;
+  background-color: var(--offline-color);
+  height: 5rem;
+  padding: 0 1.5rem;
   font-size: var(--sub-option-text);
-  color: white;
-  border-radius: 3px;
+  color: var(--text-color);
+  border-radius: 8px;
   cursor: pointer;
   /* box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 8%); */
 }
@@ -81,10 +81,10 @@ Authors:
   font-size: 2rem;
   font-weight: 700;
   text-align: center;
-  background-color: #9facbd;
+  background-color: var(--highlight-color);
   border-radius: 10px;
   padding: 1rem;
   cursor: pointer;
-  color: #e1e1e1;
+  color: var(--text-color);
   border: none;
 }

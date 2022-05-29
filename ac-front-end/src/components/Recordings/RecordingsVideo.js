@@ -25,7 +25,11 @@ const RecordingsVideo = (props) => {
 
   return (
     <Card className="rev-main-container">
-      <div className="rev-container">
+      <div
+        className="rev-container"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
         <iframe
           className="rev-video"
           src="https://www.youtube.com/embed/0Kvw2BPKjz0"

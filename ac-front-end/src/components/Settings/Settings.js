@@ -157,6 +157,21 @@ function Settings() {
             <option value="fr">{t("frenchLanguage")}</option>
           </select>
         </div>
+        <div className="stngs-restore-container">
+          <button
+            className="stngs-restore-btn"
+            onClick={() => {
+              switchTxtSize("medium");
+              document.getElementById("size-select").value = "medium";
+              switchTheme("dark");
+              document.getElementById("theme-select").value = "dark";
+              i18n.changeLanguage("en");
+              document.getElementById("lang").value = "en";
+            }}
+          >
+            Restore to default
+          </button>
+        </div>
       </div>
     </Card>
   );
