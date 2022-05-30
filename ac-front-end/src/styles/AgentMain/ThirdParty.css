@@ -170,6 +170,8 @@ Authors:
   height: 43rem;
   margin-top: 3rem;
   border-radius: 10px;
+  align-items: center;
+  justify-content: center;
 }
 .tp-confirmation-button {
   width: 15rem;
