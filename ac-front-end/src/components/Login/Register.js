@@ -9,9 +9,10 @@ import LoginForm from "./LoginForm";
 
 const Register = (props) => {
   return (
-    <div className="log-main-container">
-      <div className="log-container">
-        <img src={logo} alt="logo" className="log-logo" />
+    <div className="rp-main-container">
+      <div className="rp-container">
+        <img src={logo} alt="logo" className="rp-logo" />
+        hola
       </div>
     </div>
   );
