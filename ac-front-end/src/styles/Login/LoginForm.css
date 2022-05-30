@@ -86,7 +86,9 @@ Authors:
   color: inherit;
   text-decoration: none;
 }
-
+.lgf-register-text:hover {
+  text-decoration: underline var(--text-color-dark);
+}
 .lgf-forgot-text:hover {
   text-decoration: underline var(--text-color-dark);
 }
