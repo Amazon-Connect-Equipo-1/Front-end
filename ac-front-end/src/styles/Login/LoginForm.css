@@ -79,6 +79,13 @@ Authors:
   color: inherit;
   text-decoration: none;
 }
+.lgf-register-text {
+  text-align: right;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+  color: inherit;
+  text-decoration: none;
+}
 
 .lgf-forgot-text:hover {
   text-decoration: underline var(--text-color-dark);
