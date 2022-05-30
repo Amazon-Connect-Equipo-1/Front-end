@@ -8,29 +8,34 @@ import { MdDashboard } from "react-icons/md";
 import { FiUsers, FiTrendingUp } from "react-icons/fi";
 import { IoSettingsSharp } from "react-icons/io5";
 import { VscRecord } from "react-icons/vsc";
+import { t } from "i18next";
 
 export const AdminSidebarData = [
   {
     title: "Dashboard",
+    navBar: "Dashboard",
     path: "/admin",
     icon: <MdDashboard />,
     cName: "nav-text",
   },
 
   {
-    title: "Agent List",
+    title: t("Agent List"),
+    navBar: "Agent List",
     path: "/agents",
     icon: <FiUsers />,
     cName: "nav-text",
   },
   {
-    title: "Statistics",
+    title: t("Statistics"),
+    navBar: "Statistics",
     path: "/statistics",
     icon: <FiTrendingUp />,
     cName: "nav-text",
   },
   {
-    title: "Settings",
+    title: t("Settings"),
+    navBar: "Settings",
     path: "/settings",
     icon: <IoSettingsSharp />,
     cName: "nav-text",

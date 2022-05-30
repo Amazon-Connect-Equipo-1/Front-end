@@ -82,5 +82,14 @@
   "selectBestVideos": "Sélectionnez les Meilleures Vidéos",
 
   "__thirdPartyServices__": "----------Third Party Services Interface----------",
-  "thirdPartyServices": "Services de Tierce Partie"
+  "thirdPartyServices": "Services de Tierce Partie",
+
+  "__navBar": "----------------------NavBar Items------------------------------",
+  "Dashboard": "Dashboard",
+  "Agent List": "Liste des Agents",
+  "Statistics": "Statistiques",
+  "Settings": "Réglages",
+  "Feedback": "Retour d'information",
+  "Recordings": "Enregistrements"
+
 }

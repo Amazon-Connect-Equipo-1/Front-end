@@ -7,6 +7,7 @@ import React from "react";
 import { MdOutlineCheckBox } from "react-icons/md";
 import { IoSettingsSharp } from "react-icons/io5";
 import { MdDashboard } from "react-icons/md";
+import { t } from "i18next";
 
 export const AgentSidebarData = [
   {
@@ -16,13 +17,13 @@ export const AgentSidebarData = [
     cName: "nav-text",
   },
   {
-    title: "Feedback",
+    title: t("Feedback"),
     path: "/agent-qa",
     icon: <MdOutlineCheckBox />,
     cName: "nav-text",
   },
   {
-    title: "Settings",
+    title: t("Settings"),
     path: "/settings",
     icon: <IoSettingsSharp />,
     cName: "nav-text",

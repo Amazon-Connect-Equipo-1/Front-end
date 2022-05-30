@@ -80,7 +80,7 @@ const Navbar = (props) => {
                     to={item.path}
                     onClick={(e) => {
                       if (item.title !== "Dashboard") {
-                        setText(item.title);
+                        setText(t(item.title));
                       } else {
                         setText(t("welcomeText") + ", " + userInfo.name);
                       }
@@ -90,13 +90,13 @@ const Navbar = (props) => {
                   </Link>
                   <ReactTooltip
                     classname="tool-tip"
-                    id={item.title}
+                    id={t(item.navBar)}
                     effect="solid"
                     backgroundColor="var(--highlight-color)"
                     textColor="var(--text-color)"
                     place="right"
                   >
-                    <span>{item.title}</span>
+                    <span>{t(item.navBar)}</span>
                   </ReactTooltip>
                 </li>
               );

@@ -14,6 +14,7 @@ import { saveKeys, saveClick } from "../MonitorModule.js";
 //Creates functions Settings and its constants
 function Settings() {
   const INPUT_NAME = "settings";
+  
 
   const body = document.body;
 
@@ -167,6 +168,7 @@ function Settings() {
               document.getElementById("theme-select").value = "dark";
               i18n.changeLanguage("en");
               document.getElementById("lang").value = "en";
+
             }}
           >
             Restore to default

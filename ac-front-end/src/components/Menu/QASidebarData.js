@@ -8,6 +8,7 @@ import { MdDashboard } from "react-icons/md";
 import { FiUsers, FiTrendingUp } from "react-icons/fi";
 import { IoSettingsSharp } from "react-icons/io5";
 import { VscRecord } from "react-icons/vsc";
+import { t } from "i18next";
 
 export const QASidebarData = [
   {
@@ -17,25 +18,25 @@ export const QASidebarData = [
     cName: "nav-text",
   },
   {
-    title: "Recordings",
+    title: t("Recordings"),
     path: "/recordings",
     icon: <VscRecord />,
     cName: "nav-text",
   },
   {
-    title: "Agent List",
+    title: t("Agent List"),
     path: "/agents",
     icon: <FiUsers />,
     cName: "nav-text",
   },
   {
-    title: "Statistics",
+    title: t("Statistics"),
     path: "/statistics",
     icon: <FiTrendingUp />,
     cName: "nav-text",
   },
   {
-    title: "Settings",
+    title: t("Settings"),
     path: "/settings",
     icon: <IoSettingsSharp />,
     cName: "nav-text",
