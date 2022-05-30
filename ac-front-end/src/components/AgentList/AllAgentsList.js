@@ -1,3 +1,8 @@
+/* All Agent List
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import "../../styles/AgentList/AllAgentsList.css";
 import AgentRow from "./AgentRow";
 import { useTranslation } from "react-i18next";

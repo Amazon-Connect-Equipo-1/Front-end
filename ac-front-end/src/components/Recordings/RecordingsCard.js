@@ -1,3 +1,8 @@
+/* Recordings Card
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import Card from "../UI/Card";
 import logo from "../../images/bbva_video.PNG";
 import "../../styles/Recordings/RecordingsCard.css";
@@ -11,9 +16,6 @@ const RecordingsCard = (props) => {
   // useContext(RecordingsContext);
 
   //Logic to determine the tags
-  const getRating = (rating) => {
-    return "🖖".repeat(rating);
-  };
 
   // const printt = () => {
   //   setSelectedVideoInfo({
@@ -29,8 +31,21 @@ const RecordingsCard = (props) => {
   //   console.log(selectedVideoInfo);
   // };
 
+  const adaptFontSize = () => {
+    if (props.record.agent_name.length > 16) {
+      return "rec-agent-name-small";
+    } else if (props.record.agent_name.length > 13) {
+      return "rec-agent-name-md";
+    }
+    return "";
+  };
+
+  const processTagName = (tagName) => {
+    return tagName.includes("-") ? tagName.replace("-", " ") : tagName;
+  };
+
   return (
-    <Link to="/video">
+    <Link to="video" className="link">
       <Card className="rec-main-container">
         <div className="rec-container">
           <div className="rec-video-section">
@@ -42,15 +57,17 @@ const RecordingsCard = (props) => {
               ></img>
             </div>
             <div className="rec-video-info" onClick={props.onClickCard}>
-              <h2 className="rec-agent-name">{props.record.agent_name}</h2>
+              <h2 className={`rec-agent-name ${adaptFontSize()}`}>
+                {props.record.agent_name}
+              </h2>
               <h3 className="rec-date">{props.record.date}</h3>
-              <h3 className="rec-score">{getRating(props.record.rating)}</h3>
+              {/* <h3 className="rec-score">{getRating(props.record.rating)}</h3> */}
             </div>
           </div>
           <div className="rec-tag-section" onClick={props.onClickCard}>
             {props.record.tags.map((tag) => (
               <Card key={uuidv4()} className={`rec-tag ${tag} `}>
-                {tag}
+                {processTagName(tag)}
               </Card>
             ))}
           </div>

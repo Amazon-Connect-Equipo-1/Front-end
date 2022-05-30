@@ -1,9 +1,14 @@
+/* Recordings Video
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import "../../styles/Recordings/RecordingsVideo.css";
 import video from "../../images/bbva_video.PNG";
 import AboutCard from "./AboutCard";
 import Card from "../UI/Card";
 import GiveFeedbackCard from "./GiveFeedbackCard";
-import AgentFeedbackCard from "./AgentFeedbackCard";
+import AgentFeedbackCard from "../QualityControl/AgentFeedbackCard";
 import { useState } from "react";
 
 const RecordingsVideo = (props) => {
@@ -20,7 +25,11 @@ const RecordingsVideo = (props) => {
 
   return (
     <Card className="rev-main-container">
-      <div className="rev-container">
+      <div
+        className="rev-container"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
         <iframe
           className="rev-video"
           src="https://www.youtube.com/embed/0Kvw2BPKjz0"

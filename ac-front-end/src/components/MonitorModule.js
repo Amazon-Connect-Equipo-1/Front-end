@@ -1,3 +1,7 @@
+/* Monitor Module
+Authors:
+        A01777771 Stephen Strange*/
+
 // This module helps to register the
 // clicks and pressed keys of the user
 

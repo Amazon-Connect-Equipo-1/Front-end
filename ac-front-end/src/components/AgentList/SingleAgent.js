@@ -1,3 +1,8 @@
+/* Single Agent
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import "../../styles/AgentList/SingleAgent.css";
 import profile_picture from "../../images/profile_icon.png";
 import percent from "../../images/porcentaje.png";

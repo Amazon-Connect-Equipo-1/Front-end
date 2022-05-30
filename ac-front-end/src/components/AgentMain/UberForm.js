@@ -1,16 +1,24 @@
+/* Uber Form
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import "../../styles/AgentMain/ThirdParty.css";
 import ThirdParty from "./ThirdParty";
 import { saveKeys, saveClick } from "../MonitorModule.js";
+import { useTranslation } from "react-i18next";
 
 const UberForm = (props) => {
   const INPUT_NAME = "Uber form";
+  // Language
+  const { t } = useTranslation();
 
   return (
     <div>
-      <div className="tp-title">Uber Service</div>
+      <div className="tp-title">{t("uber")}</div>
       <form>
         <label className="tp-name-label">
-          Client:
+          {t("client")}
           <input
             type="text"
             onKeyDown={saveKeys}
@@ -19,7 +27,7 @@ const UberForm = (props) => {
           />
         </label>
         <label className="tp-name-label">
-          Email:
+          {t("email")}
           <input
             type="text"
             onKeyDown={saveKeys}
@@ -28,7 +36,7 @@ const UberForm = (props) => {
           />
         </label>
         <label className="tp-name-label">
-          Cellphone:
+          {t("phone")}
           <input
             type="text"
             onKeyDown={saveKeys}
@@ -37,7 +45,7 @@ const UberForm = (props) => {
           />
         </label>
         <label className="tp-name-label">
-          Client location:
+          {t("clientLocation")}
           <input
             type="text"
             onKeyDown={saveKeys}
@@ -46,7 +54,7 @@ const UberForm = (props) => {
           />
         </label>
         <label className="tp-name-label">
-          Destination:
+          {t("destination")}
           <input
             type="text"
             onKeyDown={saveKeys}
@@ -60,10 +68,10 @@ const UberForm = (props) => {
             onKeyDown={saveKeys}
             onClick={(e) => {
               e.preventDefault();
-              props.onChange("Main");
+              props.onChange();
               saveClick(`${INPUT_NAME} input`);
             }}
-            value="Ask for service"
+            value={t("askForService")}
             className="tp-submit-button"
           />
         </div>

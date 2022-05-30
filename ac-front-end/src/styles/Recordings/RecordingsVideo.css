@@ -1,10 +1,13 @@
+/* CSS of RecordingsVideo
+Authors:
+        A01777771 Stephen Strange*/
 /* Initials: rev */
 
 .rev-main-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #132535;
+  background-color: var(--main-card-background);
   border-radius: 10px;
   margin: 1rem 2rem 2rem 100px;
   min-height: 85vh;

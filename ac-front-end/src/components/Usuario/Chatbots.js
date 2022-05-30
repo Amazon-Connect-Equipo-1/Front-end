@@ -1,3 +1,8 @@
+/* Chatbot
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import "../../styles/Usuario/Usuario.css";
 import "../../styles/Usuario/Chatbots.css";
 //import logo from "../../images/logo_bbva.png";

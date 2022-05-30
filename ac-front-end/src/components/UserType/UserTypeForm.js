@@ -1,3 +1,8 @@
+/* User Type Form
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import Card from "../UI/Card";
 import "../../styles/UserType/UserTypeForm.css";
 import { useTranslation } from "react-i18next";

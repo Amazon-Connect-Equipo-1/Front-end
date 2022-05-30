@@ -1,3 +1,8 @@
+/* Settings
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import React, { useContext, useEffect, useState } from "react";
 import "../../styles/Settings/Settings.css";
 import Card from "../UI/Card";
@@ -6,6 +11,7 @@ import LocaleContext from "../../LocaleContext";
 import i18n from "../../i18n";
 import { saveKeys, saveClick } from "../MonitorModule.js";
 
+//Creates functions Settings and its constants
 function Settings() {
   const INPUT_NAME = "settings";
 
@@ -89,15 +95,18 @@ function Settings() {
     if (locale !== l) {
       i18n.changeLanguage(l);
     }
+    document.getElementById("nav-title").textContent = t("Settings");
   }
 
   useEffect(() => {
     document.getElementById("theme-select").value = theme;
     document.getElementById("size-select").value = txtSize;
+    document.getElementById("nav-title").textContent = t("Settings");
   });
+
   return (
     <Card className="stngs-main-container">
-      <div className="stngs-container">
+      <div className="stngs-container" data-aos="fade-up">
         <div className="stngs-option">
           <p>{t("textSize")}</p>
           <select
@@ -149,6 +158,21 @@ function Settings() {
             <option value="es">{t("spanishLanguage")}</option>
             <option value="fr">{t("frenchLanguage")}</option>
           </select>
+        </div>
+        <div className="stngs-restore-container">
+          <button
+            className="stngs-restore-btn"
+            onClick={() => {
+              switchTxtSize("medium");
+              document.getElementById("size-select").value = "medium";
+              switchTheme("dark");
+              document.getElementById("theme-select").value = "dark";
+              i18n.changeLanguage("en");
+              document.getElementById("lang").value = "en";
+            }}
+          >
+            Restore to default
+          </button>
         </div>
       </div>
     </Card>

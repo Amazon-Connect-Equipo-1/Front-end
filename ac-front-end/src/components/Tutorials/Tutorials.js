@@ -1,3 +1,8 @@
+/* Tutorial
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import { Worker } from "@react-pdf-viewer/core";
 import { Viewer } from "@react-pdf-viewer/core";
 import "@react-pdf-viewer/core/lib/styles/index.css";
@@ -47,12 +52,7 @@ const Tutorials = () => {
         </select>
       </div>
       <div className="viewer">
-        <iframe
-          className="t-pdf"
-          src={`${pdfFile}#toolbar=0&navpanes=0`}
-          width="100%"
-          height="450rem"
-        />
+        <iframe className="t-pdf" src={`${pdfFile}#toolbar=0&navpanes=0`} />
       </div>
     </div>
   );

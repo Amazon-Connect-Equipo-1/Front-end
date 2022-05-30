@@ -1,9 +1,15 @@
+/* PopLLamada
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import "../../styles/Usuario/PopLlamada.css";
 //import logo from "../../images/logo_bbva.png";
 //import Chatbots from "../Usuario/Chatbots";
 import llamada from "../../images/Call.jpg";
 import { useState } from "react";
 
+//Creates PopLLamada
 const PopLlamada = (props) => {
   const [calling, setCalling] = useState(false);
   const state = props.data;

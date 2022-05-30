@@ -1,3 +1,8 @@
+/* About Card
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import Card from "../UI/Card";
 import "../../styles/Recordings/AboutCard.css";
 import { useTranslation } from "react-i18next";
@@ -15,7 +20,7 @@ const AboutCard = (props) => {
             {t("feedback")}
           </h2>
         </div>
-        <h2>Call</h2>
+        <h2>{t("call")}</h2>
         <h3>
           ID: <span>120372</span>
         </h3>
@@ -23,10 +28,10 @@ const AboutCard = (props) => {
           {t("duration")} <span>00:12:41</span>
         </h3>
         <h3>
-          Start of call: <span>00:12:41</span>
+          {t("startCall")} <span>00:12:41</span>
         </h3>
         <h3>
-          End of call: <span>00:12:41</span>
+          {t("endCall")} <span>00:12:41</span>
         </h3>
         <h3 className="margin-top-md">
           {t("agent")} <span>Dwight Schrute</span>
@@ -37,18 +42,18 @@ const AboutCard = (props) => {
         {/* <h3>
           {t("clientsProblem")} <span>{t("lostCard")}</span>
         </h3> */}
-        <h2>Analysis</h2>
+        <h2>{t("analysis")}</h2>
         <h3>
-          Agent interruptions: <span>4</span>
+          {t("agentInterruptions")} <span>4</span>
         </h3>
         <h3>
-          User interruptions: <span>10</span>
+          {t("userInterruptions")} <span>10</span>
         </h3>
         <h3>
-          Agent's general sentiment: <span>10</span>
+          {t("agentSentiment")} <span>10</span>
         </h3>
         <h3>
-          User's general sentiment: <span>10</span>
+          {t("userSentiment")} <span>10</span>
         </h3>
         {/* <h3>
           {t("thirdPartyService")} <span>Uber</span>
@@ -63,11 +68,11 @@ const AboutCard = (props) => {
         </div>
         <div className="abc-tag-section">
           {/* Logic of tags (.map()) */}
-          <Card className="abc-tag">Work</Card>
-          <Card className="abc-tag">Bussiness</Card>
-          <Card className="abc-tag">Theft</Card>
-          <Card className="abc-tag">Bussiness</Card>
-          <Card className="abc-tag">Theft</Card>
+          <Card className="abc-tag">{t("work")}</Card>
+          <Card className="abc-tag">{t("business")}</Card>
+          <Card className="abc-tag">{t("theft")}</Card>
+          <Card className="abc-tag">{t("business")}</Card>
+          <Card className="abc-tag">{t("theft")}</Card>
           <Card className="abc-tag">Wodddrk</Card>
         </div>
         {/* <Card className="abc-feedback-btn">Give Feedback</Card> */}

@@ -1,3 +1,8 @@
+/* Llamada
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import "../../styles/Usuario/Usuario.css";
 //import logo from "../../images/logo_bbva.png";
 import Chatbots from "./Chatbots";

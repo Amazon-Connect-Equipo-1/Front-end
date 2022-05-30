@@ -1,3 +1,8 @@
+/* Amazon Connect
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import "amazon-connect-streams";
 import "../../styles/AgentMain/AmazonConnect.css";
 import ThirdParty from "./ThirdParty";

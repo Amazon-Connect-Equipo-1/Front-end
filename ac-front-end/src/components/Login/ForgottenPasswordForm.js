@@ -1,8 +1,14 @@
+/* Forgotten Password Form
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import "../../styles/Login/ForgottenPasswordForm.css";
 import logo from "../../images/logo_bbva.png";
 import { useTranslation } from "react-i18next";
 import Card from "../UI/Card";
 
+//Creates the constant Forgotten Password
 const ForgottenPasswordForm = (props) => {
   // Language
   const { t } = useTranslation();

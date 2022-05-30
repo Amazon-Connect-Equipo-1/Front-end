@@ -1,3 +1,6 @@
+/* CSS of SingleAgent
+Authors:
+        A01777771 Stephen Strange*/
 /*Initials: sa*/
 
 .sa-main-container {
@@ -45,4 +48,23 @@
   margin-left: 2rem;
   margin-right: 2rem;
   text-align: justify;
+}
+
+/*Media queries for SingleAgent*/
+/*****************************/
+/* BELOW 47*16 = 752px (Smaller desktops) */
+/*****************************/
+@media (max-height: 47em) {
+  .sa-main-container {
+    min-height: 45rem;
+  }
+}
+
+/*****************************/
+/* BELOW 42.5*16 = 680px (Very Small desktops) */
+/*****************************/
+@media (max-height: 42.5em) {
+  .sa-main-container {
+    min-height: 40rem;
+  }
 }

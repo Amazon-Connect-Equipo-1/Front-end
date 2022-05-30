@@ -1,13 +1,19 @@
+/* QA Sidebar Data
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import React from "react";
 import { MdDashboard } from "react-icons/md";
 import { FiUsers, FiTrendingUp } from "react-icons/fi";
 import { IoSettingsSharp } from "react-icons/io5";
 import { VscRecord } from "react-icons/vsc";
+import { t } from "i18next";
 
 export const QASidebarData = [
   {
     title: "Dashboard",
-    path: "/",
+    path: "/qa",
     icon: <MdDashboard />,
     cName: "nav-text",
   },

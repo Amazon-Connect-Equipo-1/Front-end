@@ -1,8 +1,14 @@
+/* Usuario
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import "../../styles/Usuario/Usuario.css";
 import logo from "../../images/logo_bbva.png";
 import Llamada from "./llamada";
 import { useState } from "react";
 
+//Verify if the user is on a Call or no
 const Usuario = (props) => {
   const [incall, setInCall] = useState(false);
   const [statecall, setStateCall] = useState("Call");

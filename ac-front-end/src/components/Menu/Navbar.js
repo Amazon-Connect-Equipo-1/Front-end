@@ -1,3 +1,8 @@
+/* Navigation Bar
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import { Link } from "react-router-dom";
 import { QASidebarData } from "./QASidebarData";
 import { AdminSidebarData } from "./AdminSidebarData";
@@ -9,6 +14,7 @@ import { t } from "i18next";
 import React, { useContext, useState } from "react";
 import ReactTooltip from "react-tooltip";
 import { GlobalContext } from "../GlobalSupplier";
+import { useTranslation } from "react-i18next";
 
 const Navbar = (props) => {
   //funcion para poner el nombre del admin o quality analyst
@@ -40,6 +46,11 @@ const Navbar = (props) => {
     setActive(false);
   };
 
+  const [text, setText] = React.useState("");
+  const idItem = "";
+  // Language
+  const { t } = useTranslation();
+
   return (
     <div className="nav-container">
       <IconContext.Provider value={{ color: "var(--text-color)", size: 60 }}>
@@ -47,10 +58,15 @@ const Navbar = (props) => {
           <Link to="#" className="nav-menu-bars">
             <img className="nav-icon" />
           </Link>
-          <h1 className="nav-welcome-text">
-            {t("welcomeText") + ", " + userInfo.name}
+          <h1 className="nav-welcome-text" id="nav-title">
+            {text || t("welcomeText") + ", " + userInfo.name}
           </h1>
-          <Link to="/profile">
+          <Link
+            to="/profile"
+            onClick={(e) => {
+              setText(t("welcomeText") + ", " + userInfo.name);
+            }}
+          >
             <FaUserCircle className="nav-user-icon" />
           </Link>
         </div>
@@ -64,7 +80,19 @@ const Navbar = (props) => {
                   data-tip
                   data-for={item.title}
                 >
-                  <Link to={item.path}>{item.icon}</Link>
+                  <Link
+                    to={item.path}
+                    onClick={(e) => {
+                      if (item.title !== "Dashboard") {
+                        setText(t(item.title));
+                      } else {
+                        setText(t("welcomeText") + ", " + userInfo.name);
+                      }
+                    }}
+                  >
+                    {item.icon}
+                  </Link>
+
                   <ReactTooltip
                     classname="tool-tip"
                     id={item.title}
@@ -73,7 +101,7 @@ const Navbar = (props) => {
                     textColor="var(--text-color)"
                     place="right"
                   >
-                    <span>{item.title}</span>
+                    <span>{t(item.title)}</span>
                   </ReactTooltip>
                 </li>
               );

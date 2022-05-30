@@ -1,3 +1,8 @@
+/* Recordings
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import RecordingsCard from "./RecordingsCard";
 import "../../styles/Recordings/Recordings.css";
 import { RecordingsContext } from "../RecordingsSupplier";
@@ -20,9 +25,21 @@ const Recordings = (props) => {
   return (
     <>
       {outlet || (
-        <div className="re-main-container">
-          <div className="re-container">
+        <div className="re-main-container" data-aos="fade-up">
+          <div
+            className="re-container"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+          >
             <div className="re-search-container">
+              <select
+                className="re-select"
+                onClick={() => saveClick(`${INPUT_NAME} filter scroller`)}
+              >
+                {/* <option>{t("search")}</option> */}
+                <option value="date">{t("date")}</option>
+                <option value="tag">{t("tag")}</option>
+              </select>
               <input
                 onKeyDown={saveKeys}
                 onClick={() => saveClick(`${INPUT_NAME} input`)}
@@ -30,14 +47,9 @@ const Recordings = (props) => {
                 type="text"
                 placeholder="Search"
               />
-              <select
-                className="re-select"
-                onClick={() => saveClick(`${INPUT_NAME} filter scroller`)}
-              >
-                <option>{t("search")}</option>
-                <option value="date">{t("date")}</option>
-                <option value="tag">{t("tag")}</option>
-              </select>
+              <button href="/" className="re-btn">
+                {t("search")}
+              </button>
             </div>
             {arrRecordings.map((record_info) => (
               <RecordingsCard

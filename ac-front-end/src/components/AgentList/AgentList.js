@@ -1,4 +1,9 @@
-import { useContext, useState } from "react";
+/* Agent List
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
+import { useContext, useEffect, useState } from "react";
 import "../../styles/AgentList/AgentList.css";
 import { AgentAAndQAContext } from "../AgentsAAndQASupplier";
 import AgentActiveCalls from "./AgentActiveCalls";
@@ -6,6 +11,7 @@ import AgentListMenu from "./AgentListMenu";
 import AllAgentList from "./AllAgentsList";
 import SingleAgent from "./SingleAgent";
 
+//Create Constant Agent List
 const AgentList = (props) => {
   //Logic to generate the rows
   const [arrAgents] = useContext(AgentAAndQAContext);
@@ -18,9 +24,13 @@ const AgentList = (props) => {
   };
 
   return (
-    <div className="agl-main-container">
+    <div className="agl-main-container" data-aos="fade-up">
       <AgentListMenu />
-      <div className="agl-card-container">
+      <div
+        className="agl-card-container"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
         <SingleAgent agent={agentInfo} />
         <AllAgentList onSelectAgent={selectAgentHandler} isActiveCalls={true} />
         <AgentActiveCalls isActiveCalls={false} />

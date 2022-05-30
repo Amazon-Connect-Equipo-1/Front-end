@@ -1,7 +1,13 @@
+/* Oxxo Form
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import "../../styles/AgentMain/ThirdParty.css";
 import ThirdParty from "./ThirdParty";
 import { saveKeys, saveClick } from "../MonitorModule.js";
-
+import { useTranslation } from "react-i18next";
+//Creates Oxxo Form
 const OxxoForm = (props) => {
   const INPUT_NAME = "Oxxo form";
 
@@ -9,12 +15,15 @@ const OxxoForm = (props) => {
     event.preventDefault();
   };
 
+  // Language
+  const { t } = useTranslation();
+
   return (
     <div>
-      <div className="tp-title">Oxxo Service</div>
+      <div className="tp-title">{t("oxxo")}</div>
       <form>
         <label className="tp-name-label">
-          Client:
+          {t("client")}
           <input
             type="text"
             onKeyDown={saveKeys}
@@ -23,7 +32,7 @@ const OxxoForm = (props) => {
           />
         </label>
         <label className="tp-name-label">
-          Email:
+          {t("email")}
           <input
             type="text"
             onKeyDown={saveKeys}
@@ -32,7 +41,7 @@ const OxxoForm = (props) => {
           />
         </label>
         <label className="tp-name-label">
-          Phone number:
+          {t("phone")}
           <input
             type="text"
             onKeyDown={saveKeys}
@@ -41,7 +50,7 @@ const OxxoForm = (props) => {
           />
         </label>
         <label className="tp-name-label">
-          Client's location:
+          {t("clientLocation")}
           <input
             type="text"
             onKeyDown={saveKeys}
@@ -50,7 +59,7 @@ const OxxoForm = (props) => {
           />
         </label>
         <label className="tp-name-label">
-          Quantity:
+          {t("quantity")}
           <input
             type="text"
             onKeyDown={saveKeys}
@@ -59,7 +68,7 @@ const OxxoForm = (props) => {
           />
         </label>
         <label className="tp-name-label">
-          Account number:
+          {t("accountNumber")}
           <input
             type="text"
             onKeyDown={saveKeys}
@@ -73,10 +82,10 @@ const OxxoForm = (props) => {
             onKeyDown={saveKeys}
             onClick={(e) => {
               e.preventDefault();
-              props.onChange("Main");
+              props.onChange();
               saveClick(`${INPUT_NAME} input`);
             }}
-            value="Ask for service"
+            value={t("askForService")}
             className="tp-submit-button"
           />
         </div>

@@ -1,3 +1,8 @@
+/* Recover Password
+Authors:
+        A01777771 Stephen Strange*/
+
+//Import Modules
 import "../../styles/Login/RecoverPassword.css";
 import logo from "../../images/logo_bbva.png";
 import LoginForm from "./LoginForm";
