@@ -47,6 +47,7 @@
   "alwayShow": "Toujours montrer",
   "allAgents": "Tous les acteurs",
   "nameAgent": "L'agent Jim Halpert",
+  "placeholder": "Recherche...",
 
   "__recordings__": "----------Recordings Interface----------",
   "about": "À propos de",
@@ -62,6 +63,19 @@
   "noFeedback": "Aucun commentaire n'a été envoyé",
   "qaFeedback": "Commentaires de l'AQ",
   "search": "Recherche",
+  "acceptFeedback": "Accepter les Commentaires",
+  "feedbackExample": "Bon travail Dwight, la prochaine fois essaie de parler plus fort.",
+  "call": "Appelez",
+  "startCall": "Début de l'appel:",
+  "endCall": "Fin de l'appel:",
+  "analysis": "Analyse",
+  "agentInterrputions": "Interruptions de l'agent:",
+  "userInterruptions": "Interruptions de l'utilisateur:",
+  "agentSentiment": "Sentiment général de l'agent:",
+  "userSentiment": "Sentiment général de l'utilisateur:",
+  "work": "Travail",
+  "business": "Entreprise",
+  "theft": "Vol",
 
   "__userType__": "----------User Type Interface----------",
   "selectUserType": "Sélectionnez le type d'utilisateur:",
@@ -70,6 +84,10 @@
 
   "__menu_-": "----------Menu Interface----------",
   "welcomeText": "Bienvenue sur",
+  "dashboard": "Conseil",
+  "recordings": "Enregistrements",
+  "agentList": "Liste des Agents",
+  "statistics": "Statistiques",
 
   "__tutorials__": "----------Tutorials Interface----------",
   "systemHelp": "Aide Système",
@@ -83,6 +101,18 @@
 
   "__thirdPartyServices__": "----------Third Party Services Interface----------",
   "thirdPartyServices": "Services de Tierce Partie",
+  "oxxo": "Service Oxxo",
+  "email": "Courriel:",
+  "phone": "Numéro de téléphone:",
+  "clientLocation": "Localisation du client:",
+  "quantity": "Quantité:",
+  "accountNumber": "Numéro de compte:",
+  "police": "Service de police",
+  "destination": "Destination:",
+  "uberEats": "Service Uber Eats",
+  "order": "Ordre:",
+  "uber": "Service Uber",
+  "askForService": "Demande de service",
 
   "__navBar": "----------------------NavBar Items------------------------------",
   "Dashboard": "Dashboard",
@@ -90,6 +120,12 @@
   "Statistics": "Statistiques",
   "Settings": "Réglages",
   "Feedback": "Retour d'information",
-  "Recordings": "Enregistrements"
+  "Recordings": "Enregistrements",
 
+  "__AgentsAndQASupplier__": "----------Agents and QA Supplier Interface----------",
+  "goodComment": "C'est un bon employé",
+  "badComment": "C'est un mauvais employé",
+
+  "__RecordScreen__": "----------Record Screen Interface----------",
+  "record": "Record"
 }
