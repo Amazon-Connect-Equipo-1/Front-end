@@ -6,6 +6,7 @@ Authors:
 import "./App.css";
 import Login from "./components/Login/Login";
 import RecoverPassword from "./components/Login/RecoverPassword";
+import Register from "./components/Login/Register";
 import Profile from "./components/Profile/Profile";
 import Recordings from "./components/Recordings/Recordings";
 import Usuario from "./components/Usuario/Usuario";
@@ -80,6 +81,7 @@ function App() {
                 <Route path="login" element={<Login />} />
                 <Route path="forgot-password" element={<RecoverPassword />} />
                 <Route path="client" element={<Usuario />} />
+                <Route path="register-user" element={<Register />} />
 
                 {/*Routes for all types of users*/}
                 <Route

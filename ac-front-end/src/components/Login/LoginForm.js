@@ -168,7 +168,7 @@ const LoginForm = (props) => {
             Prueba Back
           </button>
         </form>
-        <NavLink to="/register" className="lgf-register-text">
+        <NavLink to="/register-user" className="lgf-register-text">
           Register new user
         </NavLink>
       </div>
