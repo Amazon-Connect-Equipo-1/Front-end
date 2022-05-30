@@ -127,5 +127,16 @@
   "badComment": "C'est un mauvais employé",
 
   "__RecordScreen__": "----------Record Screen Interface----------",
-  "record": "Record"
+  "record": "Record",
+
+  "__RecordingsTags__": "----------------Recordings Tags in buttons---------------",
+  "lost-card": "Carte-Perdue",
+  "cancel-card": "Carte-d'annulation",
+  "card-declined": "Carte-Refusée",
+  "credit-card": "Carte-de Crédit",
+  "inssurance": "Assurance",
+  "withdrawal": "Retrait",
+  "loans": "Prêts",
+  "problem-solved": "Problème-Résolu",
+  "investments": "Investissements"
 }

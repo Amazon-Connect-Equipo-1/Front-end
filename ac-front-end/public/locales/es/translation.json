@@ -127,5 +127,17 @@
   "badComment": "Es un mal empleado",
 
   "__RecordScreen__": "----------Record Screen Interface----------",
-  "record": "Grabar"
+  "record": "Grabar",
+
+  "__RecordingsTags__": "----------------Recordings Tags in buttons---------------",
+  "lost-card": "Tarjeta-Perdida",
+  "cancel-card": "Cancelar-Tarjeta",
+  "card-declined": "Tarjeta-Declinada",
+  "credit-card": "Tarjeta-de Crédito",
+  "inssurance": "Seguro",
+  "withdrawal": "Retiros",
+  "loans": "Préstamos",
+  "problem-solved": "Problema-Resuelto",
+  "investments": "Inversiones"
+
 }

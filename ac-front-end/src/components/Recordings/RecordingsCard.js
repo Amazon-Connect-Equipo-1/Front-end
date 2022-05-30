@@ -10,6 +10,7 @@ import { v4 as uuidv4 } from "uuid";
 import { Link } from "react-router-dom";
 import { RecordingsContext } from "../RecordingsSupplier";
 import { useContext } from "react";
+import { useTranslation } from "react-i18next";
 
 const RecordingsCard = (props) => {
   // const [, , selectedVideoInfo, setSelectedVideoInfo] =
@@ -44,6 +45,7 @@ const RecordingsCard = (props) => {
     return tagName.includes("-") ? tagName.replace("-", " ") : tagName;
   };
 
+  const { t } = useTranslation();
   return (
     <Link to="video" className="link">
       <Card className="rec-main-container">
@@ -67,7 +69,7 @@ const RecordingsCard = (props) => {
           <div className="rec-tag-section" onClick={props.onClickCard}>
             {props.record.tags.map((tag) => (
               <Card key={uuidv4()} className={`rec-tag ${tag} `}>
-                {processTagName(tag)}
+                {processTagName(t(tag))}
               </Card>
             ))}
           </div>

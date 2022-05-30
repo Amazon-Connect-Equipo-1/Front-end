@@ -4,11 +4,17 @@ Authors:
 
 //Import Modules
 import { createContext, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 //Create agetn recordings context
 export const AgentRecordingsContext = createContext();
 
+  // Language
+
+  
+
 const AgentRecordingsSupplier = ({ children }) => {
+  const { t } = useTranslation();
   const dummyRec = [
     {
       id: 1,
