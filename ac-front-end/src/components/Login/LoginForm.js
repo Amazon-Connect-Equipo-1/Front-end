@@ -26,7 +26,7 @@ const LoginForm = (props) => {
   // USERS
   const USER = {
     Admin: "Admin",
-    QA: "QA",
+    QA: "Quality-agent",
     Agent: "Agent",
     Client: "Client",
   };
@@ -74,36 +74,12 @@ const LoginForm = (props) => {
   const loginSubmitHandler = (event) => {
     event.preventDefault();
 
-    testUsers.map((currentUser) => {
-      console.log({ email, pwd });
-      if (email === currentUser.email && pwd === currentUser.password) {
-        console.log("User found!");
-        login(currentUser.name, currentUser.password, currentUser.user_type);
-        window.localStorage.setItem("isLoggedIn", true);
-        window.localStorage.setItem("userType", currentUser.user_type);
-        if (currentUser.user_type === USER.Admin) {
-          navigate("/admin", { replace: true });
-        }
-        if (currentUser.user_type === USER.QA) {
-          navigate("/qa", { replace: true });
-        }
-        if (currentUser.user_type === USER.Agent) {
-          navigate("/agent", { replace: true });
-        }
-      }
-    });
-    console.log(user);
-    console.log(userType);
-    console.log("Submit form is working");
-  };
-
-  const pruebaBack = (event) => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
     const raw = JSON.stringify({
-      email: "george_jr11@hotmail.com",
-      password: "7afrW8G$",
+      email: email,
+      password: pwd
     });
 
     const requestOptions = {
@@ -115,26 +91,27 @@ const LoginForm = (props) => {
 
     fetch("http://35.88.250.238:8080/auth/signIn", requestOptions)
       .then((response) => response.text())
-      .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
+      .then((result) => {
+        window.localStorage.setItem("isLoggedIn", true);
+        const resultJSON = JSON.parse(result);
+        window.localStorage.setItem("userType", resultJSON.role);
+        if (resultJSON.role === USER.Admin) {
+          navigate("/admin", { replace: true });
+        }
+        if (resultJSON.role=== USER.QA) {
+          navigate("/qa", { replace: true });
+        }
+        if (resultJSON.role === USER.Agent) {
+          navigate("/agent", { replace: true });
+        }
+    })
+      .catch((error) => console.log("error", error))
+    
+    console.log(user);
+    console.log(userType);
+    console.log("Submit form is working");
   };
-  /*const requestOptions = {
-      method: "POST",
-      headers: { ContentType: "application/json" },
-      body: JSON.stringify({
-        email: "george_jr11@hotmail.com",
-        password: "7afrW8G$",
-      }),
-    };
 
-    event.preventDefault();
-    fetch("http://35.88.250.238:8080/auth/signIn", requestOptions)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        console.log(typeof requestOptions.body.email);
-      });
-  };*/
 
   return (
     <Card className="lgf-main-container">
@@ -164,9 +141,6 @@ const LoginForm = (props) => {
             value={pwd}
           />
           <button className="lgf-button">{t("signInBtn")}</button>
-          <button className="lgf-button" onClick={pruebaBack}>
-            Prueba Back
-          </button>
         </form>
         <NavLink to="/register-user" className="lgf-register-text">
           Register new user

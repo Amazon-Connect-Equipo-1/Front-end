@@ -42,7 +42,7 @@ function App() {
   // Variable that determines the types of users to protect the routes
   const USER = {
     Admin: "Admin",
-    QA: "QA",
+    QA: "Quality-agent",
     Agent: "Agent",
     Client: "Client",
   };
