@@ -113,6 +113,7 @@ Authors:
   border: none;
 }
 .tp-submit-button {
+  display: flex;
   background-color: var(--highlight-color);
   color: var(--text-color);
 
@@ -124,6 +125,32 @@ Authors:
   border-radius: 10px;
   cursor: pointer;
   width: 95%;
+  align-items: center;
+  justify-content: center;
+}
+.tp-order {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+  row-gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+.tp-order-button {
+  font-size: var(--option-text);
+  color: var(--text-color);
+  background-color: var(--sub-card-background);
+  border: none;
+  cursor: pointer;
+  width: 6rem;
+  height: 6rem;
+  align-items: center;
+  justify-content: center;
+}
+.tp-order-button-container {
+  align-items: center;
+  justify-content: center;
 }
 
 /*****************************/
