@@ -152,7 +152,35 @@ Authors:
   align-items: center;
   justify-content: center;
 }
+.tp-confirmation {
+  background-color: var(--highlight-color);
+  color: var(--text-color);
+  font-size: var(--option-text);
+  width: 32rem;
+  height: 60rem;
+  border-radius: 10px;
+}
 
+.tp-confirmation-text {
+  display: flex;
+  background-color: var(--main-card-background);
+  color: var(--text-color);
+  font-size: var(--option-text);
+  width: 30rem;
+  height: 43rem;
+  margin-top: 3rem;
+  border-radius: 10px;
+}
+.tp-confirmation-button {
+  width: 15rem;
+  height: 5rem;
+  border-radius: 10px;
+}
+.tp-confirmation-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /*****************************/
 /* BELOW 50*16 = 800px (Smaller desktops) */
 /*****************************/

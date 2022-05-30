@@ -68,7 +68,7 @@ const UberForm = (props) => {
             onKeyDown={saveKeys}
             onClick={(e) => {
               e.preventDefault();
-              props.onChange("Main");
+              props.onChange();
               saveClick(`${INPUT_NAME} input`);
             }}
             value={t("askForService")}

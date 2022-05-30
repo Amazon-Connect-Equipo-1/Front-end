@@ -15,6 +15,7 @@ import OxxoForm from "./OxxoForm";
 import { saveClick } from "../MonitorModule.js";
 import PoliceForm from "./PoliceForm";
 import { useTranslation } from "react-i18next";
+import Confirmation from "./Confirmation";
 
 const ThirdParty = (props) => {
   const INPUT_NAME = "agent tutorials";
@@ -33,6 +34,12 @@ const ThirdParty = (props) => {
   };
   const tpAssignPolice = () => {
     setTps("Police");
+  };
+  const tpAssignConfirmation = () => {
+    setTps("Confirmation");
+  };
+  const tpAssignMain = () => {
+    setTps("Main");
   };
 
   // Language
@@ -81,10 +88,11 @@ const ThirdParty = (props) => {
           </button>
         </div>
       )}
-      {tps === "Uber" && <UberForm onChange={setTps} />}
-      {tps === "UberEats" && <UberEatsForm onChange={setTps} />}
-      {tps === "Oxxo" && <OxxoForm onChange={setTps} />}
-      {tps === "Police" && <PoliceForm onChange={setTps} />}
+      {tps === "Uber" && <UberForm onChange={tpAssignConfirmation} />}
+      {tps === "UberEats" && <UberEatsForm onChange={tpAssignConfirmation} />}
+      {tps === "Oxxo" && <OxxoForm onChange={tpAssignConfirmation} />}
+      {tps === "Police" && <PoliceForm onChange={tpAssignConfirmation} />}
+      {tps === "Confirmation" && <Confirmation />}
     </>
   );
 };
