@@ -17,6 +17,9 @@ const Profile = (props) => {
 
   const logoutHandler = (event) => {
     logout();
+    window.localStorage.removeItem("isLoggedIn");
+    window.localStorage.removeItem("userType");
+    window.location.reload();
   };
 
   return (

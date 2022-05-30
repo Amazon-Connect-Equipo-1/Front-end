@@ -1,8 +1,9 @@
-/* Login Form
-Authors:
-        A01777771 Stephen Strange*/
+/* LoginForm.js
+Authors: 
+- 
+*/
 
-//Import Modules
+// Import Modules
 import Card from "../UI/Card";
 import "../../styles/Login/LoginForm.css";
 import { useTranslation } from "react-i18next";
@@ -78,14 +79,16 @@ const LoginForm = (props) => {
       if (email === currentUser.email && pwd === currentUser.password) {
         console.log("User found!");
         login(currentUser.name, currentUser.password, currentUser.user_type);
+        window.localStorage.setItem("isLoggedIn", true);
+        window.localStorage.setItem("userType", currentUser.user_type);
         if (currentUser.user_type === USER.Admin) {
-          navigate("/admin");
+          navigate("/admin", { replace: true });
         }
         if (currentUser.user_type === USER.QA) {
-          navigate("/qa");
+          navigate("/qa", { replace: true });
         }
         if (currentUser.user_type === USER.Agent) {
-          navigate("/agent");
+          navigate("/agent", { replace: true });
         }
       }
     });
@@ -93,6 +96,45 @@ const LoginForm = (props) => {
     console.log(userType);
     console.log("Submit form is working");
   };
+
+  const pruebaBack = (event) => {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
+      email: "george_jr11@hotmail.com",
+      password: "7afrW8G$",
+    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch("http://35.88.250.238:8080/auth/signIn", requestOptions)
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+  };
+  /*const requestOptions = {
+      method: "POST",
+      headers: { ContentType: "application/json" },
+      body: JSON.stringify({
+        email: "george_jr11@hotmail.com",
+        password: "7afrW8G$",
+      }),
+    };
+
+    event.preventDefault();
+    fetch("http://35.88.250.238:8080/auth/signIn", requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        console.log(typeof requestOptions.body.email);
+      });
+  };*/
 
   return (
     <Card className="lgf-main-container">
@@ -122,6 +164,9 @@ const LoginForm = (props) => {
             value={pwd}
           />
           <button className="lgf-button">{t("signInBtn")}</button>
+          <button className="lgf-button" onClick={pruebaBack}>
+            Prueba Back
+          </button>
         </form>
       </div>
     </Card>

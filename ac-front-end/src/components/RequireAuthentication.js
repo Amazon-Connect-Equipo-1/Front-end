@@ -5,8 +5,9 @@ import { AuthenticationContext } from "./Authentication";
 const RequireAuthentication = ({ allowedUsers }) => {
   const [user, password, userType] = useContext(AuthenticationContext);
   const location = useLocation();
+  const isLoggedIn = window.localStorage.getItem("isLoggedIn");
 
-  return user ? (
+  return isLoggedIn ? (
     <Outlet />
   ) : (
     <Navigate to="/login" state={{ from: location }} replace />

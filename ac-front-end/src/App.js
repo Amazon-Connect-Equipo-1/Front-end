@@ -29,7 +29,7 @@ import GlobalSupplier from "./components/GlobalSupplier";
 import { loadUserPreferences } from "./components/UserPreferences";
 import NewPassword from "./components/Login/NewPassword";
 import "amazon-connect-streams";
-import { Route, Router, Routes } from "react-router-dom";
+import { Navigate, Route, Router, Routes, useLocation } from "react-router-dom";
 import { AuthenticationContext } from "./components/Authentication";
 import AgentRecordingsSupplier from "./components/AgentRecordingsSupplier";
 import AOS from "aos";
@@ -57,6 +57,8 @@ function App() {
   const [user, , userType] = useContext(AuthenticationContext);
   //console.log(user);
   //console.log(userType);
+  const getUserType = window.localStorage.getItem("userType");
+  const location = useLocation();
 
   useEffect(() => {
     AOS.init();
@@ -69,9 +71,9 @@ function App() {
         <LocaleContext.Provider value={{ locale, setLocale }}>
           <Suspense fallback={<Loading />}>
             {/*user !== null && <Navbar sidebarData={userType} />*/}
-            {userType === USER.Admin && <Navbar sidebarData={USER.Admin} />}
-            {userType === USER.QA && <Navbar sidebarData={USER.QA} />}
-            {userType === USER.Agent && <Navbar sidebarData={USER.Agent} />}
+            {getUserType === USER.Admin && <Navbar sidebarData={USER.Admin} />}
+            {getUserType === USER.QA && <Navbar sidebarData={USER.QA} />}
+            {getUserType === USER.Agent && <Navbar sidebarData={USER.Agent} />}
             <Routes>
               <Route path="/" element={<Layout />}>
                 {/*Public Routes*/}
@@ -89,7 +91,20 @@ function App() {
                 >
                   <Route path="profile" element={<Profile />} />
                   <Route path="settings" element={<Settings />} />
-                  <Route path="/" element={<UserType />} />
+                  <Route
+                    path="/"
+                    element={
+                      <Navigate
+                        to={
+                          (getUserType === USER.Admin && "/admin") ||
+                          (getUserType === USER.QA && "/qa") ||
+                          (getUserType === USER.Agent && "/agent")
+                        }
+                        state={{ from: location }}
+                        replace
+                      />
+                    }
+                  />
                 </Route>
 
                 {/*Admin Routes*/}
