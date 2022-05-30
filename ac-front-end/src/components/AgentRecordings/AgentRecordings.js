@@ -42,7 +42,7 @@ const AgentRecordings = () => {
                 onClick={() => saveClick(`${INPUT_NAME} input`)}
                 className="arc-input"
                 type="text"
-                placeholder="Search"
+                placeholder={t("placeholder")}
               />
               <button href="/" className="arc-btn">
                 {t("search")}
