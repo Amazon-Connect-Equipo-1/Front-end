@@ -4,11 +4,13 @@ Authors:
 
 //Import Modules
 import { createContext, useState } from "react";
-
+import { useTranslation } from "react-i18next";
 //Create recordings context
 export const RecordingsContext = createContext();
 
 const RecordingsSupplier = ({ children }) => {
+  // Language
+  const { t } = useTranslation();
   //For testing Ill create dummy recordings
   const dummyRec = [
     {

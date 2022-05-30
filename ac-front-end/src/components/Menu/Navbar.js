@@ -14,6 +14,7 @@ import { t } from "i18next";
 import React, { useContext, useState } from "react";
 import ReactTooltip from "react-tooltip";
 import { GlobalContext } from "../GlobalSupplier";
+import { useTranslation } from "react-i18next";
 
 const Navbar = (props) => {
   //funcion para poner el nombre del admin o quality analyst
@@ -46,6 +47,9 @@ const Navbar = (props) => {
   };
 
   const [text, setText] = React.useState("");
+  const idItem = "";
+  // Language
+  const { t } = useTranslation();
 
   return (
     <div className="nav-container">
@@ -80,7 +84,18 @@ const Navbar = (props) => {
                     to={item.path}
                     onClick={(e) => {
                       if (item.title !== "Dashboard") {
-                        setText(item.title);
+                        if (item.title === "Settings") {
+                          setText(t("settings"));
+                        } else if (item.title === "Feedback") {
+                          setText(t("feedback"));
+                        } else if (item.title === "Recordings") {
+                          setText(t("recordings"));
+                        } else if (item.title === "Agent List") {
+                          setText(t("agentList"));
+                        } else if (item.title === "Statistics") {
+                          setText(t("statistics"));
+                        }
+                        //setText(t("dashboard"));
                       } else {
                         setText(t("welcomeText") + ", " + userInfo.name);
                       }
@@ -88,6 +103,7 @@ const Navbar = (props) => {
                   >
                     {item.icon}
                   </Link>
+
                   <ReactTooltip
                     classname="tool-tip"
                     id={item.title}
