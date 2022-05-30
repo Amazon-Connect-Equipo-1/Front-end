@@ -47,7 +47,6 @@
   "alwayShow": "Mostrar siempre",
   "allAgents": "Todos los agentes",
   "nameAgent": "Agente Jim Halpert",
-  "placeholder": "Buscar...",
 
   "__recordings__": "----------Recordings Interface----------",
   "about": "Acerca de",
@@ -63,19 +62,6 @@
   "noFeedback": "No se han enviado comentarios",
   "qaFeedback": "Comentarios del QA",
   "search": "Buscar",
-  "acceptFeedback": "Aceptar los Comentarios",
-  "feedbackExample": "Buen trabajo Dwight, la próxima vez intenta hablar más alto.",
-  "call": "Llamar",
-  "startCall": "Empezar llamada:",
-  "endCall": "Terminar llamada:",
-  "analysis": "Análisis",
-  "agentInterrputions": "Interrupciones de agentes:",
-  "userInterruptions": "Interrupciones del usuario:",
-  "agentSentiment": "Sentimiento general del agente:",
-  "userSentiment": "Sentimiento general del usuario:",
-  "work": "Trabajo",
-  "business": "Empresa",
-  "theft": "Robo",
 
   "__userType__": "----------User Type Interface----------",
   "selectUserType": "Seleccionar tipo de usuario:",
@@ -84,10 +70,6 @@
 
   "__menu_-": "----------Menu Interface----------",
   "welcomeText": "Bienvenido",
-  "dashboard": "Tablero",
-  "recordings": "Grabaciones",
-  "agentList": "Lista de Agentes",
-  "statistics": "Estadísticas",
 
   "__tutorials__": "----------Tutorials Interface----------",
   "systemHelp": "Ayuda del Sistema",
@@ -101,18 +83,6 @@
 
   "__thirdPartyServices__": "----------Third Party Services Interface----------",
   "thirdPartyServices": "Servicio de Terceros",
-  "oxxo": "Servicio Oxxo",
-  "email": "Correo electrónico:",
-  "phone": "Número de teléfono:",
-  "clientLocation": "Ubicación del cliente:",
-  "quantity": "Cantidad:",
-  "accountNumber": "Número de cuenta:",
-  "police": "Servicio de Policía",
-  "destination": "Destino:",
-  "uberEats": "Servicio Uber Eats",
-  "order": "Orden:",
-  "uber": "Servicio Uber",
-  "askForService": "Solicite el servicio",
 
   "__navBar__": "----------------------NavBar Items------------------------------",
   "Dashboard": "Dashboard",
@@ -120,12 +90,6 @@
   "Statistics": "Estadísticas",
   "Settings": "Configuración",
   "Feedback": "Retroalimentación",
-  "Recordings": "Grabaciones",
+  "Recordings": "Grabaciones"
 
-  "__AgentsAndQASupplier__": "----------Agents and QA Supplier Interface----------",
-  "goodComment": "Es un buen empleado",
-  "badComment": "Es un mal empleado",
-
-  "__RecordScreen__": "----------Record Screen Interface----------",
-  "record": "Grabar"
 }

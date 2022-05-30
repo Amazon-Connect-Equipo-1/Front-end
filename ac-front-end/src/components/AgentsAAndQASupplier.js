@@ -5,26 +5,22 @@ Authors:
 //Import Modules
 import { createContext, useState } from "react";
 
-import { useTranslation } from "react-i18next";
-
 //Create recordings context
 export const AgentAAndQAContext = createContext();
 
 const AgentsAAndQASupplier = ({ children }) => {
   //For testing Ill create dummy recordings
-  // Language
-  const { t } = useTranslation();
   const dummyAgents = [
     {
       id: 1,
       agentName: "Jim Halpert",
-      description: t("goodComment"),
+      description: "He is a good guy",
       working: true,
     },
     {
       id: 2,
       agentName: "Dwight Schrute",
-      description: t("badComment"),
+      description: "He is a bad guy",
       working: false,
     },
     {

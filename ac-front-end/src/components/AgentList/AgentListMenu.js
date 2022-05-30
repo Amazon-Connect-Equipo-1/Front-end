@@ -33,7 +33,7 @@ const AgentListMenu = (props) => {
           className="aglm-search"
           id="aglm-search"
           type="search"
-          placeholder={t("placeholder")}
+          placeholder="Search..."
           onClick={() => saveClick(`${INPUT_NAME} input`)}
           onKeyDown={saveKeys}
         />

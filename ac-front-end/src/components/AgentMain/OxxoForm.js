@@ -6,7 +6,6 @@ Authors:
 import "../../styles/AgentMain/ThirdParty.css";
 import ThirdParty from "./ThirdParty";
 import { saveKeys, saveClick } from "../MonitorModule.js";
-import { useTranslation } from "react-i18next";
 //Creates Oxxo Form
 const OxxoForm = (props) => {
   const INPUT_NAME = "Oxxo form";
@@ -15,15 +14,12 @@ const OxxoForm = (props) => {
     event.preventDefault();
   };
 
-  // Language
-  const { t } = useTranslation();
-
   return (
     <div>
-      <div className="tp-title">{t("oxxo")}</div>
+      <div className="tp-title">Oxxo Service</div>
       <form>
         <label className="tp-name-label">
-          {t("client")}
+          Client:
           <input
             type="text"
             onKeyDown={saveKeys}
@@ -32,7 +28,7 @@ const OxxoForm = (props) => {
           />
         </label>
         <label className="tp-name-label">
-          {t("email")}
+          Email:
           <input
             type="text"
             onKeyDown={saveKeys}
@@ -41,7 +37,7 @@ const OxxoForm = (props) => {
           />
         </label>
         <label className="tp-name-label">
-          {t("phone")}
+          Phone number:
           <input
             type="text"
             onKeyDown={saveKeys}
@@ -50,7 +46,7 @@ const OxxoForm = (props) => {
           />
         </label>
         <label className="tp-name-label">
-          {t("clientLocation")}
+          Client's location:
           <input
             type="text"
             onKeyDown={saveKeys}
@@ -59,7 +55,7 @@ const OxxoForm = (props) => {
           />
         </label>
         <label className="tp-name-label">
-          {t("quantity")}
+          Quantity:
           <input
             type="text"
             onKeyDown={saveKeys}
@@ -68,7 +64,7 @@ const OxxoForm = (props) => {
           />
         </label>
         <label className="tp-name-label">
-          {t("accountNumber")}
+          Account number:
           <input
             type="text"
             onKeyDown={saveKeys}
@@ -85,7 +81,7 @@ const OxxoForm = (props) => {
               props.onChange("Main");
               saveClick(`${INPUT_NAME} input`);
             }}
-            value={t("askForService")}
+            value="Ask for service"
             className="tp-submit-button"
           />
         </div>

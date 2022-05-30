@@ -47,7 +47,6 @@
   "alwayShow": "Always show",
   "allAgents": "All agents",
   "nameAgent": "Agent Jim Halpert",
-  "placeholder": "Search...",
 
   "__recordings__": "----------Recordings Interface----------",
   "about": "About",
@@ -63,31 +62,14 @@
   "noFeedback": "No Feedback Submited",
   "qaFeedback": "QA Feedback",
   "search": "Search",
-  "acceptFeedback": "Accept Feedback",
-  "feedbackExample": "Nice job Dwight, next time try to talk louder.",
-  "call": "Call",
-  "startCall": "Start of call:",
-  "endCall": "End of call:",
-  "analysis": "Analysis",
-  "agentInterrputions": "Agent interruptions:",
-  "userInterruptions": "User interruptions:",
-  "agentSentiment": "Agent's general sentiment:",
-  "userSentiment": "User's general sentiment:",
-  "work": "Work",
-  "business": "Business",
-  "theft": "Theft",
 
   "__userType__": "----------User Type Interface----------",
   "selectUserType": "Select user type:",
   "utAgent": "Agent",
   "utClient": "Client",
 
-  "__menu__": "----------Menu Interface----------",
+  "__menu_-": "----------Menu Interface----------",
   "welcomeText": "Welcome back",
-  "dashboard": "Dashboard",
-  "recordings": "Recordings",
-  "agentList": "Agent List",
-  "statistics": "Statistics",
 
   "__tutorials__": "----------Tutorials Interface----------",
   "systemHelp": "System Help",
@@ -101,18 +83,6 @@
 
   "__thirdPartyServices__": "----------Third Party Services Interface----------",
   "thirdPartyServices": "Third Party Services",
-  "oxxo": "Oxxo Service",
-  "email": "Email:",
-  "phone": "Phone number:",
-  "clientLocation": "Client's location:",
-  "quantity": "Quantity:",
-  "accountNumber": "Account number:",
-  "police": "Police Service",
-  "destination": "Destination:",
-  "uberEats": "Uber Eats Service",
-  "order": "Order:",
-  "uber": "Uber Service",
-  "askForService": "Ask for service",
 
   "__navBar": "----------------------NavBar Items------------------------------",
   "Dashboard": "Dashboard",
@@ -120,12 +90,6 @@
   "Statistics": "Statistics",
   "Settings": "Settings",
   "Feedback": "Feedback",
-  "Recordings": "Recordings",
+  "Recordings": "Recordings"
 
-  "__AgentsAndQASupplier__": "----------Agents and QA Supplier Interface----------",
-  "goodComment": "He is a good employee",
-  "badComment": "He is a bad employee",
-
-  "__RecordScreen__": "----------Record Screen Interface----------",
-  "record": "Record"
 }

@@ -14,8 +14,10 @@ const AgentFeedbackCard = (props) => {
     <aside className={`afc-main-container ${props.className}`}>
       <div className="afc-container">
         <h2 className="afc-title">{t("qaFeedback")}</h2>
-        <Card className="afc-feedback">{t("feedbackExample")}</Card>
-        <Card className="afc-send-btn">{t("acceptFeedback")}</Card>
+        <Card className="afc-feedback">
+          Nice job Dwight, next time try to talk louder.
+        </Card>
+        <Card className="afc-send-btn">Accept Feedback</Card>
       </div>
     </aside>
   );

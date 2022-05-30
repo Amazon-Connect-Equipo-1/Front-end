@@ -6,18 +6,16 @@ Authors:
 import "../../styles/AgentMain/ThirdParty.css";
 import ThirdParty from "./ThirdParty";
 import { saveKeys, saveClick } from "../MonitorModule.js";
-import { useTranslation } from "react-i18next";
 
 const UberEatsForm = (props) => {
   const INPUT_NAME = "Uber Eats form";
-  // Language
-  const { t } = useTranslation();
+
   return (
     <div>
-      <div className="tp-title">{t("uberEats")}</div>
+      <div className="tp-title">Uber Eats Service</div>
       <form>
         <label className="tp-name-label">
-          {t("client")}
+          Client:
           <input
             type="text"
             onKeyDown={saveKeys}
@@ -26,7 +24,7 @@ const UberEatsForm = (props) => {
           />
         </label>
         <label className="tp-name-label">
-          {t("email")}
+          Email:
           <input
             type="text"
             onKeyDown={saveKeys}
@@ -35,7 +33,7 @@ const UberEatsForm = (props) => {
           />
         </label>
         <label className="tp-name-label">
-          {t("phone")}
+          Cellphone:
           <input
             type="text"
             onKeyDown={saveKeys}
@@ -44,7 +42,7 @@ const UberEatsForm = (props) => {
           />
         </label>
         <label className="tp-name-label">
-          {t("clientLocation")}
+          Client location:
           <input
             type="text"
             onKeyDown={saveKeys}
@@ -53,7 +51,7 @@ const UberEatsForm = (props) => {
           />
         </label>
         <label className="tp-name-label">
-          {t("order")}
+          Order:
           <input
             type="text"
             onKeyDown={saveKeys}
@@ -70,7 +68,7 @@ const UberEatsForm = (props) => {
               props.onChange("Main");
               saveClick(`${INPUT_NAME} input`);
             }}
-            value={t("askForService")}
+            value="Ask for service"
             className="tp-submit-button"
           />
         </div>
