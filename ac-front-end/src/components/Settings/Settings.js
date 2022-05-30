@@ -14,7 +14,6 @@ import { saveKeys, saveClick } from "../MonitorModule.js";
 //Creates functions Settings and its constants
 function Settings() {
   const INPUT_NAME = "settings";
-  
 
   const body = document.body;
 
@@ -96,11 +95,13 @@ function Settings() {
     if (locale !== l) {
       i18n.changeLanguage(l);
     }
+    document.getElementById("nav-title").textContent = t("Settings");
   }
 
   useEffect(() => {
     document.getElementById("theme-select").value = theme;
     document.getElementById("size-select").value = txtSize;
+    document.getElementById("nav-title").textContent = t("Settings");
   });
 
   return (
@@ -168,7 +169,6 @@ function Settings() {
               document.getElementById("theme-select").value = "dark";
               i18n.changeLanguage("en");
               document.getElementById("lang").value = "en";
-
             }}
           >
             Restore to default

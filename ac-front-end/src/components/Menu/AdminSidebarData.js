@@ -20,21 +20,21 @@ export const AdminSidebarData = [
   },
 
   {
-    title: t("Agent List"),
+    title: "Agent List",
     navBar: "Agent List",
     path: "/agents",
     icon: <FiUsers />,
     cName: "nav-text",
   },
   {
-    title: t("Statistics"),
+    title: "Statistics",
     navBar: "Statistics",
     path: "/statistics",
     icon: <FiTrendingUp />,
     cName: "nav-text",
   },
   {
-    title: t("Settings"),
+    title: "Settings",
     navBar: "Settings",
     path: "/settings",
     icon: <IoSettingsSharp />,

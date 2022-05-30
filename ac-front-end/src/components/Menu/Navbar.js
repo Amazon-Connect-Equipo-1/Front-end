@@ -58,7 +58,7 @@ const Navbar = (props) => {
           <Link to="#" className="nav-menu-bars">
             <img className="nav-icon" />
           </Link>
-          <h1 className="nav-welcome-text">
+          <h1 className="nav-welcome-text" id="nav-title">
             {text || t("welcomeText") + ", " + userInfo.name}
           </h1>
           <Link
@@ -95,13 +95,13 @@ const Navbar = (props) => {
 
                   <ReactTooltip
                     classname="tool-tip"
-                    id={t(item.navBar)}
+                    id={item.title}
                     effect="solid"
                     backgroundColor="var(--highlight-color)"
                     textColor="var(--text-color)"
                     place="right"
                   >
-                    <span>{t(item.navBar)}</span>
+                    <span>{t(item.title)}</span>
                   </ReactTooltip>
                 </li>
               );

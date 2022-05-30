@@ -17,13 +17,13 @@ export const AgentSidebarData = [
     cName: "nav-text",
   },
   {
-    title: t("Feedback"),
+    title: "Feedback",
     path: "/agent-qa",
     icon: <MdOutlineCheckBox />,
     cName: "nav-text",
   },
   {
-    title: t("Settings"),
+    title: "Settings",
     path: "/settings",
     icon: <IoSettingsSharp />,
     cName: "nav-text",
