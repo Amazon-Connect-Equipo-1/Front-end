@@ -17,7 +17,7 @@ const RecordingsSupplier = ({ children }) => {
       id: 1,
       agent: 11,
       agent_name: "Jim Halpert",
-      tags: [t("lost-card"), "cancel-card"],
+      tags: ["lost-card", "cancel-card"],
       miniatureURL: "http://amazon.aws.com/videominiature1",
       videoURL: "http://amazon.aws.com/video1",
       rating: 4,
