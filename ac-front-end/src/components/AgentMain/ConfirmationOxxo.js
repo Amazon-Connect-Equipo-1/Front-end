@@ -74,7 +74,7 @@ const ConfirmationOxxo = (props) => {
         )}
         {conf === "no" && (
           <div>
-            <div className="tp-confirmation-text">sexo</div>
+            <div className="tp-confirmation-text">INFORMACION OXXO</div>
             <div className="tp-confirmation-button-container">
               <button className="tp-confirmation-button">Regresar</button>
               <button className="tp-confirmation-button" onClick={changeConfig}>

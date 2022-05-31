@@ -79,7 +79,7 @@ const LoginForm = (props) => {
 
     const raw = JSON.stringify({
       email: email,
-      password: pwd
+      password: pwd,
     });
 
     const requestOptions = {
@@ -98,20 +98,19 @@ const LoginForm = (props) => {
         if (resultJSON.role === USER.Admin) {
           navigate("/admin", { replace: true });
         }
-        if (resultJSON.role=== USER.QA) {
+        if (resultJSON.role === USER.QA) {
           navigate("/qa", { replace: true });
         }
         if (resultJSON.role === USER.Agent) {
           navigate("/agent", { replace: true });
         }
-    })
-      .catch((error) => console.log("error", error))
-    
+      })
+      .catch((error) => console.log("error", error));
+
     console.log(user);
     console.log(userType);
     console.log("Submit form is working");
   };
-
 
   return (
     <Card className="lgf-main-container">
@@ -142,9 +141,6 @@ const LoginForm = (props) => {
           />
           <button className="lgf-button">{t("signInBtn")}</button>
         </form>
-        <NavLink to="/register-user" className="lgf-register-text">
-          Register new user
-        </NavLink>
       </div>
     </Card>
   );

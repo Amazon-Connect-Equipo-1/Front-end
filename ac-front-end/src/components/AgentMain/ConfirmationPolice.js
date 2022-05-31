@@ -21,23 +21,18 @@ const ConfirmationPolice = (props) => {
     myHeaders.append("Authorization", `Bearer ${token}`);
 
     const raw = JSON.stringify({
-      service: "Oxxo",
+      service: "Report",
       service_data: {
-        client: "Dwight Schrute",
-        email: "A01379868@tec.mx",
-        cellphone: "+525530323376",
-        client_location: "Alfredo's Pizza Cafe",
-        oxxo_address: {
-          street: "JOSE MA LICEAGA 406 S/N, MORELOS SECC LOMA, 20270",
-          state: "Aguascalientes",
-          colony: "Aguascalientes",
-          zip_code: 20270,
-          country: "Mexico",
-        },
-        quantity: 501,
-        account_number: 6969696969,
-        reference: "891753",
-        security_token: "4605",
+        client: "Liam Garay",
+        client_email: "A01379868@tec.mx",
+        client_cellphone: "+525588656464",
+        client_location:
+          "Camino de las flores #95 , Avenida Juarez, Estado de MExico, Mexico",
+        client_location_reference:
+          "Nearby a convienence store, between jilguero and leopoldo streets",
+        client_statement:
+          "his credit card was stolen, he also was physically assaulted with a wooden bat",
+        folio: "rnoysnm-enov-kv9z-2njj-1pa5tyo3ltd10",
         timestamp: "2022-05-30 15:16:53.006495",
       },
     });
@@ -74,7 +69,7 @@ const ConfirmationPolice = (props) => {
         )}
         {conf === "no" && (
           <div>
-            <div className="tp-confirmation-text">sexo</div>
+            <div className="tp-confirmation-text">INFORMACION POLICE</div>
             <div className="tp-confirmation-button-container">
               <button className="tp-confirmation-button">Regresar</button>
               <button className="tp-confirmation-button" onClick={changeConfig}>

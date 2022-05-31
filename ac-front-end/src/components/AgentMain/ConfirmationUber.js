@@ -21,26 +21,23 @@ const ConfirmationUber = (props) => {
     myHeaders.append("Authorization", `Bearer ${token}`);
 
     const raw = JSON.stringify({
-      service: "UberEats",
+      service: "Uber",
       service_data: {
-        client: "Humberto cardenas",
-        email: "A01379868@tec.mx",
-        cellphone: "+525530323376",
-        client_location: "Club Mamitas",
-        order: {
-          papas: {
-            price: 5,
-            quantity: 2,
-          },
-          absolut: {
-            price: 200,
-            quantity: 2,
-          },
+        client: "Miguel Perez",
+        client_email: "A01379868@tec.mx",
+        client_cellphone: "+525530323376",
+        rider: "Daniel Barajas",
+        car: {
+          model: "Nissan Versa",
+          color: "Red",
+          plate: "IEEE-10-11",
         },
-        total: 20,
+        client_location: "Mundo E",
+        destination: "Plaza Carso",
+        arrival_time: 10,
+        ride_time: 20,
+        url: "http://uber.example.link.com/ride",
         timestamp: "2022-05-30 15:16:53.006495",
-        delivery_name: "Alvaro Obregon Quijano",
-        delivery_time: 25,
       },
     });
 
@@ -76,7 +73,7 @@ const ConfirmationUber = (props) => {
         )}
         {conf === "no" && (
           <div>
-            <div className="tp-confirmation-text">sexo</div>
+            <div className="tp-confirmation-text">INFORMACION UBER</div>
             <div className="tp-confirmation-button-container">
               <button className="tp-confirmation-button">Regresar</button>
               <button className="tp-confirmation-button" onClick={changeConfig}>
