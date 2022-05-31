@@ -37,6 +37,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Layout from "./components/Layout";
 import RequireAuthentication from "./components/RequireAuthentication";
+import NewPasswordForm from "./components/Login/NewPasswordForm";
 
 function App() {
   // Variable that determines the types of users to protect the routes
@@ -80,6 +81,7 @@ function App() {
                 {/*Public Routes*/}
                 <Route path="login" element={<Login />} />
                 <Route path="forgot-password" element={<RecoverPassword />} />
+                <Route path="confirm-password" element={<NewPasswordForm />} />
                 <Route path="client" element={<Usuario />} />
                 <Route path="register-user" element={<Register />} />
 
