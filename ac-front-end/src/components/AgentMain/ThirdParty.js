@@ -16,6 +16,10 @@ import { saveClick } from "../MonitorModule.js";
 import PoliceForm from "./PoliceForm";
 import { useTranslation } from "react-i18next";
 import Confirmation from "./Confirmation";
+import ConfirmationUber from "./ConfirmationUber";
+import ConfirmationUberEats from "./ConfirmationUberEats";
+import ConfirmationOxxo from "./ConfirmationOxxo";
+import ConfirmationPolice from "./ConfirmationPolice";
 
 const ThirdParty = (props) => {
   const INPUT_NAME = "agent tutorials";
@@ -35,11 +39,21 @@ const ThirdParty = (props) => {
   const tpAssignPolice = () => {
     setTps("Police");
   };
-  const tpAssignConfirmation = () => {
-    setTps("Confirmation");
-  };
+
   const tpAssignMain = () => {
     setTps("Main");
+  };
+  const tpAssignConfirmationUber = () => {
+    setTps("ConfirmationUber");
+  };
+  const tpAssignConfirmationUberEats = () => {
+    setTps("ConfirmationUberEats");
+  };
+  const tpAssignConfirmationOxxo = () => {
+    setTps("ConfirmationOxxo");
+  };
+  const tpAssignConfirmationPolice = () => {
+    setTps("ConfirmationPolice");
   };
 
   // Language
@@ -88,11 +102,24 @@ const ThirdParty = (props) => {
           </button>
         </div>
       )}
-      {tps === "Uber" && <UberForm onChange={tpAssignConfirmation} />}
-      {tps === "UberEats" && <UberEatsForm onChange={tpAssignConfirmation} />}
-      {tps === "Oxxo" && <OxxoForm onChange={tpAssignConfirmation} />}
-      {tps === "Police" && <PoliceForm onChange={tpAssignConfirmation} />}
-      {tps === "Confirmation" && <Confirmation />}
+      {tps === "Uber" && <UberForm onChange={tpAssignConfirmationUber} />}
+      {tps === "UberEats" && (
+        <UberEatsForm onChange={tpAssignConfirmationUberEats} />
+      )}
+      {tps === "Oxxo" && <OxxoForm onChange={tpAssignConfirmationOxxo} />}
+      {tps === "Police" && <PoliceForm onChange={tpAssignConfirmationPolice} />}
+      {tps === "ConfirmationUber" && (
+        <ConfirmationUber onChange={tpAssignMain} />
+      )}
+      {tps === "ConfirmationUberEats" && (
+        <ConfirmationUberEats onChange={tpAssignMain} />
+      )}
+      {tps === "ConfirmationOxxo" && (
+        <ConfirmationOxxo onChange={tpAssignMain} />
+      )}
+      {tps === "ConfirmationPolice" && (
+        <ConfirmationPolice onChange={tpAssignMain} />
+      )}
     </>
   );
 };

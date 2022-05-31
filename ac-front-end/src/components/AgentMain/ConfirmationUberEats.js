@@ -78,7 +78,12 @@ const ConfirmationUberEats = (props) => {
           <div>
             <div className="tp-confirmation-text">INFORMACION UBER EATS</div>
             <div className="tp-confirmation-button-container">
-              <button className="tp-confirmation-button">Regresar</button>
+              <button
+                className="tp-confirmation-button"
+                onClick={props.onChange()}
+              >
+                Regresar
+              </button>
               <button className="tp-confirmation-button" onClick={changeConfig}>
                 Mandar info
               </button>
