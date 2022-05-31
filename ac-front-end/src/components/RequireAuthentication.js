@@ -7,7 +7,7 @@ const RequireAuthentication = ({ allowedUsers }) => {
   const location = useLocation();
   const isLoggedIn = window.localStorage.getItem("isLoggedIn");
 
-  return user && isLoggedIn ? (
+  return isLoggedIn ? (
     <Outlet />
   ) : (
     <Navigate to="/login" state={{ from: location }} replace />
