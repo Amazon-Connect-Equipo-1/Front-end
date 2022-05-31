@@ -42,8 +42,7 @@ const UberForm = (props) => {
     setSolConf("no");
     props.onChange();
   };
-  const token =
-    "eyJraWQiOiJ1aVNXY0k0aG0rSTE3Y0lPWE1HN3NVMUxETFRtRzN4Rm1mY2lNUk5DaThNPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIxYzc0Yjk5ZC02NWQzLTRiOWItOGZjNi1lNDc2NDViZDRiNmYiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtd2VzdC0yLmFtYXpvbmF3cy5jb21cL3VzLXdlc3QtMl9EaEttVmE3NFYiLCJjbGllbnRfaWQiOiI0dXVhNGVqdWR2N2JoMTZmbGIwc2YzZ2NyOCIsIm9yaWdpbl9qdGkiOiI2ZjIzOTNmNS1mN2U2LTQ1YzMtYjdiOS1kMzRkNzBiMTU3OGIiLCJldmVudF9pZCI6IjUxMjk4NzlkLTI5ZjItNGE3Ni05OTQxLTAzMDQxOWQ2ZjQwNiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTQwMjc1NzksImV4cCI6MTY1NDExMzk3OSwiaWF0IjoxNjU0MDI3NTc5LCJqdGkiOiJjMGQzMDBjNi1mYTJiLTQ4NTUtYjViZS1mOTkyODAwMTQzMDAiLCJ1c2VybmFtZSI6IjFjNzRiOTlkLTY1ZDMtNGI5Yi04ZmM2LWU0NzY0NWJkNGI2ZiJ9.da8M-g6wCX-d9wy0p83sJ53JBIoAqeVOZwt86SCXkDglTEKlx7APC4_kYnBRh87NjNMTRAFp8h7tJb0Hy2vr3sLP3A-dvvYdGRNJYyNhf8xLqFroOCeHx2LasIA2BypD6Z2aoonObbEJ6r_M89QzClw83oihHl2-UNAPbSLcaV7u5N4bEcfwTnEalYdPPLfCkb-q0UnQijbLav9I5O8IoYnz9neBJv5cwztVRMFh8sC5iJQpxzOOQ5j_V1LSTvXs47t-08L-sCjRSedB_wucOwYWrmxpU7e0SaoY7jVs2TQgH7jvIdt-Pq7V9xwOCCyh-NRTDiNbBMISoNAnHzleKg";
+  const token = window.localStorage.getItem("token");
   const INPUT_NAME = "Uber form";
   // Language
   const { t } = useTranslation();
@@ -73,13 +72,35 @@ const UberForm = (props) => {
 
     fetch("http://35.88.250.238:8080/tps/askService", requestOptions)
       .then((response) => response.text())
-      .then((result) => console.log(result))
+      .then((result) => {
+        console.log(result);
+        const resultJSON = JSON.parse(result);
+        console.log(resultJSON);
+        window.localStorage.setItem("rider", resultJSON.body.rider);
+        window.localStorage.setItem("model", resultJSON.body.car.model);
+        window.localStorage.setItem("plate", resultJSON.body.car.plate);
+        window.localStorage.setItem("color", resultJSON.body.car.color);
+        window.localStorage.setItem(
+          "arrivalTime",
+          resultJSON.body.arrival_time
+        );
+        window.localStorage.setItem("rideTime", resultJSON.body.ride_time);
+        window.localStorage.setItem("url", resultJSON.body.url);
+        window.localStorage.setItem("timestamp", resultJSON.body.timestamp);
+      })
       .catch((error) => console.log("error", error));
   };
   if (solconf === "yes") {
     return (
       <div>
-        <ConfirmationUber onChange={DisConfirm} />
+        <ConfirmationUber
+          onChange={DisConfirm}
+          client={client}
+          email={email}
+          cellphone={cellphone}
+          clientLocation={clientLocation}
+          destination={destination}
+        />
       </div>
     );
   }
