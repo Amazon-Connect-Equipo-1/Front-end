@@ -140,7 +140,6 @@ const LoginForm = (props) => {
               window.localStorage.setItem("id", resultJSON.manager_id);
             })
             .catch((error) => console.log("error", error));
-
           navigate("/qa", { replace: true });
         }
         if (resultJSON.role === USER.Agent) {
