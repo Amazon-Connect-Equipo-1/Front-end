@@ -20,7 +20,13 @@ const Order = (props) => {
   if (props.product == "Soda") {
     return (
       <div>
-        <button className="tp-order-button" onClick={props.function}>
+        <button
+          className="tp-order-button"
+          onClick={(e) => {
+            e.preventDefault();
+            props.function();
+          }}
+        >
           <GiSodaCan />
         </button>
         <div>
@@ -32,7 +38,13 @@ const Order = (props) => {
   if (props.product == "Chips") {
     return (
       <div>
-        <button className="tp-order-button" onClick={props.function}>
+        <button
+          className="tp-order-button"
+          onClick={(e) => {
+            e.preventDefault();
+            props.function();
+          }}
+        >
           <GiChipsBag />
         </button>
 
@@ -45,7 +57,13 @@ const Order = (props) => {
   if (props.product == "Coffee") {
     return (
       <div>
-        <button className="tp-order-button" onClick={props.function}>
+        <button
+          className="tp-order-button"
+          onClick={(e) => {
+            e.preventDefault();
+            props.function();
+          }}
+        >
           <BiCoffeeTogo />
         </button>
 
@@ -58,7 +76,13 @@ const Order = (props) => {
   if (props.product == "HotDog") {
     return (
       <div>
-        <button className="tp-order-button" onClick={props.function}>
+        <button
+          className="tp-order-button"
+          onClick={(e) => {
+            e.preventDefault();
+            props.function();
+          }}
+        >
           <GiHotDog />
         </button>
 
@@ -71,7 +95,13 @@ const Order = (props) => {
   if (props.product == "Aspirin") {
     return (
       <div>
-        <button className="tp-order-button" onClick={props.function}>
+        <button
+          className="tp-order-button"
+          onClick={(e) => {
+            e.preventDefault();
+            props.function();
+          }}
+        >
           <FaPills />
         </button>
 
@@ -84,7 +114,13 @@ const Order = (props) => {
   if (props.product == "Chocolate") {
     return (
       <div>
-        <button className="tp-order-button" onClick={props.function}>
+        <button
+          className="tp-order-button"
+          onClick={(e) => {
+            e.preventDefault();
+            props.function();
+          }}
+        >
           <GiChocolateBar />
         </button>
 

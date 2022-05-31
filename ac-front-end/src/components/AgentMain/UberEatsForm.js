@@ -12,6 +12,25 @@ import { useState } from "react";
 import ConfirmationUberEats from "./ConfirmationUberEats";
 
 const UberEatsForm = (props) => {
+  //input handlers-----------------------------------
+  const [client, setClient] = useState("");
+  const clientChangeHandler = (event) => {
+    setClient(event.target.value);
+  };
+  const [email, setEmail] = useState("");
+  const emailChangeHandler = (event) => {
+    setEmail(event.target.value);
+  };
+  const [cellphone, setCellphone] = useState("");
+  const cellphoneChangeHandler = (event) => {
+    setCellphone(event.target.value);
+  };
+  const [clientLocation, setClientLocation] = useState("");
+  const clientLocationChangeHandler = (event) => {
+    setClientLocation(event.target.value);
+  };
+
+  //-----------------------------------------
   const INPUT_NAME = "Uber Eats form";
   const [solconf, setSolConf] = useState("no");
   const Confirm = () => {
@@ -28,30 +47,29 @@ const UberEatsForm = (props) => {
   const [aspirin, setAspirin] = useState(0);
   const [chocolate, setChocolate] = useState(0);
   const token =
-    "eyJraWQiOiJ1aVNXY0k0aG0rSTE3Y0lPWE1HN3NVMUxETFRtRzN4Rm1mY2lNUk5DaThNPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJkYzI4MzBhYi0xZGJkLTQ5OTctOWI0Yy1iZmUyODZkZGQyYjYiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtd2VzdC0yLmFtYXpvbmF3cy5jb21cL3VzLXdlc3QtMl9EaEttVmE3NFYiLCJjbGllbnRfaWQiOiI0dXVhNGVqdWR2N2JoMTZmbGIwc2YzZ2NyOCIsIm9yaWdpbl9qdGkiOiIzYjI3ZDdkNS1jZTZmLTQ4OTYtOTgyZC1jMTYzN2ZiM2ExMjYiLCJldmVudF9pZCI6ImU3NjM3YmViLTM5NTgtNDZlNi05ZWFlLTc5ZjZiOWIxNWNlYiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTM5MzgwMTAsImV4cCI6MTY1NDAyNDQxMCwiaWF0IjoxNjUzOTM4MDEwLCJqdGkiOiI0ODQ3YTkxNy1hMzZkLTQzMWYtOTZlNy0wNTc4Y2FmZWY2YmIiLCJ1c2VybmFtZSI6ImRjMjgzMGFiLTFkYmQtNDk5Ny05YjRjLWJmZTI4NmRkZDJiNiJ9.7ilihvw-XalwJ39c6WILiETkIB_UIxBJo6coX5SXNMr_zSExJvodAA8qiKUqN5ruPcT8HU69dxCN-t28n3AeyCsU3c6ZRZ0kny2mR8uCWhTTYIlr_FRk3PvaQAjK4bqYKokzS_v9GM2ibxI-nbIP2cwUXAkLCowldZKWL8O9kWuRYW6XtMrIvbgkgm4fp-cATp9vrHuTs5RV7BaU4aFQtqjEg_THoNcxbkM8J3GdMqkRVC09R8rnA6Vot91voqZic3GK9_IJESL6u6r1ZMuKjrns5O9KFXm48Cw-If2R6Bp3KSA-X6F6ucJ_At53GLlMgHwyhjdrhusuo-ZrqWSKvQ";
-
+    "eyJraWQiOiJ1aVNXY0k0aG0rSTE3Y0lPWE1HN3NVMUxETFRtRzN4Rm1mY2lNUk5DaThNPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIxYzc0Yjk5ZC02NWQzLTRiOWItOGZjNi1lNDc2NDViZDRiNmYiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtd2VzdC0yLmFtYXpvbmF3cy5jb21cL3VzLXdlc3QtMl9EaEttVmE3NFYiLCJjbGllbnRfaWQiOiI0dXVhNGVqdWR2N2JoMTZmbGIwc2YzZ2NyOCIsIm9yaWdpbl9qdGkiOiI2ZjIzOTNmNS1mN2U2LTQ1YzMtYjdiOS1kMzRkNzBiMTU3OGIiLCJldmVudF9pZCI6IjUxMjk4NzlkLTI5ZjItNGE3Ni05OTQxLTAzMDQxOWQ2ZjQwNiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTQwMjc1NzksImV4cCI6MTY1NDExMzk3OSwiaWF0IjoxNjU0MDI3NTc5LCJqdGkiOiJjMGQzMDBjNi1mYTJiLTQ4NTUtYjViZS1mOTkyODAwMTQzMDAiLCJ1c2VybmFtZSI6IjFjNzRiOTlkLTY1ZDMtNGI5Yi04ZmM2LWU0NzY0NWJkNGI2ZiJ9.da8M-g6wCX-d9wy0p83sJ53JBIoAqeVOZwt86SCXkDglTEKlx7APC4_kYnBRh87NjNMTRAFp8h7tJb0Hy2vr3sLP3A-dvvYdGRNJYyNhf8xLqFroOCeHx2LasIA2BypD6Z2aoonObbEJ6r_M89QzClw83oihHl2-UNAPbSLcaV7u5N4bEcfwTnEalYdPPLfCkb-q0UnQijbLav9I5O8IoYnz9neBJv5cwztVRMFh8sC5iJQpxzOOQ5j_V1LSTvXs47t-08L-sCjRSedB_wucOwYWrmxpU7e0SaoY7jVs2TQgH7jvIdt-Pq7V9xwOCCyh-NRTDiNbBMISoNAnHzleKg";
   const askUberEats = (event) => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", `Bearer ${token}`);
 
     const raw = JSON.stringify({
-      service: "UberEats",
+      service: "UberEats", //CONSTANTE
       service_data: {
-        client: "Master Chief",
-        email: "A01379868@tec.mx",
-        cellphone: "+525530323376",
-        client_location: "Reach",
+        client: client,
+        email: email,
+        cellphone: cellphone,
+        client_location: clientLocation,
         order: {
-          refresco: { price: 15, quantity: 1 },
-          papas: { price: 20, quantity: 2 },
-          cafe: { price: 10, quantity: 1 },
-          hotdog: { price: 5, quantity: 0 },
-          aspirina: { price: 25, quantity: 20 },
-          chocolates: { price: 10, quantity: 1 },
+          refresco: { price: 15, quantity: soda },
+          papas: { price: 20, quantity: chips },
+          cafe: { price: 10, quantity: coffee },
+          hotdog: { price: 5, quantity: hotDog },
+          aspirina: { price: 25, quantity: aspirin },
+          chocolates: { price: 10, quantity: chocolate },
         },
       },
-      call_id: "192810a0-0sop-ori3-p210-ospem309e0",
+      call_id: "192810a0-0sop-ori3-p210-ospem309e0", //NI  IDEA
     });
 
     const requestOptions = {
@@ -68,22 +86,22 @@ const UberEatsForm = (props) => {
   };
 
   const sodaForm = () => {
-    setSoda += 1;
+    setSoda(soda + 1);
   };
   const chipsForm = () => {
-    setChips += 1;
+    setChips(chips + 1);
   };
   const coffeeForm = () => {
-    setCoffee += 1;
+    setCoffee(coffee + 1);
   };
   const hotDogForm = () => {
-    setHotDog += 1;
+    setHotDog(hotDog + 1);
   };
   const aspirinForm = () => {
-    setAspirin += 1;
+    setAspirin(aspirin + 1);
   };
   const chocolateForm = () => {
-    setChocolate += 1;
+    setChocolate(chocolate + 1);
   };
 
   if (solconf === "yes") {
@@ -93,7 +111,7 @@ const UberEatsForm = (props) => {
       </div>
     );
   }
-  if (solconf == "no") {
+  if (solconf === "no") {
     return (
       <div>
         <div className="tp-title">Uber Eats Service</div>
@@ -105,6 +123,8 @@ const UberEatsForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
+              onChange={clientChangeHandler}
+              value={client}
             />
           </label>
           <label className="tp-name-label">
@@ -114,6 +134,8 @@ const UberEatsForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
+              onChange={emailChangeHandler}
+              value={email}
             />
           </label>
           <label className="tp-name-label">
@@ -123,6 +145,8 @@ const UberEatsForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
+              onChange={cellphoneChangeHandler}
+              value={cellphone}
             />
           </label>
           <label className="tp-name-label">
@@ -132,6 +156,8 @@ const UberEatsForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
+              onChange={clientLocationChangeHandler}
+              value={clientLocation}
             />
           </label>
           <h1>Order:</h1>
