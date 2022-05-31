@@ -84,7 +84,13 @@ const ConfirmationUberEats = (props) => {
               >
                 Regresar
               </button>
-              <button className="tp-confirmation-button" onClick={changeConfig}>
+              <button
+                className="tp-confirmation-button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  changeConfig();
+                }}
+              >
                 Mandar info
               </button>
             </div>

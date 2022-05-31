@@ -102,13 +102,14 @@ const ThirdParty = (props) => {
           </button>
         </div>
       )}
-      {tps === "Uber" && <UberForm onChange={tpAssignConfirmationUber} />}
 
-      {tps === "UberEats" && (
-        <UberEatsForm onChange={tpAssignConfirmationUberEats} />
-      )}
-      {tps === "Oxxo" && <OxxoForm onChange={tpAssignConfirmationOxxo} />}
-      {tps === "Police" && <PoliceForm onChange={tpAssignConfirmationPolice} />}
+      {tps === "Uber" && <UberForm onChange={tpAssignMain} />}
+
+      {tps === "UberEats" && <UberEatsForm />}
+
+      {tps === "Oxxo" && <OxxoForm />}
+
+      {tps === "Police" && <PoliceForm />}
     </>
   );
 };

@@ -64,7 +64,11 @@ const ConfirmationUber = (props) => {
             <div className="tp-confirmation-button-container">
               <button
                 className="tp-confirmation-button"
-                onClick={pruebaBackTPS}
+                onClick={(e) => {
+                  e.preventDefault();
+                  pruebaBackTPS();
+                  props.onChange();
+                }}
               >
                 confirmado
               </button>
@@ -77,11 +81,11 @@ const ConfirmationUber = (props) => {
             <div className="tp-confirmation-button-container">
               <button
                 className="tp-confirmation-button"
-                //onClick={props.onChange()}
+                onClick={(e) => {
+                  e.preventDefault();
+                  changeConfig();
+                }}
               >
-                Regresar
-              </button>
-              <button className="tp-confirmation-button" onClick={changeConfig}>
                 Mandar info
               </button>
             </div>
