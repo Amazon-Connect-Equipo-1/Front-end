@@ -22,6 +22,7 @@ const LoginForm = (props) => {
 
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
+  const [token, setToken] = useState("");
 
   // USERS
   const USER = {
@@ -77,9 +78,12 @@ const LoginForm = (props) => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
+    // const myHeadersToken = new Headers();
+    // myHeadersToken.append("Authorization", `Bearer ${token}`);
+
     const raw = JSON.stringify({
       email: email,
-      password: pwd
+      password: pwd,
     });
 
     const requestOptions = {
@@ -89,29 +93,65 @@ const LoginForm = (props) => {
       redirect: "follow",
     };
 
+    // const requestOptionsGET = {
+    //   method: "GET",
+    //   headers: myHeadersToken,
+    //   body: raw,
+    //   redirect: "follow",
+    // };
+
     fetch("http://35.88.250.238:8080/auth/signIn", requestOptions)
       .then((response) => response.text())
       .then((result) => {
         window.localStorage.setItem("isLoggedIn", true);
         const resultJSON = JSON.parse(result);
+        console.log(resultJSON);
         window.localStorage.setItem("userType", resultJSON.role);
+        window.localStorage.setItem("token", resultJSON.AccessToken);
+        console.log(resultJSON.AccessToken);
+        // setToken(resultJSON.AcessToken);
+
         if (resultJSON.role === USER.Admin) {
           navigate("/admin", { replace: true });
         }
-        if (resultJSON.role=== USER.QA) {
+        if (resultJSON.role === USER.QA) {
+          console.log("Mikeeee");
+          const myHeadersToken = new Headers();
+          myHeadersToken.append(
+            "Authorization",
+            `Bearer ${resultJSON.AccessToken}`
+          );
+
+          const requestOptionsGET = {
+            method: "GET",
+            headers: myHeadersToken,
+          };
+
+          //Save manager info in local storage
+          fetch(
+            `http://35.88.250.238:8080/manager/managerProfile?email=${email}`,
+            requestOptionsGET
+          )
+            .then((response) => response.text())
+            .then((result) => {
+              const resultJSON = JSON.parse(result);
+              console.log(resultJSON);
+              window.localStorage.setItem("name", resultJSON.manager_name);
+              window.localStorage.setItem("id", resultJSON.manager_id);
+            })
+            .catch((error) => console.log("error", error));
           navigate("/qa", { replace: true });
         }
         if (resultJSON.role === USER.Agent) {
           navigate("/agent", { replace: true });
         }
-    })
-      .catch((error) => console.log("error", error))
-    
+      })
+      .catch((error) => console.log("error", error));
+
     console.log(user);
     console.log(userType);
     console.log("Submit form is working");
   };
-
 
   return (
     <Card className="lgf-main-container">

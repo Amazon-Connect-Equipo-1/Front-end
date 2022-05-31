@@ -18,7 +18,7 @@ import { useTranslation } from "react-i18next";
 
 const Navbar = (props) => {
   //funcion para poner el nombre del admin o quality analyst
-  const [, , userInfo] = useContext(GlobalContext);
+  // const [, , userInfo] = useContext(GlobalContext);
 
   const getSidebarData = () => {
     const sidebarData = props.sidebarData + "SidebarData";
@@ -51,6 +51,8 @@ const Navbar = (props) => {
   // Language
   const { t } = useTranslation();
 
+  const username = window.localStorage.getItem("name");
+
   return (
     <div className="nav-container">
       <IconContext.Provider value={{ color: "var(--text-color)", size: 60 }}>
@@ -59,12 +61,12 @@ const Navbar = (props) => {
             <img className="nav-icon" />
           </Link>
           <h1 className="nav-welcome-text" id="nav-title">
-            {text || t("welcomeText") + ", " + userInfo.name}
+            {text || t("welcomeText") + ", " + username}
           </h1>
           <Link
             to="/profile"
             onClick={(e) => {
-              setText(t("welcomeText") + ", " + userInfo.name);
+              setText(t("welcomeText") + ", " + username);
             }}
           >
             <FaUserCircle className="nav-user-icon" />
@@ -86,7 +88,7 @@ const Navbar = (props) => {
                       if (item.title !== "Dashboard") {
                         setText(t(item.title));
                       } else {
-                        setText(t("welcomeText") + ", " + userInfo.name);
+                        setText(t("welcomeText") + ", " + username);
                       }
                     }}
                   >

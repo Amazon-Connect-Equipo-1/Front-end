@@ -19,6 +19,8 @@ const Profile = (props) => {
     logout();
     window.localStorage.removeItem("isLoggedIn");
     window.localStorage.removeItem("userType");
+    window.localStorage.removeItem("name");
+    window.localStorage.removeItem("token");
     window.location.reload();
   };
 
@@ -32,13 +34,17 @@ const Profile = (props) => {
         <div className="prfl-container">
           <img src={prfl_ic} alt="profile_ic" className="prfl-ic" />
           <div className="prfl-info-container">
-            <p className="prfl-name">{userInfo.name}</p>
+            <p className="prfl-name">{window.localStorage.getItem("name")}</p>
             <br />
             <p className="prfl-label">Id</p>
-            <p className="prfl-label-info">{userInfo.id}</p>
+            <p className="prfl-label-info">
+              {window.localStorage.getItem("id")}
+            </p>
             <br />
             <p className="prfl-label">Email</p>
-            <p className="prfl-label-info">{userInfo.email}</p>
+            <p className="prfl-label-info">
+              {window.localStorage.getItem("email")}
+            </p>
             <button className="prfl-button" onClick={logoutHandler}>
               Log Out
             </button>
