@@ -21,6 +21,8 @@ const Profile = (props) => {
     window.localStorage.removeItem("userType");
     window.localStorage.removeItem("name");
     window.localStorage.removeItem("token");
+    window.localStorage.removeItem("id");
+    window.localStorage.removeItem("email");
     window.location.reload();
   };
 

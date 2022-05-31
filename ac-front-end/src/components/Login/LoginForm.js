@@ -107,9 +107,9 @@ const LoginForm = (props) => {
         const resultJSON = JSON.parse(result);
         console.log(resultJSON);
         window.localStorage.setItem("userType", resultJSON.role);
+        window.localStorage.setItem("email", email);
         window.localStorage.setItem("token", resultJSON.AccessToken);
         console.log(resultJSON.AccessToken);
-        // setToken(resultJSON.AcessToken);
 
         if (resultJSON.role === USER.Admin) {
           navigate("/admin", { replace: true });
@@ -144,6 +144,40 @@ const LoginForm = (props) => {
           navigate("/qa", { replace: true });
         }
         if (resultJSON.role === USER.Agent) {
+          const myHeadersToken = new Headers();
+          myHeadersToken.append(
+            "Authorization",
+            `Bearer ${resultJSON.AccessToken}`
+          );
+
+          const requestOptionsGET = {
+            method: "GET",
+            headers: myHeadersToken,
+          };
+
+          //Save manager info in local storage
+          fetch(
+            `http://35.88.250.238:8080/agent/agentProfile?email=${email}`,
+            requestOptionsGET
+          )
+            .then((response) => response.text())
+            .then((result) => {
+              const resultJSON = JSON.parse(result);
+              console.log("mike");
+              console.log(resultJSON);
+              // console.log(resultJSON.body);
+              console.log("mike");
+              window.localStorage.setItem("id", resultJSON.agent_id);
+              window.localStorage.setItem("name", resultJSON.name);
+              window.localStorage.setItem("status", resultJSON.status);
+              window.localStorage.setItem("calls", resultJSON.calls);
+              window.localStorage.setItem("rating", resultJSON.rating);
+              window.localStorage.setItem(
+                "profile_picture",
+                resultJSON.profile_picture
+              );
+            })
+            .catch((error) => console.log("error", error));
           navigate("/agent", { replace: true });
         }
       })
