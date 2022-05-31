@@ -73,7 +73,7 @@ function App() {
           <Suspense fallback={<Loading />}>
             {/*user !== null && <Navbar sidebarData={userType} />*/}
             {getUserType === USER.Admin && <Navbar sidebarData={USER.Admin} />}
-            {getUserType === USER.QA && <Navbar sidebarData={USER.QA} />}
+            {getUserType === USER.QA && <Navbar sidebarData="QA" />}
             {getUserType === USER.Agent && <Navbar sidebarData={USER.Agent} />}
             <Routes>
               <Route path="/" element={<Layout />}>
