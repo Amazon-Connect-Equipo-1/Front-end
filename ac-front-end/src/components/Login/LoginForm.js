@@ -115,6 +115,32 @@ const LoginForm = (props) => {
           navigate("/admin", { replace: true });
         }
         if (resultJSON.role === USER.QA) {
+          console.log("Mikeeee");
+          const myHeadersToken = new Headers();
+          myHeadersToken.append(
+            "Authorization",
+            `Bearer ${resultJSON.AccessToken}`
+          );
+
+          const requestOptionsGET = {
+            method: "GET",
+            headers: myHeadersToken,
+          };
+
+          //Save manager info in local storage
+          fetch(
+            `http://35.88.250.238:8080/manager/managerProfile?email=${email}`,
+            requestOptionsGET
+          )
+            .then((response) => response.text())
+            .then((result) => {
+              const resultJSON = JSON.parse(result);
+              console.log(resultJSON);
+              window.localStorage.setItem("name", resultJSON.manager_name);
+              window.localStorage.setItem("id", resultJSON.manager_id);
+            })
+            .catch((error) => console.log("error", error));
+
           navigate("/qa", { replace: true });
         }
         if (resultJSON.role === USER.Agent) {
