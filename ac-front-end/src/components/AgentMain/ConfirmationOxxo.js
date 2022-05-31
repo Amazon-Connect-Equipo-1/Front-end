@@ -65,7 +65,11 @@ const ConfirmationOxxo = (props) => {
             <div className="tp-confirmation-button-container">
               <button
                 className="tp-confirmation-button"
-                onClick={pruebaBackTPS}
+                onClick={(e) => {
+                  e.preventDefault();
+                  pruebaBackTPS();
+                  props.onChange();
+                }}
               >
                 confirmado
               </button>
@@ -76,12 +80,6 @@ const ConfirmationOxxo = (props) => {
           <div>
             <div className="tp-confirmation-text">INFORMACION OXXO</div>
             <div className="tp-confirmation-button-container">
-              <button
-                className="tp-confirmation-button"
-                //onClick={props.onChange()}
-              >
-                Regresar
-              </button>
               <button
                 className="tp-confirmation-button"
                 onClick={(e) => {
