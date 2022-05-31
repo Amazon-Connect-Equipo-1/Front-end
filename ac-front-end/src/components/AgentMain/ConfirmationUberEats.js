@@ -80,7 +80,7 @@ const ConfirmationUberEats = (props) => {
             <div className="tp-confirmation-button-container">
               <button
                 className="tp-confirmation-button"
-                onClick={props.onChange()}
+                //onClick={props.onChange()}
               >
                 Regresar
               </button>

@@ -24,8 +24,8 @@ const ConfirmationOxxo = (props) => {
       service: "Oxxo",
       service_data: {
         client: "Dwight Schrute",
-        email: "A01379868@tec.mx",
-        cellphone: "+525530323376",
+        client_email: "A01379868@tec.mx",
+        client_cellphone: "+525530323376",
         client_location: "Alfredo's Pizza Cafe",
         oxxo_address: {
           street: "JOSE MA LICEAGA 406 S/N, MORELOS SECC LOMA, 20270",
@@ -35,7 +35,7 @@ const ConfirmationOxxo = (props) => {
           country: "Mexico",
         },
         quantity: 501,
-        account_number: 6969696969,
+        account_number: "6969696969",
         reference: "891753",
         security_token: "4605",
         timestamp: "2022-05-30 15:16:53.006495",
@@ -78,7 +78,7 @@ const ConfirmationOxxo = (props) => {
             <div className="tp-confirmation-button-container">
               <button
                 className="tp-confirmation-button"
-                onClick={props.onChange()}
+                //onClick={props.onChange()}
               >
                 Regresar
               </button>
