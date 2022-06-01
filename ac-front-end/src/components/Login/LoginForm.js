@@ -10,6 +10,7 @@ import { useTranslation } from "react-i18next";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthenticationContext } from "../Authentication";
+import { loadUserPreferences } from "../UserPreferences";
 
 const LoginForm = (props) => {
   // Language
@@ -106,11 +107,14 @@ const LoginForm = (props) => {
         window.localStorage.setItem("isLoggedIn", true);
         const resultJSON = JSON.parse(result);
         console.log(resultJSON);
-        if((Object.keys(resultJSON).includes("errors")) || (resultJSON.code === "NotAuthorizedException")){
+        if (
+          Object.keys(resultJSON).includes("errors") ||
+          resultJSON.code === "NotAuthorizedException"
+        ) {
           alert(t("failedLoginPassword"));
           console.log("Contraseña incorrecta");
         }
-        if ((resultJSON.code === "UserNotFoundException")){
+        if (resultJSON.code === "UserNotFoundException") {
           alert(t("failedLoginEmail"));
           console.log("Usuario no encontrado");
         }
@@ -146,6 +150,8 @@ const LoginForm = (props) => {
               console.log(resultJSON);
               window.localStorage.setItem("name", resultJSON.manager_name);
               window.localStorage.setItem("id", resultJSON.manager_id);
+
+              loadUserPreferences(resultJSON.manager_id); // Load user config preferences
             })
             .catch((error) => console.log("error", error));
           navigate("/qa", { replace: true });
@@ -183,6 +189,8 @@ const LoginForm = (props) => {
                 "profile_picture",
                 resultJSON.profile_picture
               );
+
+              loadUserPreferences(resultJSON.agent_id); // Load user config preferences
             })
             .catch((error) => console.log("error", error));
           navigate("/agent", { replace: true });

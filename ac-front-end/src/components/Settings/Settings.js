@@ -1,6 +1,7 @@
 /* Settings
 Authors:
-        A01777771 Stephen Strange*/
+        A01378688 Daniel Garcia
+*/
 
 //Import Modules
 import React, { useContext, useEffect, useState } from "react";
@@ -83,7 +84,7 @@ function Settings() {
       user_id: localStorage.getItem("id"),
       color: localStorage.getItem("theme"),
       text_size: localStorage.getItem("txtSize"),
-      language: localStorage.getItem("lang-opt"),
+      language: document.getElementById("lang").value,
     });
 
     const requestOptions = {
@@ -132,7 +133,6 @@ function Settings() {
       i18n.changeLanguage(l);
     }
     document.getElementById("nav-title").textContent = t("Settings");
-    localStorage.setItem("lang-opt", lang);
     postPreferences();
   }
 

@@ -27,7 +27,6 @@ import AgentMain from "./components/AgentMain/AgentMain";
 import QualityControl from "./components/QualityControl/QualityControl";
 import AgentsAAndQASupplier from "./components/AgentsAAndQASupplier";
 import GlobalSupplier from "./components/GlobalSupplier";
-import { loadUserPreferences } from "./components/UserPreferences";
 import NewPassword from "./components/Login/NewPassword";
 import "amazon-connect-streams";
 import { Navigate, Route, Router, Routes, useLocation } from "react-router-dom";
@@ -47,9 +46,6 @@ function App() {
     Agent: "Agent",
     Client: "Client",
   };
-
-  // Load user preferences
-  loadUserPreferences();
 
   // Language
   const [locale, setLocale] = useState(i18n.language);

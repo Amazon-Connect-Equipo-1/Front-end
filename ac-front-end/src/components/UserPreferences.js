@@ -1,10 +1,50 @@
 /* User Preference
 Authors:
-        A01777771 Stephen Strange*/
+        A01378688 Daniel Garcia Barajas*/
 
-//Exports Modules
-export const loadUserPreferences = () => {
+//Import Modules
+import i18n from "../i18n";
+
+export const loadUserPreferences = (id) => {
+  let theme;
+  let txtSize;
+
   const body = document.body;
+
+  // Fetch
+  const myHeadersToken = new Headers();
+  myHeadersToken.append(
+    "Authorization",
+    `Bearer ${window.localStorage.getItem("token")}`
+  );
+
+  const requestOptions = {
+    method: "GET",
+    headers: myHeadersToken,
+  };
+
+  fetch(
+    `http://35.88.250.238:8080/userConfig/getUserConfig?id=${id}`,
+    requestOptions
+  )
+    .then((response) => response.text())
+    .then((result) => {
+      console.log(result);
+      const resultJSON = JSON.parse(result);
+
+      theme = localStorage.getItem("theme");
+      body.classList.replace(theme, resultJSON.color);
+      localStorage.setItem("theme", resultJSON.color);
+
+      txtSize = localStorage.getItem("txtSize");
+      body.classList.replace(txtSize, resultJSON.textSize);
+      localStorage.setItem("txtSize", resultJSON.textSize);
+
+      i18n.changeLanguage(resultJSON.language);
+    })
+    .catch((error) => console.log("error", error));
+
+  // Theme
   const lightTheme = "light";
   const darkTheme = "dark";
   const darkTheme_Protanopia = "dark_protanopia";
@@ -13,18 +53,19 @@ export const loadUserPreferences = () => {
   const darkTheme_Protanomaly = "dark_protanomaly";
   const darkTheme_Deuteranomaly = "dark_deuteranomaly";
   const darkTheme_Tritanomaly = "dark_tritanomaly";
-  let theme;
 
+  // Text Size
   const smallTxtSize = "small";
   const mediumTxtSize = "medium";
   const bigTxtSize = "big";
-  let txtSize;
 
+  // Check in local  storage
   if (localStorage) {
     theme = localStorage.getItem("theme");
     txtSize = localStorage.getItem("txtSize");
   }
 
+  // Add Text Size
   if (
     txtSize === smallTxtSize ||
     txtSize === mediumTxtSize ||
@@ -37,6 +78,7 @@ export const loadUserPreferences = () => {
     body.classList.add(bigTxtSize);
   }
 
+  // Add Theme
   if (
     theme === lightTheme ||
     theme === darkTheme ||
