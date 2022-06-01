@@ -58,16 +58,16 @@ const NewPasswordForm = (props) => {
           const resultJSON = JSON.parse(result);
           console.log(Object.keys(resultJSON).includes("errors"));
           if (Object.keys(resultJSON).includes("errors")) {
-            alert("Token inválido");
+            alert(t("invalidToken"));
           } else {
-            alert("Se cambió la contraseña");
+            alert(t("changePasswordSuccessful"));
             navigate("/login", { replace: true });
           }
         })
         .catch(error => console.log('error', error));
 
     } else {
-      alert("Las contraseñas no coinciden")
+      alert(t("differentPasswords"))
     }
     
   };

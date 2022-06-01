@@ -138,5 +138,14 @@
   "withdrawal": "Retrait",
   "loans": "Prêts",
   "problem-solved": "Problème-Résolu",
-  "investments": "Investissements"
+  "investments": "Investissements",
+
+  "__Alerts__": "----------------Alert texts in interfaces--------------",
+  "failedLoginEmail": "Utilisateur introuvable",
+  "failedLoginPassword": "Mot de passe incorrect",
+  "confirmPassword": "Jeton envoyé pour réinitialiser le mot de passe",
+  "validateEmail": "Entrez un email valide",
+  "invalidToken": "Jeton invalide",
+  "changePasswordSuccessful": "Mot de passe modifié",
+  "differentPasswords": "La différence ne coïncide pas"
 }

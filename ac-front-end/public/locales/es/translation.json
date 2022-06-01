@@ -138,6 +138,15 @@
   "withdrawal": "Retiros",
   "loans": "Préstamos",
   "problem-solved": "Problema-Resuelto",
-  "investments": "Inversiones"
+  "investments": "Inversiones",
+
+  "__Alerts__": "----------------Alert texts in interfaces--------------",
+  "failedLoginEmail": "Usuario no encontrado",
+  "failedLoginPassword": "Contraseña incorrecta",
+  "confirmPassword": "Token enviado para restablecer la contraseña",
+  "validateEmail": "Ingresa un email válido",
+  "invalidToken": "Token inválido",
+  "changePasswordSuccessful": "Se cambió la contraseña",
+  "differentPasswords": "Las contraseñas no coinciden"
 
 }

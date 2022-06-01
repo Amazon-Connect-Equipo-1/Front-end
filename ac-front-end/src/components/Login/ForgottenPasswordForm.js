@@ -50,13 +50,13 @@ const ForgottenPasswordForm = (props) => {
           if (Object.keys(resultJSON).length > 1) {
             alert(resultJSON.message);
           } else {
-            alert("Token enviado para restrablecer la contraseña");
+            alert(t("confirmPassword"));
             navigate("/confirm-password", { replace: true });
           }
         })
         .catch((error) => console.log("error", error));
     } else {
-      alert("Ingresa un email válido");
+      alert(alert("validateEmail"));
     }
   };
 

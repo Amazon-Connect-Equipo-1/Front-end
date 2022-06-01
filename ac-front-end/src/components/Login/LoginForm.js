@@ -106,6 +106,14 @@ const LoginForm = (props) => {
         window.localStorage.setItem("isLoggedIn", true);
         const resultJSON = JSON.parse(result);
         console.log(resultJSON);
+        if((Object.keys(resultJSON).includes("errors")) || (resultJSON.code === "NotAuthorizedException")){
+          alert(t("failedLoginPassword"));
+          console.log("Contraseña incorrecta");
+        }
+        if ((resultJSON.code === "UserNotFoundException")){
+          alert(t("failedLoginEmail"));
+          console.log("Usuario no encontrado");
+        }
         window.localStorage.setItem("userType", resultJSON.role);
         window.localStorage.setItem("email", email);
         window.localStorage.setItem("token", resultJSON.AccessToken);
