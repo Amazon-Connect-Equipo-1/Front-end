@@ -13,24 +13,39 @@ import ConfirmationUberEats from "./ConfirmationUberEats";
 
 const UberEatsForm = (props) => {
   //input handlers-----------------------------------
-  const [client, setClient] = useState("");
+
   const clientChangeHandler = (event) => {
-    setClient(event.target.value);
+    window.localStorage.setItem("client", event.target.value);
   };
-  const [email, setEmail] = useState("");
   const emailChangeHandler = (event) => {
-    setEmail(event.target.value);
+    window.localStorage.setItem("email", event.target.value);
   };
-  const [cellphone, setCellphone] = useState("");
   const cellphoneChangeHandler = (event) => {
-    setCellphone(event.target.value);
+    window.localStorage.setItem("cellphone", event.target.value);
   };
-  const [clientLocation, setClientLocation] = useState("");
   const clientLocationChangeHandler = (event) => {
-    setClientLocation(event.target.value);
+    window.localStorage.setItem("clientLocation", event.target.value);
   };
 
   //-----------------------------------------
+  //RESTART DATA--------------------------------
+  const restart = () => {
+    window.localStorage.removeItem("client");
+    window.localStorage.removeItem("email");
+    window.localStorage.removeItem("cellphone");
+    window.localStorage.removeItem("clientLocation");
+    window.localStorage.removeItem("destination");
+    window.localStorage.removeItem("rider");
+    window.localStorage.removeItem("model");
+    window.localStorage.removeItem("plate");
+    window.localStorage.removeItem("color");
+    window.localStorage.removeItem("arrivalTime");
+    window.localStorage.removeItem("rideTime");
+    window.localStorage.removeItem("url");
+    window.localStorage.removeItem("timestamp");
+  };
+
+  //--------------------------------------------
   const INPUT_NAME = "Uber Eats form";
   const [solconf, setSolConf] = useState("no");
   const Confirm = () => {
@@ -47,7 +62,13 @@ const UberEatsForm = (props) => {
   const [aspirin, setAspirin] = useState(0);
   const [chocolate, setChocolate] = useState(0);
   const token = window.localStorage.getItem("token");
+
   const askUberEats = (event) => {
+    const client = window.localStorage.getItem("client");
+    const email = window.localStorage.getItem("email");
+    const cellphone = window.localStorage.getItem("cellphone");
+    const clientLocation = window.localStorage.getItem("clientLocation");
+
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", `Bearer ${token}`);
@@ -80,7 +101,21 @@ const UberEatsForm = (props) => {
 
     fetch("http://35.88.250.238:8080/tps/askService", requestOptions)
       .then((response) => response.text())
-      .then((result) => console.log(result))
+      .then((result) => {
+        const resultJSON = JSON.parse(result);
+        console.log(result);
+        console.log(resultJSON);
+        window.localStorage.setItem("total", resultJSON.body.total);
+        window.localStorage.setItem(
+          "deliveryName",
+          resultJSON.body.delivery_name
+        );
+        window.localStorage.setItem(
+          "deliveryTime",
+          resultJSON.body.delivery_time
+        );
+        window.localStorage.setItem("timestamp", resultJSON.body.timestamp);
+      })
       .catch((error) => console.log("error", error));
   };
 
@@ -106,7 +141,15 @@ const UberEatsForm = (props) => {
   if (solconf === "yes") {
     return (
       <div>
-        <ConfirmationUberEats onChange={DisConfirm} />
+        <ConfirmationUberEats
+          onChange={DisConfirm}
+          sodaQ={soda}
+          chipsQ={chips}
+          coffee={coffee}
+          hotdogQ={hotDog}
+          aspirinQ={aspirin}
+          chocolateQ={chocolate}
+        />
       </div>
     );
   }
@@ -123,7 +166,6 @@ const UberEatsForm = (props) => {
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
               onChange={clientChangeHandler}
-              value={client}
             />
           </label>
           <label className="tp-name-label">
@@ -134,7 +176,6 @@ const UberEatsForm = (props) => {
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
               onChange={emailChangeHandler}
-              value={email}
             />
           </label>
           <label className="tp-name-label">
@@ -145,7 +186,6 @@ const UberEatsForm = (props) => {
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
               onChange={cellphoneChangeHandler}
-              value={cellphone}
             />
           </label>
           <label className="tp-name-label">
@@ -156,7 +196,6 @@ const UberEatsForm = (props) => {
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
               onChange={clientLocationChangeHandler}
-              value={clientLocation}
             />
           </label>
           <h1>Order:</h1>

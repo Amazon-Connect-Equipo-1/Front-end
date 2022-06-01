@@ -10,6 +10,11 @@ import { createContext, Suspense, useState } from "react";
 const ConfirmationUber = (props) => {
   const token = window.localStorage.getItem("token");
   //Data----------------------------------------
+  const client = window.localStorage.getItem("client");
+  const email = window.localStorage.getItem("email");
+  const cellphone = window.localStorage.getItem("cellphone");
+  const clientLocation = window.localStorage.getItem("clientLocation");
+  const destination = window.localStorage.getItem("destination");
   const rider = window.localStorage.getItem("rider");
   const model = window.localStorage.getItem("model");
   const plate = window.localStorage.getItem("plate");
@@ -18,6 +23,24 @@ const ConfirmationUber = (props) => {
   const rideTime = window.localStorage.getItem("rideTime");
   const url = window.localStorage.getItem("url");
   const timestamp = window.localStorage.getItem("timestamp");
+
+  //--------------------------------------------
+  //RESTART DATA--------------------------------
+  const restart = () => {
+    window.localStorage.removeItem("client");
+    window.localStorage.removeItem("email");
+    window.localStorage.removeItem("cellphone");
+    window.localStorage.removeItem("clientLocation");
+    window.localStorage.removeItem("destination");
+    window.localStorage.removeItem("rider");
+    window.localStorage.removeItem("model");
+    window.localStorage.removeItem("plate");
+    window.localStorage.removeItem("color");
+    window.localStorage.removeItem("arrivalTime");
+    window.localStorage.removeItem("rideTime");
+    window.localStorage.removeItem("url");
+    window.localStorage.removeItem("timestamp");
+  };
 
   //--------------------------------------------
   const [conf, setConf] = useState("no");
@@ -32,21 +55,21 @@ const ConfirmationUber = (props) => {
     const raw = JSON.stringify({
       service: "Uber",
       service_data: {
-        client: "Miguel Perez",
-        client_email: "A01379868@tec.mx",
-        client_cellphone: "+525530323376",
-        rider: "Daniel Barajas",
+        client: client,
+        client_email: email,
+        client_cellphone: cellphone,
+        rider: rider,
         car: {
-          model: "Nissan Versa",
-          color: "Red",
-          plate: "IEEE-10-11",
+          model: model,
+          color: color,
+          plate: plate,
         },
-        client_location: "Mundo E",
-        destination: "Plaza Carso",
-        arrival_time: 10,
-        ride_time: 20,
-        url: "http://uber.example.link.com/ride",
-        timestamp: "2022-05-30 15:16:53.006495",
+        client_location: clientLocation,
+        destination: destination,
+        arrival_time: arrivalTime,
+        ride_time: rideTime,
+        url: url,
+        timestamp: timestamp,
       },
     });
 
@@ -69,13 +92,14 @@ const ConfirmationUber = (props) => {
         Service Confirmation
         {conf === "yes" && (
           <div>
-            <div className="tp-confirmation-text"></div>
+            <div className="tp-confirmation-text">Informacion enviada!</div>
             <div className="tp-confirmation-button-container">
               <button
                 className="tp-confirmation-button"
                 onClick={(e) => {
                   e.preventDefault();
                   pruebaBackTPS();
+                  restart();
                   props.onChange();
                 }}
               >
@@ -87,27 +111,27 @@ const ConfirmationUber = (props) => {
         {conf === "no" && (
           <div>
             <div className="tp-confirmation-text">
-              client: {props.client}
+              Client: {client}
               <br />
-              email: {props.email}
+              mail: {email}
               <br />
-              cellphone: {props.cellphone}
+              Cellphone: {cellphone}
               <br />
-              client location: {props.clientLocation}
+              Client location: {clientLocation}
               <br />
-              client destination: {props.destination}
+              Client destination: {destination}
               <br />
-              rider: {rider}
+              Rider: {rider}
               <br />
-              car model: {model}
+              Car model: {model}
               <br />
-              car plate: {plate}
+              Car plate: {plate}
               <br />
-              car color: {color}
+              Car color: {color}
               <br />
-              arrival time: {arrivalTime}
+              Arrival time: {arrivalTime}
               <br />
-              ride time: {rideTime}
+              Ride time: {rideTime}
               <br />
             </div>
             <div className="tp-confirmation-button-container">

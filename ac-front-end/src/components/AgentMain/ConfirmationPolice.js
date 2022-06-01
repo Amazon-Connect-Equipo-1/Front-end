@@ -9,6 +9,31 @@ import { createContext, Suspense, useState } from "react";
 
 const ConfirmationPolice = (props) => {
   const token = window.localStorage.getItem("token");
+  //Data----------------------------------------
+  const client = window.localStorage.getItem("client");
+  const email = window.localStorage.getItem("email");
+  const cellphone = window.localStorage.getItem("cellphone");
+  const clientLocation = window.localStorage.getItem("clientLocation");
+  const clientLocationReference = window.localStorage.getItem(
+    "clientLocationReference"
+  );
+  const clientStatement = window.localStorage.getItem("clientStatement");
+
+  const folio = window.localStorage.getItem("folio");
+  const timestamp = window.localStorage.getItem("timestamp");
+
+  //--------------------------------------------
+  //RESTART DATA--------------------------------
+  const restart = () => {
+    window.localStorage.removeItem("client");
+    window.localStorage.removeItem("email");
+    window.localStorage.removeItem("cellphone");
+    window.localStorage.removeItem("clientLocation");
+
+    window.localStorage.removeItem("folio");
+    window.localStorage.removeItem("timestamp");
+  };
+
   const [conf, setConf] = useState("no");
   const changeConfig = () => {
     setConf("yes");
@@ -21,17 +46,14 @@ const ConfirmationPolice = (props) => {
     const raw = JSON.stringify({
       service: "Report",
       service_data: {
-        client: "Liam Garay",
-        client_email: "A01379868@tec.mx",
-        client_cellphone: "+525588656464",
-        client_location:
-          "Camino de las flores #95 , Avenida Juarez, Estado de MExico, Mexico",
-        client_location_reference:
-          "Nearby a convienence store, between jilguero and leopoldo streets",
-        client_statement:
-          "his credit card was stolen, he also was physically assaulted with a wooden bat",
-        folio: "rnoysnm-enov-kv9z-2njj-1pa5tyo3ltd10",
-        timestamp: "2022-05-30 15:16:53.006495",
+        client: client,
+        client_email: email,
+        client_cellphone: cellphone,
+        client_location: clientLocation,
+        client_location_reference: clientLocationReference,
+        client_statement: clientStatement,
+        folio: folio,
+        timestamp: timestamp,
       },
     });
 
@@ -61,6 +83,7 @@ const ConfirmationPolice = (props) => {
                 onClick={(e) => {
                   e.preventDefault();
                   pruebaBackTPS();
+                  restart();
                   props.onChange();
                 }}
               >
@@ -71,7 +94,20 @@ const ConfirmationPolice = (props) => {
         )}
         {conf === "no" && (
           <div>
-            <div className="tp-confirmation-text">INFORMACION POLICE</div>
+            <div className="tp-confirmation-text">
+              Client: {client}
+              <br />
+              mail: {email}
+              <br />
+              Cellphone: {cellphone}
+              <br />
+              Client location: {clientLocation}
+              <br />
+              Client location reference: {clientLocationReference}
+              <br />
+              Client statement: {clientStatement}
+              <br />
+            </div>
             <div className="tp-confirmation-button-container">
               <button
                 className="tp-confirmation-button"

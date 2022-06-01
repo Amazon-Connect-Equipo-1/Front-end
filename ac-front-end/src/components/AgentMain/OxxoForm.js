@@ -12,32 +12,47 @@ import ConfirmationOxxo from "./ConfirmationOxxo";
 //Creates Oxxo Form
 const OxxoForm = (props) => {
   //input handlers-----------------------------------
-  const [client, setClient] = useState("");
+
   const clientChangeHandler = (event) => {
-    setClient(event.target.value);
+    window.localStorage.setItem("client", event.target.value);
   };
-  const [email, setEmail] = useState("");
   const emailChangeHandler = (event) => {
-    setEmail(event.target.value);
+    window.localStorage.setItem("email", event.target.value);
   };
-  const [cellphone, setCellphone] = useState("");
   const cellphoneChangeHandler = (event) => {
-    setCellphone(event.target.value);
+    window.localStorage.setItem("cellphone", event.target.value);
   };
-  const [clientLocation, setClientLocation] = useState("");
   const clientLocationChangeHandler = (event) => {
-    setClientLocation(event.target.value);
+    window.localStorage.setItem("clientLocation", event.target.value);
   };
-  const [quantity, setQuantity] = useState("");
   const quantityChangeHandler = (event) => {
-    setQuantity(event.target.value);
+    window.localStorage.setItem("quantity", event.target.value);
   };
-  const [accountNumber, setAccountNumber] = useState("");
   const accountNumberChangeHandler = (event) => {
-    setAccountNumber(event.target.value);
+    window.localStorage.setItem("accountNumber", event.target.value);
   };
 
   //-----------------------------------------
+  //RESTART DATA--------------------------------
+  const restart = () => {
+    window.localStorage.removeItem("client");
+    window.localStorage.removeItem("email");
+    window.localStorage.removeItem("cellphone");
+    window.localStorage.removeItem("clientLocation");
+    window.localStorage.removeItem("quantity");
+    window.localStorage.removeItem("accountNumber");
+    window.localStorage.removeItem("street");
+    window.localStorage.removeItem("state");
+    window.localStorage.removeItem("colony");
+    window.localStorage.removeItem("zipCode");
+    window.localStorage.removeItem("country");
+    window.localStorage.removeItem("accountNumber");
+    window.localStorage.removeItem("reference");
+    window.localStorage.removeItem("securityToken");
+    window.localStorage.removeItem("timestamp");
+  };
+
+  //--------------------------------------------
   const INPUT_NAME = "Oxxo form";
 
   const onSubmitHandler = (event) => {
@@ -56,6 +71,12 @@ const OxxoForm = (props) => {
   };
   const token = window.localStorage.getItem("token");
   const askOxxo = (event) => {
+    const client = window.localStorage.getItem("client");
+    const email = window.localStorage.getItem("email");
+    const cellphone = window.localStorage.getItem("cellphone");
+    const clientLocation = window.localStorage.getItem("clientLocation");
+    const quantity = window.localStorage.getItem("quantity");
+    const accountNumber = window.localStorage.getItem("accountNumber");
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", `Bearer ${token}`);
@@ -82,7 +103,37 @@ const OxxoForm = (props) => {
 
     fetch("http://35.88.250.238:8080/tps/askService", requestOptions)
       .then((response) => response.text())
-      .then((result) => console.log(result))
+      .then((result) => {
+        const resultJSON = JSON.parse(result);
+        console.log(result);
+        console.log(resultJSON);
+        window.localStorage.setItem(
+          "street",
+          resultJSON.body.oxxo_address.street
+        );
+        window.localStorage.setItem(
+          "state",
+          resultJSON.body.oxxo_address.state
+        );
+        window.localStorage.setItem(
+          "colony",
+          resultJSON.body.oxxo_address.colony
+        );
+        window.localStorage.setItem(
+          "zipCode",
+          resultJSON.body.oxxo_address.zip_code
+        );
+        window.localStorage.setItem(
+          "country",
+          resultJSON.body.oxxo_address.country
+        );
+        window.localStorage.setItem("reference", resultJSON.body.reference);
+        window.localStorage.setItem(
+          "security_token",
+          resultJSON.body.security_token
+        );
+        window.localStorage.setItem("timestamp", resultJSON.body.timestamp);
+      })
       .catch((error) => console.log("error", error));
   };
   if (solconf === "yes") {
@@ -105,7 +156,6 @@ const OxxoForm = (props) => {
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
               onChange={clientChangeHandler}
-              value={client}
             />
           </label>
           <label className="tp-name-label">
@@ -116,7 +166,6 @@ const OxxoForm = (props) => {
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
               onChange={emailChangeHandler}
-              value={email}
             />
           </label>
           <label className="tp-name-label">
@@ -127,7 +176,6 @@ const OxxoForm = (props) => {
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
               onChange={cellphoneChangeHandler}
-              value={cellphone}
             />
           </label>
           <label className="tp-name-label">
@@ -138,7 +186,6 @@ const OxxoForm = (props) => {
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
               onChange={clientLocationChangeHandler}
-              value={clientLocation}
             />
           </label>
           <label className="tp-name-label">
@@ -149,7 +196,6 @@ const OxxoForm = (props) => {
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
               onChange={quantityChangeHandler}
-              value={quantity}
             />
           </label>
           <label className="tp-name-label">
@@ -160,7 +206,6 @@ const OxxoForm = (props) => {
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
               onChange={accountNumberChangeHandler}
-              value={accountNumber}
             />
           </label>
           <div className="tp-submit">

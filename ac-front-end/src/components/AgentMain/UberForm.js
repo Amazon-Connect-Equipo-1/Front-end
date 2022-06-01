@@ -12,27 +12,22 @@ import ConfirmationUber from "./ConfirmationUber";
 
 const UberForm = (props) => {
   //input handlers-----------------------------------
-  const [client, setClient] = useState("");
-  const clientChangeHandler = (event) => {
-    setClient(event.target.value);
-  };
-  const [email, setEmail] = useState("");
-  const emailChangeHandler = (event) => {
-    setEmail(event.target.value);
-  };
-  const [cellphone, setCellphone] = useState("");
-  const cellphoneChangeHandler = (event) => {
-    setCellphone(event.target.value);
-  };
-  const [clientLocation, setClientLocation] = useState("");
-  const clientLocationChangeHandler = (event) => {
-    setClientLocation(event.target.value);
-  };
-  const [destination, setDestination] = useState("");
-  const destinationChangeHandler = (event) => {
-    setDestination(event.target.value);
-  };
 
+  const clientChangeHandler = (event) => {
+    window.localStorage.setItem("client", event.target.value);
+  };
+  const emailChangeHandler = (event) => {
+    window.localStorage.setItem("email", event.target.value);
+  };
+  const cellphoneChangeHandler = (event) => {
+    window.localStorage.setItem("cellphone", event.target.value);
+  };
+  const clientLocationChangeHandler = (event) => {
+    window.localStorage.setItem("clientLocation", event.target.value);
+  };
+  const destinationChangeHandler = (event) => {
+    window.localStorage.setItem("destination", event.target.value);
+  };
   //-----------------------------------------
   const [solconf, setSolConf] = useState("no");
   const Confirm = () => {
@@ -47,6 +42,11 @@ const UberForm = (props) => {
   // Language
   const { t } = useTranslation();
   const askUber = (event) => {
+    const client = window.localStorage.getItem("client");
+    const email = window.localStorage.getItem("email");
+    const cellphone = window.localStorage.getItem("cellphone");
+    const clientLocation = window.localStorage.getItem("clientLocation");
+    const destination = window.localStorage.getItem("destination");
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", `Bearer ${token}`);
@@ -93,14 +93,7 @@ const UberForm = (props) => {
   if (solconf === "yes") {
     return (
       <div>
-        <ConfirmationUber
-          onChange={DisConfirm}
-          client={client}
-          email={email}
-          cellphone={cellphone}
-          clientLocation={clientLocation}
-          destination={destination}
-        />
+        <ConfirmationUber onChange={DisConfirm} />
       </div>
     );
   }
@@ -111,58 +104,53 @@ const UberForm = (props) => {
         <div className="tp-title">{t("uber")}</div>
         <form>
           <label className="tp-name-label">
-            {t("client")}
+            {t("Client")}
             <input
               type="text"
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
               onChange={clientChangeHandler}
-              value={client}
             />
           </label>
           <label className="tp-name-label">
-            {t("email")}
+            {t("Email")}
             <input
               type="text"
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
               onChange={emailChangeHandler}
-              value={email}
             />
           </label>
           <label className="tp-name-label">
-            {t("cellphone")}
+            {t("Cellphone")}
             <input
               type="text"
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
               onChange={cellphoneChangeHandler}
-              value={cellphone}
             />
           </label>
           <label className="tp-name-label">
-            {t("clientLocation")}
+            {t("ClientLocation")}
             <input
               type="text"
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
               onChange={clientLocationChangeHandler}
-              value={clientLocation}
             />
           </label>
           <label className="tp-name-label">
-            {t("destination")}
+            {t("Destination")}
             <input
               type="text"
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
               onChange={destinationChangeHandler}
-              value={destination}
             />
           </label>
           <div className="tp-submit">

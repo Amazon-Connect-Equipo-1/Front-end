@@ -14,32 +14,41 @@ import ConfirmationPolice from "./ConfirmationPolice";
 //Creates the Police Form
 const PoliceForm = (props) => {
   //input handlers-----------------------------------
-  const [client, setClient] = useState("");
+
   const clientChangeHandler = (event) => {
-    setClient(event.target.value);
+    window.localStorage.setItem("client", event.target.value);
   };
-  const [email, setEmail] = useState("");
   const emailChangeHandler = (event) => {
-    setEmail(event.target.value);
+    window.localStorage.setItem("email", event.target.value);
   };
-  const [cellphone, setCellphone] = useState("");
   const cellphoneChangeHandler = (event) => {
-    setCellphone(event.target.value);
+    window.localStorage.setItem("cellphone", event.target.value);
   };
-  const [clientLocation, setClientLocation] = useState("");
   const clientLocationChangeHandler = (event) => {
-    setClientLocation(event.target.value);
+    window.localStorage.setItem("clientLocation", event.target.value);
   };
-  const [clientLocationReference, setClientLocationReference] = useState("");
   const clientLocationReferenceChangeHandler = (event) => {
-    setClientLocationReference(event.target.value);
+    window.localStorage.setItem("clientLocationReference", event.target.value);
   };
-  const [clientStatement, setClientStatement] = useState("");
   const clientStatementChangeHandler = (event) => {
-    setClientStatement(event.target.value);
+    window.localStorage.setItem("clientStatement", event.target.value);
   };
 
   //-----------------------------------------
+  //RESTART DATA--------------------------------
+  const restart = () => {
+    window.localStorage.removeItem("client");
+    window.localStorage.removeItem("email");
+    window.localStorage.removeItem("cellphone");
+    window.localStorage.removeItem("clientLocation");
+    window.localStorage.removeItem("clientLocationReference");
+    window.localStorage.removeItem("clientStatement");
+
+    window.localStorage.removeItem("folio");
+    window.localStorage.removeItem("timestamp");
+  };
+
+  //--------------------------------------------
   const INPUT_NAME = "police form";
   // Language
   const { t } = useTranslation();
@@ -53,6 +62,14 @@ const PoliceForm = (props) => {
   };
   const token = window.localStorage.getItem("token");
   const askPolice = (event) => {
+    const client = window.localStorage.getItem("client");
+    const email = window.localStorage.getItem("email");
+    const cellphone = window.localStorage.getItem("cellphone");
+    const clientLocation = window.localStorage.getItem("clientLocation");
+    const clientLocationReference = window.localStorage.getItem(
+      "clientLocationReference"
+    );
+    const clientStatement = window.localStorage.getItem("clientStatement");
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", `Bearer ${token}`);
@@ -79,7 +96,13 @@ const PoliceForm = (props) => {
 
     fetch("http://35.88.250.238:8080/tps/askService", requestOptions)
       .then((response) => response.text())
-      .then((result) => console.log(result))
+      .then((result) => {
+        const resultJSON = JSON.parse(result);
+        console.log(result);
+        console.log(resultJSON);
+        window.localStorage.setItem("folio", resultJSON.body.folio);
+        window.localStorage.setItem("timestamp", resultJSON.body.timestamp);
+      })
       .catch((error) => console.log("error", error));
   };
   if (solconf === "yes") {
@@ -102,7 +125,6 @@ const PoliceForm = (props) => {
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
               onChange={clientChangeHandler}
-              value={client}
             />
           </label>
           <label className="tp-name-label">
@@ -113,7 +135,6 @@ const PoliceForm = (props) => {
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
               onChange={emailChangeHandler}
-              value={email}
             />
           </label>
           <label className="tp-name-label">
@@ -124,7 +145,6 @@ const PoliceForm = (props) => {
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
               onChange={cellphoneChangeHandler}
-              value={cellphone}
             />
           </label>
           <label className="tp-name-label">
@@ -135,7 +155,6 @@ const PoliceForm = (props) => {
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
               onChange={clientLocationChangeHandler}
-              value={clientLocation}
             />
           </label>
           <label className="tp-name-label">
@@ -146,7 +165,6 @@ const PoliceForm = (props) => {
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
               onChange={clientLocationReferenceChangeHandler}
-              value={clientLocationReference}
             />
           </label>
           <label className="tp-name-label">
@@ -157,7 +175,6 @@ const PoliceForm = (props) => {
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
               onChange={clientStatementChangeHandler}
-              value={clientStatement}
             />
           </label>
           <div className="tp-submit">

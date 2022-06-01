@@ -9,6 +9,31 @@ import { createContext, Suspense, useState } from "react";
 
 const ConfirmationUberEats = (props) => {
   const token = window.localStorage.getItem("token");
+  //Data----------------------------------------
+  const client = window.localStorage.getItem("client");
+  const email = window.localStorage.getItem("email");
+  const cellphone = window.localStorage.getItem("cellphone");
+  const clientLocation = window.localStorage.getItem("clientLocation");
+
+  const total = window.localStorage.getItem("total");
+  const deliveryTime = window.localStorage.getItem("deliveryTime");
+  const deliveryName = window.localStorage.getItem("deliveryName");
+  const timestamp = window.localStorage.getItem("timestamp");
+
+  //--------------------------------------------
+  //RESTART DATA--------------------------------
+  const restart = () => {
+    window.localStorage.removeItem("client");
+    window.localStorage.removeItem("email");
+    window.localStorage.removeItem("cellphone");
+    window.localStorage.removeItem("clientLocation");
+    window.localStorage.removeItem("total");
+    window.localStorage.removeItem("deliveryTime");
+    window.localStorage.removeItem("deliveryName");
+    window.localStorage.removeItem("timestamp");
+  };
+
+  //--------------------------------------------
   const [conf, setConf] = useState("no");
   const changeConfig = () => {
     setConf("yes");
@@ -21,24 +46,22 @@ const ConfirmationUberEats = (props) => {
     const raw = JSON.stringify({
       service: "UberEats",
       service_data: {
-        client: "Miguel Perez",
-        client_email: "A01379868@tec.mx",
-        client_cellphone: "+525530323376",
-        client_location: "Club Mamitas",
+        client: client,
+        client_email: email,
+        client_cellphone: cellphone,
+        client_location: cellphone,
         order: {
-          papas: {
-            price: 5,
-            quantity: 2,
-          },
-          absolut: {
-            price: 200,
-            quantity: 2,
-          },
+          refresco: { price: 15, quantity: props.sodaQ },
+          papas: { price: 20, quantity: props.chipsQ },
+          cafe: { price: 10, quantity: props.coffeeQ },
+          hotdog: { price: 5, quantity: props.hotDogQ },
+          aspirina: { price: 25, quantity: props.aspirinQ },
+          chocolates: { price: 10, quantity: props.chocolateQ },
         },
-        total: 410,
-        delivery_name: "Alvaro Obregon ",
-        delivery_time: 25,
-        timestamp: "2022-05-30 15:16:53.006495",
+        total: total,
+        delivery_name: deliveryName,
+        delivery_time: deliveryTime,
+        timestamp: timestamp,
       },
     });
 
@@ -68,6 +91,7 @@ const ConfirmationUberEats = (props) => {
                 onClick={(e) => {
                   e.preventDefault();
                   pruebaBackTPS();
+                  restart();
                   props.onChange();
                 }}
               >
@@ -78,7 +102,34 @@ const ConfirmationUberEats = (props) => {
         )}
         {conf === "no" && (
           <div>
-            <div className="tp-confirmation-text">INFORMACION UBER EATS</div>
+            <div className="tp-confirmation-text">
+              Client: {client}
+              <br />
+              mail: {email}
+              <br />
+              Cellphone: {cellphone}
+              <br />
+              Client location: {clientLocation}
+              <br />
+              Soda: {props.sodaQ}
+              <br />
+              Chips: {props.chipsQ}
+              <br />
+              Hot Dog: {props.hotDogQ}
+              <br />
+              Chocolate: {props.chocolateQ}
+              <br />
+              Coffee: {props.coffeeQ}
+              <br />
+              Aspirin: {props.aspirinQ}
+              <br />
+              Total: {total}
+              <br />
+              Delivery Name: {deliveryName}
+              <br />
+              Delivery Time: {deliveryTime}
+              <br />
+            </div>
             <div className="tp-confirmation-button-container">
               <button
                 className="tp-confirmation-button"
