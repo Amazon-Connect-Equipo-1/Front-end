@@ -27,6 +27,7 @@ const ForgottenPasswordForm = (props) => {
 
     if (email !== "") {
       const myHeaders = new Headers();
+      window.localStorage.setItem("email", email);
       myHeaders.append("Content-Type", "application/json");
 
       const raw = JSON.stringify({
@@ -49,7 +50,7 @@ const ForgottenPasswordForm = (props) => {
           if (Object.keys(resultJSON).length > 1) {
             alert(resultJSON.message);
           } else {
-            alert("Token enviado para restrablecer la contraseña")
+            alert("Token enviado para restrablecer la contraseña");
             navigate("/confirm-password", { replace: true });
           }
         })
