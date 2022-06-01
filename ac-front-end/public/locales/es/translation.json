@@ -141,6 +141,7 @@
   "investments": "Inversiones",
 
   "__Alerts__": "----------------Alert texts in interfaces--------------",
+  "validEmailPwd": "El email y contraseña deben de ser válidos",
   "failedLoginEmail": "Usuario no encontrado",
   "failedLoginPassword": "Contraseña incorrecta",
   "confirmPassword": "Token enviado para restablecer la contraseña",

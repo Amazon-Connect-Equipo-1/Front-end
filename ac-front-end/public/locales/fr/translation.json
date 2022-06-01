@@ -141,6 +141,7 @@
   "investments": "Investissements",
 
   "__Alerts__": "----------------Alert texts in interfaces--------------",
+  "validEmailPwd": "Doit être un e-mail et un mot de passe valides",
   "failedLoginEmail": "Utilisateur introuvable",
   "failedLoginPassword": "Mot de passe incorrect",
   "confirmPassword": "Jeton envoyé pour réinitialiser le mot de passe",

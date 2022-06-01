@@ -107,10 +107,10 @@ const LoginForm = (props) => {
         window.localStorage.setItem("isLoggedIn", true);
         const resultJSON = JSON.parse(result);
         console.log(resultJSON);
-        if (
-          Object.keys(resultJSON).includes("errors") ||
-          resultJSON.code === "NotAuthorizedException"
-        ) {
+        if (Object.keys(resultJSON).includes("errors")){
+          alert(t("validEmailPwd"))
+        }
+        if (resultJSON.code === "NotAuthorizedException") {
           alert(t("failedLoginPassword"));
           console.log("Contraseña incorrecta");
         }
