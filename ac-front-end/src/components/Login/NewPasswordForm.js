@@ -15,11 +15,16 @@ const NewPasswordForm = (props) => {
   const { t } = useTranslation();
 
   const [newPassword, setNewPassword] = useState("");
+  const [confirmNewPassword, setConfirmNewPassword] = useState("");
   const [token, setToken] = useState("");
   const navigate = useNavigate();
 
   const newPasswordChangeHandler = (event) => {
     setNewPassword(event.target.value);
+  };
+
+  const confirmPasswordChangeHandler = (event) => {
+    setConfirmNewPassword(event.target.value);
   };
 
   const tokenChangeHandler = (event) => {
@@ -28,8 +33,43 @@ const NewPasswordForm = (props) => {
 
   const saveNewPasswordHandler = (event) => {
     event.preventDefault();
-    alert("Se cambió la contraseña 😘");
-    navigate("/login", { replace: true });
+    if (newPassword === confirmNewPassword){
+      console.log("Contraseñas coinciden")
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      const raw = JSON.stringify({
+        email: window.localStorage.getItem("email"),
+        confirmation_code: token,
+        password: newPassword
+      });
+
+      const requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };
+
+      fetch("http://35.88.250.238:8080/auth/confirmPassword", requestOptions)
+        .then(response => response.text())
+        .then((result) => {
+          console.log(result);
+          const resultJSON = JSON.parse(result);
+          console.log(Object.keys(resultJSON).includes("errors"));
+          if (Object.keys(resultJSON).includes("errors")) {
+            alert("Token inválido");
+          } else {
+            alert("Se cambió la contraseña");
+            navigate("/login", { replace: true });
+          }
+        })
+        .catch(error => console.log('error', error));
+
+    } else {
+      alert("Las contraseñas no coinciden")
+    }
+    
   };
 
   return (
@@ -57,7 +97,10 @@ const NewPasswordForm = (props) => {
                   {t("confirmNewPassword")}
                 </label>
               </div>
-              <input type="password" className="npf-input" />
+              <input 
+                type="password" 
+                className="npf-input"
+                onChange={confirmPasswordChangeHandler} />
               <div className="fpf-flex">
                 <label className=" fpf-label fpf-margin-bottom-sm fpf-margin-top-md">
                   {t("token")}

@@ -47,8 +47,9 @@ const ForgottenPasswordForm = (props) => {
           const resultJSON = JSON.parse(result);
           console.log(Object.keys(resultJSON).length);
           if (Object.keys(resultJSON).length > 1) {
-            alert("Usuario no existente");
+            alert(resultJSON.message);
           } else {
+            alert("Token enviado para restrablecer la contraseña")
             navigate("/confirm-password", { replace: true });
           }
         })
