@@ -102,7 +102,8 @@ function App() {
                         to={
                           (getUserType === USER.Admin && "/admin") ||
                           (getUserType === USER.QA && "/qa") ||
-                          (getUserType === USER.Agent && "/agent")
+                          (getUserType === USER.Agent && "/agent") ||
+                          (getUserType === null && "/login")
                         }
                         state={{ from: location }}
                         replace
