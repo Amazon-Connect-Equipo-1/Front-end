@@ -111,18 +111,23 @@ const ConfirmationUberEats = (props) => {
               <br />
               Client location: {clientLocation}
               <br />
-              Soda: {props.sodaQ}
               <br />
-              Chips: {props.chipsQ}
-              <br />
-              Hot Dog: {props.hotDogQ}
-              <br />
-              Chocolate: {props.chocolateQ}
-              <br />
-              Coffee: {props.coffeeQ}
-              <br />
-              Aspirin: {props.aspirinQ}
-              <br />
+              Order:
+              <div className="tp-order-list">
+                {props.sodaQ > 0 && <div>Soda: {props.sodaQ}</div>}
+
+                {props.chipsQ > 0 && <div>Chips: {props.chipsQ}</div>}
+
+                {props.hotdogQ > 0 && <div>Hot Dog: {props.hotdogQ}</div>}
+
+                {props.chocolateQ > 0 && (
+                  <div>Chocolate: {props.chocolateQ}</div>
+                )}
+
+                {props.coffeeQ > 0 && <div>coffee: {props.coffeeQ}</div>}
+
+                {props.aspirinQ > 0 && <div>Aspirin: {props.aspirinQ}</div>}
+              </div>
               Total: {total}
               <br />
               Delivery Name: {deliveryName}
