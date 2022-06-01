@@ -71,39 +71,46 @@ function Settings() {
     body.classList.add(darkTheme_Tritanomaly);
   }
 
-  const switchTxtSize = (s) => {
-    console.log(s);
-    body.classList.replace(txtSize, s);
-    localStorage.setItem("txtSize", s);
-    txtSize = s;
-
-    //peticion
+  function postPreferences() {
     const myHeadersToken = new Headers();
+    myHeadersToken.append("Content-Type", "application/json");
     myHeadersToken.append(
       "Authorization",
       `Bearer ${window.localStorage.getItem("token")}`
     );
 
-    const requestOptionsGET = {
-      method: "GET",
+    const raw = JSON.stringify({
+      user_id: localStorage.getItem("id"),
+      color: localStorage.getItem("theme"),
+      text_size: localStorage.getItem("txtSize"),
+      language: localStorage.getItem("lang-opt"),
+    });
+
+    const requestOptions = {
+      method: "POST",
       headers: myHeadersToken,
+      body: raw,
     };
 
     //Save manager info in local storage
-    // fetch(
-    //   `http://35.88.250.238:8080/userConfig/getrUserConfig?id=${window.localStorage.getItem(
-    //     "email"
-    //   )}`,
-    //   requestOptionsGET
-    // )
-    //   .then((response) => response.text())
-    //   .then((result) => {
-    //     const resultJSON = JSON.parse(result);
-    //     console.log(resultJSON);
-    //     window.localStorage.setItem("name", resultJSON.manager_name);
-    //     window.localStorage.setItem("id", resultJSON.manager_id);
-    //   })
-    //   .catch((error) => console.log("error", error));
+    fetch(
+      `http://35.88.250.238:8080/userConfig/updateUserConfig`,
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => {
+        const resultJSON = JSON.parse(result);
+        console.log(resultJSON);
+      })
+      .catch((error) => console.log("error", error));
+  }
+
+  const switchTxtSize = (s) => {
+    console.log(s);
+    body.classList.replace(txtSize, s);
+    localStorage.setItem("txtSize", s);
+    txtSize = s;
+    postPreferences();
   };
 
   const switchTheme = (e) => {
@@ -111,6 +118,7 @@ function Settings() {
     body.classList.replace(theme, e);
     localStorage.setItem("theme", e);
     theme = e;
+    postPreferences();
   };
 
   // Language
@@ -124,6 +132,8 @@ function Settings() {
       i18n.changeLanguage(l);
     }
     document.getElementById("nav-title").textContent = t("Settings");
+    localStorage.setItem("lang-opt", lang);
+    postPreferences();
   }
 
   useEffect(() => {
@@ -197,6 +207,7 @@ function Settings() {
               document.getElementById("theme-select").value = "dark";
               i18n.changeLanguage("en");
               document.getElementById("lang").value = "en";
+              postPreferences();
             }}
           >
             Restore to default
