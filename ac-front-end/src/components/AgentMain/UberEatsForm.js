@@ -8,10 +8,12 @@ import ThirdParty from "./ThirdParty";
 import { saveKeys, saveClick } from "../MonitorModule.js";
 import { GiSodaCan } from "react-icons/gi";
 import Order from "./Order";
+import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import ConfirmationUberEats from "./ConfirmationUberEats";
 
 const UberEatsForm = (props) => {
+  const { t } = useTranslation();
   //input handlers-----------------------------------
 
   const clientChangeHandler = (event) => {
@@ -53,6 +55,9 @@ const UberEatsForm = (props) => {
   };
   const DisConfirm = () => {
     setSolConf("no");
+    props.onChange();
+  };
+  const getBack = () => {
     props.onChange();
   };
   const [soda, setSoda] = useState(0);
@@ -227,6 +232,19 @@ const UberEatsForm = (props) => {
                 saveClick(`${INPUT_NAME} input`);
               }}
               value="Ask for service"
+              className="tp-submit-button"
+            />
+          </div>
+          <div className="tp-submit">
+            <input
+              type="submit"
+              onKeyDown={saveKeys}
+              onClick={(e) => {
+                e.preventDefault();
+                getBack();
+                saveClick(`${INPUT_NAME} input`);
+              }}
+              value={t("Back")}
               className="tp-submit-button"
             />
           </div>

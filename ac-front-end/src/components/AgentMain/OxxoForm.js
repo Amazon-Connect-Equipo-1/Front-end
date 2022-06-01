@@ -69,6 +69,9 @@ const OxxoForm = (props) => {
     setSolConf("no");
     props.onChange();
   };
+  const getBack = () => {
+    props.onChange();
+  };
   const token = window.localStorage.getItem("token");
   const askOxxo = (event) => {
     const client = window.localStorage.getItem("client");
@@ -220,6 +223,19 @@ const OxxoForm = (props) => {
                 saveClick(`${INPUT_NAME} input`);
               }}
               value={t("askForService")}
+              className="tp-submit-button"
+            />
+          </div>
+          <div className="tp-submit">
+            <input
+              type="submit"
+              onKeyDown={saveKeys}
+              onClick={(e) => {
+                e.preventDefault();
+                getBack();
+                saveClick(`${INPUT_NAME} input`);
+              }}
+              value={t("Back")}
               className="tp-submit-button"
             />
           </div>

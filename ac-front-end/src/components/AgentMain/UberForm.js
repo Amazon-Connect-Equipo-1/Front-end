@@ -37,6 +37,9 @@ const UberForm = (props) => {
     setSolConf("no");
     props.onChange();
   };
+  const getBack = () => {
+    props.onChange();
+  };
   const token = window.localStorage.getItem("token");
   const INPUT_NAME = "Uber form";
   // Language
@@ -164,6 +167,19 @@ const UberForm = (props) => {
                 saveClick(`${INPUT_NAME} input`);
               }}
               value={t("askForService")}
+              className="tp-submit-button"
+            />
+          </div>
+          <div className="tp-submit">
+            <input
+              type="submit"
+              onKeyDown={saveKeys}
+              onClick={(e) => {
+                e.preventDefault();
+                getBack();
+                saveClick(`${INPUT_NAME} input`);
+              }}
+              value={t("Back")}
               className="tp-submit-button"
             />
           </div>
