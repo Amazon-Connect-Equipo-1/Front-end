@@ -37,12 +37,12 @@ const Profile = (props) => {
           <img src={prfl_ic} alt="profile_ic" className="prfl-ic" />
           <div className="prfl-info-container">
             <p className="prfl-name">{window.localStorage.getItem("name")}</p>
-            <br />
+            {/* <br />
             <p className="prfl-label">Id</p>
             <p className="prfl-label-info">
               {window.localStorage.getItem("id")}
             </p>
-            <br />
+            <br /> */}
             <p className="prfl-label">Email</p>
             <p className="prfl-label-info">
               {window.localStorage.getItem("email")}

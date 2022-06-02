@@ -140,11 +140,7 @@ const RecordingsSupplier = ({ children }) => {
 
   const [selectedVideoInfo, setSelectedVideoInfo] = useState();
 
-  const getAllMiniatures = () => {
-    //Petition to obtain all videos miniatures
-  };
-
-  const getAllVideos = () => {
+  const getAllRecordings = () => {
     //Petition to obtain all videos info
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -171,20 +167,23 @@ const RecordingsSupplier = ({ children }) => {
       .catch((error) => console.log("error", error));
   };
 
+  const getSelectedVideoInfo = (videoId) => {
+    //fetch with the id
+    console.log("a", videoId);
+    setSelectedVideoInfo({ mike: "oh si" });
+  };
+
   const getMoreVideos = () => {
     //this is to show the last 50 videos and so on
   };
-
-  const getVideo = (videoId) => {};
 
   return (
     <RecordingsContext.Provider
       value={[
         arrRecordings,
-        setArrRecordings,
+        getAllRecordings,
         selectedVideoInfo,
-        setSelectedVideoInfo,
-        getAllVideos,
+        getSelectedVideoInfo,
       ]}
     >
       {children}

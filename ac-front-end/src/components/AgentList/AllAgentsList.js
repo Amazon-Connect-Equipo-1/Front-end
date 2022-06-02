@@ -8,6 +8,7 @@ import AgentRow from "./AgentRow";
 import { useTranslation } from "react-i18next";
 import { useContext } from "react";
 import { AgentAAndQAContext } from "../AgentsAAndQASupplier";
+import { v4 as uuidv4 } from "uuid";
 
 const AllAgentList = (props) => {
   // Language
@@ -22,6 +23,7 @@ const AllAgentList = (props) => {
       <div>
         {arrAgents.map((agent) => (
           <AgentRow
+            key={uuidv4()}
             agentName={agent.agentName}
             isActiveCalls={props.isActiveCalls}
             isWorking={agent.working}

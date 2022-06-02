@@ -107,8 +107,8 @@ const LoginForm = (props) => {
         window.localStorage.setItem("isLoggedIn", true);
         const resultJSON = JSON.parse(result);
         console.log(resultJSON);
-        if (Object.keys(resultJSON).includes("errors")){
-          alert(t("validEmailPwd"))
+        if (Object.keys(resultJSON).includes("errors")) {
+          alert(t("validEmailPwd"));
         }
         if (resultJSON.code === "NotAuthorizedException") {
           alert(t("failedLoginPassword"));
@@ -152,9 +152,9 @@ const LoginForm = (props) => {
               window.localStorage.setItem("id", resultJSON.manager_id);
 
               loadUserPreferences(resultJSON.manager_id); // Load user config preferences
+              navigate("/qa", { replace: true });
             })
             .catch((error) => console.log("error", error));
-          navigate("/qa", { replace: true });
         }
         if (resultJSON.role === USER.Agent) {
           const myHeadersToken = new Headers();
@@ -191,9 +191,9 @@ const LoginForm = (props) => {
               );
 
               loadUserPreferences(resultJSON.agent_id); // Load user config preferences
+              navigate("/agent", { replace: true });
             })
             .catch((error) => console.log("error", error));
-          navigate("/agent", { replace: true });
         }
       })
       .catch((error) => console.log("error", error));

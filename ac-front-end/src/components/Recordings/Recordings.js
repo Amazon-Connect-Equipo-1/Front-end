@@ -56,6 +56,7 @@ const Recordings = (props) => {
                 id={record_info.id}
                 key={record_info.id}
                 record={record_info}
+                origin="qaRecordings"
               />
             ))}
           </div>
