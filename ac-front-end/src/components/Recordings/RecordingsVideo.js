@@ -9,13 +9,16 @@ import AboutCard from "./AboutCard";
 import Card from "../UI/Card";
 import GiveFeedbackCard from "./GiveFeedbackCard";
 import AgentFeedbackCard from "../QualityControl/AgentFeedbackCard";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5";
+import { RecordingsContext } from "../RecordingsSupplier";
 
 const RecordingsVideo = (props) => {
   // const card = 2; //1: about, 2: QA Feedback
   const [cardName, setCardName] = useState("About");
+  const { videoId } = useParams();
+  const [, , selectedVideoInfo] = useContext(RecordingsContext);
 
   const changeCardHandler = () => {
     if (cardName === "About") {
@@ -25,6 +28,7 @@ const RecordingsVideo = (props) => {
     }
   };
 
+  console.log(selectedVideoInfo);
   return (
     <Card className="rev-main-container">
       <div
@@ -49,11 +53,7 @@ const RecordingsVideo = (props) => {
           />
         </div>
 
-        {cardName === "About" && <AboutCard onChangeCard={changeCardHandler} />}
-        {cardName === "Feedback" && (
-          <GiveFeedbackCard onChangeCard={changeCardHandler} />
-        )}
-        {/* {card === 3 && <AgentFeedbackCard />} */}
+        <AboutCard onChangeCard={changeCardHandler} />
       </div>
     </Card>
   );

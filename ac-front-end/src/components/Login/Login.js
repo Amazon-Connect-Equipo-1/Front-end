@@ -8,6 +8,8 @@ import logo from "../../images/logo_bbva.png";
 import LoginForm from "./LoginForm";
 
 const Login = (props) => {
+  document.body.classList.add("dark");
+
   return (
     <div className="log-main-container">
       <div className="log-container">

@@ -37,6 +37,8 @@ import "aos/dist/aos.css";
 import Layout from "./components/Layout";
 import RequireAuthentication from "./components/RequireAuthentication";
 import NewPasswordForm from "./components/Login/NewPasswordForm";
+import AgentRecordings from "./components/AgentRecordings/AgentRecordings";
+import { loadUserPreferences } from "./components/UserPreferences";
 
 function App() {
   // Variable that determines the types of users to protect the routes
@@ -61,6 +63,13 @@ function App() {
   useEffect(() => {
     AOS.init();
     AOS.refresh();
+
+    if (
+      performance.getEntriesByType("navigation")[0].type &&
+      window.localStorage.getItem("id") !== null
+    ) {
+      loadUserPreferences(window.localStorage.getItem("id"));
+    }
   }, []);
 
   return (
@@ -158,7 +167,7 @@ function App() {
                         </RecordingsSupplier>
                       }
                     />
-                    <Route path="video" element={<RecordingsVideo />} />
+                    <Route path="video/:id" element={<RecordingsVideo />} />
                   </Route>
                 </Route>
 
@@ -170,13 +179,21 @@ function App() {
                 >
                   <Route path="agent" element={<AgentMain />} />
                   <Route
-                    path="agent-qa"
+                    path="agent-qa/:id"
                     element={
-                      <AgentRecordingsSupplier>
+                      <RecordingsSupplier>
                         <QualityControl />
-                      </AgentRecordingsSupplier>
+                      </RecordingsSupplier>
                     }
                   />
+                  {/* <Route
+                    path="agent-qa/:id"
+                    element={
+                      <RecordingsSupplier>
+                        <AgentRecordings />
+                      </RecordingsSupplier>
+                    }
+                  /> */}
                 </Route>
 
                 {/*Catch all*/}

@@ -73,9 +73,7 @@ export const loadUserPreferences = (id) => {
   ) {
     body.classList.add(txtSize);
   } else {
-    body.classList.add(smallTxtSize);
     body.classList.add(mediumTxtSize);
-    body.classList.add(bigTxtSize);
   }
 
   // Add Theme
@@ -91,12 +89,6 @@ export const loadUserPreferences = (id) => {
   ) {
     body.classList.add(theme);
   } else {
-    body.classList.add(lightTheme);
-    body.classList.add(darkTheme_Protanopia);
-    body.classList.add(darkTheme_Deuteranopia);
-    body.classList.add(darkTheme_Tritanopia);
-    body.classList.add(darkTheme_Protanomaly);
-    body.classList.add(darkTheme_Deuteranomaly);
-    body.classList.add(darkTheme_Tritanomaly);
+    body.classList.add(darkTheme);
   }
 };

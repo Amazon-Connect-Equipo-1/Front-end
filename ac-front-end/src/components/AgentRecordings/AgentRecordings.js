@@ -53,6 +53,7 @@ const AgentRecordings = () => {
                 id={record_info.id}
                 key={record_info.id}
                 record={record_info}
+                origin="agentRecordings"
               />
             ))}
           </div>
