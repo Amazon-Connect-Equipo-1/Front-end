@@ -32,6 +32,7 @@ Authors:
 }
 .nav-menu-bars img {
   content: var(--logo-bbva);
+  cursor: default;
 }
 .nav-icon {
   height: 2.5rem;

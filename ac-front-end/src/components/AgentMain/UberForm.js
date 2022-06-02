@@ -179,7 +179,7 @@ const UberForm = (props) => {
                 getBack();
                 saveClick(`${INPUT_NAME} input`);
               }}
-              value={t("Back")}
+              value={t("Cancel")}
               className="tp-submit-button"
             />
           </div>
