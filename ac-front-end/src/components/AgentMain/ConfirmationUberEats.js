@@ -1,6 +1,6 @@
 /* O
 Authors:
-        A01379868 Jared Abraham Flores Guarneros*/
+        A01379868 Jared Abraham Flores Guarnerose*/
 
 //Import Modules
 import "../../styles/AgentMain/ThirdParty.css";

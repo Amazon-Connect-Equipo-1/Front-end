@@ -1,28 +1,44 @@
 import React from "react";
 import "../../styles/AgentList/AddUser.css";
+import AddAgent from "./AddAgent";
+import AddManager from "./AddManager";
+import { createContext, Suspense, useState } from "react";
 
 const AddUser = () => {
+  const [state, setState] = useState("main");
+  const changeAgent = () => {
+    setState("agent");
+  };
+  const changeAQA = () => {
+    setState("manager");
+  };
+  const changeMain = () => {
+    setState("main");
+  };
   return (
     <div className="adu-main-container">
       <div className="adu-container">
-        <p className="adu-title">Add User</p>
-        <label className="adu-label">Name</label>
-        <input className="adu-input" id="name" type="text" placeholder="Name" />
-        <label className="adu-label">Email</label>
-        <input
-          className="adu-input"
-          id="email"
-          type="text"
-          placeholder="Email"
-        />
-        <label className="adu-label">Password</label>
-        <input
-          className="adu-input"
-          id="password"
-          type="text"
-          placeholder="Password"
-        />
-        <button className="adu-send-btn">Save</button>
+        {state === "main" && (
+          <div className="adu-container">
+            <p className="adu-title">Select role to add</p>
+            <button className="adu-send-btn" onClick={changeAgent}>
+              Agent
+            </button>
+            <button className="adu-send-btn" onClick={changeAQA}>
+              Admin/QA
+            </button>
+          </div>
+        )}
+        {state === "manager" && (
+          <div>
+            <AddManager onChange={changeMain} />
+          </div>
+        )}
+        {state === "agent" && (
+          <div>
+            <AddAgent onChange={changeMain} />
+          </div>
+        )}
       </div>
     </div>
   );

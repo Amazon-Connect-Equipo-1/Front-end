@@ -51,6 +51,81 @@
   margin-top: 1rem;
 }
 
+.adu-AdminP-btn {
+  font-size: var(--option-text);
+  font-weight: bold;
+  border-radius: 10px;
+  border-color: black;
+  padding: 1.5rem;
+  width: 15rem;
+  color: white;
+  background-color: var(--other-orange-default);
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+.adu-QAP-btn {
+  font-size: var(--option-text);
+  font-weight: bold;
+  border-radius: 10px;
+  border-color: black;
+  padding: 1.5rem;
+  width: 15rem;
+  color: white;
+  background-color: var(--other-purple-default);
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 1rem;
+  text-align: center;
+}
+.adu-Admin-btn {
+  font-size: var(--option-text);
+  font-weight: bold;
+  border-radius: 6px;
+  border-color: transparent;
+  padding: 1.5rem;
+  width: 15rem;
+  color: white;
+  background-color: var(--other-orange-default);
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 1rem;
+  gap: 2rem;
+}
+
+.adu-QA-btn {
+  font-size: var(--option-text);
+  font-weight: bold;
+  border-radius: 6px;
+  border-color: transparent;
+  padding: 1.5rem;
+  width: 15rem;
+  color: white;
+  background-color: var(--other-purple-default);
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 1rem;
+  text-align: center;
+  gap: 2rem;
+}
+
+.adu-role-container {
+  font-size: var(--option-text);
+  font-weight: bold;
+  border-radius: 6px;
+  border-color: black;
+  text-align: center;
+
+  color: white;
+
+  border-radius: 10px;
+  gap: 2rem;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+}
+
 /*Media queries for AddUSer*/
 /*****************************/
 /* BELOW 47*16 = 752px (Smaller desktops) */

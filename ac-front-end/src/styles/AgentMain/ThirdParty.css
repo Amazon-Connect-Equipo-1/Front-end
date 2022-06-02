@@ -12,6 +12,7 @@ Authors:
   overflow-y: auto;
   white-space: nowrap;
   width: 35rem;
+  height: 65rem;
   overflow-y: auto;
   background-color: var(--sub-card-background);
   color: var(--text-color);
