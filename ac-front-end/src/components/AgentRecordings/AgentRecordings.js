@@ -24,6 +24,9 @@ const AgentRecordings = () => {
   // It is expected that the outlet is <AgentRecordingsVideo />
   const outlet = useOutlet();
 
+  const switchInputType = (t) => {
+    document.getElementById("arc-input").type = t;
+  };
   return (
     <>
       {outlet || (
@@ -32,18 +35,23 @@ const AgentRecordings = () => {
             <div className="arc-search-container">
               <select
                 className="arc-select"
+                id="arc-select"
                 onClick={() => saveClick(`${INPUT_NAME} filter scroller`)}
+                onChange={(e) => switchInputType(e.target.value)}
               >
                 {/* <option>{t("search")}</option> */}
-                <option value="date">{t("date")}</option>
                 <option value="tag">{t("tag")}</option>
+                <option value="date">{t("date")}</option>
               </select>
               <input
                 onKeyDown={saveKeys}
                 onClick={() => saveClick(`${INPUT_NAME} input`)}
                 className="arc-input"
+                id="arc-input"
                 type="text"
                 placeholder={t("placeholder")}
+                min="2022-06-01"
+                max="2029-12-31"
               />
               <button href="/" className="arc-btn">
                 {t("search")}
