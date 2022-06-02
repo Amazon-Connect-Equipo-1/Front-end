@@ -19,8 +19,15 @@ const SingleAgent = (props) => {
         />
         <img className="sa-percent-picture" src={percent} alt="%" />
       </div>
-      <br />
-      <p className="sa-text">{props.agent.description}</p>
+      <div className="sa-info-container">
+        <p className="sa-text">{props.agent.description}</p>
+        <textarea
+          className="sa-input"
+          type="text"
+          //onChange={changeFeedbackHandler}
+        />
+        <button className="sa-send-btn" /*onClick={sendFeedback}*/>Send</button>
+      </div>
     </div>
   );
 };
