@@ -33,12 +33,13 @@ function Settings() {
   const bigTxtSize = "big";
   let txtSize;
 
-  let lang;
+  // Checks if prefs are in localStorage
   if (localStorage) {
     theme = localStorage.getItem("theme");
     txtSize = localStorage.getItem("txtSize");
   }
 
+  //Adds Text Size to body
   if (
     txtSize === smallTxtSize ||
     txtSize === mediumTxtSize ||
@@ -46,11 +47,10 @@ function Settings() {
   ) {
     body.classList.add(txtSize);
   } else {
-    body.classList.add(smallTxtSize);
     body.classList.add(mediumTxtSize);
-    body.classList.add(bigTxtSize);
   }
 
+  //Adds Theme to body
   if (
     theme === lightTheme ||
     theme === darkTheme ||
@@ -63,15 +63,10 @@ function Settings() {
   ) {
     body.classList.add(theme);
   } else {
-    body.classList.add(lightTheme);
-    body.classList.add(darkTheme_Protanopia);
-    body.classList.add(darkTheme_Deuteranopia);
-    body.classList.add(darkTheme_Tritanopia);
-    body.classList.add(darkTheme_Protanomaly);
-    body.classList.add(darkTheme_Deuteranomaly);
-    body.classList.add(darkTheme_Tritanomaly);
+    body.classList.add(darkTheme);
   }
 
+  // POST preferences
   function postPreferences() {
     const myHeadersToken = new Headers();
     myHeadersToken.append("Content-Type", "application/json");
@@ -106,6 +101,7 @@ function Settings() {
       .catch((error) => console.log("error", error));
   }
 
+  // Switch current text size
   const switchTxtSize = (s) => {
     console.log(s);
     body.classList.replace(txtSize, s);
@@ -114,6 +110,7 @@ function Settings() {
     postPreferences();
   };
 
+  // Switch current theme
   const switchTheme = (e) => {
     console.log(e);
     body.classList.replace(theme, e);
@@ -136,6 +133,7 @@ function Settings() {
     postPreferences();
   }
 
+  // Keeps select value intact
   useEffect(() => {
     document.getElementById("theme-select").value = theme;
     document.getElementById("size-select").value = txtSize;

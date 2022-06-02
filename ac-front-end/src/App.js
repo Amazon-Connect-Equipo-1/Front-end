@@ -38,6 +38,7 @@ import Layout from "./components/Layout";
 import RequireAuthentication from "./components/RequireAuthentication";
 import NewPasswordForm from "./components/Login/NewPasswordForm";
 import AgentRecordings from "./components/AgentRecordings/AgentRecordings";
+import { loadUserPreferences } from "./components/UserPreferences";
 
 function App() {
   // Variable that determines the types of users to protect the routes
@@ -62,6 +63,13 @@ function App() {
   useEffect(() => {
     AOS.init();
     AOS.refresh();
+
+    if (
+      performance.getEntriesByType("navigation")[0].type &&
+      window.localStorage.getItem("id") !== null
+    ) {
+      loadUserPreferences(window.localStorage.getItem("id"));
+    }
   }, []);
 
   return (
