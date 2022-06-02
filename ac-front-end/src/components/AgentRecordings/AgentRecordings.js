@@ -11,12 +11,13 @@ import { useTranslation } from "react-i18next";
 import { Outlet, useOutlet } from "react-router-dom";
 import { AgentRecordingsContext } from "../AgentRecordingsSupplier";
 import RecordingsCard from "../Recordings/RecordingsCard";
+import { RecordingsContext } from "../RecordingsSupplier";
 
 const AgentRecordings = () => {
   // Language
   const { t } = useTranslation();
 
-  const [arrRecordings] = useContext(AgentRecordingsContext);
+  const [arrRecordings] = useContext(RecordingsContext);
   const INPUT_NAME = "agent recordings";
 
   //Variable to verify if an outlet exists

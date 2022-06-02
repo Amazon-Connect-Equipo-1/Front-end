@@ -179,21 +179,22 @@ function App() {
                 >
                   <Route path="agent" element={<AgentMain />} />
                   <Route
-                    path="agent-qa/:id"
+                    path="agent-qa"
                     element={
                       <RecordingsSupplier>
                         <QualityControl />
                       </RecordingsSupplier>
                     }
-                  />
-                  {/* <Route
-                    path="agent-qa/:id"
-                    element={
-                      <RecordingsSupplier>
-                        <AgentRecordings />
-                      </RecordingsSupplier>
-                    }
-                  /> */}
+                  >
+                    <Route
+                      path="agent-video/:id"
+                      element={
+                        <RecordingsSupplier>
+                          <RecordingsVideo />
+                        </RecordingsSupplier>
+                      }
+                    />
+                  </Route>
                 </Route>
 
                 {/*Catch all*/}
