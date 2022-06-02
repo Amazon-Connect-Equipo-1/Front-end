@@ -5,11 +5,12 @@ Authors:
 
 .tp-main-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   gap: 1.5rem;
-  height: 65rem;
+  overflow-y: auto;
+  white-space: nowrap;
   width: 35rem;
   overflow-y: auto;
   background-color: var(--sub-card-background);
@@ -50,7 +51,7 @@ Authors:
   padding: 1rem;
   text-align: center;
   grid-column: 1 / -1;
-  /* margin-top: 2rem; */
+  margin-top: 4rem;
 }
 .tp-button {
   /* display: flex; */
@@ -66,6 +67,7 @@ Authors:
   margin-left: -0.8rem;
   margin-top: -0.3rem;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .tp-label {

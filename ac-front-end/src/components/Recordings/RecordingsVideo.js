@@ -10,6 +10,8 @@ import Card from "../UI/Card";
 import GiveFeedbackCard from "./GiveFeedbackCard";
 import AgentFeedbackCard from "../QualityControl/AgentFeedbackCard";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { IoChevronBack } from "react-icons/io5";
 
 const RecordingsVideo = (props) => {
   // const card = 2; //1: about, 2: QA Feedback
@@ -30,14 +32,23 @@ const RecordingsVideo = (props) => {
         data-aos="fade-up"
         data-aos-duration="1000"
       >
-        <iframe
-          className="rev-video"
-          src="https://www.youtube.com/embed/0Kvw2BPKjz0"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
+        <div className="rev-sub-left-container">
+          <Link to="/recordings">
+            <button className="return-btn">
+              <IoChevronBack />
+              Return
+            </button>
+          </Link>
+          <iframe
+            className="rev-video"
+            src="https://www.youtube.com/embed/0Kvw2BPKjz0"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+
         {cardName === "About" && <AboutCard onChangeCard={changeCardHandler} />}
         {cardName === "Feedback" && (
           <GiveFeedbackCard onChangeCard={changeCardHandler} />

@@ -45,7 +45,7 @@ span {
 
 .t-main-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   width: 40rem;
@@ -59,7 +59,7 @@ span {
 .t-title {
   font-size: var(--sub-title);
   font-weight: bold;
-  margin: 2rem;
+  margin: 5rem;
   text-align: center;
 }
 
