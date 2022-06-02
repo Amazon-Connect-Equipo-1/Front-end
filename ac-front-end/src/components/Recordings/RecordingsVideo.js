@@ -10,21 +10,32 @@ import Card from "../UI/Card";
 import GiveFeedbackCard from "./GiveFeedbackCard";
 import AgentFeedbackCard from "../QualityControl/AgentFeedbackCard";
 import { useContext, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5";
 import { RecordingsContext } from "../RecordingsSupplier";
 
 const RecordingsVideo = (props) => {
   // const card = 2; //1: about, 2: QA Feedback
   const [cardName, setCardName] = useState("About");
-  const { videoId } = useParams();
+  const { id } = useParams();
   const [, , selectedVideoInfo] = useContext(RecordingsContext);
+  const navigate = useNavigate();
 
   const changeCardHandler = () => {
     if (cardName === "About") {
       setCardName("Feedback");
     } else {
       setCardName("About");
+    }
+  };
+
+  const onChangeReturnBtn = () => {
+    console.log(id);
+    console.log(id.slice(0, 2));
+    if (id.slice(0, 2) === "qa") {
+      navigate("/recordings");
+    } else {
+      navigate("/agent-qa");
     }
   };
 
@@ -37,12 +48,10 @@ const RecordingsVideo = (props) => {
         data-aos-duration="1000"
       >
         <div className="rev-sub-left-container">
-          <Link to="/recordings">
-            <button className="return-btn">
-              <IoChevronBack />
-              Return
-            </button>
-          </Link>
+          <button onClick={onChangeReturnBtn} className="return-btn">
+            <IoChevronBack />
+            Return
+          </button>
           <iframe
             className="rev-video"
             src="https://www.youtube.com/embed/0Kvw2BPKjz0"

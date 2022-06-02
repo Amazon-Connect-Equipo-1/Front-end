@@ -52,9 +52,9 @@ const RecordingsCard = (props) => {
   const onSelectCard = () => {
     getSelectedVideoInfo(props.id);
     if (props.origin === "qaRecordings") {
-      navigate("video/" + props.id);
+      navigate("video/" + "qa" + props.id);
     } else {
-      navigate("agent-video/" + props.id);
+      navigate("agent-video/" + "ag" + props.id);
     }
   };
 
