@@ -6,28 +6,29 @@ Authors:
 import "../../styles/AgentList/AgentListMenu.css";
 import { saveKeys, saveClick } from "../MonitorModule.js";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
 
 const AgentListMenu = (props) => {
   const INPUT_NAME = "agent";
   // Language
   const { t } = useTranslation();
 
+  const [addUserMenu, setAddUserMenu] = useState(false);
+
+  const onChangeAddUserMenu = () => {
+    addUserMenu ? setAddUserMenu(false) : setAddUserMenu(true);
+    props.changeCard(addUserMenu);
+  };
+
+  const getBtnString = () => {
+    return addUserMenu ? "Return" : "Add User";
+  };
+
   return (
     <div className="aglm-menu-container">
-      {/* <div className="aglm-button-container">
-        <button
-          onClick={() => saveClick(`${INPUT_NAME} main button`)}
-          className="aglm-button-main"
-        >
-          {t("main")}
-        </button>
-        <button
-          onClick={() => saveClick(`${INPUT_NAME} settings button`)}
-          className="aglm-button-settings"
-        >
-          {t("settings")}
-        </button>
-      </div> */}
+      <button onClick={onChangeAddUserMenu} className="aglm-add">
+        {getBtnString()}
+      </button>
       <div className="aglm-search-container">
         <input
           className="aglm-search"
@@ -37,14 +38,9 @@ const AgentListMenu = (props) => {
           onClick={() => saveClick(`${INPUT_NAME} input`)}
           onKeyDown={saveKeys}
         />
-        <select
-          className="aglm-select"
-          onClick={() => saveClick(`${INPUT_NAME} filter scroller`)}
-        >
-          <option value="Name">{t("date")}</option>
-          <option value="Active Calls">{t("tag")}</option>
-          <option value="Active Calls">{t("status")}</option>
-        </select>
+        <button href="/" className="aglm-search-btn">
+          {t("search")}
+        </button>
       </div>
     </div>
   );

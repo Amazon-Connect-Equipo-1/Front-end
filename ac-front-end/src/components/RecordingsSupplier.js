@@ -146,6 +146,29 @@ const RecordingsSupplier = ({ children }) => {
 
   const getAllVideos = () => {
     //Petition to obtain all videos info
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Authorization", `Bearer w`);
+
+    const raw = JSON.stringify({
+      email: "mikeperezlopez15@hotmail.com",
+      password: "123456@aA",
+    });
+
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      // body: raw,
+      // redirect: "follow",
+    };
+
+    fetch("http://35.88.250.238:8080/manager/topRecordings", requestOptions)
+      .then((response) => response.text())
+      .then((result) => {
+        console.log(result);
+        console.log(JSON.parse(result));
+      })
+      .catch((error) => console.log("error", error));
   };
 
   const getMoreVideos = () => {
@@ -161,6 +184,7 @@ const RecordingsSupplier = ({ children }) => {
         setArrRecordings,
         selectedVideoInfo,
         setSelectedVideoInfo,
+        getAllVideos,
       ]}
     >
       {children}

@@ -10,26 +10,32 @@ Authors:
   border-radius: 10px;
   box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
   min-height: 50rem;
+  padding: 1rem;
 }
 
 .sa-title {
   font-size: var(--sub-title);
   font-weight: bold;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin: 2rem;
   text-align: center;
 }
 
+.sa-graphics-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
 .sa-profile-picture {
-  height: 18rem;
+  height: 14rem;
   width: auto;
   margin-left: 2rem;
 }
 
 .sa-percent-picture {
-  height: 18rem;
+  height: 14rem;
   width: auto;
 }
 

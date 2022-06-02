@@ -6,7 +6,7 @@ Authors:
 .agl-main-container {
   background-color: var(--main-card-background);
   border-radius: 10px;
-  height: 85vh;
+  height: 84vh;
   margin: 1rem 2rem 2rem 100px;
 }
 
@@ -18,4 +18,32 @@ Authors:
   flex-wrap: wrap;
   padding: 2rem 0 2rem 0;
   min-height: max-content;
+}
+
+/*Media queries for AgentList*/
+/*****************************/
+/* BELOW 47*16 = 752px (Smaller desktops) */
+/*****************************/
+@media (max-height: 47em) {
+  .agl-main-container {
+    height: 84vh;
+  }
+}
+
+/*****************************/
+/* BELOW 42.5*16 = 680px (Very Small desktops) */
+/*****************************/
+@media (max-height: 44em) {
+  .agl-main-container {
+    height: 83vh;
+  }
+}
+
+/*****************************/
+/* BELOW 42.5*16 = 680px (Very Small desktops) */
+/*****************************/
+@media (max-height: 42.5em) {
+  .agl-main-container {
+    height: 81vh;
+  }
 }

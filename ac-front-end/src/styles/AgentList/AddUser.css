@@ -1,0 +1,71 @@
+/* Initials: adu */
+
+.adu-main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40rem;
+  background-color: var(--sub-card-background);
+  color: var(--text-color);
+  border-radius: 10px;
+  box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
+  min-height: 50rem;
+}
+
+.adu-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.adu-title {
+  font-size: var(--sub-title);
+  font-weight: bold;
+  /* margin: 1rem; */
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.adu-label {
+  font-size: 2rem;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.adu-input {
+  font-size: var(--option-text);
+  border-radius: 10px;
+  padding: 1rem 1rem 1rem 2rem;
+  margin-bottom: 1rem;
+}
+
+.adu-send-btn {
+  font-size: var(--option-text);
+  font-weight: bold;
+  border-radius: 6px;
+  border-color: transparent;
+  padding: 1.2rem;
+  color: white;
+  background-color: #a1a7ba;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+/*Media queries for AddUSer*/
+/*****************************/
+/* BELOW 47*16 = 752px (Smaller desktops) */
+/*****************************/
+@media (max-height: 47em) {
+  .adu-main-container {
+    min-height: 45rem;
+  }
+}
+
+/*****************************/
+/* BELOW 42.5*16 = 680px (Very Small desktops) */
+/*****************************/
+@media (max-height: 42.5em) {
+  .adu-main-container {
+    min-height: 40rem;
+  }
+}

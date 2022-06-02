@@ -6,6 +6,7 @@ Authors:
 import { useContext, useEffect, useState } from "react";
 import "../../styles/AgentList/AgentList.css";
 import { AgentAAndQAContext } from "../AgentsAAndQASupplier";
+import AddUser from "./AddUser";
 import AgentActiveCalls from "./AgentActiveCalls";
 import AgentListMenu from "./AgentListMenu";
 import AllAgentList from "./AllAgentsList";
@@ -18,20 +19,27 @@ const AgentList = (props) => {
 
   //This info is for the agent card
   const [agentInfo, setAgentInfo] = useState(arrAgents[0]);
+  const [addUserMenu, setAddUserMenu] = useState();
 
   const selectAgentHandler = (agent) => {
     setAgentInfo(agent);
   };
 
+  const onChangeUserCard = (addUserMenu) => {
+    addUserMenu ? setAddUserMenu(false) : setAddUserMenu(true);
+    console.log(addUserMenu);
+  };
+
   return (
     <div className="agl-main-container" data-aos="fade-up">
-      <AgentListMenu />
+      <AgentListMenu changeCard={onChangeUserCard} />
       <div
         className="agl-card-container"
         data-aos="fade-up"
         data-aos-duration="1000"
       >
-        <SingleAgent agent={agentInfo} />
+        {!addUserMenu && <SingleAgent agent={agentInfo} />}
+        {addUserMenu && <AddUser />}
         <AllAgentList onSelectAgent={selectAgentHandler} isActiveCalls={true} />
         <AgentActiveCalls isActiveCalls={false} />
       </div>

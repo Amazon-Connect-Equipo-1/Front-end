@@ -11,7 +11,7 @@ const SingleAgent = (props) => {
   return (
     <div className="sa-main-container">
       <p className="sa-title">{props.agent.agentName}</p>
-      <div>
+      <div className="sa-graphics-container">
         <img
           className="sa-profile-picture"
           src={profile_picture}
