@@ -73,7 +73,7 @@ const UberForm = (props) => {
       redirect: "follow",
     };
 
-    fetch("http://35.88.250.238:8080/tps/askService", requestOptions)
+    fetch("https://backtest.bankonnect.link/tps/askService", requestOptions)
       .then((response) => response.text())
       .then((result) => {
         console.log(result);

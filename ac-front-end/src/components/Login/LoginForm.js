@@ -1,6 +1,13 @@
-/* LoginForm.js
-Authors: 
-- 
+/* 
+
+𝐋𝐨𝐠𝐢𝐧 𝐅𝐨𝐫𝐦
+𝐀𝐮𝐭𝐨𝐫𝐬:
+        A01749448 Jorge Chávez Badillo
+        A01750185 Amy Murakami Tsutsumi
+        A01749373 Ariadna Jocelyn Guzmán Jiménez
+𝐒𝐭𝐚𝐫𝐭 𝐃𝐚𝐭𝐞: 
+𝐄𝐧𝐝 𝐃𝐚𝐭𝐞:
+
 */
 
 // Import Modules
@@ -11,7 +18,8 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthenticationContext } from "../Authentication";
 import { loadUserPreferences } from "../UserPreferences";
-
+import { FiEye } from "react-icons/fi";
+import { FiEyeOff } from "react-icons/fi";
 const LoginForm = (props) => {
   // Language
   const { t } = useTranslation();
@@ -230,12 +238,27 @@ const LoginForm = (props) => {
     console.log("Submit form is working");
   };
 
+  const [visible, setVisible] = useState(false);
+  const [invisible, setInvisible] = useState(true);
+
+  const togglePassword = () => {
+    const typeInput = document.getElementById("lgf-input").type;
+    if (typeInput === "password") {
+      document.getElementById("lgf-input").type = "text";
+      setVisible(true);
+      setInvisible(false);
+    } else {
+      document.getElementById("lgf-input").type = "password";
+      setVisible(false);
+      setInvisible(true);
+    }
+  };
   return (
     <Card className="lgf-main-container">
       <div className="lgf-container ">
         <form className="lgf-form" onSubmit={loginSubmitHandler}>
           <p className="lgf-form-title">{t("signIn")}</p>
-          <label className="lgf-label lgf-margin-bottom-sm ">Email</label>
+          <label className="lgf-label lgf-margin-bottom-sm ">no</label>
           <input
             id="lgf-email"
             type="email"
@@ -251,12 +274,19 @@ const LoginForm = (props) => {
               {t("fyp")}
             </NavLink>
           </div>
-          <input
-            type="password"
-            className="lgf-input"
-            onChange={pwdChangeHandler}
-            value={pwd}
-          />
+          <div>
+            <input
+              type="password"
+              id="lgf-input"
+              className="lgf-input"
+              onChange={pwdChangeHandler}
+              value={pwd}
+            />
+            <span onClick={togglePassword} class="field-icon">
+              {visible && <FiEyeOff />}
+              {invisible && <FiEye />}
+            </span>
+          </div>
           <button className="lgf-button">{t("signInBtn")}</button>
         </form>
       </div>

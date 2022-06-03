@@ -1,6 +1,14 @@
-/* Forgotten Password Form
-Authors:
-        A01777771 Stephen Strange*/
+/* 
+
+𝐅𝐨𝐫𝐠𝐨𝐭𝐭𝐞𝐧 𝐏𝐚𝐬𝐬𝐰𝐨𝐫𝐝 𝐅𝐨𝐫𝐦
+𝐀𝐮𝐭𝐨𝐫𝐬:
+        A01749448 Jorge Chávez Badillo
+        A01750185 Amy Murakami Tsutsumi
+        A01749373 Ariadna Jocelyn Guzmán Jiménez
+𝐒𝐭𝐚𝐫𝐭 𝐃𝐚𝐭𝐞: 
+𝐄𝐧𝐝 𝐃𝐚𝐭𝐞:
+
+*/
 
 //Import Modules
 import "../../styles/Login/ForgottenPasswordForm.css";
@@ -14,8 +22,9 @@ import { useState } from "react";
 const ForgottenPasswordForm = (props) => {
   // Language
   const { t } = useTranslation();
-
+  //Interaction between interfaces
   const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
 
   const emailChangeHandler = (event) => {
@@ -40,8 +49,11 @@ const ForgottenPasswordForm = (props) => {
         body: raw,
         redirect: "follow",
       };
-
-      fetch("http://35.88.250.238:8080/auth/forgotPassword", requestOptions)
+      //Makes the request to backend routes to evaluate data in the db
+      fetch(
+        "https://backtest.bankonnect.link/auth/forgotPassword",
+        requestOptions
+      )
         .then((response) => response.text())
         .then((result) => {
           console.log(result);
@@ -51,12 +63,13 @@ const ForgottenPasswordForm = (props) => {
             alert(resultJSON.message);
           } else {
             alert(t("confirmPassword"));
+            //If the user exists in db, navigates to the other form interface
             navigate("/confirm-password", { replace: true });
           }
         })
         .catch((error) => console.log("error", error));
     } else {
-      alert(alert("validateEmail"));
+      alert(t("validateEmail"));
     }
   };
 

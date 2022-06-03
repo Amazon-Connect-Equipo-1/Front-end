@@ -90,7 +90,7 @@ function Settings() {
 
     //Save manager info in local storage
     fetch(
-      `http://35.88.250.238:8080/userConfig/updateUserConfig`,
+      `https://backtest.bankonnect.link/userConfig/updateUserConfig`,
       requestOptions
     )
       .then((response) => response.text())

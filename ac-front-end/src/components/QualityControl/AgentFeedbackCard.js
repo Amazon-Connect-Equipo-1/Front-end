@@ -29,7 +29,7 @@ const AgentFeedbackCard = (props) => {
     };
 
     fetch(
-      `http://35.88.250.238:8080/agent/getFeedback?email=${email}`,
+      `https://backtest.bankonnect.link/agent/getFeedback?email=${email}`,
       requestOptions
     )
       .then((response) => response.text())

@@ -64,42 +64,44 @@ const ThirdParty = (props) => {
       {tps === "Main" && (
         <div className="tp-container">
           <div className="tp-title">{t("thirdPartyServices")}</div>
-          <button
-            className="tp-button"
-            onClick={() => {
-              tpAssignUber();
-              saveClick(`${INPUT_NAME} button`);
-            }}
-          >
-            <img src={uberlogo} className="tp-image" />
-          </button>
-          <button
-            className="tp-button"
-            onClick={() => {
-              tpAssignUberEats();
-              saveClick(`${INPUT_NAME} button`);
-            }}
-          >
-            <img src={ubereatslogo} className="tp-image" />
-          </button>
-          <button
-            className="tp-button"
-            onClick={() => {
-              tpAssignOxxo();
-              saveClick(`${INPUT_NAME} button`);
-            }}
-          >
-            <img src={oxxologo} className="tp-image" />
-          </button>
-          <button
-            className="tp-button"
-            onClick={() => {
-              tpAssignPolice();
-              saveClick(`${INPUT_NAME} button`);
-            }}
-          >
-            <img src={policelogo} className="tp-image" />
-          </button>
+          <div className="tp-btn-container">
+            <button
+              className="tp-button"
+              onClick={() => {
+                tpAssignUber();
+                saveClick(`${INPUT_NAME} button`);
+              }}
+            >
+              <img src={uberlogo} className="tp-image" />
+            </button>
+            <button
+              className="tp-button"
+              onClick={() => {
+                tpAssignUberEats();
+                saveClick(`${INPUT_NAME} button`);
+              }}
+            >
+              <img src={ubereatslogo} className="tp-image" />
+            </button>
+            <button
+              className="tp-button"
+              onClick={() => {
+                tpAssignOxxo();
+                saveClick(`${INPUT_NAME} button`);
+              }}
+            >
+              <img src={oxxologo} className="tp-image" />
+            </button>
+            <button
+              className="tp-button"
+              onClick={() => {
+                tpAssignPolice();
+                saveClick(`${INPUT_NAME} button`);
+              }}
+            >
+              <img src={policelogo} className="tp-image" />
+            </button>
+          </div>
         </div>
       )}
 
