@@ -258,7 +258,7 @@ const LoginForm = (props) => {
       <div className="lgf-container ">
         <form className="lgf-form" onSubmit={loginSubmitHandler}>
           <p className="lgf-form-title">{t("signIn")}</p>
-          <label className="lgf-label lgf-margin-bottom-sm ">no</label>
+          <label className="lgf-label lgf-margin-bottom-sm ">Email:</label>
           <input
             id="lgf-email"
             type="email"
