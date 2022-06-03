@@ -101,7 +101,7 @@ const LoginForm = (props) => {
     //   redirect: "follow",
     // };
 
-    fetch("http://35.88.250.238:8080/auth/signIn", requestOptions)
+    fetch("https://backtest.bankonnect.link/auth/signIn", requestOptions)
       .then((response) => response.text())
       .then((result) => {
         window.localStorage.setItem("isLoggedIn", true);
@@ -137,7 +137,7 @@ const LoginForm = (props) => {
 
           //Save manager info in local storage
           fetch(
-            `http://35.88.250.238:8080/manager/managerProfile?email=${email}`,
+            `https://backtest.bankonnect.link/manager/managerProfile?email=${email}`,
             requestOptionsGET
           )
             .then((response) => response.text())
@@ -168,7 +168,7 @@ const LoginForm = (props) => {
 
           //Save manager info in local storage
           fetch(
-            `http://35.88.250.238:8080/manager/managerProfile?email=${email}`,
+            `https://backtest.bankonnect.link/manager/managerProfile?email=${email}`,
             requestOptionsGET
           )
             .then((response) => response.text())
@@ -197,7 +197,7 @@ const LoginForm = (props) => {
 
           //Save manager info in local storage
           fetch(
-            `http://35.88.250.238:8080/agent/agentProfile?email=${email}`,
+            `https://backtest.bankonnect.link/agent/agentProfile?email=${email}`,
             requestOptionsGET
           )
             .then((response) => response.text())
