@@ -41,7 +41,7 @@ const AgentList = (props) => {
         {!addUserMenu && <SingleAgent agent={agentInfo} />}
         {addUserMenu && <AddUser />}
         <AllAgentList onSelectAgent={selectAgentHandler} isActiveCalls={true} />
-        {/* <AgentActiveCalls isActiveCalls={false} /> */}
+        <AgentActiveCalls isActiveCalls={false} />
       </div>
     </div>
   );

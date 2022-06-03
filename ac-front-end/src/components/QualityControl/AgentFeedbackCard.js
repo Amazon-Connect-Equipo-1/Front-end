@@ -41,12 +41,24 @@ const AgentFeedbackCard = (props) => {
       .catch((error) => console.log("error", error));
   };
 
+  const onChangeComment = (event) => {
+    setComment(event.target.value);
+  };
+
   return (
     <aside className={`afc-main-container ${props.className}`}>
       <div className="afc-container">
         <h2 className="afc-title">{t("qaFeedback")}</h2>
-        <textarea className="afc-feedback">{comment}</textarea>
-        <Card className="afc-send-btn">{t("acceptFeedback")}</Card>
+        {/* <textarea
+          className="afc-feedback"
+          onChange={onChangeComment}
+          value={comment}
+        /> */}
+        {comment.length !== 0 && <p>You did it good!</p>}
+        {comment.length !== 0 && (
+          <Card className="afc-send-btn">{t("acceptFeedback")}</Card>
+        )}
+        {comment.length === 0 && <p>No feedback available</p>}
       </div>
     </aside>
   );
