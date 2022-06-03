@@ -87,8 +87,9 @@ function App() {
                 <Route path="login" element={<Login />} />
                 <Route path="forgot-password" element={<RecoverPassword />} />
                 <Route path="confirm-password" element={<NewPasswordForm />} />
-                <Route path="client" element={<Usuario />} />
+                {/* <Route path="client" element={<Usuario />} /> */}
                 <Route path="register-user" element={<Register />} />
+                <Route path="confirm-email" element={<Usuario />} />
 
                 {/*Routes for all types of users*/}
                 <Route
