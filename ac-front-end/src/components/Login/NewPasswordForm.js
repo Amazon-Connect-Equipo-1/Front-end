@@ -33,26 +33,29 @@ const NewPasswordForm = (props) => {
 
   const saveNewPasswordHandler = (event) => {
     event.preventDefault();
-    if (newPassword === confirmNewPassword){
-      console.log("Contraseñas coinciden")
+    if (newPassword === confirmNewPassword) {
+      console.log("Contraseñas coinciden");
       const myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
 
       const raw = JSON.stringify({
         email: window.localStorage.getItem("email"),
         confirmation_code: token,
-        password: newPassword
+        password: newPassword,
       });
 
       const requestOptions = {
-        method: 'POST',
+        method: "POST",
         headers: myHeaders,
         body: raw,
-        redirect: 'follow'
+        redirect: "follow",
       };
 
-      fetch("http://35.88.250.238:8080/auth/confirmPassword", requestOptions)
-        .then(response => response.text())
+      fetch(
+        "https://backtest.bankonnect.link/auth/confirmPassword",
+        requestOptions
+      )
+        .then((response) => response.text())
         .then((result) => {
           console.log(result);
           const resultJSON = JSON.parse(result);
@@ -64,12 +67,10 @@ const NewPasswordForm = (props) => {
             navigate("/login", { replace: true });
           }
         })
-        .catch(error => console.log('error', error));
-
+        .catch((error) => console.log("error", error));
     } else {
-      alert(t("differentPasswords"))
+      alert(t("differentPasswords"));
     }
-    
   };
 
   return (
@@ -97,10 +98,11 @@ const NewPasswordForm = (props) => {
                   {t("confirmNewPassword")}
                 </label>
               </div>
-              <input 
-                type="password" 
+              <input
+                type="password"
                 className="npf-input"
-                onChange={confirmPasswordChangeHandler} />
+                onChange={confirmPasswordChangeHandler}
+              />
               <div className="fpf-flex">
                 <label className=" fpf-label fpf-margin-bottom-sm fpf-margin-top-md">
                   {t("token")}

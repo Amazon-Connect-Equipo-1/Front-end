@@ -158,7 +158,10 @@ const RecordingsSupplier = ({ children }) => {
       // redirect: "follow",
     };
 
-    fetch("http://35.88.250.238:8080/manager/topRecordings", requestOptions)
+    fetch(
+      "https://backtest.bankonnect.link/manager/topRecordings",
+      requestOptions
+    )
       .then((response) => response.text())
       .then((result) => {
         console.log(result);

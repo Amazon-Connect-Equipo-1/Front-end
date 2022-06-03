@@ -24,7 +24,7 @@ export const loadUserPreferences = (id) => {
   };
 
   fetch(
-    `http://35.88.250.238:8080/userConfig/getUserConfig?id=${id}`,
+    `https://backtest.bankonnect.link/userConfig/getUserConfig?id=${id}`,
     requestOptions
   )
     .then((response) => response.text())
