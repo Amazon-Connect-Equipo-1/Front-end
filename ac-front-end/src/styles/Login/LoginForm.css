@@ -11,8 +11,18 @@ Authors:
   border: none;
   font-size: 2rem;
   border-radius: 9px;
+  width: 100%;
 }
-
+.field-icon {
+  float: right;
+  margin-top: -25px;
+  position: relative;
+  z-index: 999;
+  color: var(--text-color-light);
+  padding-right: 1rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
 .lgf-button {
   font-size: 2rem;
   font-weight: bold;

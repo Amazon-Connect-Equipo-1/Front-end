@@ -11,7 +11,8 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthenticationContext } from "../Authentication";
 import { loadUserPreferences } from "../UserPreferences";
-
+import { FiEye } from "react-icons/fi";
+import { FiEyeOff } from "react-icons/fi";
 const LoginForm = (props) => {
   // Language
   const { t } = useTranslation();
@@ -230,6 +231,21 @@ const LoginForm = (props) => {
     console.log("Submit form is working");
   };
 
+  const [visible, setVisible] = useState(false);
+  const [invisible, setInvisible] = useState(true);
+
+  const togglePassword = () => {
+    const typeInput = document.getElementById("lgf-input").type;
+    if (typeInput === "password") {
+      document.getElementById("lgf-input").type = "text";
+      setVisible(true);
+      setInvisible(false);
+    } else {
+      document.getElementById("lgf-input").type = "password";
+      setVisible(false);
+      setInvisible(true);
+    }
+  };
   return (
     <Card className="lgf-main-container">
       <div className="lgf-container ">
@@ -251,12 +267,19 @@ const LoginForm = (props) => {
               {t("fyp")}
             </NavLink>
           </div>
-          <input
-            type="password"
-            className="lgf-input"
-            onChange={pwdChangeHandler}
-            value={pwd}
-          />
+          <div>
+            <input
+              type="password"
+              id="lgf-input"
+              className="lgf-input"
+              onChange={pwdChangeHandler}
+              value={pwd}
+            />
+            <span onClick={togglePassword} class="field-icon">
+              {visible && <FiEyeOff />}
+              {invisible && <FiEye />}
+            </span>
+          </div>
           <button className="lgf-button">{t("signInBtn")}</button>
         </form>
       </div>
