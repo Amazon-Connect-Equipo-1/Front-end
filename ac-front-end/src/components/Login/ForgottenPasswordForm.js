@@ -1,13 +1,16 @@
 /* 
+ForgottenPasswordForm.js
 
-𝐅𝐨𝐫𝐠𝐨𝐭𝐭𝐞𝐧 𝐏𝐚𝐬𝐬𝐰𝐨𝐫𝐝 𝐅𝐨𝐫𝐦
-𝐀𝐮𝐭𝐨𝐫𝐬:
-        A01749448 Jorge Chávez Badillo
-        A01750185 Amy Murakami Tsutsumi
-        A01749373 Ariadna Jocelyn Guzmán Jiménez
-𝐒𝐭𝐚𝐫𝐭 𝐃𝐚𝐭𝐞: 
-𝐄𝐧𝐝 𝐃𝐚𝐭𝐞:
+Authors:
 
+- A01749448 Jorge Chávez Badillo
+- A01750185 Amy Murakami Tsutsumi
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+
+Start Date: 2022-05-26
+End Date: 2022-06-01
+
+Program that displays the forgotten password form to send the verification token to the email provided.
 */
 
 //Import Modules
@@ -18,11 +21,11 @@ import Card from "../UI/Card";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-//Creates the constant Forgotten Password
+// Creates the constant Forgotten Password
 const ForgottenPasswordForm = (props) => {
   // Language
   const { t } = useTranslation();
-  //Interaction between interfaces
+  // Interaction between interfaces
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -49,7 +52,7 @@ const ForgottenPasswordForm = (props) => {
         body: raw,
         redirect: "follow",
       };
-      //Makes the request to backend routes to evaluate data in the db
+      // Makes the request to backend routes to evaluate data in the db
       fetch(
         "https://backtest.bankonnect.link/auth/forgotPassword",
         requestOptions
@@ -63,7 +66,7 @@ const ForgottenPasswordForm = (props) => {
             alert(resultJSON.message);
           } else {
             alert(t("confirmPassword"));
-            //If the user exists in db, navigates to the other form interface
+            // If the user exists in db, navigates to the other form interface
             navigate("/confirm-password", { replace: true });
           }
         })
@@ -87,7 +90,6 @@ const ForgottenPasswordForm = (props) => {
             className="fpf-input"
             onChange={emailChangeHandler}
           />
-
           <button type="submit" className="fpf-button">
             {t("recoverPasswordBtn")}
           </button>
