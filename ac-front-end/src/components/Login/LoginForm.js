@@ -2,7 +2,6 @@
 LoginForm.js
 
 Authors:
-
 - A01749448 Jorge Chávez Badillo
 - A01750185 Amy Murakami Tsutsumi
 - A01749373 Ariadna Jocelyn Guzmán Jiménez

@@ -11,6 +11,7 @@ End Date: 2022-06-01
 
 Program that displays the login interface.
 */
+
 import "../../styles/Login/Login.css";
 import logo from "../../images/logo_bbva.png";
 import LoginForm from "./LoginForm";
