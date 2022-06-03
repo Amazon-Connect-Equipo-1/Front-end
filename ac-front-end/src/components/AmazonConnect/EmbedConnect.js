@@ -99,10 +99,11 @@ const EmbedConnect = (props) => {
         // optional, defaults below apply if not provided
         allowFramedSoftphone: true, // optional, defaults to false
         disableRingtone: false, // optional, defaults to false
+        ringtoneUrl: "./ringtone.mp3", // optional, defaults to CCP’s default ringtone if a falsy value is set
       },
       pageOptions: {
         //optional
-        enableAudioDeviceSettings: true, //optional, defaults to 'false'
+        enableAudioDeviceSettings: false, //optional, defaults to 'false'
         enablePhoneTypeSettings: true, //optional, defaults to 'true'
       },
       ccpAckTimeout: 5000, //optional, defaults to 3000 (ms)
