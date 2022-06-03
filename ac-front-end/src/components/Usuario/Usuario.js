@@ -100,7 +100,7 @@ const Usuario = (props) => {
             <div className="lgf-ver-container ">
               <p className="lgf-form-title">Verified!</p>
               <div className="lgf-ver-in-container">
-                <div className="lgf-register-text">
+                <div className="lgf-exit-text">
                   Now you can exit this window
                 </div>
               </div>
