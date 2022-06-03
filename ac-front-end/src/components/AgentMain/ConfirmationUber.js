@@ -80,7 +80,7 @@ const ConfirmationUber = (props) => {
       redirect: "follow",
     };
 
-    fetch("http://35.88.250.238:8080/tps/sendService", requestOptions)
+    fetch("https://backtest.bankonnect.link/tps/sendService", requestOptions)
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));

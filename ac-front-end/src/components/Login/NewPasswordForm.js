@@ -1,6 +1,14 @@
-/* New Password Form
-Authors:
-        A01777771 Stephen Strange*/
+/* 
+
+𝐍𝐞𝐰 𝐏𝐚𝐬𝐬𝐰𝐨𝐫𝐝 𝐅𝐨𝐫𝐦
+𝐀𝐮𝐭𝐨𝐫𝐬:
+        A01749448 Jorge Chávez Badillo
+        A01750185 Amy Murakami Tsutsumi
+        A01749373 Ariadna Jocelyn Guzmán Jiménez
+𝐒𝐭𝐚𝐫𝐭 𝐃𝐚𝐭𝐞: 
+𝐄𝐧𝐝 𝐃𝐚𝐭𝐞:
+
+*/
 
 //Import Modules
 import "../../styles/Login/NewPasswordForm.css";
@@ -33,26 +41,29 @@ const NewPasswordForm = (props) => {
 
   const saveNewPasswordHandler = (event) => {
     event.preventDefault();
-    if (newPassword === confirmNewPassword){
-      console.log("Contraseñas coinciden")
+    if (newPassword === confirmNewPassword) {
+      console.log("Contraseñas coinciden");
       const myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
 
       const raw = JSON.stringify({
         email: window.localStorage.getItem("email"),
         confirmation_code: token,
-        password: newPassword
+        password: newPassword,
       });
 
       const requestOptions = {
-        method: 'POST',
+        method: "POST",
         headers: myHeaders,
         body: raw,
-        redirect: 'follow'
+        redirect: "follow",
       };
 
-      fetch("http://35.88.250.238:8080/auth/confirmPassword", requestOptions)
-        .then(response => response.text())
+      fetch(
+        "https://backtest.bankonnect.link/auth/confirmPassword",
+        requestOptions
+      )
+        .then((response) => response.text())
         .then((result) => {
           console.log(result);
           const resultJSON = JSON.parse(result);
@@ -64,12 +75,10 @@ const NewPasswordForm = (props) => {
             navigate("/login", { replace: true });
           }
         })
-        .catch(error => console.log('error', error));
-
+        .catch((error) => console.log("error", error));
     } else {
-      alert(t("differentPasswords"))
+      alert(t("differentPasswords"));
     }
-    
   };
 
   return (
@@ -97,10 +106,11 @@ const NewPasswordForm = (props) => {
                   {t("confirmNewPassword")}
                 </label>
               </div>
-              <input 
-                type="password" 
+              <input
+                type="password"
                 className="npf-input"
-                onChange={confirmPasswordChangeHandler} />
+                onChange={confirmPasswordChangeHandler}
+              />
               <div className="fpf-flex">
                 <label className=" fpf-label fpf-margin-bottom-sm fpf-margin-top-md">
                   {t("token")}

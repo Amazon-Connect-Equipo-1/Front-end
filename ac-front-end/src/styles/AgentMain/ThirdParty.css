@@ -39,10 +39,9 @@ Authors:
 
 .tp-container {
   display: grid;
-  align-items: center;
+  align-items: start;
   justify-content: center;
-  grid-template-columns: 1fr 1fr;
-  row-gap: 4rem;
+  height: 100%;
 }
 
 .tp-title {
@@ -70,7 +69,13 @@ Authors:
   border-radius: 10px;
   cursor: pointer;
 }
-
+.tp-btn-container {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 4rem;
+}
 .tp-label {
   display: flex;
   justify-content: center;

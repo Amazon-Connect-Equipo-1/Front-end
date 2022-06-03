@@ -51,7 +51,7 @@ const Usuario = (props) => {
       redirect: "follow",
     };
 
-    fetch("http://35.88.250.238:8080/auth/verify", requestOptions)
+    fetch("https://backtest.bankonnect.link/auth/verify", requestOptions)
       .then((response) => response.text())
       .then((result) => {
         const resultJSON = JSON.parse(result);

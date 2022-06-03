@@ -1,6 +1,13 @@
-/* LoginForm.js
-Authors: 
-- 
+/* 
+
+𝐋𝐨𝐠𝐢𝐧 𝐅𝐨𝐫𝐦
+𝐀𝐮𝐭𝐨𝐫𝐬:
+        A01749448 Jorge Chávez Badillo
+        A01750185 Amy Murakami Tsutsumi
+        A01749373 Ariadna Jocelyn Guzmán Jiménez
+𝐒𝐭𝐚𝐫𝐭 𝐃𝐚𝐭𝐞: 
+𝐄𝐧𝐝 𝐃𝐚𝐭𝐞:
+
 */
 
 // Import Modules
@@ -251,7 +258,7 @@ const LoginForm = (props) => {
       <div className="lgf-container ">
         <form className="lgf-form" onSubmit={loginSubmitHandler}>
           <p className="lgf-form-title">{t("signIn")}</p>
-          <label className="lgf-label lgf-margin-bottom-sm ">Email</label>
+          <label className="lgf-label lgf-margin-bottom-sm ">no</label>
           <input
             id="lgf-email"
             type="email"

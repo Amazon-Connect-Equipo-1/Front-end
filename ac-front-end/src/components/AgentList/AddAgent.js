@@ -56,7 +56,7 @@ const AddAgent = (props) => {
       redirect: "follow",
     };
 
-    fetch("http://35.88.250.238:8080/auth/signUpAgent", requestOptions)
+    fetch("https://backtest.bankonnect.link/auth/signUpAgent", requestOptions)
       .then((response) => response.text())
       .then((result) => {
         const resultJSON = JSON.parse(result);
