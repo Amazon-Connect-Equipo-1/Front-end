@@ -1,6 +1,6 @@
 /* Third Party
 Authors:
-        A01777771 Stephen Strange*/
+        A01379868 Jared Abraham Flores Guarneros*/
 
 //Import Modules
 import "../../styles/AgentMain/ThirdParty.css";
@@ -102,13 +102,14 @@ const ThirdParty = (props) => {
           </button>
         </div>
       )}
-      {tps === "Uber" && <UberForm onChange={tpAssignConfirmationUber} />}
 
-      {tps === "UberEats" && (
-        <UberEatsForm onChange={tpAssignConfirmationUberEats} />
-      )}
-      {tps === "Oxxo" && <OxxoForm onChange={tpAssignConfirmationOxxo} />}
-      {tps === "Police" && <PoliceForm onChange={tpAssignConfirmationPolice} />}
+      {tps === "Uber" && <UberForm onChange={tpAssignMain} />}
+
+      {tps === "UberEats" && <UberEatsForm onChange={tpAssignMain} />}
+
+      {tps === "Oxxo" && <OxxoForm onChange={tpAssignMain} />}
+
+      {tps === "Police" && <PoliceForm onChange={tpAssignMain} />}
     </>
   );
 };

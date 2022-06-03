@@ -140,27 +140,50 @@ const RecordingsSupplier = ({ children }) => {
 
   const [selectedVideoInfo, setSelectedVideoInfo] = useState();
 
-  const getAllMiniatures = () => {
-    //Petition to obtain all videos miniatures
+  const getAllRecordings = () => {
+    //Petition to obtain all videos info
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Authorization", `Bearer w`);
+
+    const raw = JSON.stringify({
+      email: "mikeperezlopez15@hotmail.com",
+      password: "123456@aA",
+    });
+
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      // body: raw,
+      // redirect: "follow",
+    };
+
+    fetch("http://35.88.250.238:8080/manager/topRecordings", requestOptions)
+      .then((response) => response.text())
+      .then((result) => {
+        console.log(result);
+        console.log(JSON.parse(result));
+      })
+      .catch((error) => console.log("error", error));
   };
 
-  const getAllVideos = () => {
-    //Petition to obtain all videos info
+  const getSelectedVideoInfo = (videoId) => {
+    //fetch with the id
+    console.log("a", videoId);
+    setSelectedVideoInfo({ mike: "oh si" });
   };
 
   const getMoreVideos = () => {
     //this is to show the last 50 videos and so on
   };
 
-  const getVideo = (videoId) => {};
-
   return (
     <RecordingsContext.Provider
       value={[
         arrRecordings,
-        setArrRecordings,
+        getAllRecordings,
         selectedVideoInfo,
-        setSelectedVideoInfo,
+        getSelectedVideoInfo,
       ]}
     >
       {children}

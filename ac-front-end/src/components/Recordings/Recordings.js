@@ -22,6 +22,9 @@ const Recordings = (props) => {
   // It is expected that the outlet is <RecordingsVideo />
   const outlet = useOutlet();
 
+  const switchInputType = (t) => {
+    document.getElementById("re-input").type = t;
+  };
   return (
     <>
       {outlet || (
@@ -35,17 +38,21 @@ const Recordings = (props) => {
               <select
                 className="re-select"
                 onClick={() => saveClick(`${INPUT_NAME} filter scroller`)}
+                onChange={(e) => switchInputType(e.target.value)}
               >
                 {/* <option>{t("search")}</option> */}
-                <option value="date">{t("date")}</option>
                 <option value="tag">{t("tag")}</option>
+                <option value="date">{t("date")}</option>
               </select>
               <input
                 onKeyDown={saveKeys}
                 onClick={() => saveClick(`${INPUT_NAME} input`)}
                 className="re-input"
+                id="re-input"
                 type="text"
                 placeholder="Search"
+                min="2022-06-01"
+                max="2029-12-31"
               />
               <button href="/" className="re-btn">
                 {t("search")}
@@ -56,6 +63,7 @@ const Recordings = (props) => {
                 id={record_info.id}
                 key={record_info.id}
                 record={record_info}
+                origin="qaRecordings"
               />
             ))}
           </div>

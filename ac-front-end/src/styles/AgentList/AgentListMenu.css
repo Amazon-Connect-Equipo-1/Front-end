@@ -22,13 +22,36 @@ Authors:
 
 .aglm-search-container {
   display: flex;
-  gap: 1.5rem;
   margin: 4.5rem 1rem 1rem 0;
+}
+
+.aglm-add {
+  font-size: var(--option-text);
+  font-weight: bold;
+  border-color: transparent;
+  padding: 1.2rem;
+  color: white;
+  background-color: #415164;
+  border-radius: 10px;
+  margin: 3.5rem auto 1rem 1rem;
+  cursor: pointer;
+}
+
+.aglm-search-btn {
+  font-size: var(--option-text);
+  font-weight: bold;
+  border-radius: 6px;
+  border-color: transparent;
+  padding: 1.2rem;
+  color: white;
+  background-color: #415164;
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
 }
 
 .aglm-search {
   font-size: var(--option-text);
-  border-radius: 10px;
+  border-radius: 10px 0 0 10px;
   padding: 1rem 1rem 1rem 2rem;
 }
 

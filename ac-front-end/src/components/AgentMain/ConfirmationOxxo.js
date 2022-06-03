@@ -1,6 +1,6 @@
 /* O
 Authors:
-        A01777771 Stephen Strange*/
+        A01379868 Jared Abraham Flores Guarneros*/
 
 //Import Modules
 import "../../styles/AgentMain/ThirdParty.css";
@@ -8,9 +8,44 @@ import uberlogo from "../../images/uber.png";
 import { createContext, Suspense, useState } from "react";
 
 const ConfirmationOxxo = (props) => {
-  const token =
-    "eyJraWQiOiJ1aVNXY0k0aG0rSTE3Y0lPWE1HN3NVMUxETFRtRzN4Rm1mY2lNUk5DaThNPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJkYzI4MzBhYi0xZGJkLTQ5OTctOWI0Yy1iZmUyODZkZGQyYjYiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtd2VzdC0yLmFtYXpvbmF3cy5jb21cL3VzLXdlc3QtMl9EaEttVmE3NFYiLCJjbGllbnRfaWQiOiI0dXVhNGVqdWR2N2JoMTZmbGIwc2YzZ2NyOCIsIm9yaWdpbl9qdGkiOiIzYjI3ZDdkNS1jZTZmLTQ4OTYtOTgyZC1jMTYzN2ZiM2ExMjYiLCJldmVudF9pZCI6ImU3NjM3YmViLTM5NTgtNDZlNi05ZWFlLTc5ZjZiOWIxNWNlYiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTM5MzgwMTAsImV4cCI6MTY1NDAyNDQxMCwiaWF0IjoxNjUzOTM4MDEwLCJqdGkiOiI0ODQ3YTkxNy1hMzZkLTQzMWYtOTZlNy0wNTc4Y2FmZWY2YmIiLCJ1c2VybmFtZSI6ImRjMjgzMGFiLTFkYmQtNDk5Ny05YjRjLWJmZTI4NmRkZDJiNiJ9.7ilihvw-XalwJ39c6WILiETkIB_UIxBJo6coX5SXNMr_zSExJvodAA8qiKUqN5ruPcT8HU69dxCN-t28n3AeyCsU3c6ZRZ0kny2mR8uCWhTTYIlr_FRk3PvaQAjK4bqYKokzS_v9GM2ibxI-nbIP2cwUXAkLCowldZKWL8O9kWuRYW6XtMrIvbgkgm4fp-cATp9vrHuTs5RV7BaU4aFQtqjEg_THoNcxbkM8J3GdMqkRVC09R8rnA6Vot91voqZic3GK9_IJESL6u6r1ZMuKjrns5O9KFXm48Cw-If2R6Bp3KSA-X6F6ucJ_At53GLlMgHwyhjdrhusuo-ZrqWSKvQ";
+  const token = window.localStorage.getItem("token");
+  //Data----------------------------------------
+  const client = window.localStorage.getItem("client");
+  const email = window.localStorage.getItem("email");
+  const cellphone = window.localStorage.getItem("cellphone");
+  const clientLocation = window.localStorage.getItem("clientLocation");
 
+  const street = window.localStorage.getItem("street");
+  const state = window.localStorage.getItem("state");
+  const colony = window.localStorage.getItem("colony");
+  const zipCode = window.localStorage.getItem("zipCode");
+  const country = window.localStorage.getItem("country");
+  const quantity = window.localStorage.getItem("quantity");
+  const accountNumber = window.localStorage.getItem("accountNumber");
+  const reference = window.localStorage.getItem("reference");
+  const securityToken = window.localStorage.getItem("securityToken");
+  const timestamp = window.localStorage.getItem("timestamp");
+
+  //--------------------------------------------
+  //RESTART DATA--------------------------------
+  const restart = () => {
+    window.localStorage.removeItem("client");
+    window.localStorage.removeItem("email");
+    window.localStorage.removeItem("cellphone");
+    window.localStorage.removeItem("clientLocation");
+
+    window.localStorage.removeItem("street");
+    window.localStorage.removeItem("state");
+    window.localStorage.removeItem("colony");
+    window.localStorage.removeItem("zipCode");
+    window.localStorage.removeItem("country");
+    window.localStorage.removeItem("quantity");
+    window.localStorage.removeItem("accountNumber");
+    window.localStorage.removeItem("reference");
+    window.localStorage.removeItem("securityToken");
+  };
+
+  //--------------------------------------------
   const [conf, setConf] = useState("no");
   const changeConfig = () => {
     setConf("yes");
@@ -23,22 +58,22 @@ const ConfirmationOxxo = (props) => {
     const raw = JSON.stringify({
       service: "Oxxo",
       service_data: {
-        client: "Dwight Schrute",
-        client_email: "A01379868@tec.mx",
-        client_cellphone: "+525530323376",
-        client_location: "Alfredo's Pizza Cafe",
+        client: client,
+        client_email: email,
+        client_cellphone: cellphone,
+        client_location: clientLocation,
         oxxo_address: {
-          street: "JOSE MA LICEAGA 406 S/N, MORELOS SECC LOMA, 20270",
-          state: "Aguascalientes",
-          colony: "Aguascalientes",
-          zip_code: 20270,
-          country: "Mexico",
+          street: street,
+          state: state,
+          colony: colony,
+          zip_code: zipCode,
+          country: country,
         },
-        quantity: 501,
-        account_number: "6969696969",
-        reference: "891753",
-        security_token: "4605",
-        timestamp: "2022-05-30 15:16:53.006495",
+        quantity: quantity,
+        account_number: accountNumber,
+        reference: reference,
+        security_token: securityToken,
+        timestamp: timestamp,
       },
     });
 
@@ -65,7 +100,12 @@ const ConfirmationOxxo = (props) => {
             <div className="tp-confirmation-button-container">
               <button
                 className="tp-confirmation-button"
-                onClick={pruebaBackTPS}
+                onClick={(e) => {
+                  e.preventDefault();
+                  pruebaBackTPS();
+                  restart();
+                  props.onChange();
+                }}
               >
                 confirmado
               </button>
@@ -74,15 +114,42 @@ const ConfirmationOxxo = (props) => {
         )}
         {conf === "no" && (
           <div>
-            <div className="tp-confirmation-text">INFORMACION OXXO</div>
+            <div className="tp-confirmation-text">
+              Client: {client}
+              <br />
+              mail: {email}
+              <br />
+              Cellphone: {cellphone}
+              <br />
+              Client location: {clientLocation}
+              <br />
+              OXXO INFO:
+              <br />
+              Street: {street}
+              <br />
+              State: {state}
+              <br />
+              Colony: {colony}
+              <br />
+              Zip Code: {zipCode}
+              <br />
+              Country: {country}
+              <br />
+              Quantity: {quantity}
+              <br />
+              Account Number: {accountNumber}
+              <br />
+              Reference: {reference}
+              <br />
+            </div>
             <div className="tp-confirmation-button-container">
               <button
                 className="tp-confirmation-button"
-                //onClick={props.onChange()}
+                onClick={(e) => {
+                  e.preventDefault();
+                  changeConfig();
+                }}
               >
-                Regresar
-              </button>
-              <button className="tp-confirmation-button" onClick={changeConfig}>
                 Mandar info
               </button>
             </div>

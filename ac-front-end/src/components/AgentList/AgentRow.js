@@ -13,7 +13,10 @@ const AgentRow = (props) => {
   const circleColor = props.isWorking ? "aal-online" : "aal-offline";
 
   return (
-    <div className="aal-row-container">
+    <button
+      onClick={() => props.onSelectAgent(props.id)}
+      className="aal-row-container"
+    >
       <img
         className="aal-profile-picture"
         src={profile_thumbnail}
@@ -26,7 +29,7 @@ const AgentRow = (props) => {
         src={telephone}
         alt="Telephone picture"
       />
-    </div>
+    </button>
   );
 };
 

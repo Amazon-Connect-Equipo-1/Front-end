@@ -1,6 +1,6 @@
 /* Third Party Container
 Authors:
-        A01777771 Stephen Strange*/
+        A01379868 Jared Abraham Flores Guarneros*/
 
 //Import Modules
 import "../../styles/AgentMain/ThirdParty.css";

@@ -5,12 +5,14 @@ Authors:
 
 .tp-main-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   gap: 1.5rem;
-  height: 65rem;
+  overflow-y: auto;
+  white-space: nowrap;
   width: 35rem;
+  height: 65rem;
   overflow-y: auto;
   background-color: var(--sub-card-background);
   color: var(--text-color);
@@ -50,7 +52,7 @@ Authors:
   padding: 1rem;
   text-align: center;
   grid-column: 1 / -1;
-  /* margin-top: 2rem; */
+  margin-top: 4rem;
 }
 .tp-button {
   /* display: flex; */
@@ -66,6 +68,7 @@ Authors:
   margin-left: -0.8rem;
   margin-top: -0.3rem;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .tp-label {
@@ -172,6 +175,10 @@ Authors:
   border-radius: 10px;
   align-items: center;
   justify-content: center;
+  word-break: break-all;
+  word-wrap: break-word;
+  flex-direction: column;
+  gap: 1rem;
 }
 .tp-confirmation-button {
   width: 15rem;
@@ -182,6 +189,10 @@ Authors:
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.tp-order-list {
+  display: flex;
+  flex-direction: column;
 }
 /*****************************/
 /* BELOW 50*16 = 800px (Smaller desktops) */

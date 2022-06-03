@@ -3,6 +3,7 @@ Authors:
         A01777771 Stephen Strange*/
 
 //Import Modules
+import { use } from "i18next";
 import { createContext, useState } from "react";
 
 import { useTranslation } from "react-i18next";
@@ -42,36 +43,44 @@ const AgentsAAndQASupplier = ({ children }) => {
       videoURL: "http://amazon.aws.com/video3",
       rating: 2,
       date: "02/12/2022",
+      description: "The best Boss!",
+      working: true,
     },
     {
       id: 6,
       agent: 13,
-      agentName: "Michael Scott",
+      agentName: "Brad Pitt",
       tags: ["problem-solved", "investments"],
       miniatureURL: "http://amazon.aws.com/videominiature3",
       videoURL: "http://amazon.aws.com/video3",
       rating: 2,
       date: "02/12/2022",
+      description: "The best ...!",
+      working: true,
     },
     {
       id: 7,
       agent: 13,
-      agentName: "Michael Scott",
+      agentName: "Michael Phelps",
       tags: ["problem-solved", "investments"],
       miniatureURL: "http://amazon.aws.com/videominiature3",
       videoURL: "http://amazon.aws.com/video3",
       rating: 2,
       date: "02/12/2022",
+      description: "The best swimmer!",
+      working: false,
     },
     {
       id: 8,
       agent: 13,
-      agentName: "Michael Scott",
+      agentName: "Tyler Joseph",
       tags: ["problem-solved", "investments"],
       miniatureURL: "http://amazon.aws.com/videominiature3",
       videoURL: "http://amazon.aws.com/video3",
       rating: 2,
       date: "02/12/2022",
+      description: "The best singer!",
+      working: true,
     },
     {
       id: 9,
@@ -82,6 +91,8 @@ const AgentsAAndQASupplier = ({ children }) => {
       videoURL: "http://amazon.aws.com/video3",
       rating: 2,
       date: "02/12/2022",
+      description: "The best Boss!",
+      working: false,
     },
     {
       id: 10,
@@ -92,6 +103,8 @@ const AgentsAAndQASupplier = ({ children }) => {
       videoURL: "http://amazon.aws.com/video3",
       rating: 2,
       date: "02/12/2022",
+      description: "The best Boss!",
+      working: true,
     },
     {
       id: 11,
@@ -102,6 +115,8 @@ const AgentsAAndQASupplier = ({ children }) => {
       videoURL: "http://amazon.aws.com/video3",
       rating: 2,
       date: "02/12/2022",
+      description: "The best Boss!",
+      working: true,
     },
     {
       id: 12,
@@ -112,11 +127,14 @@ const AgentsAAndQASupplier = ({ children }) => {
       videoURL: "http://amazon.aws.com/video3",
       rating: 2,
       date: "02/12/2022",
+      description: "The best Boss!",
+      working: true,
     },
   ];
 
   //Recordings Array
   const [arrAgents, setArrAgents] = useState(dummyAgents);
+  const [selectedAgent, setSelectedAgent] = useState(arrAgents[0]); //needs a function if arr is not empty show the first one
 
   const getAllAgents = () => {
     //Petition to obtain all videos miniatures
@@ -124,8 +142,17 @@ const AgentsAAndQASupplier = ({ children }) => {
 
   const getAgent = (videoId) => {};
 
+  const changeSelectedAgent = (id) => {
+    //verify if list is not empty
+    const agentInfo = arrAgents.filter((agent) => agent.id === id);
+    console.log(agentInfo);
+    setSelectedAgent(agentInfo[0]);
+  };
+
   return (
-    <AgentAAndQAContext.Provider value={[arrAgents]}>
+    <AgentAAndQAContext.Provider
+      value={[arrAgents, selectedAgent, changeSelectedAgent]}
+    >
       {children}
     </AgentAAndQAContext.Provider>
   );

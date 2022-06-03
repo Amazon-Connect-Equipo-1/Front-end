@@ -10,6 +10,7 @@ import { useTranslation } from "react-i18next";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthenticationContext } from "../Authentication";
+import { loadUserPreferences } from "../UserPreferences";
 
 const LoginForm = (props) => {
   // Language
@@ -100,18 +101,56 @@ const LoginForm = (props) => {
     //   redirect: "follow",
     // };
 
-    fetch("http://35.88.250.238:8080/auth/signIn", requestOptions)
+    fetch("https://backtest.bankonnect.link/auth/signIn", requestOptions)
       .then((response) => response.text())
       .then((result) => {
         window.localStorage.setItem("isLoggedIn", true);
         const resultJSON = JSON.parse(result);
         console.log(resultJSON);
+        if (Object.keys(resultJSON).includes("errors")) {
+          alert(t("validEmailPwd"));
+        }
+        if (resultJSON.code === "NotAuthorizedException") {
+          alert(t("failedLoginPassword"));
+          console.log("Contraseña incorrecta");
+        }
+        if (resultJSON.code === "UserNotFoundException") {
+          alert(t("failedLoginEmail"));
+          console.log("Usuario no encontrado");
+        }
         window.localStorage.setItem("userType", resultJSON.role);
         window.localStorage.setItem("email", email);
         window.localStorage.setItem("token", resultJSON.AccessToken);
         console.log(resultJSON.AccessToken);
 
         if (resultJSON.role === USER.Admin) {
+          const myHeadersToken = new Headers();
+          myHeadersToken.append(
+            "Authorization",
+            `Bearer ${resultJSON.AccessToken}`
+          );
+
+          const requestOptionsGET = {
+            method: "GET",
+            headers: myHeadersToken,
+          };
+
+          //Save manager info in local storage
+          fetch(
+            `https://backtest.bankonnect.link/manager/managerProfile?email=${email}`,
+            requestOptionsGET
+          )
+            .then((response) => response.text())
+            .then((result) => {
+              const resultJSON = JSON.parse(result);
+              console.log(resultJSON);
+              window.localStorage.setItem("name", resultJSON.manager_name);
+              window.localStorage.setItem("id", resultJSON.manager_id);
+
+              loadUserPreferences(resultJSON.manager_id); // Load user config preferences
+              navigate("/qa", { replace: true });
+            })
+            .catch((error) => console.log("error", error));
           navigate("/admin", { replace: true });
         }
         if (resultJSON.role === USER.QA) {
@@ -129,7 +168,7 @@ const LoginForm = (props) => {
 
           //Save manager info in local storage
           fetch(
-            `http://35.88.250.238:8080/manager/managerProfile?email=${email}`,
+            `https://backtest.bankonnect.link/manager/managerProfile?email=${email}`,
             requestOptionsGET
           )
             .then((response) => response.text())
@@ -138,9 +177,11 @@ const LoginForm = (props) => {
               console.log(resultJSON);
               window.localStorage.setItem("name", resultJSON.manager_name);
               window.localStorage.setItem("id", resultJSON.manager_id);
+
+              loadUserPreferences(resultJSON.manager_id); // Load user config preferences
+              navigate("/qa", { replace: true });
             })
             .catch((error) => console.log("error", error));
-          navigate("/qa", { replace: true });
         }
         if (resultJSON.role === USER.Agent) {
           const myHeadersToken = new Headers();
@@ -156,7 +197,7 @@ const LoginForm = (props) => {
 
           //Save manager info in local storage
           fetch(
-            `http://35.88.250.238:8080/agent/agentProfile?email=${email}`,
+            `https://backtest.bankonnect.link/agent/agentProfile?email=${email}`,
             requestOptionsGET
           )
             .then((response) => response.text())
@@ -175,9 +216,11 @@ const LoginForm = (props) => {
                 "profile_picture",
                 resultJSON.profile_picture
               );
+
+              loadUserPreferences(resultJSON.agent_id); // Load user config preferences
+              navigate("/agent", { replace: true });
             })
             .catch((error) => console.log("error", error));
-          navigate("/agent", { replace: true });
         }
       })
       .catch((error) => console.log("error", error));

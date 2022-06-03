@@ -7,7 +7,7 @@ import Card from "../UI/Card";
 import logo from "../../images/bbva_video.PNG";
 import "../../styles/Recordings/RecordingsCard.css";
 import { v4 as uuidv4 } from "uuid";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { RecordingsContext } from "../RecordingsSupplier";
 import { useContext } from "react";
 import { useTranslation } from "react-i18next";
@@ -46,8 +46,20 @@ const RecordingsCard = (props) => {
   };
 
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const [, , , getSelectedVideoInfo] = useContext(RecordingsContext);
+
+  const onSelectCard = () => {
+    getSelectedVideoInfo(props.id);
+    if (props.origin === "qaRecordings") {
+      navigate("video/" + "qa" + props.id);
+    } else {
+      navigate("agent-video/" + "ag" + props.id);
+    }
+  };
+
   return (
-    <Link to="video" className="link">
+    <button onClick={onSelectCard} className="link">
       <Card className="rec-main-container">
         <div className="rec-container">
           <div className="rec-video-section">
@@ -66,7 +78,7 @@ const RecordingsCard = (props) => {
               {/* <h3 className="rec-score">{getRating(props.record.rating)}</h3> */}
             </div>
           </div>
-          <div className="rec-tag-section" onClick={props.onClickCard}>
+          <div className="rec-tag-section">
             {props.record.tags.map((tag) => (
               <Card key={uuidv4()} className={`rec-tag ${tag} `}>
                 {processTagName(t(tag))}
@@ -75,7 +87,7 @@ const RecordingsCard = (props) => {
           </div>
         </div>
       </Card>
-    </Link>
+    </button>
   );
 };
 

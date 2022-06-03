@@ -20,9 +20,11 @@ const Dashboard = (props) => {
         data-aos-duration="1000"
       >
         <SingleDashboard />
-        {/* <AgentsAAndQASupplier>
-          <AgentActiveCalls isActiveCalls={false} />
-        </AgentsAAndQASupplier> */}
+        {/* {
+          <AgentsAAndQASupplier>
+            <AgentActiveCalls isActiveCalls={false} />
+          </AgentsAAndQASupplier>
+        } */}
       </div>
     </div>
   );

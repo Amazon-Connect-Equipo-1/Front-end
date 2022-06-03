@@ -21,3 +21,12 @@ Authors:
   padding: 2rem 0 2rem 0;
   min-height: max-content;
 }
+
+/*****************************/
+/* BELOW 50*16 = 800px (Smaller desktops) */
+/*****************************/
+@media (max-height: 50em) {
+  .agM-main-container {
+    height: 80vh;
+  }
+}

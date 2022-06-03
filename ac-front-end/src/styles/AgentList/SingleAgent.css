@@ -10,26 +10,32 @@ Authors:
   border-radius: 10px;
   box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
   min-height: 50rem;
+  padding: 1rem;
 }
 
 .sa-title {
   font-size: var(--sub-title);
   font-weight: bold;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin: 2rem;
   text-align: center;
 }
 
+.sa-graphics-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
 .sa-profile-picture {
-  height: 18rem;
+  height: 14rem;
   width: auto;
   margin-left: 2rem;
 }
 
 .sa-percent-picture {
-  height: 18rem;
+  height: 14rem;
   width: auto;
 }
 
@@ -42,14 +48,52 @@ Authors:
 }
 
 .sa-text {
-  font-size: 2rem;
-  font-weight: lighter;
-  margin-bottom: 2rem;
+  font-size: var(--sub-option-text);
+  font-weight: 300;
+  margin-top: 2rem;
   margin-left: 2rem;
   margin-right: 2rem;
-  text-align: justify;
+  text-align: center;
 }
 
+.sa-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 0 2rem 0 2rem;
+}
+
+.sa-feedback {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sa-input {
+  height: 10rem;
+  border-radius: 10px;
+  /* display: block; */
+  padding: 1rem 0.6rem 0.6rem 1.2rem;
+  border: none;
+  font-size: 2rem;
+  border-radius: 10px;
+  border: 2px solid var(--highlight-color) !important;
+  /* transition: width 0.4s ease-in-out; */
+}
+
+.sa-send-btn {
+  font-size: var(--sub-option-text);
+  font-weight: 700;
+  text-align: center;
+  background-color: var(--highlight-color);
+  border-radius: 10px;
+  padding: 1rem;
+  cursor: pointer;
+  color: var(--text-color);
+  border: none;
+}
 /*Media queries for SingleAgent*/
 /*****************************/
 /* BELOW 47*16 = 752px (Smaller desktops) */

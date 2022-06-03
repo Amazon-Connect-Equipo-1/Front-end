@@ -48,9 +48,10 @@ Authors:
 }
 
 .re-btn {
-  color: white;
-  background-color: #415164;
+  color: var(--text-color);
+  background-color: var(--sub-card-background);
   border-radius: 0 10px 10px 0;
+  cursor: pointer;
 }
 
 /*Media queries for Recordings*/

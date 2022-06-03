@@ -1,6 +1,6 @@
 /* O
 Authors:
-        A01777771 Stephen Strange*/
+        A01379868 Jared Abraham Flores Guarneros*/
 
 //Import Modules
 import "../../styles/AgentMain/ThirdParty.css";
@@ -8,9 +8,41 @@ import uberlogo from "../../images/uber.png";
 import { createContext, Suspense, useState } from "react";
 
 const ConfirmationUber = (props) => {
-  const token =
-    "eyJraWQiOiJ1aVNXY0k0aG0rSTE3Y0lPWE1HN3NVMUxETFRtRzN4Rm1mY2lNUk5DaThNPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJkYzI4MzBhYi0xZGJkLTQ5OTctOWI0Yy1iZmUyODZkZGQyYjYiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtd2VzdC0yLmFtYXpvbmF3cy5jb21cL3VzLXdlc3QtMl9EaEttVmE3NFYiLCJjbGllbnRfaWQiOiI0dXVhNGVqdWR2N2JoMTZmbGIwc2YzZ2NyOCIsIm9yaWdpbl9qdGkiOiIzYjI3ZDdkNS1jZTZmLTQ4OTYtOTgyZC1jMTYzN2ZiM2ExMjYiLCJldmVudF9pZCI6ImU3NjM3YmViLTM5NTgtNDZlNi05ZWFlLTc5ZjZiOWIxNWNlYiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTM5MzgwMTAsImV4cCI6MTY1NDAyNDQxMCwiaWF0IjoxNjUzOTM4MDEwLCJqdGkiOiI0ODQ3YTkxNy1hMzZkLTQzMWYtOTZlNy0wNTc4Y2FmZWY2YmIiLCJ1c2VybmFtZSI6ImRjMjgzMGFiLTFkYmQtNDk5Ny05YjRjLWJmZTI4NmRkZDJiNiJ9.7ilihvw-XalwJ39c6WILiETkIB_UIxBJo6coX5SXNMr_zSExJvodAA8qiKUqN5ruPcT8HU69dxCN-t28n3AeyCsU3c6ZRZ0kny2mR8uCWhTTYIlr_FRk3PvaQAjK4bqYKokzS_v9GM2ibxI-nbIP2cwUXAkLCowldZKWL8O9kWuRYW6XtMrIvbgkgm4fp-cATp9vrHuTs5RV7BaU4aFQtqjEg_THoNcxbkM8J3GdMqkRVC09R8rnA6Vot91voqZic3GK9_IJESL6u6r1ZMuKjrns5O9KFXm48Cw-If2R6Bp3KSA-X6F6ucJ_At53GLlMgHwyhjdrhusuo-ZrqWSKvQ";
+  const token = window.localStorage.getItem("token");
+  //Data----------------------------------------
+  const client = window.localStorage.getItem("client");
+  const email = window.localStorage.getItem("email");
+  const cellphone = window.localStorage.getItem("cellphone");
+  const clientLocation = window.localStorage.getItem("clientLocation");
+  const destination = window.localStorage.getItem("destination");
+  const rider = window.localStorage.getItem("rider");
+  const model = window.localStorage.getItem("model");
+  const plate = window.localStorage.getItem("plate");
+  const color = window.localStorage.getItem("color");
+  const arrivalTime = window.localStorage.getItem("arrivalTime");
+  const rideTime = window.localStorage.getItem("rideTime");
+  const url = window.localStorage.getItem("url");
+  const timestamp = window.localStorage.getItem("timestamp");
 
+  //--------------------------------------------
+  //RESTART DATA--------------------------------
+  const restart = () => {
+    window.localStorage.removeItem("client");
+    window.localStorage.removeItem("email");
+    window.localStorage.removeItem("cellphone");
+    window.localStorage.removeItem("clientLocation");
+    window.localStorage.removeItem("destination");
+    window.localStorage.removeItem("rider");
+    window.localStorage.removeItem("model");
+    window.localStorage.removeItem("plate");
+    window.localStorage.removeItem("color");
+    window.localStorage.removeItem("arrivalTime");
+    window.localStorage.removeItem("rideTime");
+    window.localStorage.removeItem("url");
+    window.localStorage.removeItem("timestamp");
+  };
+
+  //--------------------------------------------
   const [conf, setConf] = useState("no");
   const changeConfig = () => {
     setConf("yes");
@@ -23,21 +55,21 @@ const ConfirmationUber = (props) => {
     const raw = JSON.stringify({
       service: "Uber",
       service_data: {
-        client: "Miguel Perez",
-        client_email: "A01379868@tec.mx",
-        client_cellphone: "+525530323376",
-        rider: "Daniel Barajas",
+        client: client,
+        client_email: email,
+        client_cellphone: cellphone,
+        rider: rider,
         car: {
-          model: "Nissan Versa",
-          color: "Red",
-          plate: "IEEE-10-11",
+          model: model,
+          color: color,
+          plate: plate,
         },
-        client_location: "Mundo E",
-        destination: "Plaza Carso",
-        arrival_time: 10,
-        ride_time: 20,
-        url: "http://uber.example.link.com/ride",
-        timestamp: "2022-05-30 15:16:53.006495",
+        client_location: clientLocation,
+        destination: destination,
+        arrival_time: arrivalTime,
+        ride_time: rideTime,
+        url: url,
+        timestamp: timestamp,
       },
     });
 
@@ -60,11 +92,16 @@ const ConfirmationUber = (props) => {
         Service Confirmation
         {conf === "yes" && (
           <div>
-            <div className="tp-confirmation-text">Informacion Enviada!</div>
+            <div className="tp-confirmation-text">Informacion enviada!</div>
             <div className="tp-confirmation-button-container">
               <button
                 className="tp-confirmation-button"
-                onClick={pruebaBackTPS}
+                onClick={(e) => {
+                  e.preventDefault();
+                  pruebaBackTPS();
+                  restart();
+                  props.onChange();
+                }}
               >
                 confirmado
               </button>
@@ -73,15 +110,38 @@ const ConfirmationUber = (props) => {
         )}
         {conf === "no" && (
           <div>
-            <div className="tp-confirmation-text">INFORMACION UBER</div>
+            <div className="tp-confirmation-text">
+              Client: {client}
+              <br />
+              mail: {email}
+              <br />
+              Cellphone: {cellphone}
+              <br />
+              Client location: {clientLocation}
+              <br />
+              Client destination: {destination}
+              <br />
+              Rider: {rider}
+              <br />
+              Car model: {model}
+              <br />
+              Car plate: {plate}
+              <br />
+              Car color: {color}
+              <br />
+              Arrival time: {arrivalTime}
+              <br />
+              Ride time: {rideTime}
+              <br />
+            </div>
             <div className="tp-confirmation-button-container">
               <button
                 className="tp-confirmation-button"
-                //onClick={props.onChange()}
+                onClick={(e) => {
+                  e.preventDefault();
+                  changeConfig();
+                }}
               >
-                Regresar
-              </button>
-              <button className="tp-confirmation-button" onClick={changeConfig}>
                 Mandar info
               </button>
             </div>

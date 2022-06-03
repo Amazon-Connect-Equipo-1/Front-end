@@ -27,7 +27,6 @@ import AgentMain from "./components/AgentMain/AgentMain";
 import QualityControl from "./components/QualityControl/QualityControl";
 import AgentsAAndQASupplier from "./components/AgentsAAndQASupplier";
 import GlobalSupplier from "./components/GlobalSupplier";
-import { loadUserPreferences } from "./components/UserPreferences";
 import NewPassword from "./components/Login/NewPassword";
 import "amazon-connect-streams";
 import { Navigate, Route, Router, Routes, useLocation } from "react-router-dom";
@@ -37,6 +36,9 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Layout from "./components/Layout";
 import RequireAuthentication from "./components/RequireAuthentication";
+import NewPasswordForm from "./components/Login/NewPasswordForm";
+import AgentRecordings from "./components/AgentRecordings/AgentRecordings";
+import { loadUserPreferences } from "./components/UserPreferences";
 
 function App() {
   // Variable that determines the types of users to protect the routes
@@ -46,9 +48,6 @@ function App() {
     Agent: "Agent",
     Client: "Client",
   };
-
-  // Load user preferences
-  loadUserPreferences();
 
   // Language
   const [locale, setLocale] = useState(i18n.language);
@@ -64,6 +63,13 @@ function App() {
   useEffect(() => {
     AOS.init();
     AOS.refresh();
+
+    if (
+      performance.getEntriesByType("navigation")[0].type &&
+      window.localStorage.getItem("id") !== null
+    ) {
+      loadUserPreferences(window.localStorage.getItem("id"));
+    }
   }, []);
 
   return (
@@ -80,6 +86,7 @@ function App() {
                 {/*Public Routes*/}
                 <Route path="login" element={<Login />} />
                 <Route path="forgot-password" element={<RecoverPassword />} />
+                <Route path="confirm-password" element={<NewPasswordForm />} />
                 <Route path="client" element={<Usuario />} />
                 <Route path="register-user" element={<Register />} />
 
@@ -100,7 +107,8 @@ function App() {
                         to={
                           (getUserType === USER.Admin && "/admin") ||
                           (getUserType === USER.QA && "/qa") ||
-                          (getUserType === USER.Agent && "/agent")
+                          (getUserType === USER.Agent && "/agent") ||
+                          (user === null && "/login")
                         }
                         state={{ from: location }}
                         replace
@@ -159,7 +167,7 @@ function App() {
                         </RecordingsSupplier>
                       }
                     />
-                    <Route path="video" element={<RecordingsVideo />} />
+                    <Route path="video/:id" element={<RecordingsVideo />} />
                   </Route>
                 </Route>
 
@@ -173,11 +181,20 @@ function App() {
                   <Route
                     path="agent-qa"
                     element={
-                      <AgentRecordingsSupplier>
+                      <RecordingsSupplier>
                         <QualityControl />
-                      </AgentRecordingsSupplier>
+                      </RecordingsSupplier>
                     }
-                  />
+                  >
+                    <Route
+                      path="agent-video/:id"
+                      element={
+                        <RecordingsSupplier>
+                          <RecordingsVideo />
+                        </RecordingsSupplier>
+                      }
+                    />
+                  </Route>
                 </Route>
 
                 {/*Catch all*/}

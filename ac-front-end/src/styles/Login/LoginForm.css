@@ -17,7 +17,7 @@ Authors:
   font-size: 2rem;
   font-weight: bold;
   padding: 1rem;
-  background-color: var(--highlight-color);
+  background-color: var(--highlight-color-default);
   color: var(--text-color-dark);
   margin-top: 2rem;
   border: none;
@@ -53,6 +53,35 @@ Authors:
 .lgf-container {
   padding: 3rem;
 }
+.lgf-ver-container {
+  display: flex;
+  padding: 3rem;
+  align-items: center;
+}
+.lgf-ver-in-container {
+  padding: 3rem;
+  gap: 2rem;
+}
+.lgf-ver-in {
+  margin-top: 2rem;
+  width: 20rem;
+  border: none;
+  font-size: 2rem;
+  border-radius: 10px;
+  padding: 1rem;
+}
+.lgf-ver-sub {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 1rem;
+  background-color: var(--highlight-color-default);
+  color: var(--text-color-dark);
+  margin-top: 2rem;
+  width: 20rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
 
 .lgf-form {
   width: 100%;
@@ -80,6 +109,13 @@ Authors:
   text-decoration: none;
 }
 .lgf-register-text {
+  text-align: right;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+  color: inherit;
+  text-decoration: none;
+}
+.lgf-exit-text {
   text-align: right;
   margin-bottom: 0.8rem;
   font-size: 1.2rem;

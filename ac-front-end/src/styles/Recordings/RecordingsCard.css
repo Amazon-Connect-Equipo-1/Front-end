@@ -6,6 +6,9 @@ Authors:
 .link {
   text-decoration: none;
   font-size: inherit;
+  border: none;
+  padding: 0;
+  border-radius: 10px;
 }
 
 .rec-main-container {

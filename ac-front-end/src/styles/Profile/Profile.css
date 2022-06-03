@@ -32,9 +32,17 @@ Authors:
   column-gap: 4rem;
   grid-template-columns: 1fr 1fr;
 }
+
+.prfl-return-link {
+  align-self: flex-start;
+  /* padding: 2rem; */
+  padding-left: 2rem;
+}
+
 .prfl-ic {
   height: 50%;
 }
+
 .prfl-name {
   font-size: 4rem;
   font-weight: bold;
@@ -50,7 +58,8 @@ Authors:
   font-weight: bold;
 }
 
-.prfl-button {
+.prfl-button,
+.prfl-return-btn {
   font-size: 2rem;
   font-weight: bold;
   padding: 1rem;

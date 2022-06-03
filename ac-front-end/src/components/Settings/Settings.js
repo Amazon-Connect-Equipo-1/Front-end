@@ -1,6 +1,7 @@
 /* Settings
 Authors:
-        A01777771 Stephen Strange*/
+        A01378688 Daniel Garcia
+*/
 
 //Import Modules
 import React, { useContext, useEffect, useState } from "react";
@@ -32,12 +33,13 @@ function Settings() {
   const bigTxtSize = "big";
   let txtSize;
 
-  let lang;
+  // Checks if prefs are in localStorage
   if (localStorage) {
     theme = localStorage.getItem("theme");
     txtSize = localStorage.getItem("txtSize");
   }
 
+  //Adds Text Size to body
   if (
     txtSize === smallTxtSize ||
     txtSize === mediumTxtSize ||
@@ -45,11 +47,10 @@ function Settings() {
   ) {
     body.classList.add(txtSize);
   } else {
-    body.classList.add(smallTxtSize);
     body.classList.add(mediumTxtSize);
-    body.classList.add(bigTxtSize);
   }
 
+  //Adds Theme to body
   if (
     theme === lightTheme ||
     theme === darkTheme ||
@@ -62,55 +63,60 @@ function Settings() {
   ) {
     body.classList.add(theme);
   } else {
-    body.classList.add(lightTheme);
-    body.classList.add(darkTheme_Protanopia);
-    body.classList.add(darkTheme_Deuteranopia);
-    body.classList.add(darkTheme_Tritanopia);
-    body.classList.add(darkTheme_Protanomaly);
-    body.classList.add(darkTheme_Deuteranomaly);
-    body.classList.add(darkTheme_Tritanomaly);
+    body.classList.add(darkTheme);
   }
 
-  const switchTxtSize = (s) => {
-    console.log(s);
-    body.classList.replace(txtSize, s);
-    localStorage.setItem("txtSize", s);
-    txtSize = s;
-
-    //peticion
+  // POST preferences
+  function postPreferences() {
     const myHeadersToken = new Headers();
+    myHeadersToken.append("Content-Type", "application/json");
     myHeadersToken.append(
       "Authorization",
       `Bearer ${window.localStorage.getItem("token")}`
     );
 
-    const requestOptionsGET = {
-      method: "GET",
+    const raw = JSON.stringify({
+      user_id: localStorage.getItem("id"),
+      color: localStorage.getItem("theme"),
+      text_size: localStorage.getItem("txtSize"),
+      language: document.getElementById("lang").value,
+    });
+
+    const requestOptions = {
+      method: "POST",
       headers: myHeadersToken,
+      body: raw,
     };
 
     //Save manager info in local storage
-    // fetch(
-    //   `http://35.88.250.238:8080/userConfig/getrUserConfig?id=${window.localStorage.getItem(
-    //     "email"
-    //   )}`,
-    //   requestOptionsGET
-    // )
-    //   .then((response) => response.text())
-    //   .then((result) => {
-    //     const resultJSON = JSON.parse(result);
-    //     console.log(resultJSON);
-    //     window.localStorage.setItem("name", resultJSON.manager_name);
-    //     window.localStorage.setItem("id", resultJSON.manager_id);
-    //   })
-    //   .catch((error) => console.log("error", error));
+    fetch(
+      `http://35.88.250.238:8080/userConfig/updateUserConfig`,
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => {
+        const resultJSON = JSON.parse(result);
+        console.log(resultJSON);
+      })
+      .catch((error) => console.log("error", error));
+  }
+
+  // Switch current text size
+  const switchTxtSize = (s) => {
+    console.log(s);
+    body.classList.replace(txtSize, s);
+    localStorage.setItem("txtSize", s);
+    txtSize = s;
+    postPreferences();
   };
 
+  // Switch current theme
   const switchTheme = (e) => {
     console.log(e);
     body.classList.replace(theme, e);
     localStorage.setItem("theme", e);
     theme = e;
+    postPreferences();
   };
 
   // Language
@@ -124,8 +130,10 @@ function Settings() {
       i18n.changeLanguage(l);
     }
     document.getElementById("nav-title").textContent = t("Settings");
+    postPreferences();
   }
 
+  // Keeps select value intact
   useEffect(() => {
     document.getElementById("theme-select").value = theme;
     document.getElementById("size-select").value = txtSize;
@@ -197,6 +205,7 @@ function Settings() {
               document.getElementById("theme-select").value = "dark";
               i18n.changeLanguage("en");
               document.getElementById("lang").value = "en";
+              postPreferences();
             }}
           >
             Restore to default

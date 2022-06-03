@@ -16,9 +16,6 @@ const AboutCard = (props) => {
       <div className="abc-container">
         <div className="abc-navbar">
           <h2 className="abc-title">{t("about")}</h2>
-          <h2 className="abc-title" onClick={props.onChangeCard}>
-            {t("feedback")}
-          </h2>
         </div>
         <h2>{t("call")}</h2>
         <h3>
