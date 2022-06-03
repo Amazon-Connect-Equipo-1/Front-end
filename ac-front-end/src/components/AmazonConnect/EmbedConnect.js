@@ -102,7 +102,7 @@ const EmbedConnect = (props) => {
       },
       pageOptions: {
         //optional
-        enableAudioDeviceSettings: false, //optional, defaults to 'false'
+        enableAudioDeviceSettings: true, //optional, defaults to 'false'
         enablePhoneTypeSettings: true, //optional, defaults to 'true'
       },
       ccpAckTimeout: 5000, //optional, defaults to 3000 (ms)
