@@ -26,9 +26,11 @@ const AgentListMenu = (props) => {
 
   return (
     <div className="aglm-menu-container">
-      <button onClick={onChangeAddUserMenu} className="aglm-add">
-        {getBtnString()}
-      </button>
+      {window.localStorage.getItem("userType") === "Admin" && (
+        <button onClick={onChangeAddUserMenu} className="aglm-add">
+          {getBtnString()}
+        </button>
+      )}
       <div className="aglm-search-container">
         <input
           className="aglm-search"

@@ -17,16 +17,21 @@ const AllAgentList = (props) => {
   //Logic to generate the rows
   const [arrAgents] = useContext(AgentAAndQAContext);
 
+  //Selected agent for showing in SingleAgent component
+  const [, , changeSelectedAgent] = useContext(AgentAAndQAContext);
+
   return (
     <div className="aal-main-container">
       <p className="aal-title">{t("allAgents")}</p>
       <div>
         {arrAgents.map((agent) => (
           <AgentRow
+            id={agent.id}
             key={uuidv4()}
             agentName={agent.agentName}
             isActiveCalls={props.isActiveCalls}
             isWorking={agent.working}
+            onSelectAgent={changeSelectedAgent}
           />
         ))}
       </div>

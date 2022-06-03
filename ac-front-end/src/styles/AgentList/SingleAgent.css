@@ -65,6 +65,12 @@ Authors:
   padding: 0 2rem 0 2rem;
 }
 
+.sa-feedback {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .sa-input {
   height: 10rem;
   border-radius: 10px;

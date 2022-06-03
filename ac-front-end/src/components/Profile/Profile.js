@@ -8,6 +8,7 @@ import prfl_ic from "../../images/profile_icon.png";
 import { useContext } from "react";
 import { GlobalContext } from "../GlobalSupplier";
 import { AuthenticationContext } from "../Authentication";
+import { Link } from "react-router-dom";
 
 const Profile = (props) => {
   const [, , userInfo] = useContext(GlobalContext);
@@ -33,6 +34,9 @@ const Profile = (props) => {
         data-aos="fade-up"
         data-aos-duration="1000"
       >
+        <Link className="prfl-return-link" to="/">
+          <button className="prfl-return-btn">Return</button>
+        </Link>
         <div className="prfl-container">
           <img src={prfl_ic} alt="profile_ic" className="prfl-ic" />
           <div className="prfl-info-container">

@@ -58,6 +58,11 @@ Authors:
   column-gap: 4rem;
   grid-template-columns: 0.5fr 4fr 0.5fr 0.5fr;
   margin-bottom: 2rem;
+  text-decoration: none;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
 }
 
 .aal-text {
