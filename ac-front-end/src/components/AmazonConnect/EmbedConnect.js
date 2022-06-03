@@ -98,8 +98,7 @@ const EmbedConnect = (props) => {
       softphone: {
         // optional, defaults below apply if not provided
         allowFramedSoftphone: true, // optional, defaults to false
-        disableRingtone: false, // optional, defaults to false
-        ringtoneUrl: "./ringtone.mp3", // optional, defaults to CCP’s default ringtone if a falsy value is set
+        disableRingtone: false // optional, defaults to false
       },
       pageOptions: {
         //optional
