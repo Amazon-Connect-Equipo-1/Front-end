@@ -1,13 +1,15 @@
 /* 
+NewPassword.js
 
-𝐍𝐞𝐰 𝐏𝐚𝐬𝐬𝐰𝐨𝐫𝐝
-𝐀𝐮𝐭𝐨𝐫𝐬:
-        A01749448 Jorge Chávez Badillo
-        A01750185 Amy Murakami Tsutsumi
-        A01749373 Ariadna Jocelyn Guzmán Jiménez
-𝐒𝐭𝐚𝐫𝐭 𝐃𝐚𝐭𝐞: 
-𝐄𝐧𝐝 𝐃𝐚𝐭𝐞:
+Authors:
+- A01749448 Jorge Chávez Badillo
+- A01750185 Amy Murakami Tsutsumi
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
 
+Start Date: 2022-05-26
+End Date: 2022-06-01
+
+Program that displays the change password interface.
 */
 
 //Import Modules

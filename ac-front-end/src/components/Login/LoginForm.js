@@ -1,13 +1,15 @@
 /* 
+LoginForm.js
 
-𝐋𝐨𝐠𝐢𝐧 𝐅𝐨𝐫𝐦
-𝐀𝐮𝐭𝐨𝐫𝐬:
-        A01749448 Jorge Chávez Badillo
-        A01750185 Amy Murakami Tsutsumi
-        A01749373 Ariadna Jocelyn Guzmán Jiménez
-𝐒𝐭𝐚𝐫𝐭 𝐃𝐚𝐭𝐞: 
-𝐄𝐧𝐝 𝐃𝐚𝐭𝐞:
+Authors:
+- A01749448 Jorge Chávez Badillo
+- A01750185 Amy Murakami Tsutsumi
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
 
+Start Date: 2022-05-26
+End Date: 2022-06-01
+
+Program that displays the form to log in.
 */
 
 // Import Modules
@@ -20,6 +22,7 @@ import { AuthenticationContext } from "../Authentication";
 import { loadUserPreferences } from "../UserPreferences";
 import { FiEye } from "react-icons/fi";
 import { FiEyeOff } from "react-icons/fi";
+
 const LoginForm = (props) => {
   // Language
   const { t } = useTranslation();
@@ -87,9 +90,6 @@ const LoginForm = (props) => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    // const myHeadersToken = new Headers();
-    // myHeadersToken.append("Authorization", `Bearer ${token}`);
-
     const raw = JSON.stringify({
       email: email,
       password: pwd,
@@ -101,13 +101,6 @@ const LoginForm = (props) => {
       body: raw,
       redirect: "follow",
     };
-
-    // const requestOptionsGET = {
-    //   method: "GET",
-    //   headers: myHeadersToken,
-    //   body: raw,
-    //   redirect: "follow",
-    // };
 
     fetch("https://backtest.bankonnect.link/auth/signIn", requestOptions)
       .then((response) => response.text())
@@ -143,7 +136,7 @@ const LoginForm = (props) => {
             headers: myHeadersToken,
           };
 
-          //Save manager info in local storage
+          // Save manager info in local storage
           fetch(
             `https://backtest.bankonnect.link/manager/managerProfile?email=${email}`,
             requestOptionsGET
@@ -174,7 +167,7 @@ const LoginForm = (props) => {
             headers: myHeadersToken,
           };
 
-          //Save manager info in local storage
+          // Save manager info in local storage
           fetch(
             `https://backtest.bankonnect.link/manager/managerProfile?email=${email}`,
             requestOptionsGET
@@ -203,7 +196,7 @@ const LoginForm = (props) => {
             headers: myHeadersToken,
           };
 
-          //Save manager info in local storage
+          // Save manager info in local storage
           fetch(
             `https://backtest.bankonnect.link/agent/agentProfile?email=${email}`,
             requestOptionsGET
@@ -258,7 +251,7 @@ const LoginForm = (props) => {
       <div className="lgf-container ">
         <form className="lgf-form" onSubmit={loginSubmitHandler}>
           <p className="lgf-form-title">{t("signIn")}</p>
-          <label className="lgf-label lgf-margin-bottom-sm ">Email:</label>
+          <label className="lgf-label lgf-margin-bottom-sm ">Email</label>
           <input
             id="lgf-email"
             type="email"
