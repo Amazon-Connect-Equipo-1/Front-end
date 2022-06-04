@@ -116,16 +116,24 @@ const EmbedConnect = (props) => {
     connect.contact(function (contact) {
       contact.onConnected(async function (contact) {
         cid = contact.getContactId();
-        //window.alert(cid);
-        startRecording();
-        //await startRecording();
+        window.alert(cid);
+        //startRecording();
         var attributeMap = contact.getAttributes();
-        window.alert('"You were not authenticated"');
+        console.log(attributeMap);
+        window.alert(auth);
         var auth = JSON.stringify(attributeMap["boolAuth"]["value"]);
+        window.alert(auth);
+        console.log(auth);
+        var clientId = JSON.stringify(attributeMap["clientId"]["value"]);
+        console.log(clientId);
         if (auth == '"You were not authenticated"') {
           window.alert("Not Authenticated PIN");
+        } else if (auth == '"Not authenticated. Tried Voice ID."') {
+          window.alert("Attempted Voice ID");
         } else if (auth == '"You were authenticated"') {
-          window.alert("Authenticated PIN");
+          window.alert("Authenticated PIN\n" + clientId);
+        } else if (auth == '"Authenticated by Voice ID"') {
+          window.alert("Authenticated by Voice ID");
         } else {
           window.alert("Not Authenticated");
         }
