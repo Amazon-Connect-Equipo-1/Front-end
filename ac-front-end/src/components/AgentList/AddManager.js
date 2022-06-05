@@ -17,6 +17,9 @@ const AddManager = (props) => {
   const phoneNumberChangeHandler = (event) => {
     window.localStorage.setItem("phoneNumber", event.target.value);
   };
+  const pictureChangeHandler = (event) => {
+    window.localStorage.setItem("picture", event.target.value);
+  };
 
   //-----------------------------------------
   //RESTART DATA--------------------------------
@@ -25,6 +28,7 @@ const AddManager = (props) => {
     window.localStorage.removeItem("password");
     window.localStorage.removeItem("email");
     window.localStorage.removeItem("phoneNumber");
+    window.localStorage.removeItem("picture");
   };
 
   //--------------------------------------------
@@ -46,6 +50,7 @@ const AddManager = (props) => {
     const password = window.localStorage.getItem("password");
     const email = window.localStorage.getItem("email");
     const phoneNumber = window.localStorage.getItem("phoneNumber");
+    const picture = window.localStorage.getItem("picture");
 
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -56,6 +61,7 @@ const AddManager = (props) => {
       email: email,
       role: role,
       phone_number: phoneNumber,
+      profile_picture: picture,
     });
 
     const requestOptions = {
@@ -108,6 +114,14 @@ const AddManager = (props) => {
         type="text"
         placeholder="Phone Number"
         onChange={phoneNumberChangeHandler}
+      />
+      <label className="adu-label">Profile Picture</label>
+      <input
+        className="adu-input"
+        id="profilePicture"
+        type="text"
+        placeholder="Profile Picture"
+        onChange={pictureChangeHandler}
       />
       <div className="adu-role-container">
         <button className={roleA} onClick={changeConfigRoleA}>

@@ -19,6 +19,9 @@ const AddAgent = (props) => {
   const superEmailChangeHandler = (event) => {
     window.localStorage.setItem("superEmail", event.target.value);
   };
+  const pictureChangeHandler = (event) => {
+    window.localStorage.setItem("picture", event.target.value);
+  };
 
   //-----------------------------------------
   //RESTART DATA--------------------------------
@@ -28,15 +31,18 @@ const AddAgent = (props) => {
     window.localStorage.removeItem("email");
     window.localStorage.removeItem("phoneNumber");
     window.localStorage.removeItem("superEmail");
+    window.localStorage.removeItem("picture");
   };
 
   //--------------------------------------------
   const addAgents = (event) => {
+    const token = window.localStorage.getItem("token");
     const name = window.localStorage.getItem("name");
     const password = window.localStorage.getItem("password");
     const email = window.localStorage.getItem("email");
     const phoneNumber = window.localStorage.getItem("phoneNumber");
     const superEmail = window.localStorage.getItem("superEmail");
+    const picture = window.localStorage.getItem("picture");
 
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -47,6 +53,7 @@ const AddAgent = (props) => {
       password: password,
       email: email,
       phone_number: phoneNumber,
+      profile_picture: picture,
     });
 
     const requestOptions = {
@@ -65,6 +72,7 @@ const AddAgent = (props) => {
       })
       .catch((error) => console.log("error", error));
   };
+
   return (
     <div className="adu-container">
       <p className="adu-title">Add Agent</p>
@@ -108,6 +116,14 @@ const AddAgent = (props) => {
         type="text"
         placeholder="Administrator Email"
         onChange={superEmailChangeHandler}
+      />
+      <label className="adu-label">Profile Picture</label>
+      <input
+        className="adu-input"
+        id="profilePicture"
+        type="text"
+        placeholder="Profile Picture"
+        onChange={pictureChangeHandler}
       />
       <button
         className="adu-send-btn"

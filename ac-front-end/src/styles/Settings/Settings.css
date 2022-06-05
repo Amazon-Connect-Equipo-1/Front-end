@@ -52,3 +52,15 @@ Authors:
 .stngs-restore-btn:hover {
   text-decoration: underline var(--text-color);
 }
+.stngs-music-btn {
+  font-size: var(--option-text);
+  color: var(--text-color);
+  background-color: var(--sub-card-background);
+  border: none;
+  cursor: pointer;
+  width: 6rem;
+  height: 6rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
