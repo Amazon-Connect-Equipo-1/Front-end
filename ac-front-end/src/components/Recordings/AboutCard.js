@@ -3,8 +3,8 @@ Authors:
         A01777771 Stephen Strange*/
 
 //Import Modules
-import React  from "react";
-import {Bar} from "react-chartjs-2";
+import React from "react";
+import { Bar } from "react-chartjs-2";
 import Card from "../UI/Card";
 import "../../styles/Recordings/AboutCard.css";
 import { useTranslation } from "react-i18next";
@@ -21,10 +21,10 @@ const AboutCard = (props) => {
         backgroundColor: "#233445",
         borderColor: "#000000",
         borderWidth: 1,
-        data: [0, 44.5, 55.5]
-      }
-    ]
-  }
+        data: [0, 44.5, 55.5],
+      },
+    ],
+  };
 
   return (
     <Card className="abc-main-container">
@@ -105,7 +105,7 @@ const AboutCard = (props) => {
             }}
             />
         </div>
-        </Card> */} 
+        </Card> */}
         {/* <Card className="abc-feedback-btn">Give Feedback</Card> */}
       </div>
     </Card>
