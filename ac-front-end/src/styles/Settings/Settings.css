@@ -64,3 +64,16 @@ Authors:
   justify-content: center;
   border-radius: 10px;
 }
+.stngs-music {
+  font-size: var(--option-text);
+  color: var(--text-color);
+  background-color: var(--sub-card-background);
+  border: none;
+  cursor: pointer;
+  width: 25rem;
+  height: 6rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 1rem;
+}
