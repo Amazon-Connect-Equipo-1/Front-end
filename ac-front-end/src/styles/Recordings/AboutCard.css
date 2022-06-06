@@ -61,6 +61,23 @@ Authors:
   margin-top: 1rem;
   overflow-x: auto;
   white-space: nowrap;
+  padding: 1rem 0 1rem 0;
+}
+
+.abc-tag-section::-webkit-scrollbar {
+  width: 10px;
+}
+
+.abc-tag-section::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.abc-tag-section::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.abc-tag-section::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .abc-tag {

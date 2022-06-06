@@ -34,10 +34,10 @@ const Profile = (props) => {
         data-aos="fade-up"
         data-aos-duration="1000"
       >
-        <Link className="prfl-return-link" to="/">
-          <button className="prfl-return-btn">Return</button>
-        </Link>
         <div className="prfl-container">
+          {/* <Link className="prfl-return-link" to="/">
+            <button className="prfl-return-btn">Return</button>
+          </Link> */}
           <img src={prfl_ic} alt="profile_ic" className="prfl-ic" />
           <div className="prfl-info-container">
             <p className="prfl-name">{window.localStorage.getItem("name")}</p>

@@ -6,16 +6,17 @@ Authors:
 import RecordingsCard from "./RecordingsCard";
 import "../../styles/Recordings/Recordings.css";
 import { RecordingsContext } from "../RecordingsSupplier";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { saveKeys, saveClick } from "../MonitorModule.js";
 import { useTranslation } from "react-i18next";
 import { Outlet, useOutlet } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 const Recordings = (props) => {
   // Language
   const { t } = useTranslation();
   //Logica para generar las cards
-  const [arrRecordings] = useContext(RecordingsContext);
+  const [arrRecordings, getVideos] = useContext(RecordingsContext);
   const INPUT_NAME = "recordings";
 
   //Variable to verify if an outlet exists
@@ -25,6 +26,9 @@ const Recordings = (props) => {
   const switchInputType = (t) => {
     document.getElementById("re-input").type = t;
   };
+
+  console.log("recordings", arrRecordings);
+
   return (
     <>
       {outlet || (
@@ -58,11 +62,14 @@ const Recordings = (props) => {
                 {t("search")}
               </button>
             </div>
-            {arrRecordings.map((record_info) => (
+            {arrRecordings.map((recordInfo) => (
               <RecordingsCard
-                id={record_info.id}
-                key={record_info.id}
-                record={record_info}
+                recordingId={recordInfo.RecordingId}
+                agentId={recordInfo.agentId}
+                key={recordInfo.RecordingId}
+                date={recordInfo.initialTimestamp}
+                agentName={recordInfo.agentName}
+                tags={recordInfo.tags}
                 origin="qaRecordings"
               />
             ))}

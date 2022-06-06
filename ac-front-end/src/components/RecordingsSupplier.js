@@ -3,7 +3,7 @@ Authors:
         A01777771 Stephen Strange*/
 
 //Import Modules
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 //Create recordings context
 export const RecordingsContext = createContext();
@@ -136,7 +136,7 @@ const RecordingsSupplier = ({ children }) => {
   ];
 
   //Recordings Array
-  const [arrRecordings, setArrRecordings] = useState(dummyRec);
+  const [arrRecordings, setArrRecordings] = useState([]);
 
   const [selectedVideoInfo, setSelectedVideoInfo] = useState();
 
@@ -170,23 +170,110 @@ const RecordingsSupplier = ({ children }) => {
       .catch((error) => console.log("error", error));
   };
 
-  const getSelectedVideoInfo = (videoId) => {
+  const obtainSelectedVideoInfo = async (recordingId) => {
+    console.log("async");
+
     //fetch with the id
-    console.log("a", videoId);
-    setSelectedVideoInfo({ mike: "oh si" });
+    const myHeaders = new Headers();
+    // myHeaders.append("Content-Type", "application/json");
+    myHeaders.append(
+      "Authorization",
+      `Bearer ${window.localStorage.getItem("token")}`
+    );
+
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+    };
+
+    await fetch(
+      `http://35.88.250.238:8080/manager/showRecording?recording_id=${recordingId}`,
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => {
+        console.log("Recording info", JSON.parse(result));
+        window.localStorage.setItem("selectedVideoInfo", result);
+        setSelectedVideoInfo(JSON.parse(result));
+      })
+      .catch((error) => console.log("error", error));
   };
 
-  const getMoreVideos = () => {
+  const getLastRecordings = (showOrder = "DESC") => {
     //this is to show the last 50 videos and so on
+    //QA
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append(
+      "Authorization",
+      `Bearer ${window.localStorage.getItem("token")}`
+    );
+
+    const raw = JSON.stringify({ order: showOrder });
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      // redirect: "follow",
+    };
+
+    fetch(
+      "http://35.88.250.238:8080/manager/showLastRecordings",
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => {
+        const recordingsJSON = JSON.parse(result).recordings;
+        // console.log(recordingsJSON);
+        let recordings = recordingsJSON.filter((ele) => {
+          //Dont include null records if they exist
+          if (ele) {
+            return ele;
+          }
+        });
+
+        // for (let index = 0; index < recordings.length; index++) {
+        //   const element = recordings[index];
+        // }
+        recordings = recordings.map((record) => {
+          console.log("last records", record);
+          if (record.recordingData === undefined) {
+            record.recordingData = [];
+          }
+          if (record.tags === undefined) {
+            record.tags = [];
+          }
+          return record;
+        });
+        setArrRecordings([...recordings]);
+      })
+      .catch((error) => console.log("error", error));
   };
+
+  const getVideos = () => {
+    // if (arrRecordings.length !== 0) {
+    //   return arrRecordings;
+    // }
+    getLastRecordings();
+    console.log(arrRecordings);
+    // return {};
+  };
+
+  // getVideos();
+
+  useEffect(() => {
+    getVideos();
+    console.log("use effect");
+  }, []);
 
   return (
     <RecordingsContext.Provider
       value={[
         arrRecordings,
-        getAllRecordings,
+        getLastRecordings,
         selectedVideoInfo,
-        getSelectedVideoInfo,
+        obtainSelectedVideoInfo,
       ]}
     >
       {children}

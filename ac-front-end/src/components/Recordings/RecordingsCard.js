@@ -33,15 +33,18 @@ const RecordingsCard = (props) => {
   // };
 
   const adaptFontSize = () => {
-    if (props.record.agent_name.length > 16) {
+    if (props.agentName.length > 16) {
       return "rec-agent-name-small";
-    } else if (props.record.agent_name.length > 13) {
+    } else if (props.agentName.length > 13) {
       return "rec-agent-name-md";
     }
     return "";
   };
 
   const processTagName = (tagName) => {
+    if (tagName === "3rd-party-services") {
+      return "third-party-services";
+    }
     return tagName.includes("-") ? tagName.replace("-", " ") : tagName;
   };
 
@@ -50,12 +53,19 @@ const RecordingsCard = (props) => {
   const [, , , getSelectedVideoInfo] = useContext(RecordingsContext);
 
   const onSelectCard = () => {
-    getSelectedVideoInfo(props.id);
-    if (props.origin === "qaRecordings") {
-      navigate("video/" + "qa" + props.id);
-    } else {
-      navigate("agent-video/" + "ag" + props.id);
-    }
+    getSelectedVideoInfo(props.recordingId);
+    window.localStorage.setItem("recordingId", props.recordingId);
+    setTimeout(() => {
+      if (props.origin === "qaRecordings") {
+        navigate("video/" + "qa" + props.recordingId);
+      } else {
+        navigate("agent-video/" + "ag" + props.recordingId);
+      }
+    }, 500);
+  };
+
+  const getTags = () => {
+    return props.tags !== undefined ? props.tags : [];
   };
 
   return (
@@ -72,14 +82,14 @@ const RecordingsCard = (props) => {
             </div>
             <div className="rec-video-info" onClick={props.onClickCard}>
               <h2 className={`rec-agent-name ${adaptFontSize()}`}>
-                {props.record.agent_name}
+                {props.agentName}
               </h2>
-              <h3 className="rec-date">{props.record.date}</h3>
+              <h3 className="rec-date">{props.date}</h3>
               {/* <h3 className="rec-score">{getRating(props.record.rating)}</h3> */}
             </div>
           </div>
           <div className="rec-tag-section">
-            {props.record.tags.map((tag) => (
+            {getTags().map((tag) => (
               <Card key={uuidv4()} className={`rec-tag ${tag} `}>
                 {processTagName(t(tag))}
               </Card>

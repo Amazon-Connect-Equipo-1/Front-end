@@ -108,42 +108,86 @@ Authors:
   cursor: pointer;
 }
 
+/* TAGS */
+
+.a-entire-call-negative {
+  background-color: var(--offline-color);
+}
+
+.c-entire-call-negative {
+  background-color: var(--offline-color);
+}
+
+.c-entire-call-positive {
+  background-color: var(--online-color);
+}
+
+.c-negative-to-positive {
+  background-color: var(--online-color);
+}
+
+.c-positive-to-negative {
+  background-color: var(--other-orange-color);
+}
+
+.c-neutral-to-positive {
+  background-color: var(--other-brown-color);
+}
+
+.c-neutral-to-negative {
+  background-color: var(--other-purple-color);
+}
+
 .card-declined {
   background-color: var(--offline-color);
 }
+
 .lost-card {
   background-color: var(--other-dark-blue-color);
 }
+
 .stolen-card {
   background-color: var(--online-color);
 }
+
 .cancel-card {
   background-color: var(--other-orange-color);
 }
+
 .credit-card {
   background-color: var(--other-brown-color);
 }
+
 .savings-account {
   background-color: var(--other-purple-color);
 }
+
 .inssurance {
   background-color: burlywood;
 }
+
 .withdrawal {
   background-color: var(--online-color);
 }
+
 .loans {
   background-color: var(--other-pink-color);
 }
+
 .investments {
   background-color: var(--other-yellow-color);
   color: var(--text-color-light);
 }
+
 .problem-solved {
   background-color: var(--other-blue-color);
 }
+
 .problem-not-solved {
   background-color: coral;
+}
+
+.third-party-services {
 }
 
 /*Media queries for AllAgentList*/
