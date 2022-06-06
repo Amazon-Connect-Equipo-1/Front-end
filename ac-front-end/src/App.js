@@ -67,6 +67,10 @@ function App() {
     AOS.init();
     AOS.refresh();
 
+    if (document.body.classList[0] === "Dark") {
+      document.body.classList.replace("Dark", "dark");
+    }
+
     if (
       performance.getEntriesByType("navigation")[0].type &&
       window.localStorage.getItem("id") !== null
