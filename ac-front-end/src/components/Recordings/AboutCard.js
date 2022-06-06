@@ -82,34 +82,30 @@ const AboutCard = (props) => {
         <h3 className="margin-top-md">
           {t("agent")} <span>{videoInfo.agentName}</span>
         </h3>
-        {recordingDataExists && (
-          <div>
-            <h2>{t("analysis")}</h2>
-            <h3>
-              {t("agentInterruptions")}{" "}
-              <span>{videoInfo.recordingData.AgentInterruptions}</span>
-            </h3>
-            <h3>
-              {t("userInterruptions")}{" "}
-              <span>{videoInfo.recordingData.CustomerInterruptions}</span>
-            </h3>
-            <h3>
-              {t("agentSentiment")}{" "}
-              <span>{videoInfo.recordingData.OverallAgentSentiment}</span>
-            </h3>
-            <h3>
-              {t("userSentiment")}{" "}
-              <span>{videoInfo.recordingData.OverallCustomerSentiment}</span>
-            </h3>
-            <div className="abc-tag-section">
-              {getTags().map((tag) => (
-                <Card key={uuidv4()} className={`rec-tag ${tag} `}>
-                  {processTagName(t(tag))}
-                </Card>
-              ))}
-            </div>
-          </div>
-        )}
+        <h2>{t("analysis")}</h2>
+        <h3>
+          {t("agentInterruptions")}{" "}
+          <span>{videoInfo.recordingData.AgentInterruptions}</span>
+        </h3>
+        <h3>
+          {t("userInterruptions")}{" "}
+          <span>{videoInfo.recordingData.CustomerInterruptions}</span>
+        </h3>
+        <h3>
+          {t("agentSentiment")}{" "}
+          <span>{videoInfo.recordingData.OverallAgentSentiment}</span>
+        </h3>
+        <h3>
+          {t("userSentiment")}{" "}
+          <span>{videoInfo.recordingData.OverallCustomerSentiment}</span>
+        </h3>
+        <div className="abc-tag-section">
+          {getTags().map((tag) => (
+            <Card key={uuidv4()} className={`rec-tag ${tag} `}>
+              {processTagName(t(tag))}
+            </Card>
+          ))}
+        </div>
       </div>
     </Card>
   );

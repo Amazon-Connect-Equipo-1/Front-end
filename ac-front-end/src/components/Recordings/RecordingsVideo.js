@@ -77,7 +77,14 @@ const RecordingsVideo = (props) => {
           />
         </div>
         <AboutCard onChangeCard={changeCardHandler} />
-        <RecordingsChart />
+        <RecordingsChart
+          sentimentByQuarter={
+            videoInfo.recordingData.GraphCustomerSentimentByQuarter
+          }
+          sentimentOverall={
+            videoInfo.recordingData.GraphCustomerSentimentOverall
+          }
+        />
       </div>
     </Card>
   );

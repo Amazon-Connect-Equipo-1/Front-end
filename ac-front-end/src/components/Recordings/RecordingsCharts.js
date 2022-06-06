@@ -9,8 +9,7 @@ import "../../styles/Recordings/AboutCard.css";
 import { useTranslation } from "react-i18next";
 import React from "react";
 import { Bar, Line } from "react-chartjs-2";
-import Chart from 'chart.js/auto';
-
+import Chart from "chart.js/auto";
 
 const RecordingsChart = (props) => {
   // Language
@@ -19,20 +18,20 @@ const RecordingsChart = (props) => {
   //Dummy sentiment graph
   Chart.defaults.color = "#FFFFFF";
   const stateBar = {
-    labels: ["Negative", "Neutral", "Positive"],
+    labels: Object.keys(props.sentimentOverall),
     datasets: [
       {
         label: "Sentiment Overall",
         backgroundColor: "#FFFFFF",
         borderColor: "#000000",
         borderWidth: 1,
-        data: [0, 44.5, 55.5],
+        data: props.sentimentOverall,
       },
     ],
   };
 
   const stateLine = {
-    labels: [0,  1.2, 2.2, 3.2],
+    labels: [0, 1, 2, 3],
     datasets: [
       {
         label: "Sentiment by Quarter",
@@ -41,7 +40,7 @@ const RecordingsChart = (props) => {
         backgroundColor: "#FFFFFF",
         borderColor: "#FFFFFF",
         borderWidth: 1,
-        data: [0, 1.5, 3],
+        data: props.sentimentByQuarter,
       },
     ],
   };
