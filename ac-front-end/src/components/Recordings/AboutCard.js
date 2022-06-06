@@ -13,19 +13,6 @@ const AboutCard = (props) => {
   // Language
   const { t } = useTranslation();
 
-  //Dummy sentiment graph
-  const state = {
-    labels: ["Negative", "Neutral", "Positive"],
-    datasets: [
-      {
-        backgroundColor: "#233445",
-        borderColor: "#000000",
-        borderWidth: 1,
-        data: [0, 44.5, 55.5],
-      },
-    ],
-  };
-
   return (
     <Card className="abc-main-container">
       <div className="abc-container">
@@ -87,25 +74,7 @@ const AboutCard = (props) => {
           <Card className="abc-tag">{t("theft")}</Card>
           <Card className="abc-tag">Wodddrk</Card>
         </div>
-        {/*
-        <Card>
-        <div>
-          <Bar 
-            data={state}
-            options={{
-              title:{
-                display: true,
-                text: "Sentiments analysis",
-                fontSize: 20
-              },
-              legend: {
-                display: true,
-                position: "right"
-              }
-            }}
-            />
-        </div>
-        </Card> */}
+        
         {/* <Card className="abc-feedback-btn">Give Feedback</Card> */}
       </div>
     </Card>
