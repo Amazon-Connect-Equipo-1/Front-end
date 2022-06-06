@@ -38,7 +38,14 @@ const Profile = (props) => {
           {/* <Link className="prfl-return-link" to="/">
             <button className="prfl-return-btn">Return</button>
           </Link> */}
-          <img src={prfl_ic} alt="profile_ic" className="prfl-ic" />
+          {/* Link that we send https://drive.google.com/file/d/[image_id]/view?usp=sharing */}
+          {/* Link that we need to put in src
+          https://drive.google.com/uc?export=view&id=[image_id] */}
+          <img
+            src="https://drive.google.com/uc?export=view&id=1lAwnM3cqz3aJ_NgYrUnYtaRK5D5ML9mC"
+            alt="profile_ic"
+            className="prfl-ic"
+          />
           <div className="prfl-info-container">
             <p className="prfl-name">{window.localStorage.getItem("name")}</p>
             {/* <br />
