@@ -4,8 +4,6 @@
   "__Start Date__": "2022-05-12",
   "__Ending Date__": "2022-06-",
 
-
-
   "__settingsInterface__": "----------Settings Interface----------",
   "textSize": "Text size",
   "theme": "Theme",
@@ -76,7 +74,7 @@
   "startCall": "Start of call:",
   "endCall": "End of call:",
   "analysis": "Analysis",
-  "agentInterrputions": "Agent interruptions:",
+  "agentInterruptions": "Agent interruptions:",
   "userInterruptions": "User interruptions:",
   "agentSentiment": "Agent's general sentiment:",
   "userSentiment": "User's general sentiment:",
@@ -165,5 +163,4 @@
   "mixed": "Mixed",
   "neutral": "Neutral",
   "negative": "Negative"
-
 }

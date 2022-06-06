@@ -69,34 +69,6 @@ const AgentFeedbackCard = (props) => {
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
   };
-  const giveFeedback = () => {
-    const myHeaders = new Headers();
-    const token = window.localStorage.getItem("token");
-    myHeaders.append("Authorization", `Bearer ${token}`);
-    myHeaders.append("Content-Type", "application/json");
-
-    const raw = JSON.stringify({
-      super_id: "",
-      agent_email: "",
-      comment: "",
-      rating: "",
-    });
-
-    const requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      body: raw,
-      redirect: "follow",
-    };
-
-    fetch(
-      "https://backtest.bankonnect.link/manager/postComment",
-      requestOptions
-    )
-      .then((response) => response.text())
-      .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
-  };
 
   const onChangeComment = (event) => {
     setComment(event.target.value);

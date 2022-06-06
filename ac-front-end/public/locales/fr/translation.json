@@ -4,8 +4,6 @@
   "__Start Date__": "2022-05-23",
   "__Ending Date__": "2022-06-",
 
-
-
   "__settingsInterface__": "----------Settings Interface----------",
   "textSize": "Taille du texte",
   "theme": "Sujet",
@@ -76,7 +74,7 @@
   "startCall": "Début de l'appel:",
   "endCall": "Fin de l'appel:",
   "analysis": "Analyse",
-  "agentInterrputions": "Interruptions de l'agent:",
+  "agentInterruotions": "Interruptions de l'agent:",
   "userInterruptions": "Interruptions de l'utilisateur:",
   "agentSentiment": "Sentiment général de l'agent:",
   "userSentiment": "Sentiment général de l'utilisateur:",

@@ -6,7 +6,8 @@ Authors:
 import "../../styles/AgentList/AgentListMenu.css";
 import { saveKeys, saveClick } from "../MonitorModule.js";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AgentAAndQAContext } from "../AgentsAAndQASupplier";
 
 const AgentListMenu = (props) => {
   const INPUT_NAME = "agent";
@@ -14,6 +15,8 @@ const AgentListMenu = (props) => {
   const { t } = useTranslation();
 
   const [addUserMenu, setAddUserMenu] = useState(false);
+  const [comment, setComment] = useState("");
+  // const [, , , sendFeedback] = useContext(AgentAAndQAContext);
 
   const onChangeAddUserMenu = () => {
     addUserMenu ? setAddUserMenu(false) : setAddUserMenu(true);
@@ -39,6 +42,7 @@ const AgentListMenu = (props) => {
           placeholder={t("placeholder")}
           onClick={() => saveClick(`${INPUT_NAME} input`)}
           onKeyDown={saveKeys}
+          value={comment}
         />
         <button href="/" className="aglm-search-btn">
           {t("search")}
