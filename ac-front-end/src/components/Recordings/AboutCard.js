@@ -3,6 +3,8 @@ Authors:
         A01777771 Stephen Strange*/
 
 //Import Modules
+import React from "react";
+import { Bar } from "react-chartjs-2";
 import Card from "../UI/Card";
 import "../../styles/Recordings/AboutCard.css";
 import { useTranslation } from "react-i18next";
@@ -80,7 +82,6 @@ const AboutCard = (props) => {
         <h3 className="margin-top-md">
           {t("agent")} <span>{videoInfo.agentName}</span>
         </h3>
-
         {recordingDataExists && (
           <div>
             <h2>{t("analysis")}</h2>

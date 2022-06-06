@@ -31,3 +31,39 @@
   width: 90%;
   height: 55rem;
 }
+
+@media (max-height: 752px) {
+  .sdsb-main-container-dashboard {
+    height: 60rem;
+  }
+
+  .sdsb-quicksight-dashboard {
+    height: 55rem;
+  }
+
+  .sdsb-main-container-statistics {
+    height: 60rem;
+  }
+
+  .sdsb-quicksight-statistics {
+    height: 55rem;
+  }
+}
+
+@media (max-height: 680px) {
+  .sdsb-main-container-dashboard {
+    height: 45rem;
+  }
+
+  .sdsb-quicksight-dashboard {
+    height: 40rem;
+  }
+
+  .sdsb-main-container-statistics {
+    height: 45rem;
+  }
+
+  .sdsb-quicksight-statistics {
+    height: 40rem;
+  }
+}

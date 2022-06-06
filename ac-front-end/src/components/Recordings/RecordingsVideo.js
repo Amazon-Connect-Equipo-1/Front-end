@@ -13,6 +13,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5";
 import { RecordingsContext } from "../RecordingsSupplier";
+import RecordingsChart from "./RecordingsCharts";
 
 const RecordingsVideo = (props) => {
   // const card = 2; //1: about, 2: QA Feedback
@@ -76,6 +77,7 @@ const RecordingsVideo = (props) => {
           />
         </div>
         <AboutCard onChangeCard={changeCardHandler} />
+        <RecordingsChart />
       </div>
     </Card>
   );

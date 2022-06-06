@@ -79,3 +79,15 @@ Authors:
   opacity: 0.9;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+
+@media (max-height: 50em) {
+  .prfl-main-container {
+    height: 80vh;
+  }
+}
+
+@media (max-height: 45em) {
+  .prfl-main-container {
+    height: max-content;
+  }
+}

@@ -30,3 +30,9 @@ Authors:
     height: 80vh;
   }
 }
+
+@media (max-height: 45em) {
+  .agM-main-container {
+    height: max-content;
+  }
+}

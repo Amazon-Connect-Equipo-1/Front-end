@@ -35,12 +35,16 @@ export const loadUserPreferences = (id) => {
       theme = localStorage.getItem("theme");
       body.classList.replace(theme, resultJSON.color);
       localStorage.setItem("theme", resultJSON.color);
-
       txtSize = localStorage.getItem("txtSize");
       body.classList.replace(txtSize, resultJSON.textSize);
       localStorage.setItem("txtSize", resultJSON.textSize);
 
       i18n.changeLanguage(resultJSON.language);
+
+      if (resultJSON.code === "InvalidTokenException") {
+        body.classList.replace("undefined", "dark");
+        body.classList.add("medium");
+      }
     })
     .catch((error) => console.log("error", error));
 
