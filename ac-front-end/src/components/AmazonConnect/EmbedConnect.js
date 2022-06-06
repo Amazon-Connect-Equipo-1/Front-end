@@ -113,31 +113,31 @@ const EmbedConnect = (props) => {
 
     // Code to be executed once a call starts
     // eslint-disable-next-line no-undef
-    connect.contact(function(contact){
-      contact.onConnected(async function(contact){
-        cid = contact.getContactId()
+    connect.contact(function (contact) {
+      contact.onConnected(async function (contact) {
+        cid = contact.getContactId();
         //window.alert(cid);
         startRecording();
         var attributeMap = contact.getAttributes();
-        console.log(attributeMap)
+        console.log(attributeMap);
         //window.alert(auth)
         var auth = JSON.stringify(attributeMap["boolAuth"]["value"]);
         //window.alert(auth)
-        console.log(auth)
+        console.log(auth);
         var clientId = JSON.stringify(attributeMap["clientId"]["value"]);
-        console.log(clientId)
-        if(auth == '"You were not authenticated"'){
-          window.alert("Not Authenticated PIN")
-        }else if(auth == '"Not authenticated. Tried Voice ID."'){
-          window.alert("Attempted Voice ID")
-        }else if(auth == '"You were authenticated"'){
-          window.alert("Authenticated PIN\n" + clientId)
-        }else if(auth == '"Authenticated by Voice ID"'){
-          window.alert("Authenticated by Voice ID")
-        }else{
-          window.alert("Not Authenticated")
+        console.log(clientId);
+        if (auth == '"You were not authenticated"') {
+          window.alert("Not Authenticated PIN");
+        } else if (auth == '"Not authenticated. Tried Voice ID."') {
+          window.alert("Attempted Voice ID");
+        } else if (auth == '"You were authenticated"') {
+          window.alert("Authenticated PIN\n" + clientId);
+        } else if (auth == '"Authenticated by Voice ID"') {
+          window.alert("Authenticated by Voice ID");
+        } else {
+          window.alert("Not Authenticated");
         }
-        console.log("Estado de la variable Auth: " + auth)
+        console.log("Estado de la variable Auth: " + auth);
       });
     });
 
@@ -167,7 +167,7 @@ const EmbedConnect = (props) => {
     });
   }, []);
 
-  return <div id="ccp" style={{ width: "400px", height: "500px" }}></div>;
+  return <div id="ccp" style={{ width: "400px", height: "450px" }}></div>;
 };
 
 export default EmbedConnect;

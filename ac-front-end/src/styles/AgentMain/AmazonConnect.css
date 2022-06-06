@@ -32,6 +32,16 @@ Authors:
   align-items: center;
 }
 
+.ac-client-var {
+  font-size: var(--sub-option-text);
+  font-weight: 500;
+  margin: 2rem;
+  text-align: center;
+}
+.ac-client-var span {
+  font-weight: 800;
+  color: var(--highlight-color);
+}
 /*****************************/
 /* BELOW 50*16 = 800px (Smaller desktops) */
 /*****************************/
