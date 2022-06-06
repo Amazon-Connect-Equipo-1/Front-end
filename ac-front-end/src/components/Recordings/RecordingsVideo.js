@@ -71,7 +71,6 @@ const RecordingsVideo = (props) => {
         <AboutCard onChangeCard={changeCardHandler} />
         <RecordingsChart />
       </div>
-      
     </Card>
   );
 };
