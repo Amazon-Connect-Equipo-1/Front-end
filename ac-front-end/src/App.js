@@ -77,6 +77,7 @@ function App() {
     ) {
       loadUserPreferences(window.localStorage.getItem("id"));
     }
+    //const music = window.localStorage.setItem("music", "pause");
   }, []);
 
   return (

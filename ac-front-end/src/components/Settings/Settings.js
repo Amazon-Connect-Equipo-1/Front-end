@@ -21,9 +21,11 @@ function Settings() {
   const [plays, setPlays] = useState(music);
   const play = () => {
     setPlays("play");
+    window.localStorage.setItem("music", "play");
   };
   const pause = () => {
     setPlays("pause");
+    window.localStorage.setItem("music", "pause");
   };
   const INPUT_NAME = "settings";
 
@@ -149,7 +151,6 @@ function Settings() {
     document.getElementById("theme-select").value = theme;
     document.getElementById("size-select").value = txtSize;
     document.getElementById("nav-title").textContent = t("Settings");
-    window.localStorage.setItem("music", plays); //----------------------------
   });
 
   return (
