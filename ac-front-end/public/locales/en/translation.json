@@ -155,6 +155,15 @@
   "validateEmail": "Enter a valid email",
   "invalidToken": "Invalid token",
   "changePasswordSuccessful": "Password changed",
-  "differentPasswords": "Passwords do not match"
+  "differentPasswords": "Passwords do not match",
+
+  "__RecordingsCharts__": "-------------Labels in charts--------------",
+  "titleSentiment": "Sentiment analysis",
+  "labelOverall": "Sentiment overall",
+  "labelQuarter": "Sentiment by quarter",
+  "positive": "Positive",
+  "mixed": "Mixed",
+  "neutral": "Neutral",
+  "negative": "Negative"
 
 }

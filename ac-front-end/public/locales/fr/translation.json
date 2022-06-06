@@ -155,5 +155,14 @@
   "validateEmail": "Entrez un email valide",
   "invalidToken": "Jeton invalide",
   "changePasswordSuccessful": "Mot de passe modifié",
-  "differentPasswords": "La différence ne coïncide pas"
+  "differentPasswords": "La différence ne coïncide pas",
+
+  "__RecordingsCharts__": "-------------Labels in charts--------------",
+  "titleSentiment": "Analyse des sentiments",
+  "labelOverall": "Sentiment global",
+  "labelQuarter": "Sentiment par trimestre",
+  "positive": "Positif",
+  "mixed": "Mixte",
+  "neutral": "Neutre",
+  "negative": "Négatif"
 }

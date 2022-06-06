@@ -155,6 +155,15 @@
   "validateEmail": "Ingresa un email válido",
   "invalidToken": "Token inválido",
   "changePasswordSuccessful": "Se cambió la contraseña",
-  "differentPasswords": "Las contraseñas no coinciden"
+  "differentPasswords": "Las contraseñas no coinciden",
+
+  "__RecordingsCharts__": "-------------Labels in charts--------------",
+  "titleSentiment": "Análisis de opinión",
+  "labelOverall": "Opinión general",
+  "labelQuarter": "Opinión por trimestre",
+  "positive": "Positivo",
+  "mixed": "Mixto",
+  "neutral": "Neutro",
+  "negative": "Negativo"
 
 }

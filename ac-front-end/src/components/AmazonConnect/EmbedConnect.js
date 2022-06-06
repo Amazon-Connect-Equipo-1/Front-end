@@ -126,13 +126,13 @@ const EmbedConnect = (props) => {
         console.log(auth);
         var clientId = JSON.stringify(attributeMap["clientId"]["value"]);
         console.log(clientId);
-        if (auth == '"You were not authenticated"') {
+        if (auth === '"You were not authenticated"') {
           window.alert("Not Authenticated PIN");
-        } else if (auth == '"Not authenticated. Tried Voice ID."') {
+        } else if (auth === '"Not authenticated. Tried Voice ID."') {
           window.alert("Attempted Voice ID");
-        } else if (auth == '"You were authenticated"') {
+        } else if (auth === '"You were authenticated"') {
           window.alert("Authenticated PIN\n" + clientId);
-        } else if (auth == '"Authenticated by Voice ID"') {
+        } else if (auth === '"Authenticated by Voice ID"') {
           window.alert("Authenticated by Voice ID");
         } else {
           window.alert("Not Authenticated");

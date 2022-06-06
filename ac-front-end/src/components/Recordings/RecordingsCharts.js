@@ -17,15 +17,36 @@ const RecordingsChart = (props) => {
 
   //Dummy sentiment graph
   Chart.defaults.color = "#FFFFFF";
+  const sentimentOverall = Object.keys(props.sentimentOverall);
+  const dataSentimentOverall = [];
+  for (var i = 0; i < sentimentOverall.length; i++){
+    if (sentimentOverall[i] === "POSITIVE"){
+      sentimentOverall[i] = t("positive");
+      dataSentimentOverall.push(props.sentimentOverall.POSITIVE);
+    }
+    else if (sentimentOverall[i] === "MIXED"){
+      sentimentOverall[i] = t("mixed");
+      dataSentimentOverall.push(props.sentimentOverall.MIXED);
+    }
+    else if (sentimentOverall[i] === "NEUTRAL"){
+      sentimentOverall[i] = t("neutral");
+      dataSentimentOverall.push(props.sentimentOverall.NEUTRAL);
+    }
+    else if (sentimentOverall[i] === "NEGATIVE"){
+      sentimentOverall[i] = t("negative");
+      dataSentimentOverall.push(props.sentimentOverall.NEGATIVE);
+    }
+  }
+
   const stateBar = {
-    labels: Object.keys(props.sentimentOverall),
+    labels: sentimentOverall,
     datasets: [
       {
-        label: "Sentiment Overall",
+        label: t("labelOverall"),
         backgroundColor: "#FFFFFF",
         borderColor: "#000000",
         borderWidth: 1,
-        data: props.sentimentOverall,
+        data: dataSentimentOverall,
       },
     ],
   };
@@ -34,7 +55,7 @@ const RecordingsChart = (props) => {
     labels: [0, 1, 2, 3],
     datasets: [
       {
-        label: "Sentiment by Quarter",
+        label: t("labelQuarter"),
         fill: false,
         lineTension: 0.5,
         backgroundColor: "#FFFFFF",
@@ -49,7 +70,7 @@ const RecordingsChart = (props) => {
     <Card className="abc-main-container">
       <div className="abc-container">
         <div className="abc-navbar">
-          <h2 className="abc-title">Sentiment analysis</h2>
+          <h2 className="abc-title">{t("titleSentiment")}</h2>
         </div>
         <div>
           <Bar
