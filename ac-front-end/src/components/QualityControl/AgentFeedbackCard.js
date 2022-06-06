@@ -12,6 +12,7 @@ const AgentFeedbackCard = (props) => {
   // Language
   const { t } = useTranslation();
   const [comment, setComment] = useState("");
+  const commentId = "";
 
   useEffect(() => {
     getFeedback();
@@ -37,7 +38,34 @@ const AgentFeedbackCard = (props) => {
         const resultJSON = JSON.parse(result);
         console.log(resultJSON.comments[0].comment);
         setComment(resultJSON.comments[0].comment);
+        commentId = resultJSON.comments[0].comment_id;
       })
+      .catch((error) => console.log("error", error));
+  };
+
+  const acceptFeedback = () => {
+    const myHeaders = new Headers();
+    const token = window.localStorage.getItem("token");
+    myHeaders.append("Authorization", `Bearer ${token}`);
+    myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
+      comment_id: commentId,
+    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://backtest.bankonnect.link/agent/acceptFeedback",
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
   };
 
@@ -56,7 +84,9 @@ const AgentFeedbackCard = (props) => {
         /> */}
         {comment.length !== 0 && <p>You did it good!</p>}
         {comment.length !== 0 && (
-          <Card className="afc-send-btn">{t("acceptFeedback")}</Card>
+          <Card className="afc-send-btn" onSubmit={acceptFeedback}>
+            {t("acceptFeedback")}
+          </Card>
         )}
         {comment.length === 0 && <p>No feedback available</p>}
       </div>
