@@ -5,15 +5,28 @@ Authors:
 
 //Import Modules
 import React, { useContext, useEffect, useState } from "react";
+
+import { MdOutlineMusicNote, MdOutlineMusicOff } from "react-icons/md";
 import "../../styles/Settings/Settings.css";
 import Card from "../UI/Card";
 import { useTranslation } from "react-i18next";
 import LocaleContext from "../../LocaleContext";
 import i18n from "../../i18n";
 import { saveKeys, saveClick } from "../MonitorModule.js";
+import musica from "../../music/mii.mp3";
+const music = window.localStorage.getItem("music"); //---------------------------
 
 //Creates functions Settings and its constants
 function Settings() {
+  const [plays, setPlays] = useState(music);
+  const play = () => {
+    setPlays("play");
+    window.localStorage.setItem("music", "play");
+  };
+  const pause = () => {
+    setPlays("pause");
+    window.localStorage.setItem("music", "pause");
+  };
   const INPUT_NAME = "settings";
 
   const body = document.body;
@@ -210,6 +223,25 @@ function Settings() {
           >
             Restore to default
           </button>
+          <div className="stngs-restore-container">
+            {plays === "play" && (
+              <div>
+                <button className="stngs-music-btn" onClick={pause}>
+                  <MdOutlineMusicNote />
+                </button>
+              </div>
+            )}
+            {plays === "pause" && (
+              <button className="stngs-music-btn" onClick={play}>
+                <MdOutlineMusicOff />
+              </button>
+            )}
+            {plays === "" && (
+              <button className="stngs-music-btn" onClick={play}>
+                <MdOutlineMusicOff />
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </Card>

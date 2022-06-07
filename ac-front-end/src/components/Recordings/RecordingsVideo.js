@@ -13,13 +13,31 @@ import { useContext, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5";
 import { RecordingsContext } from "../RecordingsSupplier";
+import RecordingsChart from "./RecordingsCharts";
 
 const RecordingsVideo = (props) => {
   // const card = 2; //1: about, 2: QA Feedback
   const [cardName, setCardName] = useState("About");
   const { id } = useParams();
-  const [, , selectedVideoInfo] = useContext(RecordingsContext);
+  const [, , selectedVideoInfo, getSelectedVideoInfo] =
+    useContext(RecordingsContext);
   const navigate = useNavigate();
+
+  //Variable to reduce the length of object manipulation
+  let videoInfo = {};
+  if (selectedVideoInfo !== undefined) {
+    videoInfo = selectedVideoInfo.recording;
+  } else {
+    //If it does not exists it needs to fetch again
+    // console.log(id.slice(2));
+    // getSelectedVideoInfo(id.slice(2));
+    // setTimeout(() => {
+    //   videoInfo = selectedVideoInfo.recording;
+    // }, 500);
+    videoInfo = window.localStorage.getItem("selectedVideoInfo");
+    videoInfo = JSON.parse(videoInfo).recording;
+    console.log(videoInfo);
+  }
 
   const changeCardHandler = () => {
     if (cardName === "About") {
@@ -30,7 +48,7 @@ const RecordingsVideo = (props) => {
   };
 
   const onChangeReturnBtn = () => {
-    console.log(id);
+    console.log("sliceee id", id.slice(2));
     console.log(id.slice(0, 2));
     if (id.slice(0, 2) === "qa") {
       navigate("/recordings");
@@ -39,7 +57,7 @@ const RecordingsVideo = (props) => {
     }
   };
 
-  console.log(selectedVideoInfo);
+  console.log("linkk", videoInfo.videoRecording);
   return (
     <Card className="rev-main-container">
       <div
@@ -54,15 +72,19 @@ const RecordingsVideo = (props) => {
           </button>
           <iframe
             className="rev-video"
-            src="https://www.youtube.com/embed/0Kvw2BPKjz0"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            src={videoInfo.processedRecording} //proccessed recording no jala
             allowFullScreen
           />
         </div>
-
         <AboutCard onChangeCard={changeCardHandler} />
+        <RecordingsChart
+          sentimentByQuarter={
+            videoInfo.recordingData.GraphCustomerSentimentByQuarter
+          }
+          sentimentOverall={
+            videoInfo.recordingData.GraphCustomerSentimentOverall
+          }
+        />
       </div>
     </Card>
   );

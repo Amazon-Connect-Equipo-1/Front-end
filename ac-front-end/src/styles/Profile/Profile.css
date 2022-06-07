@@ -26,11 +26,12 @@ Authors:
   width: -webkit-fill-available;
 }
 .prfl-container {
-  display: grid;
+  display: flex;
   justify-content: center;
   align-items: center;
-  column-gap: 4rem;
-  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  /* column-gap: 4rem;
+  grid-template-columns: 1fr 1fr; */
 }
 
 .prfl-return-link {
@@ -40,7 +41,9 @@ Authors:
 }
 
 .prfl-ic {
-  height: 50%;
+  height: 30rem;
+  width: 30rem;
+  border-radius: 50%;
 }
 
 .prfl-name {
@@ -77,4 +80,16 @@ Authors:
   transition: 0.3s ease-out;
   opacity: 0.9;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-height: 50em) {
+  .prfl-main-container {
+    height: 80vh;
+  }
+}
+
+@media (max-height: 45em) {
+  .prfl-main-container {
+    height: max-content;
+  }
 }

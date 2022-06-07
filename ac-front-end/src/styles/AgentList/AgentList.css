@@ -26,7 +26,7 @@ Authors:
 /*****************************/
 @media (max-height: 47em) {
   .agl-main-container {
-    height: 84vh;
+    height: max-content;
   }
 }
 
@@ -35,7 +35,7 @@ Authors:
 /*****************************/
 @media (max-height: 44em) {
   .agl-main-container {
-    height: 83vh;
+    height: max-content;
   }
 }
 
@@ -44,6 +44,6 @@ Authors:
 /*****************************/
 @media (max-height: 42.5em) {
   .agl-main-container {
-    height: 81vh;
+    height: max-content;
   }
 }

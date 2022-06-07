@@ -12,10 +12,12 @@ const AgentFeedbackCard = (props) => {
   // Language
   const { t } = useTranslation();
   const [comment, setComment] = useState("");
+  let commentId = "";
 
   useEffect(() => {
     getFeedback();
   }, []);
+
   const getFeedback = () => {
     const myHeaders = new Headers();
     const email = window.localStorage.getItem("email");
@@ -37,7 +39,34 @@ const AgentFeedbackCard = (props) => {
         const resultJSON = JSON.parse(result);
         console.log(resultJSON.comments[0].comment);
         setComment(resultJSON.comments[0].comment);
+        commentId = resultJSON.comments[0].comment_id;
       })
+      .catch((error) => console.log("error", error));
+  };
+
+  const acceptFeedback = () => {
+    const myHeaders = new Headers();
+    const token = window.localStorage.getItem("token");
+    myHeaders.append("Authorization", `Bearer ${token}`);
+    myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
+      comment_id: commentId,
+    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://backtest.bankonnect.link/agent/acceptFeedback",
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
   };
 
@@ -49,14 +78,11 @@ const AgentFeedbackCard = (props) => {
     <aside className={`afc-main-container ${props.className}`}>
       <div className="afc-container">
         <h2 className="afc-title">{t("qaFeedback")}</h2>
-        {/* <textarea
-          className="afc-feedback"
-          onChange={onChangeComment}
-          value={comment}
-        /> */}
-        {comment.length !== 0 && <p>You did it good!</p>}
+        {comment.length !== 0 && <p className="afc-comment">{comment}</p>}
         {comment.length !== 0 && (
-          <Card className="afc-send-btn">{t("acceptFeedback")}</Card>
+          <button className="afc-send-btn" onClick={acceptFeedback}>
+            {t("acceptFeedback")}
+          </button>
         )}
         {comment.length === 0 && <p>No feedback available</p>}
       </div>

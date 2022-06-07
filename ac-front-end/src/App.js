@@ -39,8 +39,10 @@ import RequireAuthentication from "./components/RequireAuthentication";
 import NewPasswordForm from "./components/Login/NewPasswordForm";
 import AgentRecordings from "./components/AgentRecordings/AgentRecordings";
 import { loadUserPreferences } from "./components/UserPreferences";
+import musica from "./music/mii.mp3";
 
 function App() {
+  const music = window.localStorage.getItem("music");
   // Variable that determines the types of users to protect the routes
   const USER = {
     Admin: "Admin",
@@ -58,11 +60,16 @@ function App() {
   //console.log(user);
   //console.log(userType);
   const getUserType = window.localStorage.getItem("userType");
+
   const location = useLocation();
 
   useEffect(() => {
     AOS.init();
     AOS.refresh();
+
+    if (document.body.classList[0] === "Dark") {
+      document.body.classList.replace("Dark", "dark");
+    }
 
     if (
       performance.getEntriesByType("navigation")[0].type &&
@@ -70,10 +77,17 @@ function App() {
     ) {
       loadUserPreferences(window.localStorage.getItem("id"));
     }
+    //const music = window.localStorage.setItem("music", "pause");
   }, []);
 
   return (
     <div className="App">
+      {music === "play" && (
+        <div>
+          {" "}
+          <audio src={musica} autoPlay></audio>
+        </div>
+      )}
       <GlobalSupplier>
         <LocaleContext.Provider value={{ locale, setLocale }}>
           <Suspense fallback={<Loading />}>

@@ -6,11 +6,17 @@ Authors:
 import "../../styles/AgentList/SingleAgent.css";
 import profile_picture from "../../images/profile_icon.png";
 import percent from "../../images/porcentaje.png";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AgentAAndQAContext } from "../AgentsAAndQASupplier";
 
 const SingleAgent = (props) => {
-  const [, selectedAgent] = useContext(AgentAAndQAContext);
+  const [, selectedAgent, , sendFeedback] = useContext(AgentAAndQAContext);
+  const [comment, setComment] = useState("");
+
+  const onChangeComment = (event) => {
+    console.log(event.target.value);
+    setComment(event.target.value);
+  };
 
   return (
     <div className="sa-main-container">
@@ -30,9 +36,14 @@ const SingleAgent = (props) => {
             <textarea
               className="sa-input"
               type="text"
-              //onChange={changeFeedbackHandler}
+              onChange={onChangeComment}
             />
-            <button className="sa-send-btn" /*onClick={sendFeedback}*/>
+            <button
+              className="sa-send-btn"
+              onClick={() => {
+                sendFeedback(comment);
+              }}
+            >
               Send
             </button>
           </div>

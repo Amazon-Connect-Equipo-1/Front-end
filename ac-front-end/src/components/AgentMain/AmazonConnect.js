@@ -16,6 +16,9 @@ const AmazonConnect = (props) => {
       <div className="ac-viewer">
         <EmbedConnect />
       </div>
+      <p className="ac-client-var">
+        The current client is <span>authenticated</span>
+      </p>
     </div>
   );
 };

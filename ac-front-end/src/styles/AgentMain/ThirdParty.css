@@ -10,7 +10,7 @@ Authors:
   flex-direction: column;
   gap: 1.5rem;
   overflow-y: auto;
-  white-space: nowrap;
+  /*white-space: nowrap;*/
   width: 35rem;
   height: 65rem;
   overflow-y: auto;
@@ -118,7 +118,7 @@ Authors:
   padding: 1rem 1rem 1rem 2rem;
   min-height: max-content;
   width: 100%;
-  border: none;
+  border: 2px solid var(--highlight-color) !important;
 }
 .tp-submit-button {
   display: flex;

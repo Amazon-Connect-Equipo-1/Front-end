@@ -4,8 +4,6 @@
   "__Start Date__": "2022-05-12",
   "__Ending Date__": "2022-06-",
 
-
-
   "__settingsInterface__": "----------Settings Interface----------",
   "textSize": "Tamaño de texto",
   "theme": "Tema",
@@ -76,7 +74,7 @@
   "startCall": "Empezar llamada:",
   "endCall": "Terminar llamada:",
   "analysis": "Análisis",
-  "agentInterrputions": "Interrupciones de agentes:",
+  "agentInterruptions": "Interrupciones de agentes:",
   "userInterruptions": "Interrupciones del usuario:",
   "agentSentiment": "Sentimiento general del agente:",
   "userSentiment": "Sentimiento general del usuario:",
@@ -155,6 +153,14 @@
   "validateEmail": "Ingresa un email válido",
   "invalidToken": "Token inválido",
   "changePasswordSuccessful": "Se cambió la contraseña",
-  "differentPasswords": "Las contraseñas no coinciden"
+  "differentPasswords": "Las contraseñas no coinciden",
 
+  "__RecordingsCharts__": "-------------Labels in charts--------------",
+  "titleSentiment": "Análisis de opinión",
+  "labelOverall": "Opinión general",
+  "labelQuarter": "Opinión por trimestre",
+  "positive": "Positivo",
+  "mixed": "Mixto",
+  "neutral": "Neutro",
+  "negative": "Negativo"
 }

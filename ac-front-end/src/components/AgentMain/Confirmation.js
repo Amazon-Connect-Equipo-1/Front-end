@@ -8,38 +8,45 @@ import uberlogo from "../../images/uber.png";
 import { createContext, Suspense, useState } from "react";
 
 const Confirmation = (props) => {
-  const token =
-    "eyJraWQiOiJ1aVNXY0k0aG0rSTE3Y0lPWE1HN3NVMUxETFRtRzN4Rm1mY2lNUk5DaThNPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJkYzI4MzBhYi0xZGJkLTQ5OTctOWI0Yy1iZmUyODZkZGQyYjYiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtd2VzdC0yLmFtYXpvbmF3cy5jb21cL3VzLXdlc3QtMl9EaEttVmE3NFYiLCJjbGllbnRfaWQiOiI0dXVhNGVqdWR2N2JoMTZmbGIwc2YzZ2NyOCIsIm9yaWdpbl9qdGkiOiIzYjI3ZDdkNS1jZTZmLTQ4OTYtOTgyZC1jMTYzN2ZiM2ExMjYiLCJldmVudF9pZCI6ImU3NjM3YmViLTM5NTgtNDZlNi05ZWFlLTc5ZjZiOWIxNWNlYiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTM5MzgwMTAsImV4cCI6MTY1NDAyNDQxMCwiaWF0IjoxNjUzOTM4MDEwLCJqdGkiOiI0ODQ3YTkxNy1hMzZkLTQzMWYtOTZlNy0wNTc4Y2FmZWY2YmIiLCJ1c2VybmFtZSI6ImRjMjgzMGFiLTFkYmQtNDk5Ny05YjRjLWJmZTI4NmRkZDJiNiJ9.7ilihvw-XalwJ39c6WILiETkIB_UIxBJo6coX5SXNMr_zSExJvodAA8qiKUqN5ruPcT8HU69dxCN-t28n3AeyCsU3c6ZRZ0kny2mR8uCWhTTYIlr_FRk3PvaQAjK4bqYKokzS_v9GM2ibxI-nbIP2cwUXAkLCowldZKWL8O9kWuRYW6XtMrIvbgkgm4fp-cATp9vrHuTs5RV7BaU4aFQtqjEg_THoNcxbkM8J3GdMqkRVC09R8rnA6Vot91voqZic3GK9_IJESL6u6r1ZMuKjrns5O9KFXm48Cw-If2R6Bp3KSA-X6F6ucJ_At53GLlMgHwyhjdrhusuo-ZrqWSKvQ";
+  const recordByAgent = (event) => {
+    //const email = window.localStorage.getItem("email");
+    //const token = window.localStorage.getItem("token");
+    const email = "luiszamarripam@bankonnect.link";
+    const token =
+      "eyJraWQiOiJ1aVNXY0k0aG0rSTE3Y0lPWE1HN3NVMUxETFRtRzN4Rm1mY2lNUk5DaThNPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJkNzZjNTE4Ni00ZGMxLTQxMjItOWYwOS02NmYwNTVmZGU4NmEiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtd2VzdC0yLmFtYXpvbmF3cy5jb21cL3VzLXdlc3QtMl9EaEttVmE3NFYiLCJjbGllbnRfaWQiOiI0dXVhNGVqdWR2N2JoMTZmbGIwc2YzZ2NyOCIsIm9yaWdpbl9qdGkiOiIzMWM3NmVkMC0yODI2LTRkNWEtYjk2OC0yNWI1NjdmZDE0MzAiLCJldmVudF9pZCI6ImJjMWY4ZTgxLTBjOTYtNDJiMC1iZDQ3LWI2ZTQ3MDhiZDc0YSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTQ0NjU0NzYsImV4cCI6MTY1NDU1MTg3NiwiaWF0IjoxNjU0NDY1NDc2LCJqdGkiOiJmZGZhNTViMC0wOTAxLTRmNTktODllZC1kNGVkZGIzMmE5YmYiLCJ1c2VybmFtZSI6ImQ3NmM1MTg2LTRkYzEtNDEyMi05ZjA5LTY2ZjA1NWZkZTg2YSJ9.q7gub9jyn5ZPVWq6ddK0sdy7fQPPEe3dbAf9BMzIY8xTfQJDdoFfZvZrWsfAErntbaVcJBUEFKt5gZ-Pjm1e5iE9Y-Kkdq7PKWjsnogAtRpx1AhrAiEssxxPJDV3SvcLUBYV0_V5vT39RytsfDt7rnNh4k3uqjoKXlJINtbmFB5A3NtNx7sUfHToJ10F2vFLOt0nCfCxn2wchgQo5Xc2IyudX6V3HQ0MhQFAYDvp4HNYdrVrLOHE1bk8dRQyST7jkUqsxyMv3TClZrD1-d7doytZ3QmfpWBss4_-poxzdR9wAScRzKXuKxjZvW0WsvXej2NS-yyii0enXoyHqm_7IQ";
 
-  const [conf, setConf] = useState("no");
-  const changeConfig = () => {
-    setConf("yes");
+    const myHeadersToken = new Headers();
+    myHeadersToken.append("Authorization", `Bearer ${token}`);
+
+    const requestOptionsGET = {
+      method: "GET",
+      headers: myHeadersToken,
+    };
+
+    fetch(
+      `https://backtest.bankonnect.link/manager/agentRecordings?email=${email}`,
+      requestOptionsGET
+    )
+      .then((response) => response.text())
+      .then((result) => {
+        const resultJSON = JSON.parse(result);
+        console.log(result);
+        console.log(resultJSON);
+      })
+      .catch((error) => console.log("error", error));
   };
-  const pruebaBackTPS = (event) => {
+
+  const recordByTag = (event) => {
+    const email = "luiszamarripam@bankonnect.link";
+    const token =
+      "eyJraWQiOiJ1aVNXY0k0aG0rSTE3Y0lPWE1HN3NVMUxETFRtRzN4Rm1mY2lNUk5DaThNPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJkNzZjNTE4Ni00ZGMxLTQxMjItOWYwOS02NmYwNTVmZGU4NmEiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtd2VzdC0yLmFtYXpvbmF3cy5jb21cL3VzLXdlc3QtMl9EaEttVmE3NFYiLCJjbGllbnRfaWQiOiI0dXVhNGVqdWR2N2JoMTZmbGIwc2YzZ2NyOCIsIm9yaWdpbl9qdGkiOiIzMWM3NmVkMC0yODI2LTRkNWEtYjk2OC0yNWI1NjdmZDE0MzAiLCJldmVudF9pZCI6ImJjMWY4ZTgxLTBjOTYtNDJiMC1iZDQ3LWI2ZTQ3MDhiZDc0YSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTQ0NjU0NzYsImV4cCI6MTY1NDU1MTg3NiwiaWF0IjoxNjU0NDY1NDc2LCJqdGkiOiJmZGZhNTViMC0wOTAxLTRmNTktODllZC1kNGVkZGIzMmE5YmYiLCJ1c2VybmFtZSI6ImQ3NmM1MTg2LTRkYzEtNDEyMi05ZjA5LTY2ZjA1NWZkZTg2YSJ9.q7gub9jyn5ZPVWq6ddK0sdy7fQPPEe3dbAf9BMzIY8xTfQJDdoFfZvZrWsfAErntbaVcJBUEFKt5gZ-Pjm1e5iE9Y-Kkdq7PKWjsnogAtRpx1AhrAiEssxxPJDV3SvcLUBYV0_V5vT39RytsfDt7rnNh4k3uqjoKXlJINtbmFB5A3NtNx7sUfHToJ10F2vFLOt0nCfCxn2wchgQo5Xc2IyudX6V3HQ0MhQFAYDvp4HNYdrVrLOHE1bk8dRQyST7jkUqsxyMv3TClZrD1-d7doytZ3QmfpWBss4_-poxzdR9wAScRzKXuKxjZvW0WsvXej2NS-yyii0enXoyHqm_7IQ";
+
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", `Bearer ${token}`);
 
     const raw = JSON.stringify({
-      service: "Oxxo",
-      service_data: {
-        client: "Dwight Schrute",
-        email: "A01379868@tec.mx",
-        cellphone: "+525530323376",
-        client_location: "Alfredo's Pizza Cafe",
-        oxxo_address: {
-          street: "JOSE MA LICEAGA 406 S/N, MORELOS SECC LOMA, 20270",
-          state: "Aguascalientes",
-          colony: "Aguascalientes",
-          zip_code: 20270,
-          country: "Mexico",
-        },
-        quantity: 501,
-        account_number: 6969696969,
-        reference: "891753",
-        security_token: "4605",
-        timestamp: "2022-05-30 15:16:53.006495",
-      },
+      tags: ["problem-solved"],
     });
 
     const requestOptions = {
@@ -49,41 +56,57 @@ const Confirmation = (props) => {
       redirect: "follow",
     };
 
-    fetch("http://35.88.250.238:8080/tps/sendService", requestOptions)
+    fetch(
+      "https://backtest.bankonnect.link/manager/filterRecordings",
+      requestOptions
+    )
       .then((response) => response.text())
-      .then((result) => console.log(result))
+      .then((result) => {
+        const resultJSON = JSON.parse(result);
+        console.log(result);
+        console.log(resultJSON);
+      })
+      .catch((error) => console.log("error", error));
+  };
+  const recordByDate = (event) => {
+    const email = "luiszamarripam@bankonnect.link";
+    const token =
+      "eyJraWQiOiJ1aVNXY0k0aG0rSTE3Y0lPWE1HN3NVMUxETFRtRzN4Rm1mY2lNUk5DaThNPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJkNzZjNTE4Ni00ZGMxLTQxMjItOWYwOS02NmYwNTVmZGU4NmEiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtd2VzdC0yLmFtYXpvbmF3cy5jb21cL3VzLXdlc3QtMl9EaEttVmE3NFYiLCJjbGllbnRfaWQiOiI0dXVhNGVqdWR2N2JoMTZmbGIwc2YzZ2NyOCIsIm9yaWdpbl9qdGkiOiIzMWM3NmVkMC0yODI2LTRkNWEtYjk2OC0yNWI1NjdmZDE0MzAiLCJldmVudF9pZCI6ImJjMWY4ZTgxLTBjOTYtNDJiMC1iZDQ3LWI2ZTQ3MDhiZDc0YSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTQ0NjU0NzYsImV4cCI6MTY1NDU1MTg3NiwiaWF0IjoxNjU0NDY1NDc2LCJqdGkiOiJmZGZhNTViMC0wOTAxLTRmNTktODllZC1kNGVkZGIzMmE5YmYiLCJ1c2VybmFtZSI6ImQ3NmM1MTg2LTRkYzEtNDEyMi05ZjA5LTY2ZjA1NWZkZTg2YSJ9.q7gub9jyn5ZPVWq6ddK0sdy7fQPPEe3dbAf9BMzIY8xTfQJDdoFfZvZrWsfAErntbaVcJBUEFKt5gZ-Pjm1e5iE9Y-Kkdq7PKWjsnogAtRpx1AhrAiEssxxPJDV3SvcLUBYV0_V5vT39RytsfDt7rnNh4k3uqjoKXlJINtbmFB5A3NtNx7sUfHToJ10F2vFLOt0nCfCxn2wchgQo5Xc2IyudX6V3HQ0MhQFAYDvp4HNYdrVrLOHE1bk8dRQyST7jkUqsxyMv3TClZrD1-d7doytZ3QmfpWBss4_-poxzdR9wAScRzKXuKxjZvW0WsvXej2NS-yyii0enXoyHqm_7IQ";
+
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Authorization", `Bearer ${token}`);
+
+    const raw = JSON.stringify({
+      user_email: email,
+      date: "2022-06-06",
+    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://backtest.bankonnect.link/manager/filterRecordingsByDate",
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => {
+        const resultJSON = JSON.parse(result);
+        console.log(result);
+        console.log(resultJSON);
+      })
       .catch((error) => console.log("error", error));
   };
 
   return (
     <div className="tp-confirmation">
-      <div className="tp-title">
-        Service Confirmation
-        {conf === "yes" && (
-          <div>
-            <div className="tp-confirmation-text">Informacion Enviada!</div>
-            <div className="tp-confirmation-button-container">
-              <button
-                className="tp-confirmation-button"
-                onClick={pruebaBackTPS}
-              >
-                confirmado
-              </button>
-            </div>
-          </div>
-        )}
-        {conf === "no" && (
-          <div>
-            <div className="tp-confirmation-text">sexo</div>
-            <div className="tp-confirmation-button-container">
-              <button className="tp-confirmation-button">Regresar</button>
-              <button className="tp-confirmation-button" onClick={changeConfig}>
-                Mandar info
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
+      <div className="tp-title">Service Confirmation</div>
+      <button onClick={recordByAgent}>agent</button>
+      <button onClick={recordByTag}>tags</button>
     </div>
   );
 };

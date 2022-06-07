@@ -57,11 +57,14 @@ const AgentRecordings = () => {
                 {t("search")}
               </button>
             </div>
-            {arrRecordings.map((record_info) => (
+            {arrRecordings.map((recordInfo) => (
               <RecordingsCard
-                id={record_info.id}
-                key={record_info.id}
-                record={record_info}
+                recordingId={recordInfo.RecordingId}
+                agentId={recordInfo.agentId}
+                key={recordInfo.RecordingId}
+                date={recordInfo.initialTimestamp}
+                agentName={recordInfo.agentName}
+                tags={recordInfo.tags}
                 origin="agentRecordings"
               />
             ))}

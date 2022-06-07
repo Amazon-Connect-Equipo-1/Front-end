@@ -23,6 +23,7 @@ import { useReactMediaRecorder } from "react-media-recorder";
 const EmbedConnect = (props) => {
   // Save the contact id (id of the call)
   var cid;
+  var auth;
 
   // Initialize React Media recorder
   const { status, startRecording, stopRecording, mediaBlobUrl } =
@@ -113,31 +114,31 @@ const EmbedConnect = (props) => {
 
     // Code to be executed once a call starts
     // eslint-disable-next-line no-undef
-    connect.contact(function(contact){
-      contact.onConnected(async function(contact){
-        cid = contact.getContactId()
+    connect.contact(function (contact) {
+      contact.onConnected(async function (contact) {
+        cid = contact.getContactId();
         //window.alert(cid);
         startRecording();
         var attributeMap = contact.getAttributes();
-        console.log(attributeMap)
+        console.log(attributeMap);
         //window.alert(auth)
-        var auth = JSON.stringify(attributeMap["boolAuth"]["value"]);
+        auth = JSON.stringify(attributeMap["boolAuth"]["value"]);
         //window.alert(auth)
-        console.log(auth)
+        console.log(auth);
         var clientId = JSON.stringify(attributeMap["clientId"]["value"]);
-        console.log(clientId)
-        if(auth == '"You were not authenticated"'){
-          window.alert("Not Authenticated PIN")
-        }else if(auth == '"Not authenticated. Tried Voice ID."'){
-          window.alert("Attempted Voice ID")
-        }else if(auth == '"You were authenticated"'){
-          window.alert("Authenticated PIN\n" + clientId)
-        }else if(auth == '"Authenticated by Voice ID"'){
-          window.alert("Authenticated by Voice ID")
-        }else{
-          window.alert("Not Authenticated")
+        console.log(clientId);
+        /*if (auth === '"You were not authenticated"') {
+          window.alert("Not Authenticated PIN");
+        } else if (auth === '"Not authenticated. Tried Voice ID."') {
+          window.alert("Attempted Voice ID");
+        } else if (auth === '"You were authenticated"') {
+          window.alert("Authenticated PIN\n" + clientId);
+        } else if (auth === '"Authenticated by Voice ID"') {
+          window.alert("Authenticated by Voice ID");
+        } else {
+          window.alert("Not Authenticated");
         }
-        console.log("Estado de la variable Auth: " + auth)
+        console.log("Estado de la variable Auth: " + auth);*/
       });
     });
 
@@ -145,29 +146,57 @@ const EmbedConnect = (props) => {
     // eslint-disable-next-line no-undef
     connect.agent(function (agent) {
       // On state change stop recording
+      var status;
       agent.onStateChange(async function (agentStateChange) {
         if (
           agentStateChange.oldState === "AfterCallWork" &&
           agentStateChange.newState === "Available"
         ) {
           await stopRecording();
-          //await stopRecordFunct(cid);
+          status = "Active"
+          //console.log(localStorage.getItem("id"))
         } else if (
-          agentStateChange.oldState === "Offline" &&
           agentStateChange.newState === "Available"
         ) {
-          //await startRecording();
+          status = "Active"
         } else if (
-          agentStateChange.oldState === "Available" &&
           agentStateChange.newState === "Offline"
         ) {
-          //await stopRecording();
+          status = "Inactive"
+        } else if (
+          agentStateChange.newState === "Busy"
+        ) {
+          status = "In call"
         }
+    const myHeaders = new Headers();
+    const token = localStorage.getItem("token");
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Authorization", `Bearer ${token}`);
+
+    const requestOptions = {
+      method: "POST",
+      mode: "cors",
+      headers: myHeaders,
+      body: JSON.stringify({ 
+        agent_id: localStorage.getItem("id"),
+        status: status 
+      }),
+    };
+
+    const responseAgent = fetch("https://backtest.bankonnect.link/agent/updateAgentStatus", requestOptions)
+    .then((responseAgent) => responseAgent.json())
+    .then((data) => {
+      console.log(data);
+      return data;
+      })
+      .catch((error) => {
+      console.error("Error fetching uploading URL", error);
+      });
       });
     });
   }, []);
 
-  return <div id="ccp" style={{ width: "400px", height: "500px" }}></div>;
+  return <div id="ccp" style={{ width: "400px", height: "450px" }}></div>;
 };
 
 export default EmbedConnect;

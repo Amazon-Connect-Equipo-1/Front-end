@@ -149,9 +149,38 @@ const AgentsAAndQASupplier = ({ children }) => {
     setSelectedAgent(agentInfo[0]);
   };
 
+  const giveFeedback = (commentt) => {
+    const myHeaders = new Headers();
+    const token = window.localStorage.getItem("token");
+    myHeaders.append("Authorization", `Bearer ${token}`);
+    myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
+      super_id: window.localStorage.getItem("id"),
+      agent_email: "A01750480@tec.mx", //change this to agents email //window.localStorage.getItem("email"),
+      comment: commentt,
+      rating: 4,
+    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://backtest.bankonnect.link/manager/postComment",
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+  };
+
   return (
     <AgentAAndQAContext.Provider
-      value={[arrAgents, selectedAgent, changeSelectedAgent]}
+      value={[arrAgents, selectedAgent, changeSelectedAgent, giveFeedback]}
     >
       {children}
     </AgentAAndQAContext.Provider>
