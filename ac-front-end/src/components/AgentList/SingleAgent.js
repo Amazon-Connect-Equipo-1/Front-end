@@ -8,10 +8,22 @@ import profile_picture from "../../images/profile_icon.png";
 import percent from "../../images/porcentaje.png";
 import { useContext, useState } from "react";
 import { AgentAAndQAContext } from "../AgentsAAndQASupplier";
+import Rating from "@mui/material/Rating";
+import { styled } from "@mui/material/styles";
 
 const SingleAgent = (props) => {
   const [, selectedAgent, , sendFeedback] = useContext(AgentAAndQAContext);
   const [comment, setComment] = useState("");
+  const [value, setValue] = useState(0);
+
+  const StyledRating = styled(Rating)({
+    "& .MuiRating-iconFilled": {
+      color: "var(--highlight-color)",
+    },
+    "& .MuiRating-iconHover": {
+      color: "var(--highlight-color)",
+    },
+  });
 
   const onChangeComment = (event) => {
     console.log(event.target.value);
@@ -30,6 +42,16 @@ const SingleAgent = (props) => {
         <img className="sa-percent-picture" src={percent} alt="%" />
       </div>
       <div className="sa-info-container">
+        <StyledRating
+          name="sa-rating"
+          className="sa-rating"
+          value={value}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}
+          size="large"
+        />
+
         <p className="sa-text">{selectedAgent.description}</p>
         {window.localStorage.getItem("userType") === "Quality-agent" && (
           <div className="sa-feedback">
