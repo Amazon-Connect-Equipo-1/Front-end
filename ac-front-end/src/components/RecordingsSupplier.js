@@ -137,7 +137,7 @@ const RecordingsSupplier = ({ children }) => {
 
   //Recordings Array
   const [arrRecordings, setArrRecordings] = useState([]);
-
+  const [arrAgentRecordings, setArrAgentRecordings] = useState([]);
   const [selectedVideoInfo, setSelectedVideoInfo] = useState();
 
   const getAllRecordings = () => {
@@ -250,6 +250,31 @@ const RecordingsSupplier = ({ children }) => {
       .catch((error) => console.log("error", error));
   };
 
+  const getRecordsByAgent = (event) => {
+    const email = window.localStorage.getItem("email");
+    const token = window.localStorage.getItem("token");
+
+    const myHeadersToken = new Headers();
+    myHeadersToken.append("Authorization", `Bearer ${token}`);
+
+    const requestOptionsGET = {
+      method: "GET",
+      headers: myHeadersToken,
+    };
+
+    fetch(
+      `https://backtest.bankonnect.link/manager/agentRecordings?email=${email}`,
+      requestOptionsGET
+    )
+      .then((response) => response.text())
+      .then((result) => {
+        const resultJSON = JSON.parse(result).recordings;
+        console.log(resultJSON);
+        setArrAgentRecordings([...resultJSON]);
+      })
+      .catch((error) => console.log("error", error));
+  };
+
   const getVideos = () => {
     // if (arrRecordings.length !== 0) {
     //   return arrRecordings;
@@ -259,10 +284,12 @@ const RecordingsSupplier = ({ children }) => {
     // return {};
   };
 
-  // getVideos();
-
   useEffect(() => {
-    getVideos();
+    if (window.localStorage.getItem("userType") === "Agent") {
+      getRecordsByAgent();
+    } else {
+      getVideos();
+    }
     console.log("use effect");
   }, []);
 
@@ -273,6 +300,8 @@ const RecordingsSupplier = ({ children }) => {
         getLastRecordings,
         selectedVideoInfo,
         obtainSelectedVideoInfo,
+        arrAgentRecordings,
+        getRecordsByAgent,
       ]}
     >
       {children}

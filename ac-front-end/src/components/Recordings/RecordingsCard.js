@@ -75,7 +75,7 @@ const RecordingsCard = (props) => {
           <div className="rec-video-section">
             <div className="rec-video">
               <img
-                src={logo}
+                src={props.thumbnail}
                 className="rec-video-img"
                 onClick={props.onClickCard}
               ></img>

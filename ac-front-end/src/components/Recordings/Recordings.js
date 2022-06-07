@@ -70,6 +70,7 @@ const Recordings = (props) => {
                 date={recordInfo.initialTimestamp}
                 agentName={recordInfo.agentName}
                 tags={recordInfo.tags}
+                thumbnail={recordInfo.thumbnail}
                 origin="qaRecordings"
               />
             ))}

@@ -3,15 +3,13 @@ Authors:
         A01777771 Stephen Strange*/
 
 //Import Modules
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 //Create agetn recordings context
 export const AgentRecordingsContext = createContext();
 
-  // Language
-
-  
+// Language
 
 const AgentRecordingsSupplier = ({ children }) => {
   const { t } = useTranslation();
@@ -143,11 +141,38 @@ const AgentRecordingsSupplier = ({ children }) => {
 
   const [selectedVideoInfo, setSelectedVideoInfo] = useState();
 
+  const getRecordsByAgent = (event) => {
+    const email = window.localStorage.getItem("email");
+    const token = window.localStorage.getItem("token");
+
+    const myHeadersToken = new Headers();
+    myHeadersToken.append("Authorization", `Bearer ${token}`);
+
+    const requestOptionsGET = {
+      method: "GET",
+      headers: myHeadersToken,
+    };
+
+    fetch(
+      `https://backtest.bankonnect.link/manager/agentRecordings?email=${email}`,
+      requestOptionsGET
+    )
+      .then((response) => response.text())
+      .then((result) => {
+        const resultJSON = JSON.parse(result);
+        console.log(resultJSON);
+        setArrRecordings([...resultJSON]);
+      })
+      .catch((error) => console.log("error", error));
+  };
+
+  useEffect(() => getRecordsByAgent(), []);
+
   return (
     <AgentRecordingsContext.Provider
       value={[
         arrRecordings,
-        setArrRecordings,
+        getRecordsByAgent,
         selectedVideoInfo,
         setSelectedVideoInfo,
       ]}

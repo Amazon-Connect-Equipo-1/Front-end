@@ -9,7 +9,6 @@ import { useContext } from "react";
 import { saveKeys, saveClick } from "../MonitorModule.js";
 import { useTranslation } from "react-i18next";
 import { Outlet, useOutlet } from "react-router-dom";
-import { AgentRecordingsContext } from "../AgentRecordingsSupplier";
 import RecordingsCard from "../Recordings/RecordingsCard";
 import { RecordingsContext } from "../RecordingsSupplier";
 
@@ -17,7 +16,7 @@ const AgentRecordings = () => {
   // Language
   const { t } = useTranslation();
 
-  const [arrRecordings] = useContext(RecordingsContext);
+  const [, , , , arrAgentRecordings] = useContext(RecordingsContext);
   const INPUT_NAME = "agent recordings";
 
   //Variable to verify if an outlet exists
@@ -57,7 +56,7 @@ const AgentRecordings = () => {
                 {t("search")}
               </button>
             </div>
-            {arrRecordings.map((recordInfo) => (
+            {arrAgentRecordings.map((recordInfo) => (
               <RecordingsCard
                 recordingId={recordInfo.RecordingId}
                 agentId={recordInfo.agentId}

@@ -209,6 +209,10 @@ const LoginForm = (props) => {
               // console.log(resultJSON.body);
               console.log("mike");
               window.localStorage.setItem("id", resultJSON.agent_id);
+              window.localStorage.setItem(
+                "agent_admin_token",
+                resultJSON["super_id"]
+              );
               window.localStorage.setItem("name", resultJSON.name);
               window.localStorage.setItem("status", resultJSON.status);
               window.localStorage.setItem("calls", resultJSON.calls);
@@ -217,7 +221,7 @@ const LoginForm = (props) => {
                 "profile_picture",
                 resultJSON.profile_picture
               );
-
+              console.log(result);
               loadUserPreferences(resultJSON.agent_id); // Load user config preferences
               navigate("/agent", { replace: true });
             })
@@ -275,7 +279,7 @@ const LoginForm = (props) => {
               onChange={pwdChangeHandler}
               value={pwd}
             />
-            <span onClick={togglePassword} class="field-icon">
+            <span onClick={togglePassword} className="field-icon">
               {visible && <FiEyeOff />}
               {invisible && <FiEye />}
             </span>

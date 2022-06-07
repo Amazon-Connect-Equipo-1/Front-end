@@ -16,6 +16,7 @@ const AgentListMenu = (props) => {
 
   const [addUserMenu, setAddUserMenu] = useState(false);
   const [comment, setComment] = useState("");
+  const [searchString, setSearchString] = useState("");
   // const [, , , sendFeedback] = useContext(AgentAAndQAContext);
 
   const onChangeAddUserMenu = () => {
@@ -25,6 +26,10 @@ const AgentListMenu = (props) => {
 
   const getBtnString = () => {
     return addUserMenu ? "Return" : "Add User";
+  };
+
+  const onChangeSearchString = (event) => {
+    setSearchString(event.target.value);
   };
 
   return (
@@ -42,7 +47,8 @@ const AgentListMenu = (props) => {
           placeholder={t("placeholder")}
           onClick={() => saveClick(`${INPUT_NAME} input`)}
           onKeyDown={saveKeys}
-          value={comment}
+          onChange={onChangeSearchString}
+          value={searchString}
         />
         <button href="/" className="aglm-search-btn">
           {t("search")}
