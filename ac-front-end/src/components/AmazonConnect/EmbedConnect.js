@@ -154,6 +154,7 @@ const EmbedConnect = (props) => {
           agentStateChange.newState === "Available"
         ) {
           await stopRecording();
+          auth = "";
           status = "Active";
           //console.log(localStorage.getItem("id"))
         } else if (agentStateChange.newState === "Available") {
