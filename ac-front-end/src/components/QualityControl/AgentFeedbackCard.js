@@ -12,7 +12,7 @@ const AgentFeedbackCard = (props) => {
   // Language
   const { t } = useTranslation();
   const [comment, setComment] = useState("");
-  const commentId = "";
+  let commentId = "";
 
   useEffect(() => {
     getFeedback();
@@ -78,16 +78,11 @@ const AgentFeedbackCard = (props) => {
     <aside className={`afc-main-container ${props.className}`}>
       <div className="afc-container">
         <h2 className="afc-title">{t("qaFeedback")}</h2>
-        {/* <textarea
-          className="afc-feedback"
-          onChange={onChangeComment}
-          value={comment}
-        /> */}
-        {comment.length !== 0 && <p>You did it good!</p>}
+        {comment.length !== 0 && <p className="afc-comment">{comment}</p>}
         {comment.length !== 0 && (
-          <Card className="afc-send-btn" onSubmit={acceptFeedback}>
+          <button className="afc-send-btn" onClick={acceptFeedback}>
             {t("acceptFeedback")}
-          </Card>
+          </button>
         )}
         {comment.length === 0 && <p>No feedback available</p>}
       </div>

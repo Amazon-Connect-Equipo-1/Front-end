@@ -237,7 +237,6 @@ const RecordingsSupplier = ({ children }) => {
         //   const element = recordings[index];
         // }
         recordings = recordings.map((record) => {
-          console.log("last records", record);
           if (record.recordingData === undefined) {
             record.recordingData = [];
           }
