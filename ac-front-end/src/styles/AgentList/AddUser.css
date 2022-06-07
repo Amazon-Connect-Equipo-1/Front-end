@@ -2,14 +2,16 @@
 
 .adu-main-container {
   display: flex;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
+  flex-direction: column;
   width: 40rem;
   background-color: var(--sub-card-background);
   color: var(--text-color);
   border-radius: 10px;
   box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
-  min-height: 50rem;
+  height: 50rem;
+  overflow-y: auto;
 }
 
 .adu-container {
@@ -23,6 +25,7 @@
   /* margin: 1rem; */
   margin-bottom: 2rem;
   text-align: center;
+  margin-top: 4rem;
 }
 
 .adu-label {
@@ -49,6 +52,7 @@
   border-radius: 10px;
   cursor: pointer;
   margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
 .adu-AdminP-btn {
@@ -59,34 +63,34 @@
   padding: 1.5rem;
   width: 15rem;
   color: white;
-  background-color: var(--other-orange-default);
+  background-color: var(--other-orange-color);
   border-radius: 10px;
   cursor: pointer;
   margin-top: 1rem;
 }
 .adu-QAP-btn {
-  font-size: var(--option-text);
+  font-size: var(--sub-option-text);
   font-weight: bold;
   border-radius: 10px;
   border-color: black;
   padding: 1.5rem;
   width: 15rem;
   color: white;
-  background-color: var(--other-purple-default);
+  background-color: var(--other-purple-color);
   border-radius: 10px;
   cursor: pointer;
   margin-top: 1rem;
   text-align: center;
 }
 .adu-Admin-btn {
-  font-size: var(--option-text);
+  font-size: var(--sub-option-text);
   font-weight: bold;
   border-radius: 6px;
   border-color: transparent;
   padding: 1.5rem;
   width: 15rem;
   color: white;
-  background-color: var(--other-orange-default);
+  background-color: var(--other-orange-color);
   border-radius: 10px;
   cursor: pointer;
   margin-top: 1rem;
@@ -94,14 +98,14 @@
 }
 
 .adu-QA-btn {
-  font-size: var(--option-text);
+  font-size: var(--sub-option-text);
   font-weight: bold;
   border-radius: 6px;
   border-color: transparent;
   padding: 1.5rem;
   width: 15rem;
   color: white;
-  background-color: var(--other-purple-default);
+  background-color: var(--other-purple-color);
   border-radius: 10px;
   cursor: pointer;
   margin-top: 1rem;
@@ -132,7 +136,7 @@
 /*****************************/
 @media (max-height: 47em) {
   .adu-main-container {
-    min-height: 45rem;
+    height: 45rem;
   }
 }
 
@@ -141,6 +145,6 @@
 /*****************************/
 @media (max-height: 42.5em) {
   .adu-main-container {
-    min-height: 40rem;
+    height: 40rem;
   }
 }
