@@ -42,7 +42,7 @@ const Profile = (props) => {
           {/* Link that we need to put in src
           https://drive.google.com/uc?export=view&id=[image_id] */}
           <img
-            src={window.localStorage.getItem("name")}
+            src={window.localStorage.getItem("profile_picture")}
             alt="profile_ic"
             className="prfl-ic"
           />

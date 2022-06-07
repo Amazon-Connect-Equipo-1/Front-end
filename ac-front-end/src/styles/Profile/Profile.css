@@ -41,7 +41,9 @@ Authors:
 }
 
 .prfl-ic {
-  height: 50%;
+  height: 30rem;
+  width: 30rem;
+  border-radius: 50%;
 }
 
 .prfl-name {

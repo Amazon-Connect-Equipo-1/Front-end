@@ -147,6 +147,10 @@ const LoginForm = (props) => {
               console.log(resultJSON);
               window.localStorage.setItem("name", resultJSON.manager_name);
               window.localStorage.setItem("id", resultJSON.manager_id);
+              window.localStorage.setItem(
+                "profile_picture",
+                resultJSON.profile_picture
+              );
 
               loadUserPreferences(resultJSON.manager_id); // Load user config preferences
               navigate("/qa", { replace: true });
@@ -178,6 +182,10 @@ const LoginForm = (props) => {
               console.log(resultJSON);
               window.localStorage.setItem("name", resultJSON.manager_name);
               window.localStorage.setItem("id", resultJSON.manager_id);
+              window.localStorage.setItem(
+                "profile_picture",
+                resultJSON.profile_picture
+              );
 
               loadUserPreferences(resultJSON.manager_id); // Load user config preferences
               navigate("/qa", { replace: true });

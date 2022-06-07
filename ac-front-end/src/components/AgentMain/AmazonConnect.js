@@ -10,15 +10,19 @@ import { createContext, Suspense, useEffect, useState } from "react";
 import EmbedConnect from "../AmazonConnect/EmbedConnect";
 
 const AmazonConnect = (props) => {
+  const [auth, setAuth] = useState("");
+
+  const onChangeAuth = (newAuth) => {
+    setAuth(newAuth);
+    console.log(auth);
+  };
   return (
     <div className="ac-main-container">
       <p className="ac-title">Amazon Connect</p>
       <div className="ac-viewer">
-        <EmbedConnect />
+        <EmbedConnect onChangeAuth={onChangeAuth} />
       </div>
-      <p className="ac-client-var">
-        The current client is <span>authenticated</span>
-      </p>
+      <p className="ac-client-var">{auth}</p>
     </div>
   );
 };
