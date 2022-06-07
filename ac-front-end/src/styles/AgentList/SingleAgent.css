@@ -46,11 +46,13 @@ Authors:
   column-gap: 4rem;
   grid-template-columns: 1fr 1fr;
 }
-
+.sa-rating {
+  align-self: center;
+  margin-top: 2rem;
+}
 .sa-text {
   font-size: var(--sub-option-text);
   font-weight: 300;
-  margin-top: 2rem;
   margin-left: 2rem;
   margin-right: 2rem;
   text-align: center;
