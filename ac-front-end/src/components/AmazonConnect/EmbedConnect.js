@@ -123,6 +123,7 @@ const EmbedConnect = (props) => {
         console.log(attributeMap);
         //window.alert(auth)
         auth = JSON.stringify(attributeMap["boolAuth"]["value"]);
+        props.onChangeAuth(auth);
         //window.alert(auth)
         console.log(auth);
         var clientId = JSON.stringify(attributeMap["clientId"]["value"]);
@@ -153,45 +154,42 @@ const EmbedConnect = (props) => {
           agentStateChange.newState === "Available"
         ) {
           await stopRecording();
-          status = "Active"
+          status = "Active";
           //console.log(localStorage.getItem("id"))
-        } else if (
-          agentStateChange.newState === "Available"
-        ) {
-          status = "Active"
-        } else if (
-          agentStateChange.newState === "Offline"
-        ) {
-          status = "Inactive"
-        } else if (
-          agentStateChange.newState === "Busy"
-        ) {
-          status = "In call"
+        } else if (agentStateChange.newState === "Available") {
+          status = "Active";
+        } else if (agentStateChange.newState === "Offline") {
+          status = "Inactive";
+        } else if (agentStateChange.newState === "Busy") {
+          status = "In call";
         }
-    const myHeaders = new Headers();
-    const token = localStorage.getItem("token");
-    myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("Authorization", `Bearer ${token}`);
+        const myHeaders = new Headers();
+        const token = localStorage.getItem("token");
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("Authorization", `Bearer ${token}`);
 
-    const requestOptions = {
-      method: "POST",
-      mode: "cors",
-      headers: myHeaders,
-      body: JSON.stringify({ 
-        agent_id: localStorage.getItem("id"),
-        status: status 
-      }),
-    };
+        const requestOptions = {
+          method: "POST",
+          mode: "cors",
+          headers: myHeaders,
+          body: JSON.stringify({
+            agent_id: localStorage.getItem("id"),
+            status: status,
+          }),
+        };
 
-    const responseAgent = fetch("https://backtest.bankonnect.link/agent/updateAgentStatus", requestOptions)
-    .then((responseAgent) => responseAgent.json())
-    .then((data) => {
-      console.log(data);
-      return data;
-      })
-      .catch((error) => {
-      console.error("Error fetching uploading URL", error);
-      });
+        const responseAgent = fetch(
+          "https://backtest.bankonnect.link/agent/updateAgentStatus",
+          requestOptions
+        )
+          .then((responseAgent) => responseAgent.json())
+          .then((data) => {
+            console.log(data);
+            return data;
+          })
+          .catch((error) => {
+            console.error("Error fetching uploading URL", error);
+          });
       });
     });
   }, []);
