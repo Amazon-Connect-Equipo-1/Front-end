@@ -30,9 +30,11 @@ const SingleAgent = (props) => {
     setComment(event.target.value);
   };
 
+  console.log(selectedAgent);
+
   return (
     <div className="sa-main-container">
-      <p className="sa-title">{selectedAgent.agentName}</p>
+      <p className="sa-title">{selectedAgent.name}</p>
       <div className="sa-graphics-container">
         <img
           className="sa-profile-picture"

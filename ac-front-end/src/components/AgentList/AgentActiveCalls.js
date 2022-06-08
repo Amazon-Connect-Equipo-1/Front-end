@@ -19,21 +19,26 @@ const AgentActiveCalls = (props) => {
   const [arrAgents] = useContext(AgentAAndQAContext);
 
   const arrAgentsWorking = arrAgents.filter((agent) => {
-    return agent.working;
+    return agent.status === "Active" || agent.status === "In call";
   });
 
   return (
     <div className="aal-main-container">
       <p className="aal-title">{t("activeCalls")}</p>
-      <div>
-        {arrAgentsWorking.map((agent) => (
+      {/* <div> */}
+      {arrAgentsWorking.length > 0 &&
+        arrAgentsWorking.map((agent) => (
           <AgentRow
             key={uuidv4()}
-            agentName={agent.agentName}
+            name={agent.name}
             isActiveCalls={props.isActiveCalls}
+            status={agent.status}
           />
         ))}
-      </div>
+      {arrAgentsWorking.length === 0 && (
+        <p className="no-active-agents">No active agents</p>
+      )}
+      {/* </div> */}
     </div>
   );
 };

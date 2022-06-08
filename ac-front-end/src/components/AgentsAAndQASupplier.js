@@ -4,7 +4,7 @@ Authors:
 
 //Import Modules
 import { use } from "i18next";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 import { useTranslation } from "react-i18next";
 
@@ -17,125 +17,45 @@ const AgentsAAndQASupplier = ({ children }) => {
   const { t } = useTranslation();
   const dummyAgents = [
     {
-      id: 1,
-      agentName: "Jim Halpert",
+      agent_id: "1",
+      name: "Select one agent",
       description: t("goodComment"),
-      working: true,
-    },
-    {
-      id: 2,
-      agentName: "Dwight Schrute",
-      description: t("badComment"),
-      working: false,
-    },
-    {
-      id: 3,
-      agentName: "Pam Beesly",
-      description: ":)",
-      working: true,
-    },
-    {
-      id: 5,
-      agent: 13,
-      agentName: "Michael Scott",
-      tags: ["problem-solved", "investments"],
-      miniatureURL: "http://amazon.aws.com/videominiature3",
-      videoURL: "http://amazon.aws.com/video3",
-      rating: 2,
-      date: "02/12/2022",
-      description: "The best Boss!",
-      working: true,
-    },
-    {
-      id: 6,
-      agent: 13,
-      agentName: "Brad Pitt",
-      tags: ["problem-solved", "investments"],
-      miniatureURL: "http://amazon.aws.com/videominiature3",
-      videoURL: "http://amazon.aws.com/video3",
-      rating: 2,
-      date: "02/12/2022",
-      description: "The best ...!",
-      working: true,
-    },
-    {
-      id: 7,
-      agent: 13,
-      agentName: "Michael Phelps",
-      tags: ["problem-solved", "investments"],
-      miniatureURL: "http://amazon.aws.com/videominiature3",
-      videoURL: "http://amazon.aws.com/video3",
-      rating: 2,
-      date: "02/12/2022",
-      description: "The best swimmer!",
-      working: false,
-    },
-    {
-      id: 8,
-      agent: 13,
-      agentName: "Tyler Joseph",
-      tags: ["problem-solved", "investments"],
-      miniatureURL: "http://amazon.aws.com/videominiature3",
-      videoURL: "http://amazon.aws.com/video3",
-      rating: 2,
-      date: "02/12/2022",
-      description: "The best singer!",
-      working: true,
-    },
-    {
-      id: 9,
-      agent: 13,
-      agentName: "Michael Scott",
-      tags: ["problem-solved", "investments"],
-      miniatureURL: "http://amazon.aws.com/videominiature3",
-      videoURL: "http://amazon.aws.com/video3",
-      rating: 2,
-      date: "02/12/2022",
-      description: "The best Boss!",
-      working: false,
-    },
-    {
-      id: 10,
-      agent: 13,
-      agentName: "Michael Scott",
-      tags: ["problem-solved", "investments"],
-      miniatureURL: "http://amazon.aws.com/videominiature3",
-      videoURL: "http://amazon.aws.com/video3",
-      rating: 2,
-      date: "02/12/2022",
-      description: "The best Boss!",
-      working: true,
-    },
-    {
-      id: 11,
-      agent: 13,
-      agentName: "Michael Scott",
-      tags: ["problem-solved", "investments"],
-      miniatureURL: "http://amazon.aws.com/videominiature3",
-      videoURL: "http://amazon.aws.com/video3",
-      rating: 2,
-      date: "02/12/2022",
-      description: "The best Boss!",
-      working: true,
-    },
-    {
-      id: 12,
-      agent: 13,
-      agentName: "Michael Scott",
-      tags: ["problem-solved", "investments"],
-      miniatureURL: "http://amazon.aws.com/videominiature3",
-      videoURL: "http://amazon.aws.com/video3",
-      rating: 2,
-      date: "02/12/2022",
-      description: "The best Boss!",
-      working: true,
+      status: true,
     },
   ];
 
+  const getAllAgentsList = (event) => {
+    //---------------------------------------------AGENTES EN LINEA, DESCONECTADOS, EN LLAMADA
+    const token = window.localStorage.getItem("token");
+
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Authorization", `Bearer ${token}`);
+
+    const requestOptionsGET = {
+      method: "GET",
+      headers: myHeaders,
+    };
+
+    fetch(
+      "https://backtest.bankonnect.link/manager/agentList",
+      requestOptionsGET
+    )
+      .then((response) => response.text())
+      .then((result) => {
+        const resultJSON = JSON.parse(result).agents;
+        console.log(resultJSON);
+        setArrAgents([...resultJSON]);
+      })
+      .catch((error) => console.log("error", error));
+  };
+
+  useEffect(() => getAllAgentsList(), []);
+
   //Recordings Array
   const [arrAgents, setArrAgents] = useState(dummyAgents);
-  const [selectedAgent, setSelectedAgent] = useState(arrAgents[0]); //needs a function if arr is not empty show the first one
-
+  const [selectedAgent, setSelectedAgent] = useState(...dummyAgents); //needs a function if arr is not empty show the first one
+  console.log("selected agetn", selectedAgent);
   const getAllAgents = () => {
     //Petition to obtain all videos miniatures
   };
@@ -144,9 +64,10 @@ const AgentsAAndQASupplier = ({ children }) => {
 
   const changeSelectedAgent = (id) => {
     //verify if list is not empty
-    const agentInfo = arrAgents.filter((agent) => agent.id === id);
+    console.log(id);
+    const agentInfo = arrAgents.filter((agent) => agent.agent_id === id);
     console.log(agentInfo);
-    setSelectedAgent(agentInfo[0]);
+    setSelectedAgent(...agentInfo);
   };
 
   const giveFeedback = (commentt) => {
@@ -180,7 +101,13 @@ const AgentsAAndQASupplier = ({ children }) => {
 
   return (
     <AgentAAndQAContext.Provider
-      value={[arrAgents, selectedAgent, changeSelectedAgent, giveFeedback]}
+      value={[
+        arrAgents,
+        selectedAgent,
+        changeSelectedAgent,
+        giveFeedback,
+        getAllAgentsList,
+      ]}
     >
       {children}
     </AgentAAndQAContext.Provider>
