@@ -143,6 +143,10 @@ Authors:
   --sub-option-text-small: 1rem;
   --sub-option-text-big: 2rem;
 
+  --xs-text-medium: 1rem;
+  --xs-text-small: 0.75rem;
+  --xs-text-big: 1.25rem;
+
   --logo-bbva-dark: url("images/logo_bbva.png");
   --logo-bbva-light: url("images/logo_bbva_light.png");
 }
@@ -297,18 +301,21 @@ body.small {
   --sub-title: var(--sub-title-small);
   --option-text: var(--option-text-small);
   --sub-option-text: var(--sub-option-text-small);
+  --xs-text: var(--xs-text-small);
 }
 body.medium {
   --h1-title: var(--h1-title-medium);
   --sub-title: var(--sub-title-medium);
   --option-text: var(--option-text-medium);
   --sub-option-text: var(--sub-option-text-medium);
+  --xs-text: var(--xs-text-medium);
 }
 body.big {
   --h1-title: var(--h1-title-big);
   --sub-title: var(--sub-title-big);
   --option-text: var(--option-text-big);
   --sub-option-text: var(--sub-option-text-big);
+  --xs-text: var(--xs-text-big);
 }
 html {
   /* Format rem */

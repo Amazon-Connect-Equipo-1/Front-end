@@ -1,13 +1,17 @@
-/* Amazon Connect
-Authors:
-        A01777771 Stephen Strange*/
-
-//Import Modules
 import "amazon-connect-streams";
 import "../../styles/AgentMain/AmazonConnect.css";
 import ThirdParty from "./ThirdParty";
 import { createContext, Suspense, useEffect, useState } from "react";
 import EmbedConnect from "../AmazonConnect/EmbedConnect";
+
+/*
+
+  Component that embeds the EmbedConnect component.
+
+  Authors:
+    Daniel García
+
+*/
 
 const AmazonConnect = (props) => {
   const [auth, setAuth] = useState("");
