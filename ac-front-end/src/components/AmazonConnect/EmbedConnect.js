@@ -24,6 +24,7 @@ const EmbedConnect = (props) => {
   // Save the contact id (id of the call)
   var cid;
   var auth;
+  var clientId;
 
   // Initialize React Media recorder
   const { status, startRecording, stopRecording, mediaBlobUrl } =
@@ -126,7 +127,8 @@ const EmbedConnect = (props) => {
         props.onChangeAuth(auth);
         //window.alert(auth)
         console.log(auth);
-        var clientId = JSON.stringify(attributeMap["clientId"]["value"]);
+        clientId = JSON.stringify(attributeMap["clientId"]["value"]);
+        props.onChangeClientId(clientId);
         console.log(clientId);
         /*if (auth === '"You were not authenticated"') {
           window.alert("Not Authenticated PIN");
@@ -155,6 +157,7 @@ const EmbedConnect = (props) => {
         ) {
           await stopRecording();
           auth = "";
+          clientId = "";
           status = "Active";
           //console.log(localStorage.getItem("id"))
         } else if (agentStateChange.newState === "Available") {

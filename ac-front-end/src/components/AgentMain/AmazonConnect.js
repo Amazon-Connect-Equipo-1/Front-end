@@ -16,13 +16,23 @@ const AmazonConnect = (props) => {
     setAuth(newAuth);
     console.log(auth);
   };
+
+  const [clientId, setClientId] = useState("");
+
+  const onChangeClientId = (newClientId) => {
+    setClientId(newClientId);
+  };
   return (
     <div className="ac-main-container">
       <p className="ac-title">Amazon Connect</p>
       <div className="ac-viewer">
-        <EmbedConnect onChangeAuth={onChangeAuth} />
+        <EmbedConnect
+          onChangeAuth={onChangeAuth}
+          onChangeClientId={onChangeClientId}
+        />
       </div>
       <p className="ac-client-var">{auth}</p>
+      <p className="ac-client-var">{clientId}</p>
     </div>
   );
 };
