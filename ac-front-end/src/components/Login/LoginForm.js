@@ -153,6 +153,7 @@ const LoginForm = (props) => {
               );
 
               loadUserPreferences(resultJSON.manager_id); // Load user config preferences
+              window.localStorage.setItem("music", "pause");
               navigate("/qa", { replace: true });
             })
             .catch((error) => console.log("error", error));
@@ -188,6 +189,7 @@ const LoginForm = (props) => {
               );
 
               loadUserPreferences(resultJSON.manager_id); // Load user config preferences
+              window.localStorage.setItem("music", "pause");
               navigate("/qa", { replace: true });
             })
             .catch((error) => console.log("error", error));
@@ -231,6 +233,7 @@ const LoginForm = (props) => {
               );
               console.log(result);
               loadUserPreferences(resultJSON.agent_id); // Load user config preferences
+              window.localStorage.setItem("music", "pause");
               navigate("/agent", { replace: true });
             })
             .catch((error) => console.log("error", error));
