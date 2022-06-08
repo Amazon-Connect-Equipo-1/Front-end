@@ -42,7 +42,6 @@ import { loadUserPreferences } from "./components/UserPreferences";
 import musica from "./music/mii.mp3";
 
 function App() {
-  const music = window.localStorage.getItem("music");
   // Variable that determines the types of users to protect the routes
   const USER = {
     Admin: "Admin",
@@ -51,6 +50,7 @@ function App() {
     Client: "Client",
   };
 
+  var music = window.localStorage.getItem("music");
   // Language
   const [locale, setLocale] = useState(i18n.language);
   i18n.on("languageChanged", (lng) => setLocale(i18n.language));
@@ -78,6 +78,7 @@ function App() {
       loadUserPreferences(window.localStorage.getItem("id"));
     }
     //const music = window.localStorage.setItem("music", "pause");
+    music = localStorage.getItem("music");
   }, []);
 
   return (
