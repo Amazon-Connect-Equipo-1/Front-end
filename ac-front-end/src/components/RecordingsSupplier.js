@@ -124,8 +124,12 @@ const RecordingsSupplier = ({ children }) => {
       .catch((error) => console.log("error", error));
   };
 
-  const getRecordsByAgent = (event) => {
-    const email = window.localStorage.getItem("email");
+  const getRecordsByAgent = (selectedEmail) => {
+    console.log(selectedEmail);
+    const email =
+      selectedEmail !== undefined
+        ? selectedEmail
+        : window.localStorage.getItem("email");
     const token = window.localStorage.getItem("token");
 
     const myHeadersToken = new Headers();
@@ -144,7 +148,11 @@ const RecordingsSupplier = ({ children }) => {
       .then((result) => {
         const resultJSON = JSON.parse(result).recordings;
         console.log(resultJSON);
-        setArrAgentRecordings([...resultJSON]);
+        if (selectedEmail !== undefined) {
+          setArrRecordings([...resultJSON]);
+        } else {
+          setArrAgentRecordings([...resultJSON]);
+        }
       })
       .catch((error) => console.log("error", error));
   };
@@ -211,6 +219,40 @@ const RecordingsSupplier = ({ children }) => {
     // return {};
   };
 
+  const getRecordsByTags = (tagName) => {
+    const token = window.localStorage.getItem("token");
+
+    const myHeadersToken = new Headers();
+    myHeadersToken.append("Content-Type", "application/json");
+    myHeadersToken.append("Authorization", `Bearer ${token}`);
+
+    const raw = JSON.stringify({
+      tags: tagName,
+    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeadersToken,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://backtest.bankonnect.link/manager/filterRecordings",
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => {
+        const resultJSON = JSON.parse(result).recordings; //[0].recording_data;
+        console.log(resultJSON);
+        const recordings = resultJSON.map((record) => {
+          return record.recording_data;
+        });
+        setArrRecordings([...recordings]);
+      })
+      .catch((error) => console.log("error", error));
+  };
+
   useEffect(() => {
     // getRecordingsByDate
     if (window.localStorage.getItem("userType") === "Agent") {
@@ -232,6 +274,7 @@ const RecordingsSupplier = ({ children }) => {
         arrAgentRecordings,
         getRecordsByAgent,
         getRecordingsByDate,
+        getRecordsByTags,
       ]}
     >
       {children}

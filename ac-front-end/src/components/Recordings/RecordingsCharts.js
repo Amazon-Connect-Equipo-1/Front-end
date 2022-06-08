@@ -5,7 +5,7 @@ Authors:
 //Import Modules
 
 import Card from "../UI/Card";
-import "../../styles/Recordings/AboutCard.css";
+import "../../styles/Recordings/RecordingsChart.css";
 import { useTranslation } from "react-i18next";
 import React from "react";
 import { Bar, Line } from "react-chartjs-2";
@@ -19,20 +19,17 @@ const RecordingsChart = (props) => {
   Chart.defaults.color = "#FFFFFF";
   const sentimentOverall = Object.keys(props.sentimentOverall);
   const dataSentimentOverall = [];
-  for (var i = 0; i < sentimentOverall.length; i++){
-    if (sentimentOverall[i] === "POSITIVE"){
+  for (var i = 0; i < sentimentOverall.length; i++) {
+    if (sentimentOverall[i] === "POSITIVE") {
       sentimentOverall[i] = t("positive");
       dataSentimentOverall.push(props.sentimentOverall.POSITIVE);
-    }
-    else if (sentimentOverall[i] === "MIXED"){
+    } else if (sentimentOverall[i] === "MIXED") {
       sentimentOverall[i] = t("mixed");
       dataSentimentOverall.push(props.sentimentOverall.MIXED);
-    }
-    else if (sentimentOverall[i] === "NEUTRAL"){
+    } else if (sentimentOverall[i] === "NEUTRAL") {
       sentimentOverall[i] = t("neutral");
       dataSentimentOverall.push(props.sentimentOverall.NEUTRAL);
-    }
-    else if (sentimentOverall[i] === "NEGATIVE"){
+    } else if (sentimentOverall[i] === "NEGATIVE") {
       sentimentOverall[i] = t("negative");
       dataSentimentOverall.push(props.sentimentOverall.NEGATIVE);
     }
@@ -67,11 +64,14 @@ const RecordingsChart = (props) => {
   };
 
   return (
-    <Card className="abc-main-container">
-      <div className="abc-container">
-        <div className="abc-navbar">
-          <h2 className="abc-title">{t("titleSentiment")}</h2>
-        </div>
+    <Card className="recc-main-container">
+      <div className="recc-navbar">
+        <h2 className="recc-title" onClick={props.onChangeCard}>
+          {t("about")}
+        </h2>
+        <h2 className="recc-title">Analysis</h2>
+      </div>
+      <div className="recc-container">
         <div>
           <Bar
             data={stateBar}

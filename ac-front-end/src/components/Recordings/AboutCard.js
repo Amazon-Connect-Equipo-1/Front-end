@@ -27,12 +27,6 @@ const AboutCard = (props) => {
   if (selectedVideoInfo !== undefined) {
     videoInfo = selectedVideoInfo.recording;
   } else {
-    //If it does not exists it needs to fetch again
-    // console.log(id.slice(2));
-    // getSelectedVideoInfo(id.slice(2));
-    // setTimeout(() => {
-    //   videoInfo = selectedVideoInfo.recording;
-    // }, 500);
     videoInfo = window.localStorage.getItem("selectedVideoInfo");
     videoInfo = JSON.parse(videoInfo).recording;
     console.log(videoInfo);
@@ -65,6 +59,9 @@ const AboutCard = (props) => {
       <div className="abc-container">
         <div className="abc-navbar">
           <h2 className="abc-title">{t("about")}</h2>
+          <h2 className="abc-title" onClick={props.onChangeCard}>
+            Analysis
+          </h2>
         </div>
         <h2>{t("call")}</h2>
         <h3>

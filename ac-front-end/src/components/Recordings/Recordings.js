@@ -16,8 +16,16 @@ const Recordings = (props) => {
   // Language
   const { t } = useTranslation();
   //Logica para generar las cards
-  const [arrRecordings, getVideos, , , , , getRecordingsByDate] =
-    useContext(RecordingsContext);
+  const [
+    arrRecordings,
+    ,
+    ,
+    ,
+    ,
+    getRecordsByAgent,
+    getRecordingsByDate,
+    getRecordsByTags,
+  ] = useContext(RecordingsContext);
   const [searchInput, setSearchInput] = useState("");
   const [spinnerValue, setSpinnerValue] = useState("tag");
   const INPUT_NAME = "recordings";
@@ -44,13 +52,17 @@ const Recordings = (props) => {
   const onFilterRecordings = () => {
     //Petition for filtering videos
     if (searchInput !== "") {
-      console.log(searchInput);
-
       //Check type of search (date, tag, agent name)
-      if (spinnerValue === "name") {
+      if (spinnerValue === "email") {
         //Make petition
+        getRecordsByAgent(searchInput);
+        setSearchInput("");
       } else if (spinnerValue === "tag") {
         //Make petition
+        console.log(searchInput);
+        console.log("petition tag");
+        getRecordsByTags([searchInput]);
+        setSearchInput("");
       } else {
         //spinnerValue === "date"
         //Make petition
@@ -82,7 +94,7 @@ const Recordings = (props) => {
               >
                 <option value="tag">{t("tag")}</option>
                 <option value="date">{t("date")}</option>
-                <option value="name">Name</option>
+                <option value="email">Email</option>
               </select>
               <input
                 onKeyDown={saveKeys}

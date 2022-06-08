@@ -31,7 +31,6 @@ const AuthenticationProvider = ({ children }) => {
       .then((response) => response.text())
       .then((result) => {
         const resultJSON = JSON.parse(result);
-        console.log(result);
         console.log(resultJSON);
       })
       .catch((error) => console.log("error", error));
@@ -50,6 +49,7 @@ const AuthenticationProvider = ({ children }) => {
 
   // Logout
   const logout = () => {
+    logoutPetition();
     setUser(null);
     setPassword(null);
     setUserType(null);
