@@ -11,129 +11,6 @@ export const RecordingsContext = createContext();
 const RecordingsSupplier = ({ children }) => {
   // Language
   const { t } = useTranslation();
-  //For testing Ill create dummy recordings
-  const dummyRec = [
-    {
-      id: 1,
-      agent: 11,
-      agent_name: "Jim Halpert",
-      tags: ["lost-card", "cancel-card"],
-      miniatureURL: "http://amazon.aws.com/videominiature1",
-      videoURL: "http://amazon.aws.com/video1",
-      rating: 4,
-      date: "02/12/2022",
-    },
-    {
-      id: 2,
-      agent: 12,
-      agent_name: "Dwight Schrute",
-      tags: ["card-declined"],
-      miniatureURL: "http://amazon.aws.com/videominiature2",
-      videoURL: "http://amazon.aws.com/video2",
-      rating: 5,
-      date: "02/12/2022",
-    },
-    {
-      id: 3,
-      agent: 13,
-      agent_name: "Michael Scott",
-      tags: ["credit-card", "inssurance"],
-      miniatureURL: "http://amazon.aws.com/videominiature3",
-      videoURL: "http://amazon.aws.com/video3",
-      rating: 2,
-      date: "02/12/2022",
-    },
-    {
-      id: 4,
-      agent: 13,
-      agent_name: "Michael Scott",
-      tags: ["withdrawal", "loans"],
-      miniatureURL: "http://amazon.aws.com/videominiature3",
-      videoURL: "http://amazon.aws.com/video3",
-      rating: 2,
-      date: "02/12/2022",
-    },
-    {
-      id: 5,
-      agent: 13,
-      agent_name: "Michael Scott",
-      tags: ["problem-solved", "investments"],
-      miniatureURL: "http://amazon.aws.com/videominiature3",
-      videoURL: "http://amazon.aws.com/video3",
-      rating: 2,
-      date: "02/12/2022",
-    },
-    {
-      id: 6,
-      agent: 13,
-      agent_name: "Michael Scott",
-      tags: ["problem-solved", "investments"],
-      miniatureURL: "http://amazon.aws.com/videominiature3",
-      videoURL: "http://amazon.aws.com/video3",
-      rating: 2,
-      date: "02/12/2022",
-    },
-    {
-      id: 7,
-      agent: 13,
-      agent_name: "Michael Scott",
-      tags: ["problem-solved", "investments"],
-      miniatureURL: "http://amazon.aws.com/videominiature3",
-      videoURL: "http://amazon.aws.com/video3",
-      rating: 2,
-      date: "02/12/2022",
-    },
-    {
-      id: 8,
-      agent: 13,
-      agent_name: "Michael Scott",
-      tags: ["problem-solved", "investments"],
-      miniatureURL: "http://amazon.aws.com/videominiature3",
-      videoURL: "http://amazon.aws.com/video3",
-      rating: 2,
-      date: "02/12/2022",
-    },
-    {
-      id: 9,
-      agent: 13,
-      agent_name: "Michael Scott",
-      tags: ["problem-solved", "investments"],
-      miniatureURL: "http://amazon.aws.com/videominiature3",
-      videoURL: "http://amazon.aws.com/video3",
-      rating: 2,
-      date: "02/12/2022",
-    },
-    {
-      id: 10,
-      agent: 13,
-      agent_name: "Michael Scott",
-      tags: ["problem-solved", "investments"],
-      miniatureURL: "http://amazon.aws.com/videominiature3",
-      videoURL: "http://amazon.aws.com/video3",
-      rating: 2,
-      date: "02/12/2022",
-    },
-    {
-      id: 11,
-      agent: 13,
-      agent_name: "Michael Scott",
-      tags: ["problem-solved", "investments"],
-      miniatureURL: "http://amazon.aws.com/videominiature3",
-      videoURL: "http://amazon.aws.com/video3",
-      rating: 2,
-      date: "02/12/2022",
-    },
-    {
-      id: 12,
-      agent: 13,
-      agent_name: "Michael Scott",
-      tags: ["problem-solved", "investments"],
-      miniatureURL: "http://amazon.aws.com/videominiature3",
-      videoURL: "http://amazon.aws.com/video3",
-      rating: 2,
-      date: "02/12/2022",
-    },
-  ];
 
   //Recordings Array
   const [arrRecordings, setArrRecordings] = useState([]);
@@ -226,16 +103,13 @@ const RecordingsSupplier = ({ children }) => {
       .then((result) => {
         const recordingsJSON = JSON.parse(result).recordings;
         // console.log(recordingsJSON);
-        let recordings = recordingsJSON.filter((ele) => {
+        let recordings = recordingsJSON.filter((record) => {
           //Dont include null records if they exist
-          if (ele) {
-            return ele;
+          if (record) {
+            return record;
           }
         });
 
-        // for (let index = 0; index < recordings.length; index++) {
-        //   const element = recordings[index];
-        // }
         recordings = recordings.map((record) => {
           if (record.recordingData === undefined) {
             record.recordingData = [];
@@ -275,6 +149,59 @@ const RecordingsSupplier = ({ children }) => {
       .catch((error) => console.log("error", error));
   };
 
+  const getRecordingsByDate = (selectedDate, agentEmail = "") => {
+    //This fucntions works for qa recordings to filter for date
+    //It also works for agent recordings for filtering by its agent id and date
+    const email = window.localStorage.getItem("email");
+    const token = window.localStorage.getItem("token");
+
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Authorization", `Bearer ${token}`);
+
+    //Check if function is called by recordings or agent recordings
+    //verify if agentEmail is send
+    let isAgentRecordings = true;
+    if (agentEmail === "") {
+      isAgentRecordings = false;
+    }
+
+    let raw = JSON.stringify({
+      user_email: agentEmail,
+      date: selectedDate,
+    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://backtest.bankonnect.link/manager/filterRecordingsByDate",
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => {
+        const resultJSON = JSON.parse(result).recordings;
+        console.log(resultJSON);
+        console.log(result);
+        //Check if the result is an empty list
+        if (resultJSON.length === 0) {
+          console.log("Esta vacía la lista");
+        } else {
+          //Set information where in the correct array
+          if (isAgentRecordings) {
+            setArrAgentRecordings([...resultJSON]);
+          } else {
+            setArrRecordings([...resultJSON]);
+          }
+        }
+      })
+      .catch((error) => console.log("error", error));
+  };
+
   const getVideos = () => {
     // if (arrRecordings.length !== 0) {
     //   return arrRecordings;
@@ -285,10 +212,12 @@ const RecordingsSupplier = ({ children }) => {
   };
 
   useEffect(() => {
+    // getRecordingsByDate
     if (window.localStorage.getItem("userType") === "Agent") {
       getRecordsByAgent();
     } else {
-      getVideos();
+      getLastRecordings();
+      // getVideos();
     }
     console.log("use effect");
   }, []);
@@ -302,6 +231,7 @@ const RecordingsSupplier = ({ children }) => {
         obtainSelectedVideoInfo,
         arrAgentRecordings,
         getRecordsByAgent,
+        getRecordingsByDate,
       ]}
     >
       {children}

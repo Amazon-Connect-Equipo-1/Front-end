@@ -44,31 +44,6 @@ const LoginForm = (props) => {
     Client: "Client",
   };
 
-  // Test Users
-  const testUsers = [
-    {
-      id: 1,
-      name: "Jack Pearson",
-      email: "agent@gmail.com",
-      password: "1234",
-      user_type: "Agent",
-    },
-    {
-      id: 2,
-      name: "Susan Watson",
-      email: "qa@gmail.com",
-      password: "1234",
-      user_type: "QA",
-    },
-    {
-      id: 3,
-      name: "Julia Garner",
-      email: "admin@gmail.com",
-      password: "1234",
-      user_type: "Admin",
-    },
-  ];
-
   const navigate = useNavigate();
   const location = useLocation();
   //const from = location.state?.from?.pathname || "/";
