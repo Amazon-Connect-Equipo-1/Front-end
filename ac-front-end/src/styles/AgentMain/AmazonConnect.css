@@ -33,7 +33,7 @@ Authors:
 }
 
 .ac-client-var {
-  font-size: var(--sub-option-text);
+  font-size: var(--xs-text);
   font-weight: 500;
   margin: 2rem;
   text-align: center;
