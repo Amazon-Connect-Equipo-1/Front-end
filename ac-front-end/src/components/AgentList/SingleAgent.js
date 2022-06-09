@@ -11,6 +11,7 @@ import Rating from "@mui/material/Rating";
 import { styled } from "@mui/material/styles";
 import { Pie } from "react-chartjs-2";
 import { useTranslation } from "react-i18next";
+import { Avatar } from "@mui/material";
 
 const SingleAgent = (props) => {
   const { t } = useTranslation();
@@ -59,10 +60,16 @@ const SingleAgent = (props) => {
     <div className="sa-main-container">
       <p className="sa-title">{selectedAgent.name}</p>
       <div className="sa-graphics-container">
-        <img
-          className="sa-profile-picture"
+        <Avatar
+          alt={selectedAgent.name}
           src={selectedAgent.profile_picture}
-          alt="Profile picture"
+          className="sa-profile-picture"
+          sx={{
+            bgcolor: "var(--highlight-color)",
+            width: 120,
+            height: 120,
+            fontSize: 50,
+          }}
         />
         <div className="sa-rating-chart">
           {/*<Doughnut data={[4.0]} />*/}
