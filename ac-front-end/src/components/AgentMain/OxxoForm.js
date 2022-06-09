@@ -12,6 +12,12 @@ import ConfirmationOxxo from "./ConfirmationOxxo";
 //Creates Oxxo Form
 const OxxoForm = (props) => {
   //input handlers-----------------------------------
+  const [clientInput, setClientInput] = useState("");
+  const [emailInput, setEmailInput] = useState("");
+  const [cellphoneInput, setCellphoneInput] = useState("");
+  const [locationInput, setLocationInput] = useState("");
+  const [quantityInput, setQuantityInput] = useState("");
+  const [accountInput, setAccountInput] = useState("");
 
   const clientChangeHandler = (event) => {
     window.localStorage.setItem("client", event.target.value);
@@ -158,7 +164,10 @@ const OxxoForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={clientChangeHandler}
+              onChange={(e) => {
+                setClientInput(e.target.value);
+                clientChangeHandler(e.target.value);
+              }}
             />
           </label>
           <label className="tp-name-label">
@@ -168,7 +177,10 @@ const OxxoForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={emailChangeHandler}
+              onChange={(e) => {
+                setEmailInput(e.target.value);
+                emailChangeHandler(e.target.value);
+              }}
             />
           </label>
           <label className="tp-name-label">
@@ -178,7 +190,10 @@ const OxxoForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={cellphoneChangeHandler}
+              onChange={(e) => {
+                setCellphoneInput(e.target.value);
+                cellphoneChangeHandler(e.target.value);
+              }}
             />
           </label>
           <label className="tp-name-label">
@@ -188,7 +203,10 @@ const OxxoForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={clientLocationChangeHandler}
+              onChange={(e) => {
+                setLocationInput(e.target.value);
+                clientLocationChangeHandler(e.target.value);
+              }}
             />
           </label>
           <label className="tp-name-label">
@@ -198,7 +216,10 @@ const OxxoForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={quantityChangeHandler}
+              onChange={(e) => {
+                setQuantityInput(e.target.value);
+                quantityChangeHandler(e.target.value);
+              }}
             />
           </label>
           <label className="tp-name-label">
@@ -208,16 +229,37 @@ const OxxoForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={accountNumberChangeHandler}
+              onChange={(e) => {
+                setAccountInput(e.target.value);
+                accountNumberChangeHandler(e.target.value);
+              }}
             />
           </label>
           <div className="tp-submit">
             <input
               type="submit"
+              disabled={
+                clientInput === "" ||
+                emailInput === "" ||
+                cellphoneInput === "" ||
+                locationInput === "" ||
+                quantityInput === "" ||
+                accountInput === ""
+              }
+              style={{
+                opacity:
+                  clientInput &&
+                  emailInput &&
+                  cellphoneInput &&
+                  locationInput &&
+                  quantityInput &&
+                  accountInput
+                    ? "1.0"
+                    : "0.5",
+              }}
               onKeyDown={saveKeys}
               onClick={(e) => {
                 e.preventDefault();
-
                 askOxxo();
                 Confirm();
                 saveClick(`${INPUT_NAME} input`);
