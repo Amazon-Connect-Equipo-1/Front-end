@@ -1,7 +1,7 @@
 /* Profile
 Authors:
-        A01777771 Stephen Strange*/
-
+        A01378688 Daniel Garcia Barajas 
+*/
 //Import Modules
 import "../../styles/Profile/Profile.css";
 import prfl_ic from "../../images/profile_icon.png";
@@ -9,6 +9,7 @@ import { useContext } from "react";
 import { GlobalContext } from "../GlobalSupplier";
 import { AuthenticationContext } from "../Authentication";
 import { Link } from "react-router-dom";
+import { Avatar } from "@mui/material";
 
 const Profile = (props) => {
   const [, , userInfo] = useContext(GlobalContext);
@@ -41,10 +42,22 @@ const Profile = (props) => {
           {/* Link that we send https://drive.google.com/file/d/[image_id]/view?usp=sharing */}
           {/* Link that we need to put in src
           https://drive.google.com/uc?export=view&id=[image_id] */}
+          {/*
           <img
             src={window.localStorage.getItem("profile_picture")}
             alt="profile_ic"
             className="prfl-ic"
+        /> */}
+          <Avatar
+            alt={window.localStorage.getItem("name")}
+            src={window.localStorage.getItem("profile_picture")}
+            className="avatar"
+            sx={{
+              bgcolor: "var(--highlight-color)",
+              height: 200,
+              width: 200,
+              fontSize: 100,
+            }}
           />
           <div className="prfl-info-container">
             <p className="prfl-name">{window.localStorage.getItem("name")}</p>

@@ -76,6 +76,7 @@ const RecordingsVideo = (props) => {
             className="rev-video"
             src={videoInfo.processedRecording} //proccessed recording no jala
             allowFullScreen
+            id="rec-frame"
           />
         </div>
         {cardName === "About" && <AboutCard onChangeCard={changeCardHandler} />}
