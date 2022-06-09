@@ -1,10 +1,14 @@
-/* User Preference
-Authors:
-        A01378688 Daniel Garcia Barajas*/
-
-//Import Modules
 import i18n from "../i18n";
 
+/*
+
+  Loads and get the user settings preferences from 
+  the database and sets them in the localStorage
+
+  Authors:
+    Daniel García
+
+*/
 export const loadUserPreferences = (id) => {
   let theme;
   let txtSize;

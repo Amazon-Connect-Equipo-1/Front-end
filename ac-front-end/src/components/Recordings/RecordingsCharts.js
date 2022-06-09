@@ -16,7 +16,7 @@ const RecordingsChart = (props) => {
   const { t } = useTranslation();
 
   //Dummy sentiment graph
-  Chart.defaults.color = "#FFFFFF";
+  Chart.defaults.color = "#9facbd";
   const sentimentOverall = Object.keys(props.sentimentOverall);
   const dataSentimentOverall = [];
   for (var i = 0; i < sentimentOverall.length; i++) {

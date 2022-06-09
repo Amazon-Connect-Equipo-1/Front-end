@@ -28,6 +28,10 @@ Authors:
   margin-top: 2rem;
 }
 
+.sa-rating-chart {
+  width: 45%;
+}
+
 .sa-profile-picture {
   height: 14rem;
   width: auto;
