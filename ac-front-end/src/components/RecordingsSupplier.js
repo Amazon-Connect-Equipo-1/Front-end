@@ -96,7 +96,7 @@ const RecordingsSupplier = ({ children }) => {
     };
 
     fetch(
-      "http://35.88.250.238:8080/manager/showLastRecordings",
+      "https://backtest.bankonnect.link/manager/showLastRecordings",
       requestOptions
     )
       .then((response) => response.text())
