@@ -70,7 +70,7 @@ const AgentsAAndQASupplier = ({ children }) => {
     setSelectedAgent(...agentInfo);
   };
 
-  const giveFeedback = (commentt) => {
+  const giveFeedback = (commentt, agentEmail, givenRating) => {
     const myHeaders = new Headers();
     const token = window.localStorage.getItem("token");
     myHeaders.append("Authorization", `Bearer ${token}`);
@@ -78,9 +78,9 @@ const AgentsAAndQASupplier = ({ children }) => {
 
     const raw = JSON.stringify({
       super_id: window.localStorage.getItem("id"),
-      agent_email: "A01750480@tec.mx", //change this to agents email //window.localStorage.getItem("email"),
+      agent_email: agentEmail, //change this to agents email //window.localStorage.getItem("email"),
       comment: commentt,
-      rating: 4,
+      rating: givenRating,
     });
 
     const requestOptions = {

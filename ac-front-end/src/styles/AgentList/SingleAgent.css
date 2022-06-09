@@ -9,8 +9,9 @@ Authors:
   color: var(--text-color);
   border-radius: 10px;
   box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
-  min-height: 50rem;
+  height: 50rem;
   padding: 1rem;
+  overflow-y: auto;
 }
 
 .sa-title {
@@ -50,10 +51,15 @@ Authors:
   column-gap: 4rem;
   grid-template-columns: 1fr 1fr;
 }
-.sa-rating {
-  align-self: center;
+
+.sa-give-feedback {
   margin-top: 2rem;
 }
+
+.sa-rating {
+  align-self: center;
+}
+
 .sa-text {
   font-size: var(--sub-option-text);
   font-weight: 300;
@@ -69,6 +75,13 @@ Authors:
   align-items: stretch;
   gap: 2rem;
   padding: 0 2rem 0 2rem;
+}
+
+.sa-rating-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .sa-feedback {

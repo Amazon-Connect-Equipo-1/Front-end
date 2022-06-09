@@ -33,7 +33,7 @@ const SingleAgent = (props) => {
     setComment(event.target.value);
   };
 
-  console.log(selectedAgent);
+  console.log("selected agent", selectedAgent);
 
   const data = {
     labels: [t("Rating")],
@@ -47,13 +47,21 @@ const SingleAgent = (props) => {
     ],
   };
 
+  const getProfilePicture = () => {
+    if (props.profile_picture !== "") {
+      return props.profile_picture;
+    }
+    return profile_picture;
+  };
+
+  console.log("aofpvmrvm", selectedAgent);
   return (
     <div className="sa-main-container">
       <p className="sa-title">{selectedAgent.name}</p>
       <div className="sa-graphics-container">
         <img
           className="sa-profile-picture"
-          src={profile_picture}
+          src={selectedAgent.profile_picture}
           alt="Profile picture"
         />
         <div className="sa-rating-chart">
@@ -62,16 +70,20 @@ const SingleAgent = (props) => {
         </div>
       </div>
       <div className="sa-info-container">
-        <StyledRating
-          name="sa-rating"
-          className="sa-rating"
-          value={value}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
-          size="large"
-        />
-
+        <p className="sa-text sa-give-feedback">Give feedback:</p>
+        <div className="sa-rating-container">
+          <p className="sa-text">Rating:</p>
+          <StyledRating
+            name="sa-rating"
+            className="sa-rating"
+            value={value}
+            onChange={(event, newValue) => {
+              setValue(newValue);
+              console.log(newValue);
+            }}
+            size="large"
+          />
+        </div>
         <p className="sa-text">{selectedAgent.description}</p>
         {window.localStorage.getItem("userType") === "Quality-agent" && (
           <div className="sa-feedback">
@@ -79,11 +91,14 @@ const SingleAgent = (props) => {
               className="sa-input"
               type="text"
               onChange={onChangeComment}
+              value={comment}
             />
             <button
               className="sa-send-btn"
               onClick={() => {
-                sendFeedback(comment);
+                console.log("clcik en email de agent", selectedAgent.email);
+                sendFeedback(comment, selectedAgent.email, value);
+                setComment("");
               }}
             >
               Send

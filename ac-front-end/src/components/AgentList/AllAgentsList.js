@@ -17,6 +17,7 @@ const AllAgentList = (props) => {
   //Logic to generate the rows
   const [arrAgents] = useContext(AgentAAndQAContext);
 
+  console.log(arrAgents);
   //Selected agent for showing in SingleAgent component
   const [, , changeSelectedAgent] = useContext(AgentAAndQAContext);
 
