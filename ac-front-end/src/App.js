@@ -86,7 +86,7 @@ function App() {
       {music === "play" && (
         <div>
           {" "}
-          <audio src={musica} autoPlay></audio>
+          <audio src={musica} autoPlay loop></audio>
         </div>
       )}
       <GlobalSupplier>
