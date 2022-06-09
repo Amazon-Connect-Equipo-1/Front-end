@@ -19,7 +19,7 @@ const AgentsAAndQASupplier = ({ children }) => {
     {
       agent_id: "1",
       name: "Select one agent",
-      description: t("goodComment"),
+      description: "",
       status: true,
     },
   ];

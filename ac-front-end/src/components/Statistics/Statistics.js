@@ -18,9 +18,8 @@ const Statistics = (props) => {
         <div className="sdsb-main-container-statistics">
           <iframe
             className="sdsb-quicksight-statistics"
-            src="https://us-west-2.quicksight.aws.amazon.com/sn/embed/share/accounts/559202700801/dashboards/5501a3d8-9211-4073-9ff4-55b4b661b8dc?directory_alias=amazonconnectbancos"
+            src="https://us-west-2.quicksight.aws.amazon.com/sn/embed/share/accounts/559202700801/dashboards/3299fbda-f0a9-4aa1-98fc-b9dbcb57a7e0?directory_alias=amazonconnectbancos"
           ></iframe>
-
         </div>
       </div>
     </div>

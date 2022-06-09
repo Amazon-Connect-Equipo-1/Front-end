@@ -41,7 +41,7 @@ const AgentRow = (props) => {
       >
         <Avatar
           alt={props.name}
-          src="/static/images/avatar/1.jpg"
+          src={props.profile_picture}
           className="avatar"
           sx={{ bgcolor: "var(--highlight-color)" }}
         />
