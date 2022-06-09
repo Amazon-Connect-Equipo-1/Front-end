@@ -12,7 +12,6 @@ const AgentFeedbackCard = (props) => {
   // Language
   const { t } = useTranslation();
   const [comment, setComment] = useState("");
-  let commentId = "";
 
   useEffect(() => {
     getFeedback();
@@ -47,6 +46,7 @@ const AgentFeedbackCard = (props) => {
   };
 
   const acceptFeedback = () => {
+    const commentId = "";
     const myHeaders = new Headers();
     const token = window.localStorage.getItem("token");
     myHeaders.append("Authorization", `Bearer ${token}`);
@@ -70,10 +70,6 @@ const AgentFeedbackCard = (props) => {
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
-  };
-
-  const onChangeComment = (event) => {
-    setComment(event.target.value);
   };
 
   return (

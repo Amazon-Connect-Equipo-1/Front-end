@@ -14,6 +14,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5";
 import { RecordingsContext } from "../RecordingsSupplier";
 import RecordingsChart from "./RecordingsCharts";
+import { AiOutlineClose } from "react-icons/ai";
 
 const RecordingsVideo = (props) => {
   // const card = 2; //1: about, 2: QA Feedback
@@ -65,11 +66,10 @@ const RecordingsVideo = (props) => {
         data-aos="fade-up"
         data-aos-duration="1000"
       >
+        <button onClick={onChangeReturnBtn} className="rev-return-btn">
+          <IoChevronBack size={30} />
+        </button>
         <div className="rev-sub-left-container">
-          <button onClick={onChangeReturnBtn} className="return-btn">
-            <IoChevronBack />
-            Return
-          </button>
           <iframe
             srcDoc={`<video controls crossOrigin='anonymous'>
      <source type='video/mp4' src='${videoInfo.processedRecording}' /><track src=${videoInfo.subtitles} label="English" kind="captions" /></video>`}

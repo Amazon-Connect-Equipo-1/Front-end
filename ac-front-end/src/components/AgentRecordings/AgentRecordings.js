@@ -100,6 +100,7 @@ const AgentRecordings = () => {
                 key={recordInfo.RecordingId}
                 date={recordInfo.initialTimestamp}
                 agentName={recordInfo.agentName}
+                thumbnail={recordInfo.thumbnail}
                 tags={recordInfo.tags}
                 origin="agentRecordings"
               />
