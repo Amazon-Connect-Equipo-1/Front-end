@@ -5,13 +5,16 @@ Authors:
 //Import Modules
 import "../../styles/AgentList/SingleAgent.css";
 import profile_picture from "../../images/profile_icon.png";
-import percent from "../../images/porcentaje.png";
 import { useContext, useState } from "react";
 import { AgentAAndQAContext } from "../AgentsAAndQASupplier";
 import Rating from "@mui/material/Rating";
 import { styled } from "@mui/material/styles";
+import { Pie } from "react-chartjs-2";
+import { useTranslation } from "react-i18next";
 
 const SingleAgent = (props) => {
+  const { t } = useTranslation();
+
   const [, selectedAgent, , sendFeedback] = useContext(AgentAAndQAContext);
   const [comment, setComment] = useState("");
   const [value, setValue] = useState(0);
@@ -32,6 +35,18 @@ const SingleAgent = (props) => {
 
   console.log(selectedAgent);
 
+  const data = {
+    labels: [t("Rating")],
+    datasets: [
+      {
+        data: [selectedAgent.rating, 5.0 - selectedAgent.rating],
+        backgroundColor: ["#9facbd", "rgba(54, 162, 235, 0)"],
+        borderColor: ["#9facbd", "rgba(54, 162, 235, 0)"],
+        borderWidth: 1,
+      },
+    ],
+  };
+
   return (
     <div className="sa-main-container">
       <p className="sa-title">{selectedAgent.name}</p>
@@ -41,7 +56,10 @@ const SingleAgent = (props) => {
           src={profile_picture}
           alt="Profile picture"
         />
-        <img className="sa-percent-picture" src={percent} alt="%" />
+        <div className="sa-rating-chart">
+          {/*<Doughnut data={[4.0]} />*/}
+          <Pie data={data} />
+        </div>
       </div>
       <div className="sa-info-container">
         <StyledRating
