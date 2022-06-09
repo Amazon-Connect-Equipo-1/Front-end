@@ -36,10 +36,12 @@ const AgentFeedbackCard = (props) => {
     )
       .then((response) => response.text())
       .then((result) => {
-        const resultJSON = JSON.parse(result);
-        console.log(resultJSON.comments[0].comment);
-        setComment(resultJSON.comments[0].comment);
-        commentId = resultJSON.comments[0].comment_id;
+        const resultJSON = JSON.parse(result).comments;
+        const commentsLength = resultJSON.length;
+        console.log(commentsLength);
+        if (commentsLength > 0) {
+          setComment(resultJSON[commentsLength - 1].comment);
+        }
       })
       .catch((error) => console.log("error", error));
   };
@@ -78,7 +80,7 @@ const AgentFeedbackCard = (props) => {
     <aside className={`afc-main-container ${props.className}`}>
       <div className="afc-container">
         <h2 className="afc-title">{t("qaFeedback")}</h2>
-        {comment.length !== 0 && <p className="afc-comment">{comment}</p>}
+        {comment.length !== 0 && <p>{comment}</p>}
         {comment.length !== 0 && (
           <button className="afc-send-btn" onClick={acceptFeedback}>
             {t("acceptFeedback")}

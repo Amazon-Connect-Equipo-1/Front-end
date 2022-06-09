@@ -56,19 +56,19 @@ const Recordings = (props) => {
       if (spinnerValue === "email") {
         //Make petition
         getRecordsByAgent(searchInput);
-        setSearchInput("");
+        // setSearchInput("");
       } else if (spinnerValue === "tag") {
         //Make petition
         console.log(searchInput);
         console.log("petition tag");
         getRecordsByTags([searchInput]);
-        setSearchInput("");
+        // setSearchInput("");
       } else {
         //spinnerValue === "date"
         //Make petition
         console.log("doing petition");
         getRecordingsByDate(searchInput);
-        setSearchInput("");
+        // setSearchInput("");
       }
     } else {
       console.log("Empty input");

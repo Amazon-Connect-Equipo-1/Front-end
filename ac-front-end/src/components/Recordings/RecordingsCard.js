@@ -13,25 +13,6 @@ import { useContext } from "react";
 import { useTranslation } from "react-i18next";
 
 const RecordingsCard = (props) => {
-  // const [, , selectedVideoInfo, setSelectedVideoInfo] =
-  // useContext(RecordingsContext);
-
-  //Logic to determine the tags
-
-  // const printt = () => {
-  //   setSelectedVideoInfo({
-  //     id: props.record.id,
-  //     agent: props.record.agent,
-  //     agent_name: props.record.agent_name,
-  //     tags: props.record.tags,
-  //     miniatureURL: props.record.miniatureURL,
-  //     videoURL: props.record.videoURL,
-  //     rating: props.record.rating,
-  //     date: props.record.date,
-  //   });
-  //   console.log(selectedVideoInfo);
-  // };
-
   const adaptFontSize = () => {
     if (props.agentName.length > 16) {
       return "rec-agent-name-small";
@@ -42,10 +23,18 @@ const RecordingsCard = (props) => {
   };
 
   const processTagName = (tagName) => {
+    let filteredTagName = tagName.replaceAll("negative", "neg");
+    filteredTagName = filteredTagName.replaceAll("positive", "pos");
+    return filteredTagName.includes("-")
+      ? filteredTagName.replaceAll("-", " ")
+      : filteredTagName;
+  };
+
+  const processTagCss = (tagName) => {
     if (tagName === "3rd-party-services") {
       return "third-party-services";
     }
-    return tagName.includes("-") ? tagName.replace("-", " ") : tagName;
+    return tagName;
   };
 
   const { t } = useTranslation();
@@ -85,12 +74,11 @@ const RecordingsCard = (props) => {
                 {props.agentName}
               </h2>
               <h3 className="rec-date">{props.date}</h3>
-              {/* <h3 className="rec-score">{getRating(props.record.rating)}</h3> */}
             </div>
           </div>
           <div className="rec-tag-section">
             {getTags().map((tag) => (
-              <Card key={uuidv4()} className={`rec-tag ${tag} `}>
+              <Card key={uuidv4()} className={`rec-tag ${processTagCss(tag)} `}>
                 {processTagName(t(tag))}
               </Card>
             ))}

@@ -34,10 +34,18 @@ const AboutCard = (props) => {
   // const videoInfo = selectedVideoInfo.recording;
 
   const processTagName = (tagName) => {
+    let filteredTagName = tagName.replaceAll("negative", "neg");
+    filteredTagName = filteredTagName.replaceAll("positive", "pos");
+    return filteredTagName.includes("-")
+      ? filteredTagName.replaceAll("-", " ")
+      : filteredTagName;
+  };
+
+  const processTagCss = (tagName) => {
     if (tagName === "3rd-party-services") {
       return "third-party-services";
     }
-    return tagName.includes("-") ? tagName.replace("-", " ") : tagName;
+    return tagName;
   };
 
   const getTags = () => {
@@ -98,7 +106,7 @@ const AboutCard = (props) => {
         </h3>
         <div className="abc-tag-section">
           {getTags().map((tag) => (
-            <Card key={uuidv4()} className={`rec-tag ${tag} `}>
+            <Card key={uuidv4()} className={`rec-tag ${processTagCss(tag)} `}>
               {processTagName(t(tag))}
             </Card>
           ))}

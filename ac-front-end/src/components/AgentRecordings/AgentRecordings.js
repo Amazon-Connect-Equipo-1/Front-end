@@ -54,7 +54,7 @@ const AgentRecordings = () => {
         //Make petition
         console.log("doing petition");
         getRecordingsByDate(searchInput, window.localStorage.getItem("email"));
-        setSearchInput("");
+        // setSearchInput("");
       }
     } else {
       console.log("Empty input");
