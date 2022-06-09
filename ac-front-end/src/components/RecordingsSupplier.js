@@ -64,7 +64,7 @@ const RecordingsSupplier = ({ children }) => {
     };
 
     await fetch(
-      `http://35.88.250.238:8080/manager/showRecording?recording_id=${recordingId}`,
+      `https://backtest.bankonnect.link/manager/showRecording?recording_id=${recordingId}`,
       requestOptions
     )
       .then((response) => response.text())
