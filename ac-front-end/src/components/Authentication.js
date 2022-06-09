@@ -8,6 +8,33 @@ import { createContext, useState } from "react";
 export const AuthenticationContext = createContext();
 
 const AuthenticationProvider = ({ children }) => {
+  const logoutPetition = () => {
+    const token = window.localStorage.getItem("token");
+    const email = window.localStorage.getItem("email");
+
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Authorization", `Bearer ${token}`);
+
+    const raw = JSON.stringify({
+      email: email,
+    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch("https://backtest.bankonnect.link/auth/signout", requestOptions)
+      .then((response) => response.text())
+      .then((result) => {
+        const resultJSON = JSON.parse(result);
+        console.log(resultJSON);
+      })
+      .catch((error) => console.log("error", error));
+  };
   // State for Authentication
   const [user, setUser] = useState(null);
   const [password, setPassword] = useState(null);
@@ -22,6 +49,7 @@ const AuthenticationProvider = ({ children }) => {
 
   // Logout
   const logout = () => {
+    logoutPetition();
     setUser(null);
     setPassword(null);
     setUserType(null);

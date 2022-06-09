@@ -27,12 +27,6 @@ const AboutCard = (props) => {
   if (selectedVideoInfo !== undefined) {
     videoInfo = selectedVideoInfo.recording;
   } else {
-    //If it does not exists it needs to fetch again
-    // console.log(id.slice(2));
-    // getSelectedVideoInfo(id.slice(2));
-    // setTimeout(() => {
-    //   videoInfo = selectedVideoInfo.recording;
-    // }, 500);
     videoInfo = window.localStorage.getItem("selectedVideoInfo");
     videoInfo = JSON.parse(videoInfo).recording;
     console.log(videoInfo);
@@ -40,10 +34,18 @@ const AboutCard = (props) => {
   // const videoInfo = selectedVideoInfo.recording;
 
   const processTagName = (tagName) => {
+    let filteredTagName = tagName.replaceAll("negative", "neg");
+    filteredTagName = filteredTagName.replaceAll("positive", "pos");
+    return filteredTagName.includes("-")
+      ? filteredTagName.replaceAll("-", " ")
+      : filteredTagName;
+  };
+
+  const processTagCss = (tagName) => {
     if (tagName === "3rd-party-services") {
       return "third-party-services";
     }
-    return tagName.includes("-") ? tagName.replace("-", " ") : tagName;
+    return tagName;
   };
 
   const getTags = () => {
@@ -65,6 +67,9 @@ const AboutCard = (props) => {
       <div className="abc-container">
         <div className="abc-navbar">
           <h2 className="abc-title">{t("about")}</h2>
+          <h2 className="abc-title" onClick={props.onChangeCard}>
+            Analysis
+          </h2>
         </div>
         <h2>{t("call")}</h2>
         <h3>
@@ -101,7 +106,7 @@ const AboutCard = (props) => {
         </h3>
         <div className="abc-tag-section">
           {getTags().map((tag) => (
-            <Card key={uuidv4()} className={`rec-tag ${tag} `}>
+            <Card key={uuidv4()} className={`rec-tag ${processTagCss(tag)} `}>
               {processTagName(t(tag))}
             </Card>
           ))}

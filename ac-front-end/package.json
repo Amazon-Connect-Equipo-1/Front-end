@@ -31,6 +31,7 @@
     "react-media-recorder": "^1.6.6",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
+    "react-timer-hook": "^3.0.5",
     "react-tooltip": "^4.2.21",
     "spinners-react": "^1.0.7",
     "uuidv4": "^6.2.13",

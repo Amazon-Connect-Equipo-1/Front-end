@@ -14,6 +14,12 @@ import ConfirmationPolice from "./ConfirmationPolice";
 //Creates the Police Form
 const PoliceForm = (props) => {
   //input handlers-----------------------------------
+  const [clientInput, setClientInput] = useState("");
+  const [emailInput, setEmailInput] = useState("");
+  const [cellphoneInput, setCellphoneInput] = useState("");
+  const [locationInput, setLocationInput] = useState("");
+  const [referenceInput, setReferenceInput] = useState("");
+  const [statementInput, setStatementInput] = useState("");
 
   const clientChangeHandler = (event) => {
     window.localStorage.setItem("client", event.target.value);
@@ -127,7 +133,10 @@ const PoliceForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={clientChangeHandler}
+              onChange={(e) => {
+                setClientInput(e.target.value);
+                clientChangeHandler(e.target.value);
+              }}
             />
           </label>
           <label className="tp-name-label">
@@ -137,7 +146,10 @@ const PoliceForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={emailChangeHandler}
+              onChange={(e) => {
+                setEmailInput(e.target.value);
+                emailChangeHandler(e.target.value);
+              }}
             />
           </label>
           <label className="tp-name-label">
@@ -147,7 +159,10 @@ const PoliceForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={cellphoneChangeHandler}
+              onChange={(e) => {
+                setCellphoneInput(e.target.value);
+                cellphoneChangeHandler(e.target.value);
+              }}
             />
           </label>
           <label className="tp-name-label">
@@ -157,7 +172,10 @@ const PoliceForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={clientLocationChangeHandler}
+              onChange={(e) => {
+                setLocationInput(e.target.value);
+                clientLocationChangeHandler(e.target.value);
+              }}
             />
           </label>
           <label className="tp-name-label">
@@ -167,7 +185,10 @@ const PoliceForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={clientLocationReferenceChangeHandler}
+              onChange={(e) => {
+                setReferenceInput(e.target.value);
+                clientLocationReferenceChangeHandler(e.target.value);
+              }}
             />
           </label>
           <label className="tp-name-label">
@@ -177,12 +198,34 @@ const PoliceForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={clientStatementChangeHandler}
+              onChange={(e) => {
+                setStatementInput(e.target.value);
+                clientStatementChangeHandler(e.target.value);
+              }}
             />
           </label>
           <div className="tp-submit">
             <input
               type="submit"
+              disabled={
+                clientInput === "" ||
+                emailInput === "" ||
+                cellphoneInput === "" ||
+                locationInput === "" ||
+                referenceInput === "" ||
+                statementInput === ""
+              }
+              style={{
+                opacity:
+                  clientInput &&
+                  emailInput &&
+                  cellphoneInput &&
+                  locationInput &&
+                  referenceInput &&
+                  statementInput
+                    ? "1.0"
+                    : "0.5",
+              }}
               onKeyDown={saveKeys}
               onClick={(e) => {
                 e.preventDefault();

@@ -86,6 +86,14 @@ Authors:
   background: var(--offline-color);
 }
 
+.no-active-agents {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+  font-size: var(--sub-title);
+}
+
 /*Media queries for AllAgentList*/
 /*****************************/
 /* BELOW 47*16 = 752px (Smaller desktops) */

@@ -44,31 +44,6 @@ const LoginForm = (props) => {
     Client: "Client",
   };
 
-  // Test Users
-  const testUsers = [
-    {
-      id: 1,
-      name: "Jack Pearson",
-      email: "agent@gmail.com",
-      password: "1234",
-      user_type: "Agent",
-    },
-    {
-      id: 2,
-      name: "Susan Watson",
-      email: "qa@gmail.com",
-      password: "1234",
-      user_type: "QA",
-    },
-    {
-      id: 3,
-      name: "Julia Garner",
-      email: "admin@gmail.com",
-      password: "1234",
-      user_type: "Admin",
-    },
-  ];
-
   const navigate = useNavigate();
   const location = useLocation();
   //const from = location.state?.from?.pathname || "/";
@@ -153,6 +128,7 @@ const LoginForm = (props) => {
               );
 
               loadUserPreferences(resultJSON.manager_id); // Load user config preferences
+              window.localStorage.setItem("music", "pause");
               navigate("/qa", { replace: true });
             })
             .catch((error) => console.log("error", error));
@@ -188,6 +164,7 @@ const LoginForm = (props) => {
               );
 
               loadUserPreferences(resultJSON.manager_id); // Load user config preferences
+              window.localStorage.setItem("music", "pause");
               navigate("/qa", { replace: true });
             })
             .catch((error) => console.log("error", error));
@@ -217,6 +194,10 @@ const LoginForm = (props) => {
               // console.log(resultJSON.body);
               console.log("mike");
               window.localStorage.setItem("id", resultJSON.agent_id);
+              window.localStorage.setItem(
+                "agent_admin_token",
+                resultJSON["super_id"]
+              );
               window.localStorage.setItem("name", resultJSON.name);
               window.localStorage.setItem("status", resultJSON.status);
               window.localStorage.setItem("calls", resultJSON.calls);
@@ -225,8 +206,9 @@ const LoginForm = (props) => {
                 "profile_picture",
                 resultJSON.profile_picture
               );
-
+              console.log(result);
               loadUserPreferences(resultJSON.agent_id); // Load user config preferences
+              window.localStorage.setItem("music", "pause");
               navigate("/agent", { replace: true });
             })
             .catch((error) => console.log("error", error));
@@ -283,7 +265,7 @@ const LoginForm = (props) => {
               onChange={pwdChangeHandler}
               value={pwd}
             />
-            <span onClick={togglePassword} class="field-icon">
+            <span onClick={togglePassword} className="field-icon">
               {visible && <FiEyeOff />}
               {invisible && <FiEye />}
             </span>

@@ -6,7 +6,7 @@ Authors:
 import RecordingsCard from "./RecordingsCard";
 import "../../styles/Recordings/Recordings.css";
 import { RecordingsContext } from "../RecordingsSupplier";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { saveKeys, saveClick } from "../MonitorModule.js";
 import { useTranslation } from "react-i18next";
 import { Outlet, useOutlet } from "react-router-dom";
@@ -16,15 +16,63 @@ const Recordings = (props) => {
   // Language
   const { t } = useTranslation();
   //Logica para generar las cards
-  const [arrRecordings, getVideos] = useContext(RecordingsContext);
+  const [
+    arrRecordings,
+    ,
+    ,
+    ,
+    ,
+    getRecordsByAgent,
+    getRecordingsByDate,
+    getRecordsByTags,
+  ] = useContext(RecordingsContext);
+  const [searchInput, setSearchInput] = useState("");
+  const [spinnerValue, setSpinnerValue] = useState("tag");
   const INPUT_NAME = "recordings";
 
   //Variable to verify if an outlet exists
   // It is expected that the outlet is <RecordingsVideo />
   const outlet = useOutlet();
 
-  const switchInputType = (t) => {
-    document.getElementById("re-input").type = t;
+  const switchInputType = (spinnerOption) => {
+    setSpinnerValue(spinnerOption);
+    console.log(spinnerOption);
+    if (spinnerOption === "date") {
+      document.getElementById("re-input").type = spinnerOption;
+    } else {
+      document.getElementById("re-input").type = "text";
+    }
+  };
+
+  const onChangeSearchInput = (event) => {
+    console.log(event.target.value);
+    setSearchInput(event.target.value);
+  };
+
+  const onFilterRecordings = () => {
+    //Petition for filtering videos
+    if (searchInput !== "") {
+      //Check type of search (date, tag, agent name)
+      if (spinnerValue === "email") {
+        //Make petition
+        getRecordsByAgent(searchInput);
+        // setSearchInput("");
+      } else if (spinnerValue === "tag") {
+        //Make petition
+        console.log(searchInput);
+        console.log("petition tag");
+        getRecordsByTags([searchInput]);
+        // setSearchInput("");
+      } else {
+        //spinnerValue === "date"
+        //Make petition
+        console.log("doing petition");
+        getRecordingsByDate(searchInput);
+        // setSearchInput("");
+      }
+    } else {
+      console.log("Empty input");
+    }
   };
 
   console.log("recordings", arrRecordings);
@@ -44,9 +92,9 @@ const Recordings = (props) => {
                 onClick={() => saveClick(`${INPUT_NAME} filter scroller`)}
                 onChange={(e) => switchInputType(e.target.value)}
               >
-                {/* <option>{t("search")}</option> */}
                 <option value="tag">{t("tag")}</option>
                 <option value="date">{t("date")}</option>
+                <option value="email">Email</option>
               </select>
               <input
                 onKeyDown={saveKeys}
@@ -57,8 +105,10 @@ const Recordings = (props) => {
                 placeholder="Search"
                 min="2022-06-01"
                 max="2029-12-31"
+                onChange={onChangeSearchInput}
+                value={searchInput}
               />
-              <button href="/" className="re-btn">
+              <button href="/" className="re-btn" onClick={onFilterRecordings}>
                 {t("search")}
               </button>
             </div>
@@ -70,6 +120,8 @@ const Recordings = (props) => {
                 date={recordInfo.initialTimestamp}
                 agentName={recordInfo.agentName}
                 tags={recordInfo.tags}
+                thumbnail={recordInfo.thumbnail}
+                subtitles={recordInfo.subtitles}
                 origin="qaRecordings"
               />
             ))}

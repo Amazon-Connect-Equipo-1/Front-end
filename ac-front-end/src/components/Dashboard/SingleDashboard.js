@@ -20,7 +20,7 @@ const SingleDashboard = (props) => {
     <div className="sdsb-main-container-dashboard">
       <iframe
         className="sdsb-quicksight-dashboard"
-        src="https://us-west-2.quicksight.aws.amazon.com/sn/embed/share/accounts/559202700801/dashboards/f0f0db32-74b6-4fef-8a26-89103d50737b?directory_alias=amazonconnectbancos"
+        src="https://us-west-2.quicksight.aws.amazon.com/sn/embed/share/accounts/559202700801/dashboards/3b8c802a-174f-4c14-a7b5-d75c275b3dc1?directory_alias=amazonconnectbancos"
       ></iframe>
     </div>
   );

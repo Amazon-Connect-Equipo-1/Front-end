@@ -41,7 +41,7 @@ const RecordingsVideo = (props) => {
 
   const changeCardHandler = () => {
     if (cardName === "About") {
-      setCardName("Feedback");
+      setCardName("Sentimental Analysis");
     } else {
       setCardName("About");
     }
@@ -57,7 +57,7 @@ const RecordingsVideo = (props) => {
     }
   };
 
-  console.log("linkk", videoInfo.videoRecording);
+  // console.log("linkk", videoInfo.videoRecording);
   return (
     <Card className="rev-main-container">
       <div
@@ -71,20 +71,25 @@ const RecordingsVideo = (props) => {
             Return
           </button>
           <iframe
+            srcDoc={`<video controls crossOrigin='anonymous'>
+     <source type='video/mp4' src='${videoInfo.processedRecording}' /><track src=${videoInfo.subtitles} label="English" kind="captions" /></video>`}
             className="rev-video"
             src={videoInfo.processedRecording} //proccessed recording no jala
             allowFullScreen
           />
         </div>
-        <AboutCard onChangeCard={changeCardHandler} />
-        <RecordingsChart
-          sentimentByQuarter={
-            videoInfo.recordingData.GraphCustomerSentimentByQuarter
-          }
-          sentimentOverall={
-            videoInfo.recordingData.GraphCustomerSentimentOverall
-          }
-        />
+        {cardName === "About" && <AboutCard onChangeCard={changeCardHandler} />}
+        {cardName === "Sentimental Analysis" && (
+          <RecordingsChart
+            onChangeCard={changeCardHandler}
+            sentimentByQuarter={
+              videoInfo.recordingData.GraphCustomerSentimentByQuarter
+            }
+            sentimentOverall={
+              videoInfo.recordingData.GraphCustomerSentimentOverall
+            }
+          />
+        )}
       </div>
     </Card>
   );

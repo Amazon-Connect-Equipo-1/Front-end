@@ -14,18 +14,20 @@ import LocaleContext from "../../LocaleContext";
 import i18n from "../../i18n";
 import { saveKeys, saveClick } from "../MonitorModule.js";
 import musica from "../../music/mii.mp3";
-const music = window.localStorage.getItem("music"); //---------------------------
+import { useNavigate } from "react-router-dom";
 
 //Creates functions Settings and its constants
 function Settings() {
-  const [plays, setPlays] = useState(music);
-  const play = () => {
-    setPlays("play");
-    window.localStorage.setItem("music", "play");
-  };
-  const pause = () => {
-    setPlays("pause");
-    window.localStorage.setItem("music", "pause");
+  const navigate = useNavigate();
+
+  const toggleMusic = () => {
+    console.log("Music Play/Pause");
+    if (localStorage.getItem("music") === "pause") {
+      localStorage.setItem("music", "play");
+    } else {
+      localStorage.setItem("music", "pause");
+    }
+    navigate("/settings");
   };
   const INPUT_NAME = "settings";
 
@@ -224,23 +226,22 @@ function Settings() {
             Restore to default
           </button>
           <div className="stngs-restore-container">
-            {plays === "play" && (
-              <div>
-                <button className="stngs-music-btn" onClick={pause}>
-                  <MdOutlineMusicNote />
-                </button>
-              </div>
-            )}
-            {plays === "pause" && (
-              <button className="stngs-music-btn" onClick={play}>
-                <MdOutlineMusicOff />
+            <div>
+              <button className="stngs-music-btn" onClick={toggleMusic}>
+                {localStorage.getItem("music") === "play" && (
+                  <div>
+                    {" "}
+                    <MdOutlineMusicNote />
+                  </div>
+                )}
+                {localStorage.getItem("music") === "pause" && (
+                  <div>
+                    {" "}
+                    <MdOutlineMusicOff />
+                  </div>
+                )}
               </button>
-            )}
-            {plays === "" && (
-              <button className="stngs-music-btn" onClick={play}>
-                <MdOutlineMusicOff />
-              </button>
-            )}
+            </div>
           </div>
         </div>
       </div>

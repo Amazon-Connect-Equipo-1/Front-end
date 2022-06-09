@@ -17,12 +17,14 @@ const AgentRow = (props) => {
 
   const StyledBadge = styled(Badge)(() => ({
     "& .MuiBadge-badge": {
-      backgroundColor: props.isActiveCalls
-        ? "var(--online-color)"
-        : "var(--offline-color)",
-      color: props.isActiveCalls
-        ? "var(--online-color)"
-        : "var(--offline-color)",
+      backgroundColor:
+        props.status === "Active" || props.status === "In call"
+          ? "var(--online-color)"
+          : "var(--offline-color)",
+      color:
+        props.status === "Active" || props.status === "In call"
+          ? "var(--online-color)"
+          : "var(--offline-color)",
       boxShadow: `0 0 0 2px var(--sub-card-background)`,
     },
   }));
@@ -38,7 +40,7 @@ const AgentRow = (props) => {
         variant="dot"
       >
         <Avatar
-          alt={props.agentName}
+          alt={props.name}
           src="/static/images/avatar/1.jpg"
           className="avatar"
           sx={{ bgcolor: "var(--highlight-color)" }}
@@ -51,7 +53,7 @@ const AgentRow = (props) => {
         alt="Profile picture"
       />
   */}
-      <p className="aal-text">{props.agentName}</p>
+      <p className="aal-text">{props.name}</p>
       <img
         className="aal-telephone-picture"
         src={telephone}

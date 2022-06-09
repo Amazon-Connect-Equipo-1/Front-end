@@ -26,7 +26,7 @@ import Error from "./components/Error/Error";
 import AgentMain from "./components/AgentMain/AgentMain";
 import QualityControl from "./components/QualityControl/QualityControl";
 import AgentsAAndQASupplier from "./components/AgentsAAndQASupplier";
-import GlobalSupplier from "./components/GlobalSupplier";
+import GlobalSupplier, { GlobalContext } from "./components/GlobalSupplier";
 import NewPassword from "./components/Login/NewPassword";
 import "amazon-connect-streams";
 import { Navigate, Route, Router, Routes, useLocation } from "react-router-dom";
@@ -39,10 +39,45 @@ import RequireAuthentication from "./components/RequireAuthentication";
 import NewPasswordForm from "./components/Login/NewPasswordForm";
 import AgentRecordings from "./components/AgentRecordings/AgentRecordings";
 import { loadUserPreferences } from "./components/UserPreferences";
+import { useTime } from "react-timer-hook";
 import musica from "./music/mii.mp3";
 
 function App() {
-  const music = window.localStorage.getItem("music");
+  const deleteObj = () => {
+    const token = window.localStorage.getItem("token");
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Authorization", `Bearer ${token}`);
+
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://backtest.bankonnect.link/keyclick/deleteObjects",
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+  };
+  const refreshSystem = () => {
+    deleteObj();
+    logout();
+
+    window.localStorage.removeItem("isLoggedIn");
+    window.localStorage.removeItem("userType");
+    window.localStorage.removeItem("name");
+    window.localStorage.removeItem("token");
+    window.localStorage.removeItem("id");
+    window.localStorage.removeItem("email");
+    window.location.reload();
+  };
+  //Variables that control time
+  const { seconds, minutes, hours, ampm } = useTime({ format: "24-hour" });
+
   // Variable that determines the types of users to protect the routes
   const USER = {
     Admin: "Admin",
@@ -51,12 +86,14 @@ function App() {
     Client: "Client",
   };
 
+  var music = window.localStorage.getItem("music");
   // Language
   const [locale, setLocale] = useState(i18n.language);
   i18n.on("languageChanged", (lng) => setLocale(i18n.language));
 
   // Authentication
-  const [user, , userType] = useContext(AuthenticationContext);
+  const [user, , userType, , logout] = useContext(AuthenticationContext);
+
   //console.log(user);
   //console.log(userType);
   const getUserType = window.localStorage.getItem("userType");
@@ -78,14 +115,17 @@ function App() {
       loadUserPreferences(window.localStorage.getItem("id"));
     }
     //const music = window.localStorage.setItem("music", "pause");
+    music = localStorage.getItem("music");
   }, []);
 
   return (
     <div className="App">
+      {hours === 0 && minutes === 57 && seconds === 59 && refreshSystem()}
+
       {music === "play" && (
         <div>
           {" "}
-          <audio src={musica} autoPlay></audio>
+          <audio src={musica} autoPlay loop></audio>
         </div>
       )}
       <GlobalSupplier>

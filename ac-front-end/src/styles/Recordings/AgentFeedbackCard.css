@@ -24,7 +24,7 @@ Authors:
   align-items: center;
   justify-content: center;
   gap: 3rem;
-  color: white;
+  color: var(--text-color);
   padding: 2rem;
 }
 
@@ -71,11 +71,6 @@ Authors:
   border-radius: 10px;
   border: 2px solid var(--highlight-color) !important;
   width: 100%;
-}
-
-.afc-comment {
-  align-self: start;
-  color: var(--text-color);
 }
 
 .afc-send-btn {
