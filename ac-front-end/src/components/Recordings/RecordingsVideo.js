@@ -71,7 +71,7 @@ const RecordingsVideo = (props) => {
             Return
           </button>
           <iframe
-            srcDoc={`<video controls   crossOrigin='anonymous' >
+            srcDoc={`<video controls crossOrigin='anonymous'>
      <source type='video/mp4' src='${videoInfo.processedRecording}' /><track src=${videoInfo.subtitles} label="English" kind="captions" /></video>`}
             className="rev-video"
             src={videoInfo.processedRecording} //proccessed recording no jala

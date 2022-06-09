@@ -18,8 +18,8 @@ export const saveKeys = (event) => {
   myHeaders.append("Authorization", `Bearer ${token}`);
 
   const raw = JSON.stringify({
-    key: "h,e,l,l,o",
-    agent_id: "05065c6c-844f-416c-8159-89bd798a0145",
+    key: event.target.value,
+    agent_id: window.localStorage.getItem("id"),
   });
 
   const requestOptions = {
@@ -40,13 +40,14 @@ export const saveKeys = (event) => {
 
 export const saveClick = (elementName) => {
   console.log(`Click in ${elementName}`, giveTimestamp());
+  console.log(typeof elementName);
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   myHeaders.append("Authorization", `Bearer ${token}`);
 
   const raw = JSON.stringify({
-    key: "login",
-    agent_id: "05065c6c-844f-416c-8159-89bd798a0145",
+    button: elementName,
+    agent_id: window.localStorage.getItem("id"),
   });
 
   const requestOptions = {

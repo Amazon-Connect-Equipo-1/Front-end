@@ -16,7 +16,7 @@ const AgentRecordings = () => {
   // Language
   const { t } = useTranslation();
 
-  const [, , , , arrAgentRecordings, , getRecordingsByDate] =
+  const [, , , , arrAgentRecordings, , getRecordingsByDate, getRecordsByTags] =
     useContext(RecordingsContext);
   const [searchInput, setSearchInput] = useState("");
   const [spinnerValue, setSpinnerValue] = useState("tag");
@@ -49,6 +49,7 @@ const AgentRecordings = () => {
       //Check type of search (date, tag)
       if (spinnerValue === "tag") {
         //Make petition
+        getRecordsByTags([searchInput], window.localStorage.getItem("email"));
       } else {
         //spinnerValue === "date"
         //Make petition

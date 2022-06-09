@@ -38,8 +38,8 @@ Authors:
   border: none;
 }
 .rev-video {
-  width: 100rem;
-  height: 60rem;
+  /* width: 100rem;
+  height: 60rem; */
   border-radius: 11px;
   align-self: start;
 }

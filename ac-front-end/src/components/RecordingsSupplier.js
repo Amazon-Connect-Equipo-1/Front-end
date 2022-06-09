@@ -219,7 +219,7 @@ const RecordingsSupplier = ({ children }) => {
     // return {};
   };
 
-  const getRecordsByTags = (tagName) => {
+  const getRecordsByTags = (tagName, agentEmail = "") => {
     const token = window.localStorage.getItem("token");
 
     const myHeadersToken = new Headers();
@@ -227,6 +227,7 @@ const RecordingsSupplier = ({ children }) => {
     myHeadersToken.append("Authorization", `Bearer ${token}`);
 
     const raw = JSON.stringify({
+      email: agentEmail,
       tags: tagName,
     });
 
@@ -243,12 +244,17 @@ const RecordingsSupplier = ({ children }) => {
     )
       .then((response) => response.text())
       .then((result) => {
+        console.log(result);
         const resultJSON = JSON.parse(result).recordings; //[0].recording_data;
         console.log(resultJSON);
         const recordings = resultJSON.map((record) => {
           return record.recording_data;
         });
-        setArrRecordings([...recordings]);
+        if (agentEmail !== "") {
+          setArrAgentRecordings([...recordings]);
+        } else {
+          setArrRecordings([...recordings]);
+        }
       })
       .catch((error) => console.log("error", error));
   };
