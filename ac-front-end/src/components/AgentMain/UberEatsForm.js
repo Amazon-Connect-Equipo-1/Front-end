@@ -15,6 +15,11 @@ import ConfirmationUberEats from "./ConfirmationUberEats";
 const UberEatsForm = (props) => {
   const { t } = useTranslation();
   //input handlers-----------------------------------
+  const [clientInput, setClientInput] = useState("");
+  const [emailInput, setEmailInput] = useState("");
+  const [cellphoneInput, setCellphoneInput] = useState("");
+  const [locationInput, setLocationInput] = useState("");
+  const [item, setItem] = useState(0);
 
   const clientChangeHandler = (event) => {
     window.localStorage.setItem("client", event.target.value);
@@ -126,21 +131,27 @@ const UberEatsForm = (props) => {
 
   const sodaForm = () => {
     setSoda(soda + 1);
+    setItem(item + 1);
   };
   const chipsForm = () => {
     setChips(chips + 1);
+    setItem(item + 1);
   };
   const coffeeForm = () => {
     setCoffee(coffee + 1);
+    setItem(item + 1);
   };
   const hotDogForm = () => {
     setHotDog(hotDog + 1);
+    setItem(item + 1);
   };
   const aspirinForm = () => {
     setAspirin(aspirin + 1);
+    setItem(item + 1);
   };
   const chocolateForm = () => {
     setChocolate(chocolate + 1);
+    setItem(item + 1);
   };
 
   if (solconf === "yes") {
@@ -158,49 +169,62 @@ const UberEatsForm = (props) => {
       </div>
     );
   }
+
   if (solconf === "no") {
     return (
       <div>
         <div className="tp-title">Uber Eats Service</div>
         <form>
           <label className="tp-name-label">
-            Client:
+            {t("client")}
             <input
               type="text"
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={clientChangeHandler}
+              onChange={(e) => {
+                setClientInput(e.target.value);
+                clientChangeHandler(e.target.value);
+              }}
             />
           </label>
           <label className="tp-name-label">
-            Email:
+            {t("email")}
             <input
               type="text"
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={emailChangeHandler}
+              onChange={(e) => {
+                setEmailInput(e.target.value);
+                emailChangeHandler(e.target.value);
+              }}
             />
           </label>
           <label className="tp-name-label">
-            Cellphone:
+            {t("cellphone")}
             <input
               type="text"
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={cellphoneChangeHandler}
+              onChange={(e) => {
+                setCellphoneInput(e.target.value);
+                cellphoneChangeHandler(e.target.value);
+              }}
             />
           </label>
           <label className="tp-name-label">
-            Client location:
+            {t("client location")}
             <input
               type="text"
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={clientLocationChangeHandler}
+              onChange={(e) => {
+                setLocationInput(e.target.value);
+                clientLocationChangeHandler(e.target.value);
+              }}
             />
           </label>
           <h1>Order:</h1>
@@ -224,6 +248,23 @@ const UberEatsForm = (props) => {
           <div className="tp-submit">
             <input
               type="submit"
+              disabled={
+                clientInput === "" ||
+                emailInput === "" ||
+                cellphoneInput === "" ||
+                locationInput === "" ||
+                item < 0
+              }
+              style={{
+                opacity:
+                  clientInput &&
+                  emailInput &&
+                  cellphoneInput &&
+                  locationInput &&
+                  (soda > 0 || chips > 0 || coffee > 0 || hotDog > 0)
+                    ? "1.0"
+                    : "0.5",
+              }}
               onKeyDown={saveKeys}
               onClick={(e) => {
                 e.preventDefault();
