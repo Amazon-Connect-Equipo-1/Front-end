@@ -40,7 +40,6 @@ export const saveKeys = (event) => {
 
 export const saveClick = (elementName) => {
   console.log(`Click in ${elementName}`, giveTimestamp());
-  console.log(typeof elementName);
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   myHeaders.append("Authorization", `Bearer ${token}`);

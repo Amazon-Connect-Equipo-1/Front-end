@@ -147,7 +147,6 @@ const RecordingsSupplier = ({ children }) => {
       .then((response) => response.text())
       .then((result) => {
         const resultJSON = JSON.parse(result).recordings;
-        console.log(resultJSON);
         if (selectedEmail !== undefined) {
           setArrRecordings([...resultJSON]);
         } else {

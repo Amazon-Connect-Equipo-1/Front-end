@@ -20,23 +20,27 @@ Authors:
   column-gap: 3rem;
 }
 .rev-sub-left-container {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: flex-start; */
+  /* justify-content: space-between; */
 }
-.return-btn {
+.rev-return-btn {
   font-size: var(--option-text);
   font-weight: 700;
   background-color: var(--highlight-color);
   border-radius: 8px;
   padding: 1rem;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   color: var(--text-color);
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
   border: none;
 }
+
 .rev-video {
   /* width: 100rem;
   height: 60rem; */

@@ -121,7 +121,6 @@ const Recordings = (props) => {
                 agentName={recordInfo.agentName}
                 tags={recordInfo.tags}
                 thumbnail={recordInfo.thumbnail}
-                subtitles={recordInfo.subtitles}
                 origin="qaRecordings"
               />
             ))}
