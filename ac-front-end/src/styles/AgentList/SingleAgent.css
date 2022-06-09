@@ -34,9 +34,9 @@ Authors:
 }
 
 .sa-profile-picture {
-  height: 14rem;
-  width: auto;
-  margin-left: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sa-percent-picture {
