@@ -92,7 +92,7 @@ const Recordings = (props) => {
               >
                 <option value="tag">{t("tag")}</option>
                 <option value="date">{t("date")}</option>
-                <option value="email">Email</option>
+                <option value="email">{t("emailProfile")}</option>
               </select>
               <input
                 onKeyDown={saveKeys}

@@ -223,7 +223,7 @@ function Settings() {
               postPreferences();
             }}
           >
-            Restore to default
+            {t("restoreToDefault")}
           </button>
           <div className="stngs-restore-container">
             <div>

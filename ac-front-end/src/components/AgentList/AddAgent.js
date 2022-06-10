@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "../../styles/AgentList/AddUser.css";
 
 const AddAgent = (props) => {
@@ -22,6 +23,8 @@ const AddAgent = (props) => {
   const pictureChangeHandler = (event) => {
     window.localStorage.setItem("picture", event.target.value);
   };
+  // Language
+  const { t } = useTranslation();
 
   //-----------------------------------------
   //RESTART DATA--------------------------------
@@ -75,8 +78,8 @@ const AddAgent = (props) => {
 
   return (
     <div className="adu-container">
-      <p className="adu-title">Add Agent</p>
-      <label className="adu-label">Name</label>
+      <p className="adu-title">{t("addAgent")}</p>
+      <label className="adu-label">{t("name")}</label>
       <input
         className="adu-input"
         id="name"
@@ -84,7 +87,7 @@ const AddAgent = (props) => {
         placeholder="Name"
         onChange={nameChangeHandler}
       />
-      <label className="adu-label">Email</label>
+      <label className="adu-label">{t("email")}</label>
       <input
         className="adu-input"
         id="email"
@@ -92,7 +95,7 @@ const AddAgent = (props) => {
         placeholder="Email"
         onChange={emailChangeHandler}
       />
-      <label className="adu-label">Password</label>
+      <label className="adu-label">{t("password")}</label>
       <input
         className="adu-input"
         id="password"
@@ -100,7 +103,7 @@ const AddAgent = (props) => {
         placeholder="Password"
         onChange={passwordChangeHandler}
       />
-      <label className="adu-label">Phone Number</label>
+      <label className="adu-label">{t("phoneNumber")}</label>
       <input
         className="adu-input"
         id="phoneNumber"
@@ -109,7 +112,7 @@ const AddAgent = (props) => {
         onChange={phoneNumberChangeHandler}
       />
 
-      <label className="adu-label">Administrator Email</label>
+      <label className="adu-label">{t("administratorEmail")}</label>
       <input
         className="adu-input"
         id="AdministratorEmail"
@@ -117,7 +120,7 @@ const AddAgent = (props) => {
         placeholder="Administrator Email"
         onChange={superEmailChangeHandler}
       />
-      <label className="adu-label">Profile Picture</label>
+      <label className="adu-label">{t("profilePicture")}</label>
       <input
         className="adu-input"
         id="profilePicture"
@@ -133,7 +136,7 @@ const AddAgent = (props) => {
           props.onChange();
         }}
       >
-        Save
+        {t("save")}
       </button>
     </div>
   );
