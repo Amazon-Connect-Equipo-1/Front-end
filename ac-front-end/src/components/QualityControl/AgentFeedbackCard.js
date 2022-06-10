@@ -82,7 +82,7 @@ const AgentFeedbackCard = (props) => {
             {t("acceptFeedback")}
           </button>
         )}
-        {comment.length === 0 && <p>{t("noFeedbackAvailable")}</p>}
+        {comment.length === 0 && <p>No feedback available</p>}
       </div>
     </aside>
   );

@@ -4,14 +4,11 @@ Authors:
 
 //Import Modules
 import { SpinnerCircular } from "spinners-react";
-import { useTranslation } from "react-i18next";
-
+// Hola sara
 function Loading() {
-  // Language
-  const { t } = useTranslation();
   return (
     <SpinnerCircular role="status">
-      <span className="visually-hidden">{t("loading")}</span>
+      <span className="visually-hidden">Loading...</span>
     </SpinnerCircular>
   );
 }

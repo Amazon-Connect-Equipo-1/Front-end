@@ -4,7 +4,6 @@ Authors:
 
 //Import Modules
 import "../../styles/AgentMain/ThirdParty.css";
-import { useTranslation } from "react-i18next";
 import uberlogo from "../../images/uber.png";
 import { createContext, Suspense, useState } from "react";
 
@@ -102,14 +101,12 @@ const Confirmation = (props) => {
       })
       .catch((error) => console.log("error", error));
   };
-  // Language
-  const { t } = useTranslation();
 
   return (
     <div className="tp-confirmation">
-      <div className="tp-title">{t("serviceConfirmation")}</div>
-      <button onClick={recordByAgent}>{t("agentBtn")}</button>
-      <button onClick={recordByTag}>{t("tags")}</button>
+      <div className="tp-title">Service Confirmation</div>
+      <button onClick={recordByAgent}>agent</button>
+      <button onClick={recordByTag}>tags</button>
     </div>
   );
 };

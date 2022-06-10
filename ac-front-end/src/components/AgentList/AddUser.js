@@ -2,7 +2,6 @@ import React from "react";
 import "../../styles/AgentList/AddUser.css";
 import AddAgent from "./AddAgent";
 import AddManager from "./AddManager";
-import { useTranslation } from "react-i18next";
 import { createContext, Suspense, useState } from "react";
 
 const AddUser = () => {
@@ -16,19 +15,17 @@ const AddUser = () => {
   const changeMain = () => {
     setState("main");
   };
-  // Language
-  const { t } = useTranslation();
   return (
     <div className="adu-main-container">
       <div className="adu-container">
         {state === "main" && (
           <div className="adu-container">
-            <p className="adu-title">{t("selectRoleAdd")}</p>
+            <p className="adu-title">Select role to add</p>
             <button className="adu-send-btn" onClick={changeAgent}>
-              {t("agentButton")}
+              Agent
             </button>
             <button className="adu-send-btn" onClick={changeAQA}>
-              {t("adminQA")}
+              Admin/QA
             </button>
           </div>
         )}

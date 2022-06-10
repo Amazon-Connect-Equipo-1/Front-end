@@ -173,7 +173,7 @@ const UberEatsForm = (props) => {
   if (solconf === "no") {
     return (
       <div>
-        <div className="tp-title">{t("uberEats")}</div>
+        <div className="tp-title">Uber Eats Service</div>
         <form>
           <label className="tp-name-label">
             {t("client")}

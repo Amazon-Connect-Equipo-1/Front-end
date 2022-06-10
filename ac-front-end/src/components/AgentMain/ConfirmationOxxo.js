@@ -4,7 +4,6 @@ Authors:
 
 //Import Modules
 import "../../styles/AgentMain/ThirdParty.css";
-import { useTranslation } from "react-i18next";
 import uberlogo from "../../images/uber.png";
 import { createContext, Suspense, useState } from "react";
 
@@ -90,16 +89,14 @@ const ConfirmationOxxo = (props) => {
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
   };
-  // Language
-  const { t } = useTranslation();
 
   return (
     <div className="tp-confirmation">
       <div className="tp-title">
-        {t("serviceConfirmation")}
+        Service Confirmation
         {conf === "yes" && (
           <div>
-            <div className="tp-confirmation-text">{t("informationSent")}</div>
+            <div className="tp-confirmation-text">Informacion Enviada!</div>
             <div className="tp-confirmation-button-container">
               <button
                 className="tp-confirmation-button"
@@ -110,7 +107,7 @@ const ConfirmationOxxo = (props) => {
                   props.onChange();
                 }}
               >
-                {t("confirmed")}
+                confirmado
               </button>
             </div>
           </div>
@@ -118,34 +115,31 @@ const ConfirmationOxxo = (props) => {
         {conf === "no" && (
           <div>
             <div className="tp-confirmation-text">
-              {t("client")} {client}
+              Client: {client}
               <br />
-              {t("email")} {email}
+              mail: {email}
               <br />
-              {t("cellPhone")} {cellphone}
+              Cellphone: {cellphone}
               <br />
-              {t("clientLocation")} {clientLocation}
+              Client location: {clientLocation}
               <br />
-              {t("oxxoInfo")}
+              OXXO INFO:
               <br />
-              {t("street")}
-              {street}
+              Street: {street}
               <br />
-              {t("state")}
-              {state}
+              State: {state}
               <br />
-              {t("colony")}
-              {colony}
+              Colony: {colony}
               <br />
-              {t("zipCode")} {zipCode}
+              Zip Code: {zipCode}
               <br />
-              {t("country")} {country}
+              Country: {country}
               <br />
-              {t("quantity")} {quantity}
+              Quantity: {quantity}
               <br />
-              {t("accountNumber")} {accountNumber}
+              Account Number: {accountNumber}
               <br />
-              {t("reference")} {reference}
+              Reference: {reference}
               <br />
             </div>
             <div className="tp-confirmation-button-container">
@@ -156,7 +150,7 @@ const ConfirmationOxxo = (props) => {
                   changeConfig();
                 }}
               >
-                {t("sendInfo")}
+                Mandar info
               </button>
             </div>
           </div>

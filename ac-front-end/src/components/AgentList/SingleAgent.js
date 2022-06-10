@@ -77,9 +77,9 @@ const SingleAgent = (props) => {
         </div>
       </div>
       <div className="sa-info-container">
-        <p className="sa-text sa-give-feedback">{t("giveFeedback")}</p>
+        <p className="sa-text sa-give-feedback">Give feedback:</p>
         <div className="sa-rating-container">
-          <p className="sa-text">{t("rating")}</p>
+          <p className="sa-text">Rating:</p>
           <StyledRating
             name="sa-rating"
             className="sa-rating"
@@ -108,7 +108,7 @@ const SingleAgent = (props) => {
                 setComment("");
               }}
             >
-              {t("send")}
+              Send
             </button>
           </div>
         )}

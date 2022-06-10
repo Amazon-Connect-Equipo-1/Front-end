@@ -39,6 +39,7 @@ const RecordingsChart = (props) => {
     labels: sentimentOverall,
     datasets: [
       {
+   
         backgroundColor: "#9facbd",
         borderColor: "#9facbd",
         label: t("labelPer"),
@@ -69,7 +70,7 @@ const RecordingsChart = (props) => {
         <h2 className="recc-title" onClick={props.onChangeCard}>
           {t("about")}
         </h2>
-        <h2 className="recc-title">{t("analysis")}</h2>
+        <h2 className="recc-title">Analysis</h2>
       </div>
       <div className="recc-container">
         <div>
@@ -91,6 +92,7 @@ const RecordingsChart = (props) => {
                 },
               },
             }}
+            
           />
         </div>
         <div>
@@ -110,8 +112,10 @@ const RecordingsChart = (props) => {
                   text: t("labelQuarter"),
                   fontColor: "#FFFFFF",
                 },
+                
               },
             }}
+            
           />
         </div>
       </div>
