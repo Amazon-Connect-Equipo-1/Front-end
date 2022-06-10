@@ -40,8 +40,8 @@ const RecordingsChart = (props) => {
     datasets: [
       {
         label: t("labelOverall"),
-        backgroundColor: "#FFFFFF",
-        borderColor: "#000000",
+        backgroundColor: "#9facbd",
+        borderColor: "#9facbd",
         borderWidth: 1,
         data: dataSentimentOverall,
       },
@@ -55,8 +55,8 @@ const RecordingsChart = (props) => {
         label: t("labelQuarter"),
         fill: false,
         lineTension: 0.5,
-        backgroundColor: "#FFFFFF",
-        borderColor: "#FFFFFF",
+        backgroundColor: "#9facbd",
+        borderColor: "#9facbd",
         borderWidth: 1,
         data: props.sentimentByQuarter,
       },
@@ -80,7 +80,7 @@ const RecordingsChart = (props) => {
                 display: true,
                 text: "Sentiments analysis",
                 fontSize: 20,
-                fontColor: "#FFFFFF",
+                fontColor: "#9facbd",
               },
               legend: {
                 display: true,

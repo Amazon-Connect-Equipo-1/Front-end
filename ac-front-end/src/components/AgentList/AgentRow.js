@@ -5,11 +5,11 @@ Authors:
 //Import Modules
 import "../../styles/AgentList/AllAgentsList.css";
 import profile_thumbnail from "../../images/profile_icon.png";
-import telephone from "../../images/telephone_call.png";
 import { useTranslation } from "react-i18next";
 import { styled } from "@mui/material/styles";
 import Badge from "@mui/material/Badge";
 import Avatar from "@mui/material/Avatar";
+import { CgPhone } from "react-icons/cg";
 
 //Creates the constant Agent Row
 const AgentRow = (props) => {
@@ -46,19 +46,8 @@ const AgentRow = (props) => {
           sx={{ bgcolor: "var(--highlight-color)" }}
         />
       </StyledBadge>
-      {/*
-      <img
-        className="aal-profile-picture"
-        src={profile_thumbnail}
-        alt="Profile picture"
-      />
-  */}
       <p className="aal-text">{props.name}</p>
-      <img
-        className="aal-telephone-picture"
-        src={telephone}
-        alt="Telephone picture"
-      />
+      {props.status === "In call" && <CgPhone />}
     </button>
   );
 };
