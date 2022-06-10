@@ -12,6 +12,11 @@ import { Link } from "react-router-dom";
 import { Avatar } from "@mui/material";
 
 const Profile = (props) => {
+  //Local storage for making a reload in agent main
+  if (window.localStorage.getItem("userType") === "Agent") {
+    window.localStorage.setItem("needRefresh", true);
+  }
+
   const [, , userInfo] = useContext(GlobalContext);
   console.log(userInfo);
 

@@ -10,6 +10,9 @@ import { useOutlet } from "react-router-dom";
 const QualityControl = (props) => {
   const outlet = useOutlet();
 
+  //Local storage for making a reload in agent main
+  window.localStorage.setItem("needRefresh", true);
+
   return (
     <>
       {outlet || (

@@ -18,6 +18,11 @@ import { useNavigate } from "react-router-dom";
 
 //Creates functions Settings and its constants
 function Settings() {
+  //Local storage for making a reload in agent main
+  if (window.localStorage.getItem("userType") === "Agent") {
+    window.localStorage.setItem("needRefresh", true);
+  }
+
   const navigate = useNavigate();
 
   const toggleMusic = () => {
