@@ -39,9 +39,10 @@ const RecordingsChart = (props) => {
     labels: sentimentOverall,
     datasets: [
       {
-        label: t("labelOverall"),
+   
         backgroundColor: "#9facbd",
         borderColor: "#9facbd",
+        label: t("labelPer"),
         borderWidth: 1,
         data: dataSentimentOverall,
       },
@@ -49,10 +50,10 @@ const RecordingsChart = (props) => {
   };
 
   const stateLine = {
-    labels: [0, 1, 2, 3],
+    labels: ["Q1", "Q2", "Q3", "Q4"],
     datasets: [
       {
-        label: t("labelQuarter"),
+        label: t("labelSent"),
         fill: false,
         lineTension: 0.5,
         backgroundColor: "#9facbd",
@@ -76,37 +77,45 @@ const RecordingsChart = (props) => {
           <Bar
             data={stateBar}
             options={{
-              title: {
-                display: true,
-                text: "Sentiments analysis",
-                fontSize: 20,
-                fontColor: "#9facbd",
-              },
-              legend: {
-                display: true,
-                position: "right",
-              },
               responsive: true,
               maintainAspectRatio: false,
+              plugins: {
+                legend: {
+                  display: false,
+                  position: "up",
+                },
+                title: {
+                  display: true,
+                  fontSize: 20,
+                  text: t("labelOverall"),
+                  fontColor: "#9facbd",
+                },
+              },
             }}
+            
           />
         </div>
         <div>
           <Line
             data={stateLine}
             options={{
-              title: {
-                display: true,
-                text: "Sentiment analysis",
-                fontSize: 20,
-              },
-              legend: {
-                display: true,
-                position: "right",
-              },
               responsive: true,
               maintainAspectRatio: false,
+              plugins: {
+                legend: {
+                  display: true,
+                  position: "bottom",
+                },
+                title: {
+                  display: true,
+                  fontSize: 20,
+                  text: t("labelQuarter"),
+                  fontColor: "#FFFFFF",
+                },
+                
+              },
             }}
+            
           />
         </div>
       </div>

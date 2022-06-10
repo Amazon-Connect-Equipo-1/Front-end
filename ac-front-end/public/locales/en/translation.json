@@ -157,10 +157,12 @@
 
   "__RecordingsCharts__": "-------------Labels in charts--------------",
   "titleSentiment": "Sentiment analysis",
-  "labelOverall": "Sentiment overall",
-  "labelQuarter": "Sentiment by quarter",
-  "positive": "Positive",
-  "mixed": "Mixed",
-  "neutral": "Neutral",
-  "negative": "Negative"
+  "labelOverall": "Customer Sentiment Overall",
+  "labelPer": "%",
+  "labelQuarter": "Customer Sentiment by Quarter",
+  "labelSent": "Sentiment Value [-5: NEG, +5 POS]",
+  "positive": "% Positive",
+  "mixed": "% Mixed",
+  "neutral": "% Neutral",
+  "negative": "% Negative"
 }

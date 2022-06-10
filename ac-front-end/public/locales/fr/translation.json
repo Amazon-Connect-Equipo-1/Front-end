@@ -156,11 +156,13 @@
   "differentPasswords": "La différence ne coïncide pas",
 
   "__RecordingsCharts__": "-------------Labels in charts--------------",
-  "titleSentiment": "Analyse des sentiments",
+  "titleSentiment": "Analyse du sentiment",
   "labelOverall": "Sentiment global",
-  "labelQuarter": "Sentiment par trimestre",
-  "positive": "Positif",
-  "mixed": "Mixte",
-  "neutral": "Neutre",
-  "negative": "Négatif"
+  "labelPer": "%",
+  "labelQuarter": "Sentiment des clients par quart",
+  "labelSent": "Valeur du sentiment",
+  "positive": "% Positif",
+  "mixed": "% Mixte",
+  "neutral": "% Neutre",
+  "negative": "% Négatif"
 }

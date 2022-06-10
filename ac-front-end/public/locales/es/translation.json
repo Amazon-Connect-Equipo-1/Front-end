@@ -156,11 +156,14 @@
   "differentPasswords": "Las contraseñas no coinciden",
 
   "__RecordingsCharts__": "-------------Labels in charts--------------",
-  "titleSentiment": "Análisis de opinión",
-  "labelOverall": "Opinión general",
-  "labelQuarter": "Opinión por trimestre",
-  "positive": "Positivo",
-  "mixed": "Mixto",
-  "neutral": "Neutro",
-  "negative": "Negativo"
+  "titleSentiment": "Análisis de sentimiento",
+  "labelOverall": "Sentimiento del cliente general",
+  "labelPer": "%",
+  "labelQuarter": "Sentimiento del cliente por cuarto",
+  "labelSent": "Valor de sentimiento",
+  "positive": "% Positivo",
+  "mixed": "% Mixto",
+  "neutral": "% Neutro",
+  "negative": "% Negativo"
+
 }
