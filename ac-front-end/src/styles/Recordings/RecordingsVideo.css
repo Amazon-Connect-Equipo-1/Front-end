@@ -6,7 +6,7 @@ Authors:
 .rev-main-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   background-color: var(--main-card-background);
   border-radius: 10px;
   margin: 1rem 2rem 2rem 100px;
@@ -45,7 +45,8 @@ Authors:
 .rev-return-btn {
   font-size: var(--option-text);
   font-weight: 700;
-  background-color: var(--highlight-color);
+  color: white;
+  background-color: #415164;
   border-radius: 8px;
   padding: 1rem;
   cursor: pointer;
@@ -53,7 +54,6 @@ Authors:
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  color: var(--text-color);
   /* margin-bottom: 1rem; */
   border: none;
 }

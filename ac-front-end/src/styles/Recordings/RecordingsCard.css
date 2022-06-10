@@ -20,28 +20,28 @@ Authors:
   min-height: 20rem;
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
 .rec-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 3rem;
   padding: 2rem;
+}
+
+.rec-container::-webkit-scrollbar {
+  width: 3px;
+}
+
+.rec-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.rec-container::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.rec-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .rec-video-section {

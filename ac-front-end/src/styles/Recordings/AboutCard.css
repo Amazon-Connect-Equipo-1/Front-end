@@ -70,7 +70,7 @@ Authors:
 }
 
 .abc-tag-section::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 
 .abc-tag-section::-webkit-scrollbar-track {

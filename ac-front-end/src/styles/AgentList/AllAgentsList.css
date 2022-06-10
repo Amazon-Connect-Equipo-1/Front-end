@@ -14,7 +14,7 @@ Authors:
 }
 
 .aal-main-container::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 
 .aal-main-container::-webkit-scrollbar-track {

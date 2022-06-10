@@ -93,18 +93,22 @@ const AgentRecordings = () => {
                 {t("search")}
               </button>
             </div>
-            {arrAgentRecordings.map((recordInfo) => (
-              <RecordingsCard
-                recordingId={recordInfo.RecordingId}
-                agentId={recordInfo.agentId}
-                key={recordInfo.RecordingId}
-                date={recordInfo.initialTimestamp}
-                agentName={recordInfo.agentName}
-                thumbnail={recordInfo.thumbnail}
-                tags={recordInfo.tags}
-                origin="agentRecordings"
-              />
-            ))}
+            {arrAgentRecordings.length > 0 &&
+              arrAgentRecordings.map((recordInfo) => (
+                <RecordingsCard
+                  recordingId={recordInfo.RecordingId}
+                  agentId={recordInfo.agentId}
+                  key={recordInfo.RecordingId}
+                  date={recordInfo.initialTimestamp}
+                  agentName={recordInfo.agentName}
+                  thumbnail={recordInfo.thumbnail}
+                  tags={recordInfo.tags}
+                  origin="agentRecordings"
+                />
+              ))}
+            {arrAgentRecordings.length === 0 && (
+              <p className="arc-no-recordings">{`No recordings found`}</p>
+            )}
           </div>
         </div>
       )}

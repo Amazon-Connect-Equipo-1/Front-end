@@ -75,8 +75,6 @@ const Recordings = (props) => {
     }
   };
 
-  console.log("recordings", arrRecordings);
-
   return (
     <>
       {outlet || (
@@ -112,18 +110,22 @@ const Recordings = (props) => {
                 {t("search")}
               </button>
             </div>
-            {arrRecordings.map((recordInfo) => (
-              <RecordingsCard
-                recordingId={recordInfo.RecordingId}
-                agentId={recordInfo.agentId}
-                key={recordInfo.RecordingId}
-                date={recordInfo.initialTimestamp}
-                agentName={recordInfo.agentName}
-                tags={recordInfo.tags}
-                thumbnail={recordInfo.thumbnail}
-                origin="qaRecordings"
-              />
-            ))}
+            {arrRecordings.length > 0 &&
+              arrRecordings.map((recordInfo) => (
+                <RecordingsCard
+                  recordingId={recordInfo.RecordingId}
+                  agentId={recordInfo.agentId}
+                  key={recordInfo.RecordingId}
+                  date={recordInfo.initialTimestamp}
+                  agentName={recordInfo.agentName}
+                  tags={recordInfo.tags}
+                  thumbnail={recordInfo.thumbnail}
+                  origin="qaRecordings"
+                />
+              ))}
+            {arrRecordings.length === 0 && (
+              <p className="re-no-recordings">{`No recordings found`}</p>
+            )}
           </div>
         </div>
       )}

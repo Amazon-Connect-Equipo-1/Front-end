@@ -19,7 +19,6 @@
 .arc-search-container {
   display: flex;
   grid-column: 1 / -1;
-  /* gap: 1.5rem; */
   justify-self: end;
 }
 
@@ -44,10 +43,19 @@
 }
 
 .arc-btn {
-  color: var(--text-color);
-  background-color: var(--sub-card-background);
+  color: white;
+  background-color: #415164;
   border-radius: 0 10px 10px 0;
   cursor: pointer;
+}
+
+.arc-no-recordings {
+  justify-self: center;
+  text-align: center;
+  font-size: var(--sub-title);
+  grid-column: 1 / -1;
+  color: var(--text-color);
+  margin: 3rem;
 }
 
 /*Media queries for Recordings*/
