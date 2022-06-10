@@ -23,6 +23,7 @@ Authors:
 .aglm-search-container {
   display: flex;
   margin: 4.5rem 1rem 1rem 0;
+  padding-right: 1rem;
 }
 
 .aglm-add {
@@ -51,8 +52,9 @@ Authors:
 
 .aglm-search {
   font-size: var(--option-text);
-  border-radius: 10px 0 0 10px;
-  padding: 1rem 1rem 1rem 2rem;
+  border-radius: 6px;
+  width: 30rem;
+  background-color: var(--sub-card-light);
 }
 
 .aglm-select {
