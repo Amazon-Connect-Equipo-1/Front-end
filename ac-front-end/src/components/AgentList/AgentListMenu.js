@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 import { useContext, useState } from "react";
 import { AgentAAndQAContext } from "../AgentsAAndQASupplier";
 import { Autocomplete, TextField } from "@mui/material";
-
+import { HiOutlineRefresh } from "react-icons/hi";
 const AgentListMenu = (props) => {
   const INPUT_NAME = "agent";
   // Language
@@ -48,6 +48,10 @@ const AgentListMenu = (props) => {
     setValue(newValue);
   };
 
+  const refresh = () => {
+    window.location.reload();
+  };
+
   const [, , changeSelectedAgent] = useContext(AgentAAndQAContext);
   return (
     <div className="aglm-menu-container">
@@ -57,16 +61,10 @@ const AgentListMenu = (props) => {
         </button>
       )}
       <div className="aglm-search-container">
-        {/*<input
-          className="aglm-search"
-          id="aglm-search"
-          type="search"
-          placeholder={t("placeholder")}
-          onClick={() => saveClick(`${INPUT_NAME} input`)}
-          onKeyDown={saveKeys}
-          onChange={onChangeSearchString}
-          value={searchString}
-      /> */}
+        <button className="aglm-refresh-btn" onClick={refresh}>
+          Refresh
+          <HiOutlineRefresh className="aglm-refresh" />
+        </button>
         <Autocomplete
           disablePortal
           className="aglm-search"
