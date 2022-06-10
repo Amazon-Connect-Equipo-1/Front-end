@@ -76,9 +76,12 @@ const AgentListMenu = (props) => {
           onClick={() => saveClick(`${INPUT_NAME} input`)}
           onKeyDown={saveKeys}
           onChange={(event, newValue) => {
+            console.log("newValue", newValue);
             setValue(newValue);
-            //onChangeSearchString(newValue.label);
-            console.log(newValue.id);
+            props
+              .onSelectAgent(newValue.id)
+              //onChangeSearchString(newValue.label);
+              .console.log(newValue.id);
           }}
           renderInput={(params) => (
             <TextField

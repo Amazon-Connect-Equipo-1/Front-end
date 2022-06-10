@@ -15,7 +15,7 @@ import SingleAgent from "./SingleAgent";
 //Create Constant Agent List
 const AgentList = (props) => {
   //Logic to generate the rows
-  const [arrAgents] = useContext(AgentAAndQAContext);
+  const [arrAgents, , changeSelectedAgent] = useContext(AgentAAndQAContext);
 
   //This info is for the agent card
   const [agentInfo, setAgentInfo] = useState(arrAgents[0]);
@@ -32,7 +32,10 @@ const AgentList = (props) => {
 
   return (
     <div className="agl-main-container" data-aos="fade-up">
-      <AgentListMenu changeCard={onChangeUserCard} />
+      <AgentListMenu
+        onSelectAgent={changeSelectedAgent}
+        changeCard={onChangeUserCard}
+      />
       <div
         className="agl-card-container"
         data-aos="fade-up"
