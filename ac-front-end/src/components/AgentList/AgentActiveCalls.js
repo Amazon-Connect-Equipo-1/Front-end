@@ -37,7 +37,7 @@ const AgentActiveCalls = (props) => {
           />
         ))}
       {arrAgentsWorking.length === 0 && (
-        <p className="no-active-agents">No active calls right now</p>
+        <p className="no-active-agents">{t("noActiveCalls")}</p>
       )}
       {/* </div> */}
     </div>

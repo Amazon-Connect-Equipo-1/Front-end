@@ -62,7 +62,7 @@ const AgentListMenu = (props) => {
       )}
       <div className="aglm-search-container">
         <button className="aglm-refresh-btn" onClick={refresh}>
-          Refresh
+          {t("refresh")}
           <HiOutlineRefresh className="aglm-refresh" />
         </button>
         <Autocomplete

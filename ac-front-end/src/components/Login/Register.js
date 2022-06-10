@@ -12,7 +12,6 @@ const Register = (props) => {
     <div className="rp-main-container">
       <div className="rp-container">
         <img src={logo} alt="logo" className="rp-logo" />
-        hola
       </div>
     </div>
   );

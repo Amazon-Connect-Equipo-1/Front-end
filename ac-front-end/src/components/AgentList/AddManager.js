@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/AgentList/AddUser.css";
+import { useTranslation } from "react-i18next";
 import { createContext, Suspense, useState } from "react";
 
 const AddManager = (props) => {
@@ -20,6 +21,8 @@ const AddManager = (props) => {
   const pictureChangeHandler = (event) => {
     window.localStorage.setItem("picture", event.target.value);
   };
+  // Language
+  const { t } = useTranslation();
 
   //-----------------------------------------
   //RESTART DATA--------------------------------
@@ -82,8 +85,8 @@ const AddManager = (props) => {
   };
   return (
     <div className="adu-container">
-      <p className="adu-title">Add Manager</p>
-      <label className="adu-label">Name</label>
+      <p className="adu-title">{t("addManager")}</p>
+      <label className="adu-label">{t("name")}</label>
       <input
         className="adu-input"
         id="name"
@@ -91,7 +94,7 @@ const AddManager = (props) => {
         placeholder="Name"
         onChange={nameChangeHandler}
       />
-      <label className="adu-label">Email</label>
+      <label className="adu-label">{t("emailManager")}</label>
       <input
         className="adu-input"
         id="email"
@@ -99,7 +102,7 @@ const AddManager = (props) => {
         placeholder="Email"
         onChange={emailChangeHandler}
       />
-      <label className="adu-label">Password</label>
+      <label className="adu-label">{t("passwordManager")}</label>
       <input
         className="adu-input"
         id="password"
@@ -107,7 +110,7 @@ const AddManager = (props) => {
         placeholder="Password"
         onChange={passwordChangeHandler}
       />
-      <label className="adu-label">Phone Number</label>
+      <label className="adu-label">{t("phoneNumber")}</label>
       <input
         className="adu-input"
         id="phoneNumber"
@@ -115,7 +118,7 @@ const AddManager = (props) => {
         placeholder="Phone Number"
         onChange={phoneNumberChangeHandler}
       />
-      <label className="adu-label">Profile Picture</label>
+      <label className="adu-label">{t("profilePicture")}</label>
       <input
         className="adu-input"
         id="profilePicture"
@@ -125,7 +128,7 @@ const AddManager = (props) => {
       />
       <div className="adu-role-container">
         <button className={roleA} onClick={changeConfigRoleA}>
-          Administrator
+          {t("administrator")}
         </button>
         <button className={roleQ} onClick={changeConfigRoleQ}>
           QA
@@ -140,7 +143,7 @@ const AddManager = (props) => {
           props.onChange();
         }}
       >
-        Save
+        {t("save")}
       </button>
     </div>
   );
