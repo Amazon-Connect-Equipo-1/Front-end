@@ -53,12 +53,6 @@ Authors:
   border-radius: 10px 0 0 10px;
   background-color: var(--highlight-color);
   color: var(--text-color);
-}
-
-.re-btn {
-  color: white;
-  background-color: #415164;
-  border-radius: 0 10px 10px 0;
   cursor: pointer;
 }
 
@@ -89,7 +83,13 @@ Authors:
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 2rem;
+  cursor: pointer;
+}
+.re-refresh-btn:hover {
+  transform: translateY(-3px);
+  transition: 0.3s ease-out;
+  opacity: 0.9;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /*Media queries for Recordings*/

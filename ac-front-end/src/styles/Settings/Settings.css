@@ -36,6 +36,7 @@ Authors:
   padding: 1.2rem;
   background-color: var(--sub-card-background);
   color: var(--text-color);
+  cursor: pointer;
 }
 .stngs-restore-container {
   padding: 2rem;
@@ -63,6 +64,12 @@ Authors:
   align-items: center;
   justify-content: center;
   border-radius: 10px;
+}
+.stngs-music-btn:hover {
+  transform: translateY(-3px);
+  transition: 0.3s ease-out;
+  opacity: 0.9;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 .stngs-music {
   font-size: var(--option-text);

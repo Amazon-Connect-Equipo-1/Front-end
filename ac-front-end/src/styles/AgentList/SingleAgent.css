@@ -114,6 +114,13 @@ Authors:
   color: var(--text-color);
   border: none;
 }
+
+.sa-send-btn:hover {
+  transform: translateY(-3px);
+  transition: 0.3s ease-out;
+  opacity: 0.9;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
 /*Media queries for SingleAgent*/
 /*****************************/
 /* BELOW 47*16 = 752px (Smaller desktops) */

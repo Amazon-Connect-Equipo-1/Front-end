@@ -89,7 +89,7 @@ span {
   cursor: pointer;
 }
 .t-select {
-  background-color: var(--highlight-color);
+  background-color: var(--sub-card-light);
   font-size: var(--option-text);
   font-weight: bold;
   border-radius: 6px;

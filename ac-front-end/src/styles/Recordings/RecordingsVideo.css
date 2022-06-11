@@ -57,6 +57,12 @@ Authors:
   /* margin-bottom: 1rem; */
   border: none;
 }
+.rev-return-btn:hover {
+  transform: translateY(-3px);
+  transition: 0.3s ease-out;
+  opacity: 0.9;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
 
 .rev-video {
   /* width: 100rem;

@@ -19,6 +19,10 @@ Authors:
   overflow: hidden;
   min-height: 20rem;
 }
+.rec-main-container:hover {
+  transition: 0.3s ease-out;
+  opacity: 0.9;
+}
 
 .rec-container {
   display: flex;
