@@ -18,7 +18,7 @@ const AgentsAAndQASupplier = ({ children }) => {
   const dummyAgents = [
     {
       agent_id: "1",
-      name: "Select one agent",
+      name: t("selectAgent"),
       description: "",
       status: true,
     },

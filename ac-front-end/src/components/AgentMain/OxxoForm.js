@@ -184,7 +184,7 @@ const OxxoForm = (props) => {
             />
           </label>
           <label className="tp-name-label">
-            {t("cellphone")}
+            {t("cellPhone")}
             <input
               type="text"
               onKeyDown={saveKeys}
@@ -277,7 +277,7 @@ const OxxoForm = (props) => {
                 getBack();
                 saveClick(`${INPUT_NAME} input`);
               }}
-              value={t("Cancel")}
+              value={t("cancel")}
               className="tp-submit-button"
             />
           </div>

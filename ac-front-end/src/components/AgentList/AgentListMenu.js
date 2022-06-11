@@ -86,7 +86,7 @@ const AgentListMenu = (props) => {
               {...params}
               className="text-field"
               id="text-field"
-              label={t("Agents")}
+              label={t("agents")}
             />
           )}
         />

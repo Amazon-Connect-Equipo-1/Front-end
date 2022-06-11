@@ -37,7 +37,7 @@ const SingleAgent = (props) => {
   console.log("selected agent", selectedAgent);
 
   const data = {
-    labels: [t("Rating")],
+    labels: [t("rating")],
     datasets: [
       {
         data: [selectedAgent.rating, 5.0 - selectedAgent.rating],

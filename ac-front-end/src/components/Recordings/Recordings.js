@@ -173,7 +173,7 @@ const Recordings = (props) => {
                     className="re-input"
                     id="re-input"
                     type="date"
-                    placeholder="Search"
+                    placeholder={t("search")}
                     min="2022-06-01"
                     max="2029-12-31"
                     onChange={onChangeSearchInput}
@@ -228,7 +228,7 @@ const Recordings = (props) => {
                 />
               ))}
             {arrRecordings.length === 0 && (
-              <p className="re-no-recordings">{`No recordings found`}</p>
+              <p className="re-no-recordings">t("noRecordings")</p>
             )}
           </div>
         </div>

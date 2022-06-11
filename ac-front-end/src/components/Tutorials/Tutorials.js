@@ -62,7 +62,7 @@ const Tutorials = () => {
               {...params}
               className="text-field"
               id="text-field"
-              label="Tutorials"
+              label={t("tutorials")}
             />
           )}
         />

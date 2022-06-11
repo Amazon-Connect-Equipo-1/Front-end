@@ -202,7 +202,7 @@ const UberEatsForm = (props) => {
             />
           </label>
           <label className="tp-name-label">
-            {t("cellphone")}
+            {t("cellPhone")}
             <input
               type="text"
               onKeyDown={saveKeys}
@@ -215,7 +215,7 @@ const UberEatsForm = (props) => {
             />
           </label>
           <label className="tp-name-label">
-            {t("client location")}
+            {t("clientLocation")}
             <input
               type="text"
               onKeyDown={saveKeys}
@@ -227,19 +227,27 @@ const UberEatsForm = (props) => {
               }}
             />
           </label>
-          <h1>Order:</h1>
+          <h1>{t("order")}</h1>
           <div className="tp-order">
-            <Order product={"Soda"} quantity={soda} function={sodaForm} />
-            <Order product={"Chips"} quantity={chips} function={chipsForm} />
-            <Order product={"Coffee"} quantity={coffee} function={coffeeForm} />
-            <Order product={"HotDog"} quantity={hotDog} function={hotDogForm} />
+            <Order product={t("soda")} quantity={soda} function={sodaForm} />
+            <Order product={t("chips")} quantity={chips} function={chipsForm} />
             <Order
-              product={"Aspirin"}
+              product={t("coffee")}
+              quantity={coffee}
+              function={coffeeForm}
+            />
+            <Order
+              product={t("hotDog")}
+              quantity={hotDog}
+              function={hotDogForm}
+            />
+            <Order
+              product={t("aspirin")}
               quantity={aspirin}
               function={aspirinForm}
             />
             <Order
-              product={"Chocolate"}
+              product={t("chocolate")}
               quantity={chocolate}
               function={chocolateForm}
             />
@@ -272,7 +280,7 @@ const UberEatsForm = (props) => {
                 Confirm();
                 saveClick(`${INPUT_NAME} input`);
               }}
-              value="Ask for service"
+              value={t("askForService")}
               className="tp-submit-button"
             />
           </div>
@@ -285,7 +293,7 @@ const UberEatsForm = (props) => {
                 getBack();
                 saveClick(`${INPUT_NAME} input`);
               }}
-              value={t("Cancel")}
+              value={t("cancel")}
               className="tp-submit-button"
             />
           </div>

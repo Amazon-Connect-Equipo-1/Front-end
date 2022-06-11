@@ -153,7 +153,7 @@ const PoliceForm = (props) => {
             />
           </label>
           <label className="tp-name-label">
-            {t("cellphone")}
+            {t("cellPhone")}
             <input
               type="text"
               onKeyDown={saveKeys}
@@ -166,7 +166,7 @@ const PoliceForm = (props) => {
             />
           </label>
           <label className="tp-name-label">
-            {t("client location")}
+            {t("clientLocation")}
             <input
               type="text"
               onKeyDown={saveKeys}
@@ -179,7 +179,7 @@ const PoliceForm = (props) => {
             />
           </label>
           <label className="tp-name-label">
-            {t("client location reference")}
+            {t("clientLocationReference")}
             <input
               type="text"
               onKeyDown={saveKeys}
@@ -192,7 +192,7 @@ const PoliceForm = (props) => {
             />
           </label>
           <label className="tp-name-label">
-            {t("client statement")}
+            {t("clientStatement")}
             <input
               type="text"
               onKeyDown={saveKeys}
@@ -247,7 +247,7 @@ const PoliceForm = (props) => {
                 getBack();
                 saveClick(`${INPUT_NAME} input`);
               }}
-              value={t("Cancel")}
+              value={t("cancel")}
               className="tp-submit-button"
             />
           </div>

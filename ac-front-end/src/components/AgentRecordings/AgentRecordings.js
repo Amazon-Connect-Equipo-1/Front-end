@@ -107,7 +107,7 @@ const AgentRecordings = () => {
                 />
               ))}
             {arrAgentRecordings.length === 0 && (
-              <p className="arc-no-recordings">{`No recordings found`}</p>
+              <p className="arc-no-recordings">{t("noRecordings")}</p>
             )}
           </div>
         </div>

@@ -112,7 +112,7 @@ const UberForm = (props) => {
         <div className="tp-title">{t("uber")}</div>
         <form>
           <label className="tp-name-label">
-            {t("Client")}
+            {t("client")}
             <input
               type="text"
               onKeyDown={saveKeys}
@@ -125,7 +125,7 @@ const UberForm = (props) => {
             />
           </label>
           <label className="tp-name-label">
-            {t("Email")}
+            {t("email")}
             <input
               type="text"
               onKeyDown={saveKeys}
@@ -138,7 +138,7 @@ const UberForm = (props) => {
             />
           </label>
           <label className="tp-name-label">
-            {t("Cellphone")}
+            {t("cellPhone")}
             <input
               type="text"
               onKeyDown={saveKeys}
@@ -151,7 +151,7 @@ const UberForm = (props) => {
             />
           </label>
           <label className="tp-name-label">
-            {t("ClientLocation")}
+            {t("clientLocation")}
             <input
               type="text"
               onKeyDown={saveKeys}
@@ -164,7 +164,7 @@ const UberForm = (props) => {
             />
           </label>
           <label className="tp-name-label">
-            {t("Destination")}
+            {t("clientDestination")}
             <input
               type="text"
               onKeyDown={saveKeys}
@@ -216,7 +216,7 @@ const UberForm = (props) => {
                 getBack();
                 saveClick(`${INPUT_NAME} input`);
               }}
-              value={t("Cancel")}
+              value={t("cancel")}
               className="tp-submit-button"
             />
           </div>
