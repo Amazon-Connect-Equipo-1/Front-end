@@ -34,7 +34,7 @@ const SingleAgent = (props) => {
     setComment(event.target.value);
   };
 
-  console.log("selected agent", selectedAgent);
+  // console.log("selected agent", selectedAgent);
 
   const data = {
     labels: [t("rating")],
@@ -48,14 +48,6 @@ const SingleAgent = (props) => {
     ],
   };
 
-  const getProfilePicture = () => {
-    if (props.profile_picture !== "") {
-      return props.profile_picture;
-    }
-    return profile_picture;
-  };
-
-  console.log("aofpvmrvm", selectedAgent);
   return (
     <div className="sa-main-container">
       <p className="sa-title">{selectedAgent.name}</p>
@@ -72,26 +64,39 @@ const SingleAgent = (props) => {
           }}
         />
         <div className="sa-rating-chart">
-          {/*<Doughnut data={[4.0]} />*/}
           <Pie data={data} />
         </div>
       </div>
       <p className="sa-text">{selectedAgent.email}</p>
       <p className="sa-text">{selectedAgent.description}</p>
       <div className="sa-info-container">
-        <div className="sa-rating-container">
-          <p className="sa-text">{t("rating")} </p>
-          <StyledRating
-            name="sa-rating"
-            className="sa-rating"
-            value={value}
-            onChange={(event, newValue) => {
-              setValue(newValue);
-              console.log(newValue);
-            }}
-            size="large"
-          />
-        </div>
+        <p className="sa-email">
+          {t("email")}
+          <span>
+            {" "}
+            {selectedAgent.email ? selectedAgent.email : "email@amazon.com"}
+          </span>
+        </p>
+        {window.localStorage.getItem("userType") === "Quality-agent" && (
+          <p className="sa-text sa-give-feedback">{t("giveFeedback")}</p>
+        )}
+        {window.localStorage.getItem("userType") === "Quality-agent" && (
+          <div className="sa-rating-container">
+            <p className="sa-text">{t("rating")}</p>
+            <StyledRating
+              name="sa-rating"
+              className="sa-rating"
+              value={value}
+              onChange={(event, newValue) => {
+                setValue(newValue);
+                console.log(newValue);
+              }}
+              size="large"
+            />
+          </div>
+        )}
+        {/* {window.localStorage.getItem("userType") === "Admin" && } */}
+        <p className="sa-text">{selectedAgent.description}</p>
         {window.localStorage.getItem("userType") === "Quality-agent" && (
           <div className="sa-feedback">
             <textarea

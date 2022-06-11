@@ -8,7 +8,7 @@ Authors:
   justify-content: center;
   flex-direction: column;
   width: 30rem;
-  /* height: 60rem; */
+  height: 60rem;
   color: white;
   background-color: var(--sub-card-background);
   border-radius: 10px;

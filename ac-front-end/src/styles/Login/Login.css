@@ -11,6 +11,7 @@ Authors:
   background-color: var(--main-card-dark);
   margin: 2rem;
   border-radius: 10px;
+  position: relative;
 }
 
 .log-container {
@@ -24,4 +25,25 @@ Authors:
 .log-logo {
   height: 100px;
   justify-self: center;
+}
+
+.log-about {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 1rem;
+  margin: 3rem;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: var(--highlight-color-default);
+  color: var(--text-color-dark);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.log-about:hover {
+  transform: translateY(-3px);
+  transition: 0.3s ease-out;
+  opacity: 0.9;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }

@@ -271,7 +271,6 @@ const RecordingsSupplier = ({ children }) => {
       getRecordsByAgent();
     } else {
       getLastRecordings();
-      // getVideos();
     }
     console.log("use effect");
   }, []);

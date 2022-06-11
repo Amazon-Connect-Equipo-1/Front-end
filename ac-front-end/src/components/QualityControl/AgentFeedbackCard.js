@@ -37,6 +37,7 @@ const AgentFeedbackCard = (props) => {
       .then((result) => {
         const resultJSON = JSON.parse(result).comments;
         const commentsLength = resultJSON.length;
+        console.log(resultJSON);
         console.log(commentsLength);
         if (commentsLength > 0) {
           setComment(resultJSON[commentsLength - 1].comment);

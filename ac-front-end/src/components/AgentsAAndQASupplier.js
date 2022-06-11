@@ -44,7 +44,7 @@ const AgentsAAndQASupplier = ({ children }) => {
       .then((response) => response.text())
       .then((result) => {
         const resultJSON = JSON.parse(result).agents;
-        console.log(resultJSON);
+        // console.log(resultJSON);
         setArrAgents([...resultJSON]);
       })
       .catch((error) => console.log("error", error));
@@ -55,7 +55,7 @@ const AgentsAAndQASupplier = ({ children }) => {
   //Recordings Array
   const [arrAgents, setArrAgents] = useState(dummyAgents);
   const [selectedAgent, setSelectedAgent] = useState(...dummyAgents); //needs a function if arr is not empty show the first one
-  console.log("selected agetn", selectedAgent);
+  // console.log("selected agetn", selectedAgent);
   const getAllAgents = () => {
     //Petition to obtain all videos miniatures
   };
@@ -64,9 +64,9 @@ const AgentsAAndQASupplier = ({ children }) => {
 
   const changeSelectedAgent = (id) => {
     //verify if list is not empty
-    console.log(id);
+    // console.log(id);
     const agentInfo = arrAgents.filter((agent) => agent.agent_id === id);
-    console.log(agentInfo);
+    // console.log(agentInfo);
     setSelectedAgent(...agentInfo);
   };
 

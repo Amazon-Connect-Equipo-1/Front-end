@@ -19,7 +19,6 @@ const Profile = (props) => {
   }
 
   const [, , userInfo] = useContext(GlobalContext);
-  console.log(userInfo);
 
   const [, , , , logout] = useContext(AuthenticationContext);
 

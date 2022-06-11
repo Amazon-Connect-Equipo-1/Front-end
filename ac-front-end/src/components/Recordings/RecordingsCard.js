@@ -16,7 +16,8 @@ const RecordingsCard = (props) => {
   const adaptFontSize = () => {
     if (props.agentName.length > 16) {
       return "rec-agent-name-small";
-    } else if (props.agentName.length > 13) {
+    }
+    if (props.agentName.length > 13) {
       return "rec-agent-name-md";
     }
     return "";
@@ -50,7 +51,7 @@ const RecordingsCard = (props) => {
       } else {
         navigate("agent-video/" + "ag" + props.recordingId);
       }
-    }, 500);
+    }, 300);
   };
 
   const getTags = () => {

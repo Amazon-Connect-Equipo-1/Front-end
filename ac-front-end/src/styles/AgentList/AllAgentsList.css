@@ -11,6 +11,7 @@ Authors:
   box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
   overflow-y: auto;
   height: 50rem;
+  padding: 2rem;
 }
 
 .aal-main-container::-webkit-scrollbar {
@@ -32,10 +33,7 @@ Authors:
 .aal-title {
   font-size: var(--sub-title);
   font-weight: bold;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin: 2rem;
   text-align: center;
 }
 

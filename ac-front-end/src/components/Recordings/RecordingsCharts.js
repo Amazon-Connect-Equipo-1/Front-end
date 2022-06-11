@@ -72,48 +72,48 @@ const RecordingsChart = (props) => {
         <h2 className="recc-title">{t("analysis")}</h2>
       </div>
       <div className="recc-container">
-        <div>
-          <Bar
-            data={stateBar}
-            options={{
-              responsive: true,
-              maintainAspectRatio: false,
-              plugins: {
-                legend: {
-                  display: false,
-                  position: "up",
-                },
-                title: {
-                  display: true,
-                  fontSize: 20,
-                  text: t("labelOverall"),
-                  fontColor: "#9facbd",
-                },
+        <Bar
+          style={{ height: "20rem" }}
+          data={stateBar}
+          options={{
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display: false,
+                position: "up",
               },
-            }}
-          />
-        </div>
-        <div>
-          <Line
-            data={stateLine}
-            options={{
-              responsive: true,
-              maintainAspectRatio: false,
-              plugins: {
-                legend: {
-                  display: true,
-                  position: "bottom",
-                },
-                title: {
-                  display: true,
-                  fontSize: 20,
-                  text: t("labelQuarter"),
-                  fontColor: "#FFFFFF",
-                },
+              title: {
+                display: true,
+                fontSize: 20,
+                text: t("labelOverall"),
+                fontColor: "#9facbd",
               },
-            }}
-          />
-        </div>
+            },
+          }}
+        />
+      </div>
+      <div>
+        <Line
+          style={{ height: "20rem" }}
+          data={stateLine}
+          options={{
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display: true,
+                position: "bottom",
+              },
+              title: {
+                display: true,
+                fontSize: 20,
+                text: t("labelQuarter"),
+                fontColor: "#FFFFFF",
+              },
+            },
+          }}
+        />
       </div>
     </Card>
   );

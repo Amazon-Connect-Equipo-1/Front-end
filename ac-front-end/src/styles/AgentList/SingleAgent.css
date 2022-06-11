@@ -54,11 +54,18 @@ Authors:
 }
 
 .sa-give-feedback {
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
 }
 
 .sa-rating {
-  align-self: center;
+  /* align-self: center; */
+}
+
+.sa-email {
+  font-size: var(--sub-option-text);
+  font-weight: 300;
+  margin-top: 2rem;
+  /* text-align: center; */
 }
 
 .sa-text {

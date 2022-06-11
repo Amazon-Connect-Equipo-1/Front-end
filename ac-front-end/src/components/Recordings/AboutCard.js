@@ -72,38 +72,38 @@ const AboutCard = (props) => {
           </h2>
         </div>
         <h2>{t("call")}</h2>
-        <h3>
+        <p>
           ID: <span>{videoInfo.RecordingId}</span>
-        </h3>
-        <h3>
+        </p>
+        <p>
           {t("duration")} <span>{videoInfo.duration}</span>
-        </h3>
-        <h3>
+        </p>
+        <p>
           {t("startCall")} <span>{videoInfo.initialTimestamp}</span>
-        </h3>
-        <h3>
+        </p>
+        <p>
           {t("endCall")} <span>{videoInfo.disconnectTimestamp}</span>
-        </h3>
-        <h3 className="margin-top-md">
+        </p>
+        <p className="margin-top-md">
           {t("agent")} <span>{videoInfo.agentName}</span>
-        </h3>
-        <h2>{t("analysis")}</h2>
-        <h3>
+        </p>
+        <h2 className="abc-margin-top-md">{t("analysis")}</h2>
+        <p>
           {t("agentInterruptions")}{" "}
           <span>{videoInfo.recordingData.AgentInterruptions}</span>
-        </h3>
-        <h3>
+        </p>
+        <p>
           {t("userInterruptions")}{" "}
           <span>{videoInfo.recordingData.CustomerInterruptions}</span>
-        </h3>
-        <h3>
+        </p>
+        <p>
           {t("agentSentiment")}{" "}
           <span>{videoInfo.recordingData.OverallAgentSentiment}</span>
-        </h3>
-        <h3>
+        </p>
+        <p>
           {t("userSentiment")}{" "}
           <span>{videoInfo.recordingData.OverallCustomerSentiment}</span>
-        </h3>
+        </p>
         <div className="abc-tag-section">
           {getTags().map((tag) => (
             <Card key={uuidv4()} className={`rec-tag ${processTagCss(tag)} `}>
