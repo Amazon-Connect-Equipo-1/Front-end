@@ -7,10 +7,15 @@ import "../../styles/AgentMain/ThirdParty.css";
 import ThirdParty from "./ThirdParty";
 import { saveKeys, saveClick } from "../MonitorModule.js";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ConfirmationOxxo from "./ConfirmationOxxo";
+import { GlobalContext } from "../GlobalSupplier";
 //Creates Oxxo Form
 const OxxoForm = (props) => {
+  const [, , , callId] = useContext(GlobalContext);
+
+  console.log("Callll id", callId);
+
   //input handlers-----------------------------------
   const [clientInput, setClientInput] = useState("");
   const [emailInput, setEmailInput] = useState("");
@@ -20,22 +25,28 @@ const OxxoForm = (props) => {
   const [accountInput, setAccountInput] = useState("");
 
   const clientChangeHandler = (event) => {
-    window.localStorage.setItem("client", event.target.value);
+    setClientInput(event.target.value);
+    // window.localStorage.setItem("client", event.target.value);
   };
   const emailChangeHandler = (event) => {
-    window.localStorage.setItem("email", event.target.value);
+    setEmailInput(event.target.value);
+    // window.localStorage.setItem("email", event.target.value);
   };
   const cellphoneChangeHandler = (event) => {
-    window.localStorage.setItem("cellphone", event.target.value);
+    setCellphoneInput(event.target.value);
+    // window.localStorage.setItem("cellphone", event.target.value);
   };
   const clientLocationChangeHandler = (event) => {
-    window.localStorage.setItem("clientLocation", event.target.value);
+    setLocationInput(event.target.value);
+    // window.localStorage.setItem("clientLocation", event.target.value);
   };
   const quantityChangeHandler = (event) => {
-    window.localStorage.setItem("quantity", event.target.value);
+    setQuantityInput(event.target.value);
+    // window.localStorage.setItem("quantity", event.target.value);
   };
   const accountNumberChangeHandler = (event) => {
-    window.localStorage.setItem("accountNumber", event.target.value);
+    setAccountInput(event.target.value);
+    // window.localStorage.setItem("accountNumber", event.target.value);
   };
 
   //-----------------------------------------
@@ -79,6 +90,7 @@ const OxxoForm = (props) => {
     props.onChange();
   };
   const token = window.localStorage.getItem("token");
+
   const askOxxo = (event) => {
     const client = window.localStorage.getItem("client");
     const email = window.localStorage.getItem("email");
@@ -164,36 +176,30 @@ const OxxoForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={(e) => {
-                setClientInput(e.target.value);
-                clientChangeHandler(e.target.value);
-              }}
+              onChange={clientChangeHandler}
+              value={clientInput}
             />
           </label>
           <label className="tp-name-label">
             {t("email")}
             <input
-              type="text"
+              type="email"
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={(e) => {
-                setEmailInput(e.target.value);
-                emailChangeHandler(e.target.value);
-              }}
+              onChange={emailChangeHandler}
+              value={emailInput}
             />
           </label>
           <label className="tp-name-label">
-            {t("cellPhone")}
+            {t("cellphone")}
             <input
               type="text"
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={(e) => {
-                setCellphoneInput(e.target.value);
-                cellphoneChangeHandler(e.target.value);
-              }}
+              onChange={cellphoneChangeHandler}
+              value={cellphoneInput}
             />
           </label>
           <label className="tp-name-label">
@@ -203,10 +209,8 @@ const OxxoForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={(e) => {
-                setLocationInput(e.target.value);
-                clientLocationChangeHandler(e.target.value);
-              }}
+              onChange={clientLocationChangeHandler}
+              value={locationInput}
             />
           </label>
           <label className="tp-name-label">
@@ -216,10 +220,8 @@ const OxxoForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={(e) => {
-                setQuantityInput(e.target.value);
-                quantityChangeHandler(e.target.value);
-              }}
+              onChange={quantityChangeHandler}
+              value={quantityInput}
             />
           </label>
           <label className="tp-name-label">
@@ -229,10 +231,8 @@ const OxxoForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={(e) => {
-                setAccountInput(e.target.value);
-                accountNumberChangeHandler(e.target.value);
-              }}
+              onChange={accountNumberChangeHandler}
+              value={accountInput}
             />
           </label>
           <div className="tp-submit">
@@ -274,10 +274,10 @@ const OxxoForm = (props) => {
               onKeyDown={saveKeys}
               onClick={(e) => {
                 e.preventDefault();
-                getBack();
                 saveClick(`${INPUT_NAME} input`);
+                getBack();
               }}
-              value={t("cancel")}
+              value={t("Cancel")}
               className="tp-submit-button"
             />
           </div>

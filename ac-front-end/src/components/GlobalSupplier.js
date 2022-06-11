@@ -29,9 +29,12 @@ const GlobalSupplier = ({ children }) => {
   };
   // Info of the QA or Admin
   const [userInfo, setUserInfo] = useState(dummyUser);
+  const [callId, setCallId] = useState("");
 
   return (
-    <GlobalContext.Provider value={[recordingInfo, setRecordingInfo, userInfo]}>
+    <GlobalContext.Provider
+      value={[recordingInfo, setRecordingInfo, userInfo, callId, setCallId]}
+    >
       {children}
     </GlobalContext.Provider>
   );

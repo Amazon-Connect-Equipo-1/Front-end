@@ -1,7 +1,8 @@
 import "amazon-connect-streams";
-import { useEffect, React, useState } from "react";
+import { useEffect, React, useState, useContext } from "react";
 import "../../styles/AgentMain/RecordScreen.css";
 import { useReactMediaRecorder } from "react-media-recorder";
+import { GlobalContext } from "../GlobalSupplier";
 
 /*
 
@@ -21,6 +22,7 @@ import { useReactMediaRecorder } from "react-media-recorder";
 */
 
 const EmbedConnect = (props) => {
+  const [, , , , setCallId] = useContext(GlobalContext);
   // Save the contact id (id of the call)
   var cid;
   var auth;
@@ -118,6 +120,7 @@ const EmbedConnect = (props) => {
     connect.contact(function (contact) {
       contact.onConnected(async function (contact) {
         cid = contact.getContactId();
+        setCallId(cid);
         //window.alert(cid);
         startRecording();
         var attributeMap = contact.getAttributes();
