@@ -5,6 +5,7 @@ Authors:
 //Import Modules
 import "../../styles/AgentMain/ThirdParty.css";
 import uberlogo from "../../images/uber.png";
+import { useTranslation } from "react-i18next";
 import { createContext, Suspense, useState } from "react";
 
 const ConfirmationPolice = (props) => {
@@ -69,14 +70,16 @@ const ConfirmationPolice = (props) => {
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
   };
+  // Language
+  const { t } = useTranslation();
 
   return (
     <div className="tp-confirmation">
       <div className="tp-title">
-        Service Confirmation
+        {t("serviceConfirmation")}
         {conf === "yes" && (
           <div>
-            <div className="tp-confirmation-text">Informacion Enviada!</div>
+            <div className="tp-confirmation-text">{t("informationSent")}</div>
             <div className="tp-confirmation-button-container">
               <button
                 className="tp-confirmation-button"
@@ -87,7 +90,7 @@ const ConfirmationPolice = (props) => {
                   props.onChange();
                 }}
               >
-                confirmado
+                {t("confirmed")}
               </button>
             </div>
           </div>
@@ -95,17 +98,17 @@ const ConfirmationPolice = (props) => {
         {conf === "no" && (
           <div>
             <div className="tp-confirmation-text">
-              Client: {client}
+              {t("client")} {client}
               <br />
-              mail: {email}
+              {t("email")} {email}
               <br />
-              Cellphone: {cellphone}
+              {t("cellPhone")} {cellphone}
               <br />
-              Client location: {clientLocation}
+              {t("clientLocation")} {clientLocation}
               <br />
-              Client location reference: {clientLocationReference}
+              {t("clientLocationReference")} {clientLocationReference}
               <br />
-              Client statement: {clientStatement}
+              {t("clientStatement")} {clientStatement}
               <br />
             </div>
             <div className="tp-confirmation-button-container">
@@ -116,7 +119,7 @@ const ConfirmationPolice = (props) => {
                   changeConfig();
                 }}
               >
-                Mandar info
+                {t("sendInfo")}
               </button>
             </div>
           </div>

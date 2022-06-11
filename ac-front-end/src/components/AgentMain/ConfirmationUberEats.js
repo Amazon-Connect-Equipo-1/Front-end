@@ -6,6 +6,7 @@ Authors:
 import "../../styles/AgentMain/ThirdParty.css";
 import uberlogo from "../../images/uber.png";
 import { createContext, Suspense, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const ConfirmationUberEats = (props) => {
   const token = window.localStorage.getItem("token");
@@ -77,14 +78,16 @@ const ConfirmationUberEats = (props) => {
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
   };
+  // Language
+  const { t } = useTranslation();
 
   return (
     <div className="tp-confirmation">
       <div className="tp-title">
-        Service Confirmation
+        {t("serviceConfirmation")}
         {conf === "yes" && (
           <div>
-            <div className="tp-confirmation-text">Informacion Enviada!</div>
+            <div className="tp-confirmation-text">{t("informationSent")}</div>
             <div className="tp-confirmation-button-container">
               <button
                 className="tp-confirmation-button"
@@ -95,7 +98,7 @@ const ConfirmationUberEats = (props) => {
                   props.onChange();
                 }}
               >
-                confirmado
+                {t("confirmed")}
               </button>
             </div>
           </div>
@@ -103,36 +106,62 @@ const ConfirmationUberEats = (props) => {
         {conf === "no" && (
           <div>
             <div className="tp-confirmation-text">
-              Client: {client}
+              {t("client")}
+              {client}
               <br />
-              mail: {email}
+              {t("email")}
+              {email}
               <br />
-              Cellphone: {cellphone}
+              {t("cellPhone")} {cellphone}
               <br />
-              Client location: {clientLocation}
+              {t("clientLocation")} {clientLocation}
               <br />
               <br />
-              Order:
+              {t("order")}
               <div className="tp-order-list">
-                {props.sodaQ > 0 && <div>Soda: {props.sodaQ}</div>}
-
-                {props.chipsQ > 0 && <div>Chips: {props.chipsQ}</div>}
-
-                {props.hotdogQ > 0 && <div>Hot Dog: {props.hotdogQ}</div>}
-
-                {props.chocolateQ > 0 && (
-                  <div>Chocolate: {props.chocolateQ}</div>
+                {props.sodaQ > 0 && (
+                  <div>
+                    {t("soda")} {props.sodaQ}
+                  </div>
                 )}
 
-                {props.coffeeQ > 0 && <div>coffee: {props.coffeeQ}</div>}
+                {props.chipsQ > 0 && (
+                  <div>
+                    {t("chips")} {props.chipsQ}
+                  </div>
+                )}
 
-                {props.aspirinQ > 0 && <div>Aspirin: {props.aspirinQ}</div>}
+                {props.hotdogQ > 0 && (
+                  <div>
+                    {t("hotDog")} {props.hotdogQ}
+                  </div>
+                )}
+
+                {props.chocolateQ > 0 && (
+                  <div>
+                    {t("chocolate")}
+                    {props.chocolateQ}
+                  </div>
+                )}
+
+                {props.coffeeQ > 0 && (
+                  <div>
+                    {t("coffee")} {props.coffeeQ}
+                  </div>
+                )}
+
+                {props.aspirinQ > 0 && (
+                  <div>
+                    {t("aspirin")}
+                    {props.aspirinQ}
+                  </div>
+                )}
               </div>
-              Total: {total}
+              {t("total")} {total}
               <br />
-              Delivery Name: {deliveryName}
+              {t("deliveryName")} {deliveryName}
               <br />
-              Delivery Time: {deliveryTime}
+              {t("deliveryTime")} {deliveryTime}
               <br />
             </div>
             <div className="tp-confirmation-button-container">
@@ -143,7 +172,7 @@ const ConfirmationUberEats = (props) => {
                   changeConfig();
                 }}
               >
-                Mandar info
+                {t("sendInfo")}
               </button>
             </div>
           </div>

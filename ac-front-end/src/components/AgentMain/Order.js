@@ -4,6 +4,7 @@ Authors:
 
 //Import Modules
 import "../../styles/AgentMain/ThirdParty.css";
+import { useTranslation } from "react-i18next";
 import uberlogo from "../../images/uber.png";
 import ubereatslogo from "../../images/uber-eats.png";
 import oxxologo from "../../images/oxxo.jpg";
@@ -16,7 +17,9 @@ import {
 } from "react-icons/gi";
 import { BiCoffeeTogo } from "react-icons/bi";
 import { FaPills } from "react-icons/fa";
+
 const Order = (props) => {
+  const { t } = useTranslation();
   if (props.product == "Soda") {
     return (
       <div>
@@ -30,7 +33,7 @@ const Order = (props) => {
           <GiSodaCan />
         </button>
         <div>
-          {props.product} Quantity: {props.quantity}
+          {props.product} {t("quantity")} {props.quantity}
         </div>
       </div>
     );
@@ -49,7 +52,7 @@ const Order = (props) => {
         </button>
 
         <div>
-          {props.product} Quantity: {props.quantity}
+          {props.product} {t("quantity")} {props.quantity}
         </div>
       </div>
     );
@@ -68,7 +71,7 @@ const Order = (props) => {
         </button>
 
         <div>
-          {props.product} Quantity: {props.quantity}
+          {props.product} {t("quantity")} {props.quantity}
         </div>
       </div>
     );
@@ -87,7 +90,7 @@ const Order = (props) => {
         </button>
 
         <div>
-          {props.product} Quantity: {props.quantity}
+          {props.product} {t("quantity")} {props.quantity}
         </div>
       </div>
     );
@@ -106,7 +109,7 @@ const Order = (props) => {
         </button>
 
         <div>
-          {props.product} Quantity: {props.quantity}
+          {props.product} {t("quantity")} {props.quantity}
         </div>
       </div>
     );
@@ -125,7 +128,7 @@ const Order = (props) => {
         </button>
 
         <div>
-          {props.product} Quantity: {props.quantity}
+          {props.product} {t("quantity")} {props.quantity}
         </div>
       </div>
     );

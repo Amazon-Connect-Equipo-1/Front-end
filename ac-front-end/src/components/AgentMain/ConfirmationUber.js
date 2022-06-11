@@ -6,6 +6,7 @@ Authors:
 import "../../styles/AgentMain/ThirdParty.css";
 import uberlogo from "../../images/uber.png";
 import { createContext, Suspense, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const ConfirmationUber = (props) => {
   const token = window.localStorage.getItem("token");
@@ -85,14 +86,16 @@ const ConfirmationUber = (props) => {
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
   };
+  // Language
+  const { t } = useTranslation();
 
   return (
     <div className="tp-confirmation">
       <div className="tp-title">
-        Service Confirmation
+        {t("serviceConfirmation")}
         {conf === "yes" && (
           <div>
-            <div className="tp-confirmation-text">Informacion enviada!</div>
+            <div className="tp-confirmation-text">{t("informationSent")}</div>
             <div className="tp-confirmation-button-container">
               <button
                 className="tp-confirmation-button"
@@ -103,7 +106,7 @@ const ConfirmationUber = (props) => {
                   props.onChange();
                 }}
               >
-                confirmado
+                {t("confirmed")}
               </button>
             </div>
           </div>
@@ -111,27 +114,31 @@ const ConfirmationUber = (props) => {
         {conf === "no" && (
           <div>
             <div className="tp-confirmation-text">
-              Client: {client}
+              {t("client")} {client}
               <br />
-              mail: {email}
+              {t("email")} {email}
               <br />
-              Cellphone: {cellphone}
+              {t("cellPhone")}
+              {cellphone}
               <br />
-              Client location: {clientLocation}
+              {t("clientLocation")} {clientLocation}
               <br />
-              Client destination: {destination}
+              {t("clientDestination")} {destination}
               <br />
-              Rider: {rider}
+              {t("driver")}
+              {rider}
               <br />
-              Car model: {model}
+              {t("carModel")} {model}
               <br />
-              Car plate: {plate}
+              {t("carPlate")}
+              {plate}
               <br />
-              Car color: {color}
+              {t("carColor")}
+              {color}
               <br />
-              Arrival time: {arrivalTime}
+              {t("arrivalTime")} {arrivalTime}
               <br />
-              Ride time: {rideTime}
+              {t("rideTime")} {rideTime}
               <br />
             </div>
             <div className="tp-confirmation-button-container">
@@ -142,7 +149,7 @@ const ConfirmationUber = (props) => {
                   changeConfig();
                 }}
               >
-                Mandar info
+                {t("sendInfo")}
               </button>
             </div>
           </div>
