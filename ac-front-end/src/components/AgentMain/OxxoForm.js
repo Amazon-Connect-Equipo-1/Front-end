@@ -12,10 +12,12 @@ import ConfirmationOxxo from "./ConfirmationOxxo";
 import { GlobalContext } from "../GlobalSupplier";
 //Creates Oxxo Form
 const OxxoForm = (props) => {
+  // Language
+  const { t } = useTranslation();
+  const [solconf, setSolConf] = useState("no");
   const [, , , callId] = useContext(GlobalContext);
-
-  console.log("Callll id", callId);
-
+  const INPUT_NAME = "Oxxo form";
+  // console.log("Callll id", callId);
   //input handlers-----------------------------------
   const [clientInput, setClientInput] = useState("");
   const [emailInput, setEmailInput] = useState("");
@@ -70,49 +72,39 @@ const OxxoForm = (props) => {
   };
 
   //--------------------------------------------
-  const INPUT_NAME = "Oxxo form";
 
-  const onSubmitHandler = (event) => {
-    event.preventDefault();
-  };
-
-  // Language
-  const { t } = useTranslation();
-  const [solconf, setSolConf] = useState("no");
   const Confirm = () => {
     setSolConf("yes");
   };
+
   const DisConfirm = () => {
     setSolConf("no");
     props.onChange();
   };
+
   const getBack = () => {
     props.onChange();
   };
-  const token = window.localStorage.getItem("token");
 
   const askOxxo = (event) => {
-    const client = window.localStorage.getItem("client");
-    const email = window.localStorage.getItem("email");
-    const cellphone = window.localStorage.getItem("cellphone");
-    const clientLocation = window.localStorage.getItem("clientLocation");
-    const quantity = window.localStorage.getItem("quantity");
-    const accountNumber = window.localStorage.getItem("accountNumber");
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("Authorization", `Bearer ${token}`);
+    myHeaders.append(
+      "Authorization",
+      `Bearer ${window.localStorage.getItem("token")}`
+    );
 
     const raw = JSON.stringify({
       service: "Oxxo", //CONSTANTE
       service_data: {
-        client: client,
-        email: email,
-        cellphone: cellphone,
-        client_location: clientLocation,
-        quantity: quantity,
-        account_number: accountNumber,
+        client: clientInput,
+        email: emailInput,
+        cellphone: cellphoneInput,
+        client_location: locationInput,
+        quantity: quantityInput,
+        account_number: accountInput,
       },
-      call_id: "192810a0-0sop-ori3-p210-ospem309e0", //NO SE SABE COMO OBTENER AUN
+      call_id: callId, //Verificar si funciona
     });
 
     const requestOptions = {
@@ -157,13 +149,15 @@ const OxxoForm = (props) => {
       })
       .catch((error) => console.log("error", error));
   };
+
   if (solconf === "yes") {
     return (
       <div>
-        <ConfirmationOxxo onChange={DisConfirm} />
+        <ConfirmationOxxo onChange={DisConfirm} orderInformation={""} />
       </div>
     );
   }
+
   if (solconf === "no") {
     return (
       <div>
@@ -238,16 +232,9 @@ const OxxoForm = (props) => {
           <div className="tp-submit">
             <input
               type="submit"
-              disabled={
-                clientInput === "" ||
-                emailInput === "" ||
-                cellphoneInput === "" ||
-                locationInput === "" ||
-                quantityInput === "" ||
-                accountInput === ""
-              }
               style={{
                 opacity:
+                  emailInput.includes("@") &&
                   clientInput &&
                   emailInput &&
                   cellphoneInput &&
@@ -256,6 +243,16 @@ const OxxoForm = (props) => {
                   accountInput
                     ? "1.0"
                     : "0.5",
+                pointerEvents:
+                  emailInput.includes("@") &&
+                  clientInput &&
+                  emailInput &&
+                  cellphoneInput &&
+                  locationInput &&
+                  quantityInput &&
+                  accountInput
+                    ? "all"
+                    : "none",
               }}
               onKeyDown={saveKeys}
               onClick={(e) => {

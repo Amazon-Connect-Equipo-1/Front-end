@@ -75,56 +75,65 @@ const ConfirmationPolice = (props) => {
 
   return (
     <div className="tp-confirmation">
-      <div className="tp-title">
-        {t("serviceConfirmation")}
-        {conf === "yes" && (
-          <div>
-            <div className="tp-confirmation-text">{t("informationSent")}</div>
-            <div className="tp-confirmation-button-container">
-              <button
-                className="tp-confirmation-button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  pruebaBackTPS();
-                  restart();
-                  props.onChange();
-                }}
-              >
-                {t("confirmed")}
-              </button>
-            </div>
+      <div className="tp-title">{t("serviceConfirmation")}</div>
+      {conf === "yes" && (
+        <div>
+          <div className="tp-confirmation-text">{t("informationSent")}</div>
+          <div className="tp-confirmation-button-container">
+            <button
+              className="tp-submit-button"
+              onClick={(e) => {
+                pruebaBackTPS();
+                restart();
+                props.onChange();
+              }}
+            >
+              {t("confirmed")}
+            </button>
           </div>
-        )}
-        {conf === "no" && (
-          <div>
-            <div className="tp-confirmation-text">
-              {t("client")} {client}
-              <br />
-              {t("email")} {email}
-              <br />
-              {t("cellPhone")} {cellphone}
-              <br />
-              {t("clientLocation")} {clientLocation}
-              <br />
-              {t("clientLocationReference")} {clientLocationReference}
-              <br />
-              {t("clientStatement")} {clientStatement}
-              <br />
-            </div>
-            <div className="tp-confirmation-button-container">
-              <button
-                className="tp-confirmation-button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  changeConfig();
-                }}
-              >
-                {t("sendInfo")}
-              </button>
-            </div>
+        </div>
+      )}
+      {conf === "no" && (
+        <>
+          <div className="tp-confirmation-container">
+            <p>
+              {t("client")}
+              <span className="tp-confirmation-text">{client}</span>
+            </p>
+            <p>
+              {t("email")}
+              <span className="tp-confirmation-text">{email}</span>
+            </p>
+            <p>
+              {t("cellPhone")}
+              <span className="tp-confirmation-text">{cellphone}</span>
+            </p>
+            <p>
+              {t("clientLocation")}
+              <span className="tp-confirmation-text">{clientLocation}</span>
+            </p>
+            <p>
+              {t("clientLocationReference")}
+              <span className="tp-confirmation-text">
+                {clientLocationReference}
+              </span>
+            </p>
+            <p>
+              {t("clientStatement")}
+              <span className="tp-confirmation-text">{clientStatement}</span>
+            </p>
           </div>
-        )}
-      </div>
+
+          <button
+            className="tp-submit-button"
+            onClick={(e) => {
+              changeConfig();
+            }}
+          >
+            {t("sendInfo")}
+          </button>
+        </>
+      )}
     </div>
   );
 };

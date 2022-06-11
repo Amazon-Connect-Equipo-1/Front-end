@@ -13,14 +13,14 @@ import { useEffect, useState } from "react";
 //Creates Main Agent
 const AgentMain = (props) => {
   //Local storage for making a reload in agent main
-  console.log(
-    "need refresh actual value",
-    window.localStorage.getItem("needRefresh")
-  );
-  console.log(window.localStorage.getItem("needRefresh") === "true");
+  // console.log(
+  //   "need refresh actual value",
+  //   window.localStorage.getItem("needRefresh")
+  // );
+  // console.log(window.localStorage.getItem("needRefresh") === "true");
   if (window.localStorage.getItem("needRefresh") === "true") {
     window.localStorage.setItem("needRefresh", false);
-    console.log(window.localStorage.getItem("needRefresh"));
+    // console.log(window.localStorage.getItem("needRefresh"));
     // setTimeout(() => {
     //   console.log("reloaaaddljenvcdsj");
     window.location.reload();

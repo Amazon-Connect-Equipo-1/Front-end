@@ -7,10 +7,12 @@ import "../../styles/AgentMain/ThirdParty.css";
 import ThirdParty from "./ThirdParty";
 import { saveKeys, saveClick } from "../MonitorModule.js";
 import { useTranslation } from "react-i18next";
-import { createContext, Suspense, useState } from "react";
+import { createContext, Suspense, useContext, useState } from "react";
 import ConfirmationUber from "./ConfirmationUber";
+import { GlobalContext } from "../GlobalSupplier";
 
 const UberForm = (props) => {
+  const [, , , callId] = useContext(GlobalContext);
   //input handlers-----------------------------------
   const [clientInput, setClientInput] = useState("");
   const [emailInput, setEmailInput] = useState("");
@@ -19,19 +21,24 @@ const UberForm = (props) => {
   const [destinationInput, setDestinationInput] = useState("");
 
   const clientChangeHandler = (event) => {
-    window.localStorage.setItem("client", event.target.value);
+    setClientInput(event.target.value);
+    // window.localStorage.setItem("client", event.target.value);
   };
   const emailChangeHandler = (event) => {
-    window.localStorage.setItem("email", event.target.value);
+    setEmailInput(event.target.value);
+    // window.localStorage.setItem("email", event.target.value);
   };
   const cellphoneChangeHandler = (event) => {
-    window.localStorage.setItem("cellphone", event.target.value);
+    setCellphoneInput(event.target.value);
+    // window.localStorage.setItem("cellphone", event.target.value);
   };
   const clientLocationChangeHandler = (event) => {
-    window.localStorage.setItem("clientLocation", event.target.value);
+    setLocationInput(event.target.value);
+    // window.localStorage.setItem("clientLocation", event.target.value);
   };
   const destinationChangeHandler = (event) => {
-    window.localStorage.setItem("destination", event.target.value);
+    setDestinationInput(event.target.value);
+    // window.localStorage.setItem("destination", event.target.value);
   };
   //-----------------------------------------
   const [solconf, setSolConf] = useState("no");
@@ -68,7 +75,7 @@ const UberForm = (props) => {
         client_location: clientLocation,
         destination: destination,
       },
-      call_id: "192810a0-0sop-ori3-p210-ospem309e0", //NI IDEA DE DONDE SALE XD
+      call_id: callId, //probar si sirve
     });
 
     const requestOptions = {
@@ -118,23 +125,19 @@ const UberForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={(e) => {
-                setClientInput(e.target.value);
-                clientChangeHandler(e.target.value);
-              }}
+              onChange={clientChangeHandler}
+              value={clientInput}
             />
           </label>
           <label className="tp-name-label">
             {t("email")}
             <input
-              type="text"
+              type="email"
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={(e) => {
-                setEmailInput(e.target.value);
-                emailChangeHandler(e.target.value);
-              }}
+              onChange={emailChangeHandler}
+              value={emailInput}
             />
           </label>
           <label className="tp-name-label">
@@ -144,10 +147,8 @@ const UberForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={(e) => {
-                setCellphoneInput(e.target.value);
-                cellphoneChangeHandler(e.target.value);
-              }}
+              onChange={cellphoneChangeHandler}
+              value={cellphoneInput}
             />
           </label>
           <label className="tp-name-label">
@@ -157,10 +158,8 @@ const UberForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={(e) => {
-                setLocationInput(e.target.value);
-                clientLocationChangeHandler(e.target.value);
-              }}
+              onChange={clientLocationChangeHandler}
+              value={locationInput}
             />
           </label>
           <label className="tp-name-label">
@@ -170,24 +169,16 @@ const UberForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={(e) => {
-                setDestinationInput(e.target.value);
-                destinationChangeHandler(e.target.value);
-              }}
+              onChange={destinationChangeHandler}
+              value={destinationInput}
             />
           </label>
           <div className="tp-submit">
             <input
               type="submit"
-              disabled={
-                clientInput === "" ||
-                emailInput === "" ||
-                cellphoneInput === "" ||
-                locationInput === "" ||
-                destinationInput === ""
-              }
               style={{
                 opacity:
+                  emailInput.includes("@") &&
                   clientInput &&
                   emailInput &&
                   cellphoneInput &&
@@ -195,6 +186,15 @@ const UberForm = (props) => {
                   destinationInput
                     ? "1.0"
                     : "0.5",
+                pointerEvents:
+                  emailInput.includes("@") &&
+                  clientInput &&
+                  emailInput &&
+                  cellphoneInput &&
+                  locationInput &&
+                  destinationInput
+                    ? "all"
+                    : "none",
               }}
               onKeyDown={saveKeys}
               onClick={(e) => {

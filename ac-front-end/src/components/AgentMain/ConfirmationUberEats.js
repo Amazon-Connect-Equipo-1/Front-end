@@ -83,101 +83,107 @@ const ConfirmationUberEats = (props) => {
 
   return (
     <div className="tp-confirmation">
-      <div className="tp-title">
-        {t("serviceConfirmation")}
-        {conf === "yes" && (
-          <div>
-            <div className="tp-confirmation-text">{t("informationSent")}</div>
-            <div className="tp-confirmation-button-container">
-              <button
-                className="tp-confirmation-button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  pruebaBackTPS();
-                  restart();
-                  props.onChange();
-                }}
-              >
-                {t("confirmed")}
-              </button>
-            </div>
+      <div className="tp-title">{t("serviceConfirmation")}</div>
+      {conf === "yes" && (
+        <div>
+          <div className="tp-confirmation-text">{t("informationSent")}</div>
+          <div className="tp-confirmation-button-container">
+            <button
+              className="tp-submit-button"
+              onClick={(e) => {
+                // e.preventDefault();
+                pruebaBackTPS();
+                restart();
+                props.onChange();
+              }}
+            >
+              {t("confirmed")}
+            </button>
           </div>
-        )}
-        {conf === "no" && (
-          <div>
-            <div className="tp-confirmation-text">
+        </div>
+      )}
+      {conf === "no" && (
+        <>
+          <div className="tp-confirmation-container">
+            <p>
               {t("client")}
-              {client}
-              <br />
+              <span className="tp-confirmation-text">{client}</span>
+            </p>
+            <p>
               {t("email")}
-              {email}
-              <br />
-              {t("cellPhone")} {cellphone}
-              <br />
-              {t("clientLocation")} {clientLocation}
-              <br />
-              <br />
+              <span className="tp-confirmation-text">{email}</span>
+            </p>
+            <p>
+              {t("cellPhone")}
+              <span className="tp-confirmation-text">{cellphone}</span>
+            </p>
+            <p>
+              {t("clientLocation")}
+              <span className="tp-confirmation-text">{clientLocation}</span>
+            </p>
+            <div className="tp-order-list">
               {t("order")}
-              <div className="tp-order-list">
-                {props.sodaQ > 0 && (
-                  <div>
-                    {t("soda")} {props.sodaQ}
-                  </div>
-                )}
+              {props.sodaQ > 0 && (
+                <div>
+                  {t("soda")} {props.sodaQ}
+                </div>
+              )}
 
-                {props.chipsQ > 0 && (
-                  <div>
-                    {t("chips")} {props.chipsQ}
-                  </div>
-                )}
+              {props.chipsQ > 0 && (
+                <div>
+                  {t("chips")} {props.chipsQ}
+                </div>
+              )}
 
-                {props.hotdogQ > 0 && (
-                  <div>
-                    {t("hotDog")} {props.hotdogQ}
-                  </div>
-                )}
+              {props.hotdogQ > 0 && (
+                <div>
+                  {t("hotDog")} {props.hotdogQ}
+                </div>
+              )}
 
-                {props.chocolateQ > 0 && (
-                  <div>
-                    {t("chocolate")}
-                    {props.chocolateQ}
-                  </div>
-                )}
+              {props.chocolateQ > 0 && (
+                <div>
+                  {t("chocolate")}
+                  {props.chocolateQ}
+                </div>
+              )}
 
-                {props.coffeeQ > 0 && (
-                  <div>
-                    {t("coffee")} {props.coffeeQ}
-                  </div>
-                )}
+              {props.coffeeQ > 0 && (
+                <div>
+                  {t("coffee")} {props.coffeeQ}
+                </div>
+              )}
 
-                {props.aspirinQ > 0 && (
-                  <div>
-                    {t("aspirin")}
-                    {props.aspirinQ}
-                  </div>
-                )}
-              </div>
-              {t("total")} {total}
-              <br />
-              {t("deliveryName")} {deliveryName}
-              <br />
-              {t("deliveryTime")} {deliveryTime}
-              <br />
+              {props.aspirinQ > 0 && (
+                <div>
+                  {t("aspirin")}
+                  {props.aspirinQ}
+                </div>
+              )}
             </div>
-            <div className="tp-confirmation-button-container">
-              <button
-                className="tp-confirmation-button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  changeConfig();
-                }}
-              >
-                {t("sendInfo")}
-              </button>
-            </div>
+            <p>
+              {t("total")}
+              <span className="tp-confirmation-text">{total}</span>
+            </p>
+            <p>
+              {t("deliveryName")}
+              <span className="tp-confirmation-text">{deliveryName}</span>
+            </p>
+            <p>
+              {t("deliveryTime")}
+              <span className="tp-confirmation-text">{deliveryTime}</span>
+            </p>
           </div>
-        )}
-      </div>
+          <button
+            className="tp-submit-button"
+            onClick={(e) => {
+              changeConfig();
+            }}
+          >
+            {t("sendInfo")}
+          </button>
+        </>
+      )}
     </div>
   );
 };

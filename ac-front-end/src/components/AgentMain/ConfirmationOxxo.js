@@ -95,73 +95,89 @@ const ConfirmationOxxo = (props) => {
 
   return (
     <div className="tp-confirmation">
-      <div className="tp-title">
-        {t("serviceConfirmation")}
-        {conf === "yes" && (
-          <div>
-            <div className="tp-confirmation-text">{t("informationSent")}</div>
-            <div className="tp-confirmation-button-container">
-              <button
-                className="tp-confirmation-button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  pruebaBackTPS();
-                  restart();
-                  props.onChange();
-                }}
-              >
-                {t("confirmed")}
-              </button>
-            </div>
+      <div className="tp-title">{t("serviceConfirmation")}</div>
+      {conf === "yes" && (
+        <div>
+          <div className="tp-confirmation-text">{t("informationSent")}</div>
+          <div className="tp-confirmation-button-container">
+            <button
+              className="tp-submit-button"
+              onClick={(e) => {
+                e.preventDefault();
+                pruebaBackTPS();
+                restart();
+                props.onChange();
+              }}
+            >
+              {t("return")}
+            </button>
           </div>
-        )}
-        {conf === "no" && (
-          <div>
-            <div className="tp-confirmation-text">
-              {t("client")} {client}
-              <br />
-              {t("email")} {email}
-              <br />
-              {t("cellPhone")} {cellphone}
-              <br />
-              {t("clientLocation")} {clientLocation}
-              <br />
-              {t("oxxoInfo")}
-              <br />
+        </div>
+      )}
+      {conf === "no" && (
+        <>
+          <div className="tp-confirmation-container">
+            <p>
+              {t("client")}
+              <span className="tp-confirmation-text">{client}</span>
+            </p>
+            <p>
+              {t("email")}
+              <span className="tp-confirmation-text">{email}</span>
+            </p>
+            <p>
+              {t("cellPhone")}
+              <span className="tp-confirmation-text">{cellphone}</span>
+            </p>
+            <p>
+              {t("clientLocation")}
+              <span className="tp-confirmation-text">{clientLocation}</span>
+            </p>
+            <p>{t("oxxoInfo")}</p>
+            <p>
               {t("street")}
-              {street}
-              <br />
+              <span className="tp-confirmation-text">{street}</span>
+            </p>
+            <p>
               {t("state")}
-              {state}
-              <br />
+              <span className="tp-confirmation-text">{state}</span>
+            </p>
+            <p>
               {t("colony")}
-              {colony}
-              <br />
-              {t("zipCode")} {zipCode}
-              <br />
-              {t("country")} {country}
-              <br />
-              {t("quantity")} {quantity}
-              <br />
-              {t("accountNumber")} {accountNumber}
-              <br />
-              {t("reference")} {reference}
-              <br />
-            </div>
-            <div className="tp-confirmation-button-container">
-              <button
-                className="tp-confirmation-button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  changeConfig();
-                }}
-              >
-                {t("sendInfo")}
-              </button>
-            </div>
+              <span className="tp-confirmation-text">{colony}</span>
+            </p>
+            <p>
+              {t("zipCode")}
+              <span className="tp-confirmation-text">{zipCode}</span>
+            </p>
+            <p>
+              {t("country")}
+              <span className="tp-confirmation-text">{country}</span>
+            </p>
+            <p>
+              {t("quantity")}
+              <span className="tp-confirmation-text">{quantity}</span>
+            </p>
+            <p>
+              {t("accountNumber")}
+              <span className="tp-confirmation-text">{accountNumber}</span>
+            </p>
+            <p>
+              {t("reference")}
+              <span className="tp-confirmation-text">{reference}</span>
+            </p>
           </div>
-        )}
-      </div>
+          <button
+            className="tp-submit-button"
+            onClick={(e) => {
+              e.preventDefault();
+              changeConfig();
+            }}
+          >
+            {t("sendInfo")}
+          </button>
+        </>
+      )}
     </div>
   );
 };
