@@ -29,11 +29,25 @@ const GlobalSupplier = ({ children }) => {
   };
   // Info of the QA or Admin
   const [userInfo, setUserInfo] = useState(dummyUser);
+
+  //Info when an agent starts a call
   const [callId, setCallId] = useState("");
+
+  //Status of the agent (Active, Inactive, In call)
+  //this can be seen in EmbedConnect.js line 155-173
+  const [agentStatus, setAgentStatus] = useState("");
 
   return (
     <GlobalContext.Provider
-      value={[recordingInfo, setRecordingInfo, userInfo, callId, setCallId]}
+      value={[
+        recordingInfo,
+        setRecordingInfo,
+        userInfo,
+        callId,
+        setCallId,
+        agentStatus,
+        setAgentStatus,
+      ]}
     >
       {children}
     </GlobalContext.Provider>

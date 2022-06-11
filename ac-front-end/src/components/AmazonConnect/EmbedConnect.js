@@ -22,7 +22,8 @@ import { GlobalContext } from "../GlobalSupplier";
 */
 
 const EmbedConnect = (props) => {
-  const [, , , , setCallId] = useContext(GlobalContext);
+  //Variables to assing the call id and the status of the call
+  const [, , , , setCallId, , setAgentStatus] = useContext(GlobalContext);
   // Save the contact id (id of the call)
   var cid;
   var auth;
@@ -172,6 +173,10 @@ const EmbedConnect = (props) => {
         } else if (agentStateChange.newState === "Busy") {
           status = "In call";
         }
+
+        //Set status in global context
+        setAgentStatus(status);
+
         const myHeaders = new Headers();
         const token = localStorage.getItem("token");
         myHeaders.append("Content-Type", "application/json");

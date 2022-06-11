@@ -17,8 +17,9 @@ import { GlobalContext } from "../GlobalSupplier";
 import { useTranslation } from "react-i18next";
 
 const Navbar = (props) => {
-  //funcion para poner el nombre del admin o quality analyst
-  // const [, , userInfo] = useContext(GlobalContext);
+  //Obtain the status
+  //If the agent status == "In call", the navbar should dissapear
+  const [, , , , , agentStatus] = useContext(GlobalContext);
 
   const getSidebarData = () => {
     const sidebarData = props.sidebarData + "SidebarData";
@@ -73,42 +74,44 @@ const Navbar = (props) => {
           </Link>
         </div>
         <nav className="nav-menu">
-          <ul className="nav-menu-items">
-            {getSidebarData().map((item, index) => {
-              return (
-                <li
-                  key={index}
-                  className={item.cName}
-                  data-tip
-                  data-for={item.title}
-                >
-                  <Link
-                    to={item.path}
-                    onClick={(e) => {
-                      if (item.title !== "Dashboard") {
-                        setText(t(item.title));
-                      } else {
-                        setText(t("welcomeText") + ", " + username);
-                      }
-                    }}
+          {/* If the agent is in call this will hide the navbar */}
+          {(agentStatus === "" || agentStatus !== "In call") && (
+            <ul className="nav-menu-items">
+              {getSidebarData().map((item, index) => {
+                return (
+                  <li
+                    key={index}
+                    className={item.cName}
+                    data-tip
+                    data-for={item.title}
                   >
-                    {item.icon}
-                  </Link>
-
-                  <ReactTooltip
-                    classname="tool-tip"
-                    id={item.title}
-                    effect="solid"
-                    backgroundColor="var(--highlight-color)"
-                    textColor="var(--text-color)"
-                    place="right"
-                  >
-                    <span>{t(item.title)}</span>
-                  </ReactTooltip>
-                </li>
-              );
-            })}
-          </ul>
+                    <Link
+                      to={item.path}
+                      onClick={(e) => {
+                        if (item.title !== "Dashboard") {
+                          setText(t(item.title));
+                        } else {
+                          setText(t("welcomeText") + ", " + username);
+                        }
+                      }}
+                    >
+                      {item.icon}
+                    </Link>
+                    <ReactTooltip
+                      classname="tool-tip"
+                      id={item.title}
+                      effect="solid"
+                      backgroundColor="var(--highlight-color)"
+                      textColor="var(--text-color)"
+                      place="right"
+                    >
+                      <span>{t(item.title)}</span>
+                    </ReactTooltip>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
         </nav>
       </IconContext.Provider>
     </div>
