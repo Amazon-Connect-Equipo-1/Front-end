@@ -223,8 +223,5 @@
   "logOut": "Déconnexion",
 
   "__QualityControl__": "----------------Quality Control interface--------------",
-  "noFeedbackAvailable": "Aucun feedback disponible",
-
-  "__User__": "----------------User interface--------------",
-  "loading": "Chargement..."
+  "noFeedbackAvailable": "Aucun feedback disponible"
 }

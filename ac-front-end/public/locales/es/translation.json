@@ -223,8 +223,5 @@
   "logOut": "Cerrar sesión",
 
   "__QualityControl__": "----------------Quality Control interface--------------",
-  "noFeedbackAvailable": "No hay comentarios disponibles",
-
-  "__User__": "----------------User interface--------------",
-  "loading": "Cargando..."
+  "noFeedbackAvailable": "No hay comentarios disponibles"
 }

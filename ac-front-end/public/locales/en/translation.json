@@ -223,8 +223,5 @@
   "logOut": "Log Out",
 
   "__QualityControl__": "----------------Quality Control interface--------------",
-  "noFeedbackAvailable": "No feedback available",
-
-  "__User__": "----------------User interface--------------",
-  "loading": "Loading..."
+  "noFeedbackAvailable": "No feedback available"
 }
