@@ -11,6 +11,8 @@ import { saveKeys, saveClick } from "../MonitorModule.js";
 import { useTranslation } from "react-i18next";
 import { Outlet, useOutlet } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import { Autocomplete, TextField } from "@mui/material";
+import { HiOutlineRefresh } from "react-icons/hi";
 
 const Recordings = (props) => {
   // Language
@@ -36,12 +38,6 @@ const Recordings = (props) => {
 
   const switchInputType = (spinnerOption) => {
     setSpinnerValue(spinnerOption);
-    console.log(spinnerOption);
-    if (spinnerOption === "date") {
-      document.getElementById("re-input").type = spinnerOption;
-    } else {
-      document.getElementById("re-input").type = "text";
-    }
   };
 
   const onChangeSearchInput = (event) => {
@@ -75,6 +71,54 @@ const Recordings = (props) => {
     }
   };
 
+  const arrayTags = [];
+  {
+    arrRecordings.map((recordInfo) =>
+      recordInfo.tags.map((tag) => {
+        if (arrayTags.includes(tag) === false) {
+          arrayTags.push(tag);
+        }
+      })
+    );
+  }
+
+  const processTagName = (tagName) => {
+    let filteredTagName = tagName.replaceAll("negative", "neg");
+    filteredTagName = filteredTagName.replaceAll("positive", "pos");
+    return filteredTagName.includes("-")
+      ? filteredTagName.replaceAll("-", " ")
+      : filteredTagName;
+  };
+
+  const optionsTags = [];
+  {
+    arrayTags.map((arrTag) => {
+      optionsTags.push({ label: processTagName(t(arrTag)), id: arrTag });
+    });
+  }
+  const [value, setValue] = useState(null);
+
+  const [tagValue, setTagValue] = useState([]);
+
+  const arrayName = [];
+  {
+    arrRecordings.map((recordInfo) => {
+      arrayName.push({
+        label: recordInfo.agentName,
+        id: recordInfo.agentId,
+      });
+    });
+  }
+
+  function getUniqueListBy(arr, key) {
+    return [...new Map(arr.map((item) => [item[key], item])).values()];
+  }
+
+  const optionName = getUniqueListBy(arrayName, "label");
+
+  const refresh = () => {
+    window.location.reload();
+  };
   return (
     <>
       {outlet || (
@@ -84,32 +128,92 @@ const Recordings = (props) => {
             data-aos="fade-up"
             data-aos-duration="1000"
           >
-            <div className="re-search-container">
-              <select
-                className="re-select"
-                onClick={() => saveClick(`${INPUT_NAME} filter scroller`)}
-                onChange={(e) => switchInputType(e.target.value)}
-              >
-                <option value="tag">{t("tag")}</option>
-                <option value="date">{t("date")}</option>
-                <option value="email">{t("emailProfile")}</option>
-              </select>
-              <input
-                onKeyDown={saveKeys}
-                onClick={() => saveClick(`${INPUT_NAME} input`)}
-                className="re-input"
-                id="re-input"
-                type="text"
-                placeholder="Search"
-                min="2022-06-01"
-                max="2029-12-31"
-                onChange={onChangeSearchInput}
-                value={searchInput}
-              />
-              <button href="/" className="re-btn" onClick={onFilterRecordings}>
-                {t("search")}
+            <div className="re-menu-container">
+              <button className="re-refresh-btn" onClick={refresh}>
+                Reset
+                <HiOutlineRefresh className="aglm-refresh" />
               </button>
+              <div className="re-search-container">
+                <select
+                  className="re-select"
+                  onClick={() => saveClick(`${INPUT_NAME} filter scroller`)}
+                  onChange={(e) => switchInputType(e.target.value)}
+                >
+                  <option value="tag">{t("tag")}</option>
+                  <option value="date">{t("date")}</option>
+                  <option value="email">Email</option>
+                </select>
+                {spinnerValue === "tag" && (
+                  <Autocomplete
+                    multiple
+                    limitTags={2}
+                    className="re-search"
+                    id="re-search"
+                    options={optionsTags}
+                    getOptionLabel={(option) => option.label}
+                    onClick={() => saveClick(`${INPUT_NAME} input`)}
+                    onChange={(event, newValue) => {
+                      setTagValue(newValue);
+                      getRecordsByTags(newValue);
+                    }}
+                    renderInput={(params) => (
+                      <TextField
+                        {...params}
+                        className="text-field"
+                        id="text-field"
+                        label={t("Tags")}
+                      />
+                    )}
+                  />
+                )}
+                {spinnerValue === "date" && (
+                  <input
+                    onKeyDown={saveKeys}
+                    onClick={() => saveClick(`${INPUT_NAME} input`)}
+                    className="re-input"
+                    id="re-input"
+                    type="date"
+                    placeholder="Search"
+                    min="2022-06-01"
+                    max="2029-12-31"
+                    onChange={onChangeSearchInput}
+                    value={searchInput}
+                  />
+                )}
+                {spinnerValue === "date" && (
+                  <button
+                    href="/"
+                    className="re-btn"
+                    onClick={onFilterRecordings}
+                  >
+                    {t("search")}
+                  </button>
+                )}
+                {spinnerValue === "email" && (
+                  <Autocomplete
+                    disablePortal
+                    className="re-search"
+                    id="re-search"
+                    options={optionName}
+                    value={value}
+                    onClick={() => saveClick(`${INPUT_NAME} input`)}
+                    onChange={(event, newValue) => {
+                      setValue(newValue);
+                      getRecordsByAgent([newValue.id]);
+                    }}
+                    renderInput={(params) => (
+                      <TextField
+                        {...params}
+                        className="text-field"
+                        id="text-field"
+                        label="Email"
+                      />
+                    )}
+                  />
+                )}
+              </div>
             </div>
+
             {arrRecordings.length > 0 &&
               arrRecordings.map((recordInfo) => (
                 <RecordingsCard

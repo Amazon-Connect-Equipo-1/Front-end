@@ -76,10 +76,11 @@ const SingleAgent = (props) => {
           <Pie data={data} />
         </div>
       </div>
+      <p className="sa-text">{selectedAgent.email}</p>
+      <p className="sa-text">{selectedAgent.description}</p>
       <div className="sa-info-container">
-        <p className="sa-text sa-give-feedback">{t("giveFeedback")}</p>
         <div className="sa-rating-container">
-          <p className="sa-text">{t("rating")}</p>
+          <p className="sa-text">{t("rating")} </p>
           <StyledRating
             name="sa-rating"
             className="sa-rating"
@@ -91,7 +92,6 @@ const SingleAgent = (props) => {
             size="large"
           />
         </div>
-        <p className="sa-text">{selectedAgent.description}</p>
         {window.localStorage.getItem("userType") === "Quality-agent" && (
           <div className="sa-feedback">
             <textarea
@@ -99,6 +99,7 @@ const SingleAgent = (props) => {
               type="text"
               onChange={onChangeComment}
               value={comment}
+              placeholder="Give Feedback"
             />
             <button
               className="sa-send-btn"

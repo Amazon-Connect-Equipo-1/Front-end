@@ -225,9 +225,16 @@ const RecordingsSupplier = ({ children }) => {
     myHeadersToken.append("Content-Type", "application/json");
     myHeadersToken.append("Authorization", `Bearer ${token}`);
 
+    const tagArr = [];
+    {
+      tagName.map((tag) => {
+        tagArr.push(tag.id);
+      });
+    }
+
     const raw = JSON.stringify({
       email: agentEmail,
-      tags: tagName,
+      tags: tagArr,
     });
 
     const requestOptions = {
