@@ -74,6 +74,12 @@ const Navbar = (props) => {
             {text || t("welcomeText") + ", " + username}
           </h1>
           <Link
+            style={{
+              pointerEvents:
+                agentStatus === "" || agentStatus !== "In call"
+                  ? "all"
+                  : "none",
+            }}
             to="/profile"
             onClick={(e) => {
               setText(t("welcomeText") + ", " + username);
@@ -82,45 +88,53 @@ const Navbar = (props) => {
             <FaUserCircle className="nav-user-icon" />
           </Link>
         </div>
-        <nav className="nav-menu">
-          {/* If the agent is in call this will hide the navbar */}
-          {(agentStatus === "" || agentStatus !== "In call") && (
-            <ul className="nav-menu-items">
-              {getSidebarData().map((item, index) => {
-                return (
-                  <li
-                    key={index}
-                    className={item.cName}
-                    data-tip
-                    data-for={item.title}
+        <nav
+          className="nav-menu"
+          // If the agent is in call this will disable the navbar
+          style={{
+            pointerEvents:
+              agentStatus === "" || agentStatus !== "In call" ? "all" : "none",
+          }}
+          to="/profile"
+          onClick={(e) => {
+            setText(t("welcomeText") + ", " + username);
+          }}
+        >
+          <ul className="nav-menu-items">
+            {getSidebarData().map((item, index) => {
+              return (
+                <li
+                  key={index}
+                  className={item.cName}
+                  data-tip
+                  data-for={item.title}
+                >
+                  <Link
+                    to={item.path}
+                    onClick={(e) => {
+                      if (item.title !== "Dashboard") {
+                        setText(t(item.title));
+                      } else {
+                        setText(t("welcomeText") + ", " + username);
+                      }
+                    }}
                   >
-                    <Link
-                      to={item.path}
-                      onClick={(e) => {
-                        if (item.title !== "Dashboard") {
-                          setText(t(item.title));
-                        } else {
-                          setText(t("welcomeText") + ", " + username);
-                        }
-                      }}
-                    >
-                      {item.icon}
-                    </Link>
-                    <ReactTooltip
-                      classname="tool-tip"
-                      id={item.title}
-                      effect="solid"
-                      backgroundColor="var(--highlight-color)"
-                      textColor="var(--text-color)"
-                      place="right"
-                    >
-                      <span>{t(item.title)}</span>
-                    </ReactTooltip>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
+                    {item.icon}
+                  </Link>
+                  <ReactTooltip
+                    classname="tool-tip"
+                    id={item.title}
+                    effect="solid"
+                    backgroundColor="var(--highlight-color)"
+                    textColor="var(--text-color)"
+                    place="right"
+                  >
+                    <span>{t(item.title)}</span>
+                  </ReactTooltip>
+                </li>
+              );
+            })}
+          </ul>
         </nav>
       </IconContext.Provider>
     </div>

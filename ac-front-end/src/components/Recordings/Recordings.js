@@ -139,7 +139,7 @@ const Recordings = (props) => {
           >
             <div className="re-menu-container">
               <button className="re-refresh-btn" onClick={refresh}>
-                Reset
+                {t("refresh")}
                 <HiOutlineRefresh className="aglm-refresh" />
               </button>
               <div className="re-search-container">
