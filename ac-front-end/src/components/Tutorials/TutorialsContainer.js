@@ -1,6 +1,15 @@
-/* Tutorial
+/* 
+TutorialsContainer.js
+
 Authors:
-        A01378688 Daniel Garcia Barajas
+- A01378688 Daniel Garcia Barajas
+- A01750185 Amy Murakami Tsutsumi
+
+Creation date: 18/05/2022
+Last modification date: 10/06/2022
+
+Component that displays process tutorials in three 
+different languages (English, Spanish and French). 
 */
 
 //Import Modules

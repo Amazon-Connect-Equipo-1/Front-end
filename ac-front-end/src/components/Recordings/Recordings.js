@@ -1,6 +1,15 @@
-/* Recordings
+/* 
+Recordings.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01750145 Miguel Ángel Pérez López
+- A01378688 Daniel Garcia Barajas
+
+Creation date: 30/04/2022
+Last modification date: 10/06/2022
+
+(Decripción)
+*/
 
 //Import Modules
 import RecordingsCard from "./RecordingsCard";

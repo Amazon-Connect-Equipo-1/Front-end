@@ -1,13 +1,15 @@
-/* 
+/*
+Dashboard.js
 
-𝐒𝐢𝐧𝐠𝐥𝐞 𝐃𝐚𝐬𝐡𝐛𝐨𝐚𝐫𝐝
-𝐀𝐮𝐭𝐨𝐫𝐬:
-        A01749448 Jorge Chávez Badillo
-        A01750185 Amy Murakami Tsutsumi
-        A01749373 Ariadna Jocelyn Guzmán Jiménez
-𝐒𝐭𝐚𝐫𝐭 𝐃𝐚𝐭𝐞: 
-𝐄𝐧𝐝 𝐃𝐚𝐭𝐞:
+Authors:
+- A01749448 Jorge Chávez Badillo
+- A01750185 Amy Murakami Tsutsumi
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
 
+Creation date: 26/05/2022
+Last modification date: 09/06/2022
+
+Program that displays the single dashboard created on QuickSight.
 */
 
 //Import Modules

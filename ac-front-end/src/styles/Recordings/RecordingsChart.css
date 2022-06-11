@@ -1,8 +1,16 @@
-/* CSS of AboutCard
-Authors:
-        A01777771 Stephen Strange*/
-/* Iniitals recc */
+/*
+RecordingsChart.css
 
+Authors:
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 08/06/2022
+Last modification date: 09/06/2022
+
+Style to display HTML elements for RecordingsChart.js.
+*/
+
+/* Iniitals recc */
 .recc-main-container {
   display: flex;
   justify-content: center;

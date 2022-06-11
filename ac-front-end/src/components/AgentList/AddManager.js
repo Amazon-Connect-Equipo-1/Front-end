@@ -1,3 +1,15 @@
+/*
+AddManager.js
+
+Authors:
+- A01379868 Jared Abraham Flores Guarneros
+
+Creation date: 02/06/2022
+Last modification date: 10/06/2022
+
+(Descripción)
+*/
+
 import React from "react";
 import "../../styles/AgentList/AddUser.css";
 import { useTranslation } from "react-i18next";

@@ -1,6 +1,14 @@
-/* O
+/*
+ConfirmationUberEats.js
+
 Authors:
-        A01379868 Jared Abraham Flores Guarnerose*/
+- A01379868 Jared Abraham Flores Guarneros
+
+Creation date: 30/05/2022
+Last modification date: 10/06/2022
+
+(Descripción)
+*/
 
 //Import Modules
 import "../../styles/AgentMain/ThirdParty.css";

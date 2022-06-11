@@ -1,3 +1,15 @@
+/* 
+RequireAuthentication.js
+
+Authors:
+- A01749448 Jorge Chávez Badillo
+
+Creation date: 26/05/2022
+Last modification date: 26/05/2022
+
+(Descripción)
+*/
+
 import { useContext } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { AuthenticationContext } from "./Authentication";

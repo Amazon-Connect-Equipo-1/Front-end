@@ -1,8 +1,16 @@
-/* CSS of GivenFeedbackCard
-Authors:
-        A01777771 Stephen Strange*/
-/* Initials: gfc */
+/*
+GiveFeedbackCard.css
 
+Authors:
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 03/05/2022
+Last modification date: 03/05/2022
+
+Style to display HTML elements for GiveFeedbackCard.js.
+*/
+
+/* Initials: gfc */
 .gfc-main-container {
   width: 30rem;
   color: white;

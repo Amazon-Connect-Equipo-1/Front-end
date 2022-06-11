@@ -1,3 +1,17 @@
+/*
+SingleDashboard.css
+
+Authors:
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01749448 Jorge Chávez Badillo
+- A01750185 Amy Murakami Tsutsumi
+
+Creation date: 26/05/2022
+Last modification date: 05/06/2022
+
+Style to display HTML elements for SingleDashboard.js.
+*/
+
 .sdsb-main-container-dashboard {
   width: 85rem;
   background-color: var(--sub-card-background);

@@ -1,9 +1,17 @@
-/* CSS of AmazonConnect
-Authors:
-        A01378688 Daniel Garcia
-*/
-/*Initials: ac*/
+/*
+AmazonConnect.css
 
+Authors:
+- A01378688 Daniel Garcia Barajas
+- A01749448 Jorge Chávez Badillo
+
+Creation date: 19/05/2022
+Last modification date: 09/06/2022
+
+Style to display HTML elements for AmazonConnect.js.
+*/
+
+/*Initials: ac*/
 .ac-image {
   height: 18rem;
   width: auto;

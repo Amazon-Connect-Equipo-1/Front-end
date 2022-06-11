@@ -1,8 +1,17 @@
-/* CSS of AgentListMenu
-Authors:
-        A01777771 Stephen Strange*/
-/* Initials: aglm*/
+/*
+AgentListMenu.css
 
+Authors:
+- A01378688 Daniel Garcia Barajas
+- A01749448 Jorge Chávez Badillo
+
+Creation date: 05/05/2022
+Last modification date: 10/06/2022
+
+Style to display HTML elements for AgentListMenu.js.
+*/
+
+/* Initials: aglm*/
 .aglm-menu-container {
   display: flex;
   justify-content: end;

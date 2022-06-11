@@ -1,7 +1,15 @@
-/* Profile
+/* 
+Profile.js
+
 Authors:
-        A01378688 Daniel Garcia Barajas 
+- A01378688 Daniel Garcia Barajas
+
+Creation date: 30/04/2022
+Last modification date: 10/06/2022
+
+(Decripción)
 */
+
 //Import Modules
 import "../../styles/Profile/Profile.css";
 import prfl_ic from "../../images/profile_icon.png";

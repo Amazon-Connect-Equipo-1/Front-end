@@ -1,6 +1,15 @@
-/* Recordings
+/*
+AgentRecordings.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01750145 Miguel Ángel Pérez López
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 25/05/2022
+Last modification date: 10/06/2022
+
+(Descripción)
+*/
 
 //Import Modules
 

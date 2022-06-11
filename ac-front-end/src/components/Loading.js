@@ -1,6 +1,14 @@
-/* Loading
+/* 
+Loading.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01749448 Jorge Chávez Badillo
+
+Creation date: 12/05/2022
+Last modification date: 10/06/2022
+
+(Descripción)
+*/
 
 //Import Modules
 import { SpinnerCircular } from "spinners-react";

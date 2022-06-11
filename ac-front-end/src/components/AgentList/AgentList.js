@@ -1,6 +1,17 @@
-/* Agent List
+/*
+AgentList.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01749448 Jorge Chávez Badillo
+- A01378688 Daniel Garcia Barajas
+
+Creation date: 02/05/2022
+Last modification date: 09/06/2022
+
+Program that displays the interface that contains the screen 
+of the invidual agents, the list of agents and the agents that 
+are in active calls. 
+*/
 
 //Import Modules
 import { useContext, useEffect, useState } from "react";

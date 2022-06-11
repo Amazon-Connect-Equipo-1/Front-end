@@ -1,6 +1,16 @@
-/* Settings
+/* 
+Settings.js
+
 Authors:
-        A01378688 Daniel Garcia
+- A01750145 Miguel Ángel Pérez López
+- A01378688 Daniel Garcia Barajas
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+
+Creation date: 04/05/2022
+Last modification date: 10/06/2022
+
+(Decripción)
 */
 
 //Import Modules

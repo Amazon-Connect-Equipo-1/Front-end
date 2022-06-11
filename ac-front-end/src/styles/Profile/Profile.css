@@ -1,8 +1,16 @@
-/* CSS of Profile
-Authors:
-        A01777771 Stephen Strange*/
-/*Initials: prfl*/
+/*
+Profile.css
 
+Authors:
+- A01378688 Daniel Garcia Barajas
+
+Creation date: 30/04/2022
+Last modification date: 06/06/2022
+
+Style to display HTML elements for Profile.js.
+*/
+
+/*Initials: prfl*/
 .prfl-main-container {
   display: flex;
   flex-direction: column;

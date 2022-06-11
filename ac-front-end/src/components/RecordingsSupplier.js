@@ -1,6 +1,14 @@
-/* Recordings Suppliers
+/* 
+RecordingsSupplier.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 15/05/2022
+Last modification date: 10/06/2022
+
+(Descripción)
+*/
 
 //Import Modules
 import { createContext, useEffect, useState } from "react";

@@ -1,6 +1,14 @@
-/* Global Supplier
+/* 
+GlobalSupplier.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 20/05/2022
+Last modification date: 20/05/2022
+
+(Descripción)
+*/
 
 //Import Modules
 import { createContext, useState } from "react";

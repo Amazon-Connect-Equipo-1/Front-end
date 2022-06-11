@@ -1,3 +1,15 @@
+/*
+RecordScreen.css
+
+Authors:
+- A01378688 Daniel Garcia Barajas
+
+Creation date: 24/05/2022
+Last modification date: 24/05/2022
+
+Style to display HTML elements for RecordScreen.js.
+*/
+
 .rs-main-container {
   display: flex;
   justify-content: center;

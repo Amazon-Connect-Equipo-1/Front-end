@@ -1,8 +1,17 @@
-/* CSS of RecordingsVideo
-Authors:
-        A01777771 Stephen Strange*/
-/* Initials: rev */
+/*
+RecordingsVideo.css
 
+Authors:
+- A01750145 Miguel Ángel Pérez López
+- A01378688 Daniel Garcia Barajas
+
+Creation date: 03/05/2022
+Last modification date: 10/06/2022
+
+Style to display HTML elements for RecordingsVideo.js.
+*/
+
+/* Initials: rev */
 .rev-main-container {
   display: flex;
   justify-content: center;

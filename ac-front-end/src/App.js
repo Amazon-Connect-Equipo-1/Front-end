@@ -1,6 +1,21 @@
-/* APP
+/* 
+App.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01750145 Miguel Ángel Pérez López
+- A01749448 Jorge Chávez Badillo
+- A01378688 Daniel Garcia Barajas
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01379868 Jared Abraham Flores Guarneros
+- A01750185 Amy Murakami Tsutsumi
+
+
+Creation date: 10/04/2022
+Last modification date: 10/06/2022
+
+Program that stores the web application and 
+its components to deploy them.
+*/
 
 //Import Modules
 import "./App.css";

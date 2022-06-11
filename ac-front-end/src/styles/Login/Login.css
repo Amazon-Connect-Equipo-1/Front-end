@@ -1,6 +1,17 @@
-/* CSS of Login
+/*
+Login.css
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01749448 Jorge Chávez Badillo
+- A01379868 Jared Abraham Flores Guarneros
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 28/04/2022
+Last modification date: 28/04/2022
+
+Style to display HTML elements for Login.js.
+*/
+
 /* Initials: log */
 .log-main-container {
   display: flex;

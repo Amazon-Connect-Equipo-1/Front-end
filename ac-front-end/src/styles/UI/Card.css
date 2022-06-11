@@ -1,6 +1,15 @@
-/* CSS of Cards
+/*
+Card.css
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 29/04/2022
+Last modification date: 29/04/2022
+
+Style to display HTML elements for Card.js.
+*/
+
 .card {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 10px;

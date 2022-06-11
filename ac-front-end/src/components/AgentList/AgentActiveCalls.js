@@ -1,6 +1,15 @@
-/* Agent Active Calls
+/*
+AgentActiveCalls.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+
+Creation date: 02/05/2022
+Last modification date: 10/06/2022
+
+Program that displays agents who are on an active call.
+*/
 
 //Import Modules
 import "../../styles/AgentList/AllAgentsList.css";

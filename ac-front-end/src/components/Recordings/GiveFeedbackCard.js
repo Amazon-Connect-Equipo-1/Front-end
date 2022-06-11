@@ -1,6 +1,14 @@
-/* Give Feedback Card
+/* 
+GiveFeedbackCard.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 03/05/2022
+Last modification date: 03/05/2022
+
+(Decripción)
+*/
 
 //Import Modules
 import Card from "../UI/Card";

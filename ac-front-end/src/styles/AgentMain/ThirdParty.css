@@ -1,8 +1,18 @@
-/* CSS of ThridParty
-Authors:
-        A01777771 Stephen Strange*/
-/*Initials: tp*/
+/*
+ThirdParty.css
 
+Authors:
+- A01378688 Daniel Garcia Barajas
+- A01379868 Jared Abraham Flores Guarneros
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 17/05/2022
+Last modification date: 06/06/2022
+
+Style to display HTML elements for ThirdParty.js.
+*/
+
+/*Initials: tp*/
 .tp-main-container {
   display: flex;
   justify-content: flex-start;

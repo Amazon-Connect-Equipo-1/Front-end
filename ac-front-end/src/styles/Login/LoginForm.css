@@ -1,8 +1,17 @@
-/* CSS of Login Form
-Authors:
-        A01777771 Stephen Strange*/
-/*Initials: lgf*/
+/*
+LoginForm.css
 
+Authors:
+- A01750145 Miguel Ángel Pérez López
+- A01378688 Daniel Garcia Barajas
+
+Creation date: 29/04/2022
+Last modification date: 02/06/2022
+
+Style to display HTML elements for LoginForm.js.
+*/
+
+/*Initials: lgf*/
 /* Main tags */
 .lgf-input {
   display: block;

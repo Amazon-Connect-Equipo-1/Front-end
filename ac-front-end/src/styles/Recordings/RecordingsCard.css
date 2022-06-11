@@ -1,8 +1,17 @@
-/* CSS of RecordingsCard
-Authors:
-        A01777771 Stephen Strange*/
-/* Initials: rec */
+/*
+RecordingsCard.css
 
+Authors:
+- A01750145 Miguel Ángel Pérez López
+- A01378688 Daniel Garcia Barajas
+
+Creation date: 30/04/2022
+Last modification date: 10/06/2022
+
+Style to display HTML elements for RecordingsCard.js.
+*/
+
+/* Initials: rec */
 .link {
   text-decoration: none;
   font-size: inherit;

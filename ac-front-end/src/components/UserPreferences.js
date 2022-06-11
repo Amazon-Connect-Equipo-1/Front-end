@@ -1,14 +1,18 @@
-import i18n from "../i18n";
+/* 
+RecordingsSupplier.js
 
-/*
+Authors:
+- A01378688 Daniel Garcia Barajas
+- A01750145 Miguel Ángel Pérez López
 
-  Loads and get the user settings preferences from 
+Creation date: 15/05/2022
+Last modification date: 10/06/2022
+
+Loads and get the user settings preferences from 
   the database and sets them in the localStorage
-
-  Authors:
-    Daniel García
-
 */
+
+import i18n from "../i18n";
 export const loadUserPreferences = (id) => {
   let theme;
   let txtSize;

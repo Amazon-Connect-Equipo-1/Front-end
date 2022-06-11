@@ -1,3 +1,15 @@
+/* 
+i18n.js
+
+Authors:
+- A01749448 Jorge Chávez Badillo
+
+Creation date: 12/05/2022
+Last modification date: 12/05/2022
+
+Internationalization-framework that enables easy 
+localization. It is used to translate texts within the application. 
+*/
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import Backend from "i18next-http-backend";

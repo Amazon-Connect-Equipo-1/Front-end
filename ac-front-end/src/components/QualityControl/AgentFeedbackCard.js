@@ -1,6 +1,16 @@
-/* Agent FeedbackCard
+/* 
+AgentFeedbackCard.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01749448 Jorge Chávez Badillo
+- A01750185 Amy Murakami Tsutsumi
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 01/05/2022
+Last modification date: 10/06/2022
+
+Component in which QA feedback is displayed and the agent accepts these comments. 
+*/
 
 //Import Modules
 import Card from "../UI/Card";

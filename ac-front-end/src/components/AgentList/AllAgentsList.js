@@ -1,6 +1,16 @@
-/* All Agent List
+/*
+AllAgentsList.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+
+Creation date: 02/05/2022
+Last modification date: 09/06/2022
+
+Program that displays a list of all the agents with a profile picture 
+and an indicator of their status. 
+*/
 
 //Import Modules
 import "../../styles/AgentList/AllAgentsList.css";

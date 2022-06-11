@@ -1,6 +1,14 @@
-/* Card
+/* 
+Card.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 29/04/2022
+Last modification date: 29/04/2022
+
+(Decripción)
+*/
 
 //Import Modules
 import classes from "../../styles/UI/Card.css";

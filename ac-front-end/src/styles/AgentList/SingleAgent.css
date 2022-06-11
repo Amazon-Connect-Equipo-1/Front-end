@@ -1,8 +1,17 @@
-/* CSS of SingleAgent
-Authors:
-        A01777771 Stephen Strange*/
-/*Initials: sa*/
+/*
+SingleAgent.css
 
+Authors:
+- A01378688 Daniel Garcia Barajas
+- A01749448 Jorge Chávez Badillo
+
+Creation date: 02/05/2022
+Last modification date: 10/06/2022
+
+Style to display HTML elements for SingleAgent.js.
+*/
+
+/*Initials: sa*/
 .sa-main-container {
   width: 40rem;
   background-color: var(--sub-card-background);

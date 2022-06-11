@@ -6,8 +6,8 @@ Authors:
 - A01750185 Amy Murakami Tsutsumi
 - A01749373 Ariadna Jocelyn Guzmán Jiménez
 
-Start Date: 2022-05-26
-End Date: 2022-06-01
+Creation date: 26/05/2022
+Last modification date: 08/06/2022
 
 Program that displays the interface for the email to change the password.
 */

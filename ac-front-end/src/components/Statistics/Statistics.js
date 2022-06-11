@@ -1,6 +1,14 @@
-/* Statistics
+/* 
+Statistics.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+
+Creation date: 09/06/2022
+Last modification date: 09/06/2022
+
+(Decripción)
+*/
 
 //Import Modules
 import React from "react";

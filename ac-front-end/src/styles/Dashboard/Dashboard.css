@@ -1,8 +1,17 @@
-/* CSS of Dashboard
-Authors:
-        A01777771 Stephen Strange*/
-/* Initials: dsb */
+/*
+Dashboard.css
 
+Authors:
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 04/05/2022
+Last modification date: 04/05/2022
+
+Style to display HTML elements for Dashboard.js.
+*/
+
+/* Initials: dsb */
 .dsb-main-container {
   display: flex;
   justify-content: center;

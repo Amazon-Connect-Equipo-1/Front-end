@@ -1,6 +1,15 @@
-/* Uber Eats Form
+/*
+UberEatsForm.js
+
 Authors:
-        A01379868 Jared Abraham Flores Guarneros*/
+- A01379868 Jared Abraham Flores Guarneros
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 17/05/2022
+Last modification date: 10/06/2022
+
+(Descripción)
+*/
 
 //Import Modules
 import "../../styles/AgentMain/ThirdParty.css";

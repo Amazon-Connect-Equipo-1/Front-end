@@ -1,6 +1,15 @@
-/* Navigation Bar
+/* 
+Navbar.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01750145 Miguel Ángel Pérez López
+- A01378688 Daniel Garcia Barajas
+
+Creation date: 04/05/2022
+Last modification date: 01/06/2022
+
+(Decripción)
+*/
 
 //Import Modules
 import { Link } from "react-router-dom";

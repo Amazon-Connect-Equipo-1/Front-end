@@ -1,3 +1,15 @@
+/*
+AddUser.js
+
+Authors:
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 01/06/2022
+Last modification date: 06/06/2022
+
+(Descripción)
+*/
+
 import React from "react";
 import "../../styles/AgentList/AddUser.css";
 import AddAgent from "./AddAgent";

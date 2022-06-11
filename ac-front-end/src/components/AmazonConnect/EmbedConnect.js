@@ -1,25 +1,28 @@
+/*
+EmbedConnect.js
+
+Authors:
+- A01378966 Erick Alberto Bustos Cruz
+- A01379918 Luis Enrique Zamarripa Marín
+- A01750632 Liam Garay Monroy
+- A01750480 Edna Jacqueline Zavala Ortega
+- A01379566 Diego Alejandro Juárez Ruiz
+- A01378688 Daniel Garcia Barajas
+
+Creation date: 22/05/2022
+Last modification date: 09/06/2022
+
+Component that embeds the Amazon Connect Agent CPP in the application,
+  starts recording when a call starts, and stops recording when the after call work ends.
+  After stopping a recording, it uploads the recording to the corresponding s3 using
+  the contact id as name.
+*/
+
 import "amazon-connect-streams";
 import { useEffect, React, useState, useContext } from "react";
 import "../../styles/AgentMain/RecordScreen.css";
 import { useReactMediaRecorder } from "react-media-recorder";
 import { GlobalContext } from "../GlobalSupplier";
-
-/*
-
-  Component that embeds the Amazon Connect Agent CPP in the application,
-  starts recording when a call starts, and stops recording when the after call work ends.
-  After stopping a recording, it uploads the recording to the corresponding s3 using
-  the contact id as name.
-
-  Authors:
-    Erick Bustos
-    Luis Zamarripa
-    Liam Garay
-    Jacqueline Zavala
-    Diego Juárez
-    Daniel García
-
-*/
 
 const EmbedConnect = (props) => {
   //Variables to assing the call id and the status of the call

@@ -1,6 +1,14 @@
-/* Recordings Card
+/* 
+RecordingsCard.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 30/04/2022
+Last modification date: 09/06/2022
+
+(Decripción)
+*/
 
 //Import Modules
 import Card from "../UI/Card";
