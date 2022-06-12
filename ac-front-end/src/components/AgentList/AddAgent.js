@@ -10,30 +10,42 @@ Last modification date: 10/06/2022
 (Descripción)
 */
 
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import "../../styles/AgentList/AddUser.css";
 
 const AddAgent = (props) => {
   //input handlers-----------------------------------
+  const [nameInput, setNameInput] = useState("");
+  const [emailInput, setEmailInput] = useState("");
+  const [phoneInput, setPhoneInput] = useState("");
+  const [supEmailInput, setSupEmailInput] = useState("");
+  const [passwordInput, setPasswordInput] = useState("");
+  const [pictureInput, setPictureInput] = useState("");
 
   const nameChangeHandler = (event) => {
     window.localStorage.setItem("name", event.target.value);
+    setNameInput(event.target.value);
   };
   const passwordChangeHandler = (event) => {
     window.localStorage.setItem("password", event.target.value);
+    setPasswordInput(event.target.value);
   };
   const emailChangeHandler = (event) => {
     window.localStorage.setItem("email", event.target.value);
+    setEmailInput(event.target.value);
   };
   const phoneNumberChangeHandler = (event) => {
     window.localStorage.setItem("phoneNumber", event.target.value);
+    setPhoneInput(event.target.value);
   };
   const superEmailChangeHandler = (event) => {
     window.localStorage.setItem("superEmail", event.target.value);
+    setSupEmailInput(event.target.value);
   };
   const pictureChangeHandler = (event) => {
     window.localStorage.setItem("picture", event.target.value);
+    setPictureInput(event.target.value);
   };
   // Language
   const { t } = useTranslation();
@@ -98,14 +110,16 @@ const AddAgent = (props) => {
         type="text"
         placeholder="Name"
         onChange={nameChangeHandler}
+        value={nameInput}
       />
       <label className="adu-label">{t("email")}</label>
       <input
         className="adu-input"
         id="email"
-        type="text"
+        type="email"
         placeholder="Email"
         onChange={emailChangeHandler}
+        value={emailInput}
       />
       <label className="adu-label">{t("password")}</label>
       <input
@@ -114,6 +128,7 @@ const AddAgent = (props) => {
         type="text"
         placeholder="Password"
         onChange={passwordChangeHandler}
+        value={passwordInput}
       />
       <label className="adu-label">{t("phoneNumber")}</label>
       <input
@@ -122,15 +137,17 @@ const AddAgent = (props) => {
         type="text"
         placeholder="Phone Number"
         onChange={phoneNumberChangeHandler}
+        value={phoneInput}
       />
 
       <label className="adu-label">{t("administratorEmail")}</label>
       <input
         className="adu-input"
         id="AdministratorEmail"
-        type="text"
+        type="email"
         placeholder="Administrator Email"
         onChange={superEmailChangeHandler}
+        value={supEmailInput}
       />
       <label className="adu-label">{t("profilePicture")}</label>
       <input
@@ -139,9 +156,34 @@ const AddAgent = (props) => {
         type="text"
         placeholder="Profile Picture"
         onChange={pictureChangeHandler}
+        value={pictureInput}
       />
       <button
         className="adu-send-btn"
+        style={{
+          opacity:
+            emailInput.includes("@") &&
+            nameInput &&
+            emailInput &&
+            phoneInput &&
+            passwordInput &&
+            pictureInput &&
+            supEmailInput &&
+            supEmailInput.includes("@")
+              ? "1.0"
+              : "0.5",
+          pointerEvents:
+            emailInput.includes("@") &&
+            nameInput &&
+            emailInput &&
+            phoneInput &&
+            passwordInput &&
+            pictureInput &&
+            supEmailInput &&
+            supEmailInput.includes("@")
+              ? "all"
+              : "none",
+        }}
         onClick={(e) => {
           addAgents();
           restart();
