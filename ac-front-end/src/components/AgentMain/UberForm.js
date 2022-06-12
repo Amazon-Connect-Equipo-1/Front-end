@@ -28,6 +28,14 @@ const UberForm = (props) => {
   const [cellphoneInput, setCellphoneInput] = useState("");
   const [locationInput, setLocationInput] = useState("");
   const [destinationInput, setDestinationInput] = useState("");
+  //SAVE DATA-----------------------------------
+  const SaveData = () => {
+    window.localStorage.setItem("client", clientInput);
+    window.localStorage.setItem("email", emailInput);
+    window.localStorage.setItem("cellphone", cellphoneInput);
+    window.localStorage.setItem("clientLocation", locationInput);
+    window.localStorage.setItem("destination", destinationInput);
+  };
 
   const clientChangeHandler = (event) => {
     setClientInput(event.target.value);
@@ -66,11 +74,6 @@ const UberForm = (props) => {
   // Language
   const { t } = useTranslation();
   const askUber = (event) => {
-    const client = window.localStorage.getItem("client");
-    const email = window.localStorage.getItem("email");
-    const cellphone = window.localStorage.getItem("cellphone");
-    const clientLocation = window.localStorage.getItem("clientLocation");
-    const destination = window.localStorage.getItem("destination");
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", `Bearer ${token}`);
@@ -78,11 +81,11 @@ const UberForm = (props) => {
     const raw = JSON.stringify({
       service: "Uber", //CONSTANTE
       service_data: {
-        client: client,
-        email: email,
-        cellphone: cellphone,
-        client_location: clientLocation,
-        destination: destination,
+        client: clientInput,
+        email: emailInput,
+        cellphone: cellphoneInput,
+        client_location: locationInput,
+        destination: destinationInput,
       },
       call_id: callId, //probar si sirve
     });
@@ -209,6 +212,7 @@ const UberForm = (props) => {
               onClick={(e) => {
                 e.preventDefault();
                 askUber();
+                SaveData();
                 Confirm();
                 saveClick(`${INPUT_NAME} input`);
               }}

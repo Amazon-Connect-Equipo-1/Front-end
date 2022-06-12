@@ -91,10 +91,10 @@ const UberEatsForm = (props) => {
     const raw = JSON.stringify({
       service: "UberEats", //CONSTANTE
       service_data: {
-        client: client,
-        email: email,
-        cellphone: cellphone,
-        client_location: clientLocation,
+        client: clientInput,
+        email: emailInput,
+        cellphone: cellphoneInput,
+        client_location: locationInput,
         order: {
           refresco: { price: 15, quantity: soda },
           papas: { price: 20, quantity: chips },
