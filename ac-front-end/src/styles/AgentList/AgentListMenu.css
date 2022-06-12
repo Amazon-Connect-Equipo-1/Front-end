@@ -121,22 +121,3 @@ Style to display HTML elements for AgentListMenu.js.
   font-size: var(--sub-title);
   font-weight: bold;
 }
-
-/*Media queries for AgentMenu*/
-/*****************************/
-/* BELOW 47*16 = 752px (Smaller desktops) */
-/*****************************/
-@media (max-height: 47em) {
-  .aglm-search-container {
-    height: 45rem;
-  }
-}
-
-/*****************************/
-/* BELOW 42.5*16 = 680px (Very Small desktops) */
-/*****************************/
-@media (max-height: 42.5em) {
-  .aglm-search-container {
-    height: 40rem;
-  }
-}
