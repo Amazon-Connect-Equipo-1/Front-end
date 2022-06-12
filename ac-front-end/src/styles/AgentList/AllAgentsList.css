@@ -13,7 +13,7 @@ Style to display HTML elements for AllAgentsList.js.
 
 /*Initials: aal*/
 .aal-main-container {
-  width: 40rem;
+  width: 35.75rem;
   background-color: var(--sub-card-background);
   color: var(--text-color);
   border-radius: 10px;
@@ -62,7 +62,7 @@ Style to display HTML elements for AllAgentsList.js.
   justify-content: center;
   align-items: center;
   column-gap: 4rem;
-  grid-template-columns: 0.5fr 4fr 0.5fr 0.5fr;
+  grid-template-columns: 0.5fr 4fr;
   margin-bottom: 2rem;
   text-decoration: none;
   background: none;
@@ -72,17 +72,9 @@ Style to display HTML elements for AllAgentsList.js.
 }
 
 .aal-text {
-  font-size: 1.5rem;
+  font-size: var(--sub-option-text);
   font-weight: lighter;
   text-align: left;
-}
-
-.circulo {
-  width: 15px;
-  height: 15px;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
 }
 
 .aal-online {
@@ -98,7 +90,7 @@ Style to display HTML elements for AllAgentsList.js.
   justify-content: center;
   align-items: center;
   color: var(--text-color);
-  font-size: var(--sub-title);
+  font-size: var(--option-text);
 }
 
 /*Media queries for AllAgentList*/

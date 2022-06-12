@@ -13,12 +13,12 @@ Style to display HTML elements for SingleDashboard.js.
 */
 
 .sdsb-main-container-dashboard {
-  width: 85rem;
+  width: 120rem;
   background-color: var(--sub-card-background);
   color: var(--text-color);
   border-radius: 10px;
   box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
-  height: 65rem;
+  height: 60rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,8 +37,8 @@ Style to display HTML elements for SingleDashboard.js.
 }
 
 .sdsb-quicksight-dashboard {
-  width: 80rem;
-  height: 60rem;
+  width: 90%;
+  height: 55rem;
 }
 
 .sdsb-quicksight-statistics {

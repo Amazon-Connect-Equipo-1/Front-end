@@ -16,7 +16,7 @@ Style to display HTML elements for AgentListMenu.js.
   display: flex;
   justify-content: end;
   align-items: center;
-  margin: 0 2.5rem 0 2rem;
+  margin: 0 6rem 0 6rem;
   gap: 2rem;
 }
 
