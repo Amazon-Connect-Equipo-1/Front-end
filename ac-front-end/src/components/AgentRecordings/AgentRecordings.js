@@ -4,6 +4,7 @@ AgentRecordings.js
 Authors:
 - A01750145 Miguel Ángel Pérez López
 - A01750145 Miguel Ángel Pérez López
+- A01379868 Jared  Abraham Flores Guarneros
 
 Creation date: 25/05/2022
 Last modification date: 10/06/2022
