@@ -51,18 +51,6 @@ const Profile = (props) => {
         data-aos-duration="1000"
       >
         <div className="prfl-container">
-          {/* <Link className="prfl-return-link" to="/">
-            <button className="prfl-return-btn">Return</button>
-          </Link> */}
-          {/* Link that we send https://drive.google.com/file/d/[image_id]/view?usp=sharing */}
-          {/* Link that we need to put in src
-          https://drive.google.com/uc?export=view&id=[image_id] */}
-          {/*
-          <img
-            src={window.localStorage.getItem("profile_picture")}
-            alt="profile_ic"
-            className="prfl-ic"
-        /> */}
           <Avatar
             alt={window.localStorage.getItem("name")}
             src={window.localStorage.getItem("profile_picture")}

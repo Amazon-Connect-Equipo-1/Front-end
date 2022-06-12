@@ -74,55 +74,57 @@ const RecordingsChart = (props) => {
 
   return (
     <Card className="recc-main-container">
-      <div className="recc-navbar">
-        <h2 className="recc-title" onClick={props.onChangeCard}>
-          {t("about")}
-        </h2>
-        <h2 className="recc-title">{t("analysis")}</h2>
-      </div>
       <div className="recc-container">
-        <Bar
-          style={{ height: "20rem" }}
-          data={stateBar}
-          options={{
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: {
-                display: false,
-                position: "up",
+        <div className="recc-navbar">
+          <h2 className="recc-title" onClick={props.onChangeCard}>
+            {t("about")}
+          </h2>
+          <h2 className="recc-title">{t("analysis")}</h2>
+        </div>
+        <div>
+          <Bar
+            style={{ height: "20rem" }}
+            data={stateBar}
+            options={{
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: {
+                  display: false,
+                  position: "up",
+                },
+                title: {
+                  display: true,
+                  fontSize: 20,
+                  text: t("labelOverall"),
+                  fontColor: "#9facbd",
+                },
               },
-              title: {
-                display: true,
-                fontSize: 20,
-                text: t("labelOverall"),
-                fontColor: "#9facbd",
+            }}
+          />
+        </div>
+        <div>
+          <Line
+            style={{ height: "20rem" }}
+            data={stateLine}
+            options={{
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: {
+                  display: true,
+                  position: "bottom",
+                },
+                title: {
+                  display: true,
+                  fontSize: 20,
+                  text: t("labelQuarter"),
+                  fontColor: "#FFFFFF",
+                },
               },
-            },
-          }}
-        />
-      </div>
-      <div>
-        <Line
-          style={{ height: "20rem" }}
-          data={stateLine}
-          options={{
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: {
-                display: true,
-                position: "bottom",
-              },
-              title: {
-                display: true,
-                fontSize: 20,
-                text: t("labelQuarter"),
-                fontColor: "#FFFFFF",
-              },
-            },
-          }}
-        />
+            }}
+          />
+        </div>
       </div>
     </Card>
   );

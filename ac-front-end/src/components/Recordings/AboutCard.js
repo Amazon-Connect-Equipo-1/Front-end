@@ -71,7 +71,13 @@ const AboutCard = (props) => {
   useEffect(() => getRecordingData(), []);
 
   return (
-    <Card className="abc-main-container">
+    <div
+      className="abc-main-container"
+      style={{
+        justifyContent:
+          window.localStorage.getItem("txtSize") === "big" ? "start" : "center",
+      }}
+    >
       <div className="abc-container">
         <div className="abc-navbar">
           <h2 className="abc-title">{t("about")}</h2>
@@ -80,37 +86,49 @@ const AboutCard = (props) => {
           </h2>
         </div>
         <h2>{t("call")}</h2>
-        <p>
-          ID: <span>{videoInfo.RecordingId}</span>
+        <p className="abc-info-title">
+          ID: <span className="abc-call-info">{videoInfo.RecordingId}</span>
         </p>
-        <p>
-          {t("duration")} <span>{videoInfo.duration}</span>
+        <p className="abc-info-title">
+          {t("duration")}{" "}
+          <span className="abc-call-info">{videoInfo.duration}</span>
         </p>
-        <p>
-          {t("startCall")} <span>{videoInfo.initialTimestamp}</span>
+        <p className="abc-info-title">
+          {t("startCall")}{" "}
+          <span className="abc-call-info">{videoInfo.initialTimestamp}</span>
         </p>
-        <p>
-          {t("endCall")} <span>{videoInfo.disconnectTimestamp}</span>
+        <p className="abc-info-title">
+          {t("endCall")}{" "}
+          <span className="abc-call-info">{videoInfo.disconnectTimestamp}</span>
         </p>
-        <p className="margin-top-md">
-          {t("agent")} <span>{videoInfo.agentName}</span>
+        <p className="margin-top-md abc-info-title">
+          {t("agent")}{" "}
+          <span className="abc-call-info">{videoInfo.agentName}</span>
         </p>
         <h2 className="abc-margin-top-md">{t("analysis")}</h2>
-        <p>
+        <p className="abc-info-title">
           {t("agentInterruptions")}{" "}
-          <span>{videoInfo.recordingData.AgentInterruptions}</span>
+          <span className="abc-call-info">
+            {videoInfo.recordingData.AgentInterruptions}
+          </span>
         </p>
-        <p>
+        <p className="abc-info-title">
           {t("userInterruptions")}{" "}
-          <span>{videoInfo.recordingData.CustomerInterruptions}</span>
+          <span className="abc-call-info">
+            {videoInfo.recordingData.CustomerInterruptions}
+          </span>
         </p>
-        <p>
+        <p className="abc-info-title">
           {t("agentSentiment")}{" "}
-          <span>{videoInfo.recordingData.OverallAgentSentiment}</span>
+          <span className="abc-call-info">
+            {videoInfo.recordingData.OverallAgentSentiment}
+          </span>
         </p>
-        <p>
+        <p className="abc-info-title">
           {t("userSentiment")}{" "}
-          <span>{videoInfo.recordingData.OverallCustomerSentiment}</span>
+          <span className="abc-call-info">
+            {videoInfo.recordingData.OverallCustomerSentiment}
+          </span>
         </p>
         <div className="abc-tag-section">
           {getTags().map((tag) => (
@@ -120,7 +138,7 @@ const AboutCard = (props) => {
           ))}
         </div>
       </div>
-    </Card>
+    </div>
   );
 };
 

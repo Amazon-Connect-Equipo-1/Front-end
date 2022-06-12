@@ -31,7 +31,8 @@ Style to display HTML elements for Profile.js.
   background-color: var(--sub-card-background);
   margin: 3rem;
   border-radius: 10px;
-  width: -webkit-fill-available;
+  /* width: -webkit-fill-available; */
+  width: calc(100% - 5rem);
 }
 .prfl-container {
   display: flex;
@@ -81,11 +82,12 @@ Style to display HTML elements for Profile.js.
   border-radius: 10px;
   cursor: pointer;
   width: 100%;
+  transition: all 0.3s ease-out;
 }
 
 .prfl-button:hover {
   transform: translateY(-3px);
-  transition: 0.3s ease-out;
+  transition: all 0.3s ease-out;
   opacity: 0.9;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }

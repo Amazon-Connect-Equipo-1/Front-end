@@ -17,18 +17,31 @@ import "../../styles/Login/Login.css";
 import logo from "../../images/logo_bbva.png";
 import LoginForm from "./LoginForm";
 import About from "./About";
+import { useState } from "react";
 
 const Login = (props) => {
   document.body.classList.add("dark");
-
+  const [showAbout, setShowAbout] = useState(false);
   //poner página de jared
-  const onShowAbout = () => {};
+  const onShowAbout = () => {
+    setShowAbout(!showAbout);
+  };
 
-  return (
-    <div className="log-main-container">
-      <About />
-    </div>
-  );
+  if (!showAbout) {
+    return (
+      <div className="log-main-container">
+        <div className="log-container">
+          <img src={logo} alt="logo" className="log-logo" />
+          <LoginForm />
+        </div>
+        <button className="log-about" onClick={onShowAbout}>
+          About
+        </button>
+      </div>
+    );
+  } else {
+    return <About onChangeShow={onShowAbout} />;
+  }
 };
 
 export default Login;

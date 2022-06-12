@@ -67,10 +67,14 @@ const AgentsAAndQASupplier = ({ children }) => {
         const resultJSON = JSON.parse(result).agents;
         // console.log(resultJSON);
         setArrAgents([...resultJSON]);
+        console.log(resultJSON);
         if (resultJSON.length > 0) {
           if (selectedAgent.agent_id === "1") {
+            console.log("oh no");
             setSelectedAgent(resultJSON[0]);
           } else {
+            console.log("oh si");
+            console.log(selectedAgent);
             changeSelectedAgent(selectedAgent.agent_id);
           }
         }
@@ -78,7 +82,7 @@ const AgentsAAndQASupplier = ({ children }) => {
       .catch((error) => console.log("error", error));
   };
 
-  const giveFeedback = (commentt, agentEmail, givenRating) => {
+  const sendFeedback = (commentt, agentEmail, givenRating) => {
     const myHeaders = new Headers();
     const token = window.localStorage.getItem("token");
     myHeaders.append("Authorization", `Bearer ${token}`);
@@ -103,7 +107,9 @@ const AgentsAAndQASupplier = ({ children }) => {
       requestOptions
     )
       .then((response) => response.text())
-      .then((result) => console.log(result))
+      .then((result) => {
+        console.log(result);
+      })
       .catch((error) => console.log("error", error));
   };
 
@@ -117,7 +123,7 @@ const AgentsAAndQASupplier = ({ children }) => {
         arrAgents,
         selectedAgent,
         changeSelectedAgent,
-        giveFeedback,
+        sendFeedback,
         getAllAgentsList,
       ]}
     >

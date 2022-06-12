@@ -1,15 +1,6 @@
-/* 
-Navbar.js
-
+/* Navigation Bar
 Authors:
-- A01750145 Miguel Ángel Pérez López
-- A01378688 Daniel Garcia Barajas
-
-Creation date: 04/05/2022
-Last modification date: 01/06/2022
-
-(Decripción)
-*/
+        A01777771 Stephen Strange*/
 
 //Import Modules
 import { Link } from "react-router-dom";
@@ -74,12 +65,6 @@ const Navbar = (props) => {
             {text || t("welcomeText") + ", " + username}
           </h1>
           <Link
-            style={{
-              pointerEvents:
-                agentStatus === "" || agentStatus !== "In call"
-                  ? "all"
-                  : "none",
-            }}
             to="/profile"
             onClick={(e) => {
               setText(t("welcomeText") + ", " + username);
@@ -88,18 +73,9 @@ const Navbar = (props) => {
             <FaUserCircle className="nav-user-icon" />
           </Link>
         </div>
-        <nav
-          className="nav-menu"
-          // If the agent is in call this will disable the navbar
-          style={{
-            pointerEvents:
-              agentStatus === "" || agentStatus !== "In call" ? "all" : "none",
-          }}
-          to="/profile"
-          onClick={(e) => {
-            setText(t("welcomeText") + ", " + username);
-          }}
-        >
+        <nav className="nav-menu">
+          {/* If the agent is in call this will hide the navbar */}
+
           <ul className="nav-menu-items">
             {getSidebarData().map((item, index) => {
               return (
@@ -117,6 +93,12 @@ const Navbar = (props) => {
                       } else {
                         setText(t("welcomeText") + ", " + username);
                       }
+                    }}
+                    style={{
+                      pointerEvents:
+                        agentStatus === "" || agentStatus !== "Active"
+                          ? "all"
+                          : "none",
                     }}
                   >
                     {item.icon}
