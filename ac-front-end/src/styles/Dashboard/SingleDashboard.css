@@ -81,3 +81,56 @@ Style to display HTML elements for SingleDashboard.js.
     height: 40rem;
   }
 }
+
+/*Media queries*/
+/*****************************/
+/* BELOW 90*16 = 1450px (Smaller desktops) */
+/*****************************/
+@media (max-width: 90em) {
+  .sdsb-main-container-dashboard {
+    width: 110rem;
+  }
+  .sdsb-main-container-statistics {
+    width: 110rem;
+  }
+}
+
+/* BELOW 80*16 = 1280px (Smaller desktops) */
+@media (max-width: 80em) {
+  .sdsb-main-container-dashboard {
+    width: 110rem;
+  }
+  .sdsb-main-container-statistics {
+    width: 110rem;
+  }
+}
+
+/* BELOW 73*16 = 1180px (Smaller desktops) */
+@media (max-width: 73em) {
+  .sdsb-main-container-dashboard {
+    width: 80rem;
+  }
+  .sdsb-main-container-statistics {
+    width: 80rem;
+  }
+}
+
+/* BELOW 57*16 = 920px (Smaller desktops) */
+@media (max-width: 57em) {
+  .sdsb-main-container-dashboard {
+    width: 50rem;
+  }
+  .sdsb-main-container-statistics {
+    width: 50rem;
+  }
+}
+
+/* BELOW 37*16 = 600px (Smaller desktops) */
+@media (max-width: 37em) {
+  .sdsb-main-container-dashboard {
+    width: 30rem;
+  }
+  .sdsb-main-container-statistics {
+    width: 30rem;
+  }
+}
