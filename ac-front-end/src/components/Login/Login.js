@@ -16,6 +16,7 @@ Program that displays the login interface.
 import "../../styles/Login/Login.css";
 import logo from "../../images/logo_bbva.png";
 import LoginForm from "./LoginForm";
+import About from "./About";
 
 const Login = (props) => {
   document.body.classList.add("dark");
@@ -25,13 +26,7 @@ const Login = (props) => {
 
   return (
     <div className="log-main-container">
-      <div className="log-container">
-        <img src={logo} alt="logo" className="log-logo" />
-        <LoginForm />
-      </div>
-      <button className="log-about" onClick={onShowAbout}>
-        About
-      </button>
+      <About />
     </div>
   );
 };

@@ -58,3 +58,35 @@ Style to display HTML elements for Login.js.
   opacity: 0.9;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+.log-row-container {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: white;
+  justify-items: center;
+}
+.log-img-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+}
+.log-img {
+  width: 20rem;
+  height: 20rem;
+}
+.log-about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+  color: white;
+  overflow-y: auto;
+  padding-top: 150rem;
+}
+.ref-color {
+  color: white;
+}
