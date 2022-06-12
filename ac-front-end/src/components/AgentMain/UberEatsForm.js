@@ -31,6 +31,13 @@ const UberEatsForm = (props) => {
   const [cellphoneInput, setCellphoneInput] = useState("");
   const [locationInput, setLocationInput] = useState("");
   const [item, setItem] = useState(0);
+  //SAVE DATA-----------------------------------
+  const SaveData = () => {
+    window.localStorage.setItem("client", clientInput);
+    window.localStorage.setItem("email", emailInput);
+    window.localStorage.setItem("cellphone", cellphoneInput);
+    window.localStorage.setItem("clientLocation", locationInput);
+  };
 
   const clientChangeHandler = (event) => {
     setClientInput(event.target.value);
@@ -219,25 +226,17 @@ const UberEatsForm = (props) => {
           </label>
           <h1>{t("order")}</h1>
           <div className="tp-order">
-            <Order product={t("soda")} quantity={soda} function={sodaForm} />
-            <Order product={t("chips")} quantity={chips} function={chipsForm} />
+            <Order product={"Soda"} quantity={soda} function={sodaForm} />
+            <Order product={"Chips"} quantity={chips} function={chipsForm} />
+            <Order product={"Coffee"} quantity={coffee} function={coffeeForm} />
+            <Order product={"HotDog"} quantity={hotDog} function={hotDogForm} />
             <Order
-              product={t("coffee")}
-              quantity={coffee}
-              function={coffeeForm}
-            />
-            <Order
-              product={t("hotDog")}
-              quantity={hotDog}
-              function={hotDogForm}
-            />
-            <Order
-              product={t("aspirin")}
+              product={"Aspirin"}
               quantity={aspirin}
               function={aspirinForm}
             />
             <Order
-              product={t("chocolate")}
+              product={"Chocolate"}
               quantity={chocolate}
               function={chocolateForm}
             />
@@ -270,6 +269,7 @@ const UberEatsForm = (props) => {
               onClick={(e) => {
                 e.preventDefault();
                 askUberEats();
+                SaveData();
                 Confirm();
                 saveClick(`${INPUT_NAME} input`);
               }}

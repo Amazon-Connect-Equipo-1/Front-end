@@ -81,6 +81,16 @@ const OxxoForm = (props) => {
     window.localStorage.removeItem("timestamp");
   };
 
+  //SAVE DATA-----------------------------------
+  const SaveData = () => {
+    window.localStorage.setItem("client", clientInput);
+    window.localStorage.setItem("email", emailInput);
+    window.localStorage.setItem("cellphone", cellphoneInput);
+    window.localStorage.setItem("clientLocation", locationInput);
+    window.localStorage.setItem("quantity", quantityInput);
+    window.localStorage.setItem("accountNumber", accountInput);
+  };
+
   //--------------------------------------------
 
   const Confirm = () => {
@@ -268,6 +278,7 @@ const OxxoForm = (props) => {
               onClick={(e) => {
                 e.preventDefault();
                 askOxxo();
+                SaveData();
                 Confirm();
                 saveClick(`${INPUT_NAME} input`);
               }}

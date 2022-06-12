@@ -75,6 +75,16 @@ const PoliceForm = (props) => {
     window.localStorage.removeItem("timestamp");
   };
 
+  //SAVE DATA-----------------------------------
+  const SaveData = () => {
+    window.localStorage.setItem("client", clientInput);
+    window.localStorage.setItem("email", emailInput);
+    window.localStorage.setItem("cellphone", cellphoneInput);
+    window.localStorage.setItem("clientLocation", locationInput);
+    window.localStorage.setItem("clientStatement", statementInput);
+    window.localStorage.setItem("clientLocationReference", referenceInput);
+  };
+
   //--------------------------------------------
 
   const Confirm = () => {
@@ -89,14 +99,6 @@ const PoliceForm = (props) => {
   };
   const token = window.localStorage.getItem("token");
   const askPolice = (event) => {
-    const client = window.localStorage.getItem("client");
-    const email = window.localStorage.getItem("email");
-    const cellphone = window.localStorage.getItem("cellphone");
-    const clientLocation = window.localStorage.getItem("clientLocation");
-    const clientLocationReference = window.localStorage.getItem(
-      "clientLocationReference"
-    );
-    const clientStatement = window.localStorage.getItem("clientStatement");
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", `Bearer ${token}`);
@@ -104,12 +106,12 @@ const PoliceForm = (props) => {
     const raw = JSON.stringify({
       service: "Report", //CONSTANTE
       service_data: {
-        client: client,
-        email: email,
-        cellphone: cellphone,
-        client_location: clientLocation,
-        client_location_reference: clientLocationReference,
-        client_statement: clientStatement,
+        client: clientInput,
+        email: emailInput,
+        cellphone: cellphoneInput,
+        client_location: locationInput,
+        client_location_reference: referenceInput,
+        client_statement: statementInput,
       },
       call_id: callId, //SIGO SIN SABER DE DONDE SALE
     });
@@ -239,6 +241,7 @@ const PoliceForm = (props) => {
               onKeyDown={saveKeys}
               onClick={(e) => {
                 askPolice();
+                SaveData();
                 Confirm();
                 saveClick(`${INPUT_NAME} input`);
               }}
