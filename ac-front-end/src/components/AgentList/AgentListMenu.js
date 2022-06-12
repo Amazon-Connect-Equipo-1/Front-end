@@ -38,7 +38,7 @@ const AgentListMenu = (props) => {
   };
 
   const getBtnString = () => {
-    return addUserMenu ? "Return" : "Add User";
+    return addUserMenu ? t("return") : t("addUser");
   };
 
   const onChangeSearchString = (event) => {

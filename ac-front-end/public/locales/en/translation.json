@@ -76,6 +76,8 @@
   "send": "Send",
   "selectAgent": "Select one agent",
   "agents": "Agents",
+  "addUser": "Add user",
+  "return": "Return",
 
   "__recordings__": "----------Recordings Interface----------",
   "about": "About",
