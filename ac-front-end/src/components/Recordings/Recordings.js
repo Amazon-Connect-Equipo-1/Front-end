@@ -192,7 +192,7 @@ const Recordings = (props) => {
                 {spinnerValue === "date" && (
                   <button
                     href="/"
-                    className="re-btn"
+                    className="re-btn re-search-btn"
                     onClick={onFilterRecordings}
                   >
                     {t("search")}

@@ -65,6 +65,11 @@ Style to display HTML elements for Recordings.js.
   cursor: pointer;
 }
 
+.re-search-btn {
+  border-radius: 0px 6px 6px 0px;
+  background-color: var(--sub-card-background);
+}
+
 .re-no-recordings {
   justify-self: center;
   text-align: center;
