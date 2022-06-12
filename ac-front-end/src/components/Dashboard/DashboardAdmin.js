@@ -15,6 +15,7 @@ Program that displays the dashboard created on QuickSight.
 //Import Modules
 import React from "react";
 import "../../styles/Dashboard/Dashboard.css";
+import "../../styles/Dashboard/SingleDashboard.css";
 import AgentActiveCalls from "../AgentList/AgentActiveCalls";
 import AgentsAAndQASupplier, {
   AgentAAndQAContext,
@@ -31,6 +32,7 @@ const DashboardAdmin = (props) => {
       >
         <div className="sdsb-main-container-dashboard">
           <iframe
+            className="sdsb-quicksight-dashboard"
             src="https://us-west-2.quicksight.aws.amazon.com/sn/embed/share/accounts/559202700801/dashboards/641e81ac-9c80-49c6-b2fe-a3963ef3881a?directory_alias=amazonconnectbancos"
           ></iframe>
         </div>

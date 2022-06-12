@@ -25,6 +25,7 @@ const StatisticsQA = (props) => {
       >
         <div className="sdsb-main-container-statistics">
           <iframe
+            className="sdsb-quicksight-statistics"
             src="https://us-west-2.quicksight.aws.amazon.com/sn/embed/share/accounts/559202700801/dashboards/5b9ac8c9-d9e4-4a28-a93b-b1ea030d9dec?directory_alias=amazonconnectbancos"
           ></iframe>
         </div>

@@ -56,6 +56,10 @@ import AgentRecordings from "./components/AgentRecordings/AgentRecordings";
 import { loadUserPreferences } from "./components/UserPreferences";
 import { useTime } from "react-timer-hook";
 import musica from "./music/mii.mp3";
+import DashboardAdmin from "./components/Dashboard/DashboardAdmin";
+import StatisticsAdmin from "./components/Statistics/StatisticsAdmin";
+import StatisticsQA from "./components/Statistics/StatisticsQuality-agent";
+import DashboardQA from "./components/Dashboard/DashboardQuality-agent";
 
 function App() {
   const deleteObj = () => {
@@ -193,7 +197,7 @@ function App() {
                     <RequireAuthentication allowedUsers={[USER.Admin]} />
                   }
                 >
-                  <Route path="admin" element={<Dashboard />} />
+                  <Route path="admin" element={<DashboardAdmin />} />
                 </Route>
 
                 {/*Routes shared by QA and Admin*/}
@@ -212,14 +216,20 @@ function App() {
                       </AgentsAAndQASupplier>
                     }
                   />
-                  <Route path="statistics" element={<Statistics />} />
+                  <Route
+                    path="statistics"
+                    element={
+                      (getUserType === USER.Admin && <StatisticsAdmin />) ||
+                      (getUserType === USER.QA && <StatisticsQA />)
+                    }
+                  />
                 </Route>
 
                 {/*QA Routes*/}
                 <Route
                   element={<RequireAuthentication allowedUsers={[USER.QA]} />}
                 >
-                  <Route path="qa" element={<Dashboard />} />
+                  <Route path="qa" element={<DashboardQA />} />
                   <Route
                     path="recordings"
                     element={
