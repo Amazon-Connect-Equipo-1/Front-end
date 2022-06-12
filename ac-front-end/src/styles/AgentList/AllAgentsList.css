@@ -71,6 +71,11 @@ Style to display HTML elements for AllAgentsList.js.
   cursor: pointer;
 }
 
+.aal-row-container:hover {
+  transition: 0.1s ease-out;
+  opacity: 0.8;
+}
+
 .aal-text {
   font-size: var(--sub-option-text);
   font-weight: lighter;
