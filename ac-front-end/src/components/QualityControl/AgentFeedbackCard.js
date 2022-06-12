@@ -22,15 +22,18 @@ const AgentFeedbackCard = (props) => {
   // Language
   const { t } = useTranslation();
   const [comment, setComment] = useState("");
+  const [feedbackAccepted, setFeedbackAccepted] = useState(false);
+  const [commentId, setCommentId] = useState("");
+  const [commentDate, setCommentDate] = useState("");
 
   useEffect(() => {
     getFeedback();
   }, []);
 
   const getFeedback = () => {
-    const myHeaders = new Headers();
     const email = window.localStorage.getItem("email");
     const token = window.localStorage.getItem("token");
+    const myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);
 
     const requestOptions = {
@@ -48,19 +51,24 @@ const AgentFeedbackCard = (props) => {
         const resultJSON = JSON.parse(result).comments;
         const commentsLength = resultJSON.length;
         console.log(resultJSON);
-        console.log(commentsLength);
+        // console.log(commentsLength);
         if (commentsLength > 0) {
+          //Set variable to see if the agent has accepted that feedback
+          setFeedbackAccepted(resultJSON[commentsLength - 1].seen);
           setComment(resultJSON[commentsLength - 1].comment);
+          setCommentId(`${resultJSON[commentsLength - 1].comment_id}`);
+          setCommentDate(`${resultJSON[commentsLength - 1].date.slice(0, 10)}`);
         }
       })
       .catch((error) => console.log("error", error));
   };
 
   const acceptFeedback = () => {
-    const commentId = "";
     const myHeaders = new Headers();
-    const token = window.localStorage.getItem("token");
-    myHeaders.append("Authorization", `Bearer ${token}`);
+    myHeaders.append(
+      "Authorization",
+      `Bearer ${window.localStorage.getItem("token")}`
+    );
     myHeaders.append("Content-Type", "application/json");
 
     const raw = JSON.stringify({
@@ -79,7 +87,10 @@ const AgentFeedbackCard = (props) => {
       requestOptions
     )
       .then((response) => response.text())
-      .then((result) => console.log(result))
+      .then((result) => {
+        console.log(result);
+        setFeedbackAccepted(true);
+      })
       .catch((error) => console.log("error", error));
   };
 
@@ -87,8 +98,13 @@ const AgentFeedbackCard = (props) => {
     <aside className={`afc-main-container ${props.className}`}>
       <div className="afc-container">
         <h2 className="afc-title">{t("qaFeedback")}</h2>
-        {comment.length !== 0 && <p>{comment}</p>}
         {comment.length !== 0 && (
+          <>
+            <p>{commentDate}</p>
+            <p>{comment}</p>
+          </>
+        )}
+        {comment.length !== 0 && !feedbackAccepted && (
           <button className="afc-send-btn" onClick={acceptFeedback}>
             {t("acceptFeedback")}
           </button>

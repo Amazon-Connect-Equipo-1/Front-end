@@ -19,7 +19,7 @@ Style to display HTML elements for SingleAgent.js.
   border-radius: 10px;
   box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
   height: 50rem;
-  padding: 1rem;
+  padding: 2rem;
   overflow-y: auto;
 }
 
@@ -62,14 +62,6 @@ Style to display HTML elements for SingleAgent.js.
   grid-template-columns: 1fr 1fr;
 }
 
-.sa-give-feedback {
-  /* margin-top: 2rem; */
-}
-
-.sa-rating {
-  /* align-self: center; */
-}
-
 .sa-email {
   font-size: var(--sub-option-text);
   font-weight: 300;
@@ -80,8 +72,6 @@ Style to display HTML elements for SingleAgent.js.
 .sa-text {
   font-size: var(--sub-option-text);
   font-weight: 300;
-  margin-left: 2rem;
-  margin-right: 2rem;
   text-align: center;
 }
 
@@ -91,20 +81,23 @@ Style to display HTML elements for SingleAgent.js.
   justify-content: center;
   align-items: stretch;
   gap: 2rem;
-  padding: 0 2rem 0 2rem;
+  margin-top: 2rem;
+  padding: 0 1rem;
 }
 
 .sa-rating-container {
   display: flex;
-  gap: 1rem;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
 }
 
 .sa-feedback {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
+  padding: 2rem;
 }
 
 .sa-input {
@@ -119,8 +112,10 @@ Style to display HTML elements for SingleAgent.js.
   /* transition: width 0.4s ease-in-out; */
 }
 
-.sa-send-btn {
-  font-size: var(--sub-option-text);
+.sa-send-btn,
+.sa-give-feedback-btn,
+.sa-return-btn {
+  font-size: var(--option-text);
   font-weight: 700;
   text-align: center;
   background-color: var(--highlight-color);
@@ -129,6 +124,15 @@ Style to display HTML elements for SingleAgent.js.
   cursor: pointer;
   color: var(--text-color);
   border: none;
+}
+
+.sa-give-feedback-btn {
+  margin-top: 2rem;
+  height: 6rem;
+}
+
+.sa-return-btn {
+  margin-top: 1rem;
 }
 
 .sa-send-btn:hover {

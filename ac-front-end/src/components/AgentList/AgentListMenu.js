@@ -19,7 +19,8 @@ import { useTranslation } from "react-i18next";
 import { useContext, useState } from "react";
 import { AgentAAndQAContext } from "../AgentsAAndQASupplier";
 import { Autocomplete, TextField } from "@mui/material";
-import { HiOutlineRefresh } from "react-icons/hi";
+import { HiOutlinePlus, HiOutlineRefresh } from "react-icons/hi";
+
 const AgentListMenu = (props) => {
   const INPUT_NAME = "agent";
   // Language
@@ -66,14 +67,15 @@ const AgentListMenu = (props) => {
   return (
     <div className="aglm-menu-container">
       {window.localStorage.getItem("userType") === "Admin" && (
-        <button onClick={onChangeAddUserMenu} className="aglm-add">
+        <button className="aglm-add" onClick={onChangeAddUserMenu}>
           {getBtnString()}
+          {!addUserMenu && <HiOutlinePlus className="aglm-add-icon" />}
         </button>
       )}
       <div className="aglm-search-container">
         <button className="aglm-refresh-btn" onClick={refresh}>
           {t("refresh")}
-          <HiOutlineRefresh className="aglm-refresh" />
+          <HiOutlineRefresh className="aglm-refresh-icon" />
         </button>
         <Autocomplete
           disablePortal

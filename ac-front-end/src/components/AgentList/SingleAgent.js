@@ -24,9 +24,11 @@ import { Avatar } from "@mui/material";
 const SingleAgent = (props) => {
   const { t } = useTranslation();
 
-  const [, selectedAgent, , sendFeedback] = useContext(AgentAAndQAContext);
+  const [, selectedAgent, , sendFeedback, getAllAgentsList] =
+    useContext(AgentAAndQAContext);
   const [comment, setComment] = useState("");
   const [value, setValue] = useState(0);
+  const [giveFeedback, setGiveFeedback] = useState(false);
 
   const StyledRating = styled(Rating)({
     "& .MuiRating-iconFilled": {
@@ -76,57 +78,70 @@ const SingleAgent = (props) => {
         </div>
       </div>
       <p className="sa-text">{selectedAgent.email}</p>
-      <p className="sa-text">{selectedAgent.description}</p>
-      <div className="sa-info-container">
-        <p className="sa-email">
-          {t("email")}
-          <span>
-            {" "}
-            {selectedAgent.email ? selectedAgent.email : "email@amazon.com"}
-          </span>
-        </p>
-        {window.localStorage.getItem("userType") === "Quality-agent" && (
-          <p className="sa-text sa-give-feedback">{t("giveFeedback")}</p>
-        )}
-        {window.localStorage.getItem("userType") === "Quality-agent" && (
-          <div className="sa-rating-container">
-            <p className="sa-text">{t("rating")}</p>
-            <StyledRating
-              name="sa-rating"
-              className="sa-rating"
-              value={value}
-              onChange={(event, newValue) => {
-                setValue(newValue);
-                console.log(newValue);
-              }}
-              size="large"
-            />
-          </div>
-        )}
-        {/* {window.localStorage.getItem("userType") === "Admin" && } */}
-        <p className="sa-text">{selectedAgent.description}</p>
-        {window.localStorage.getItem("userType") === "Quality-agent" && (
-          <div className="sa-feedback">
-            <textarea
-              className="sa-input"
-              type="text"
-              onChange={onChangeComment}
-              value={comment}
-              placeholder="Give Feedback"
-            />
+
+      {window.localStorage.getItem("userType") === "Quality-agent" && (
+        <div className="sa-info-container">
+          {!giveFeedback && (
             <button
-              className="sa-send-btn"
+              className="sa-give-feedback-btn"
               onClick={() => {
-                console.log("clcik en email de agent", selectedAgent.email);
-                sendFeedback(comment, selectedAgent.email, value);
-                setComment("");
+                setGiveFeedback(true);
               }}
             >
-              {t("send")}
+              {t("giveFeedback")}
             </button>
-          </div>
-        )}
-      </div>
+          )}
+          {giveFeedback && (
+            <>
+              <div className="sa-feedback">
+                <textarea
+                  className="sa-input"
+                  type="text"
+                  onChange={onChangeComment}
+                  value={comment}
+                  placeholder="Give Feedback"
+                />{" "}
+                <div className="sa-rating-container">
+                  <p className="sa-text">{t("rating")}</p>
+                  <StyledRating
+                    name="sa-rating"
+                    className="sa-rating"
+                    value={value}
+                    onChange={(event, newValue) => {
+                      setValue(newValue);
+                      console.log(newValue);
+                    }}
+                    size="large"
+                  />
+                </div>
+                <button
+                  className="sa-send-btn"
+                  onClick={() => {
+                    //Verify that an agent was selected and a comment was written
+                    if (selectedAgent.agent_id !== "1" && comment !== "") {
+                      getAllAgentsList();
+                      sendFeedback(comment, selectedAgent.email, value);
+                      setComment("");
+                      setGiveFeedback(false);
+                    }
+                    //else mostrat un pop up
+                  }}
+                >
+                  {t("send")}
+                </button>
+                <button
+                  className="sa-return-btn"
+                  onClick={() => {
+                    setGiveFeedback(false);
+                  }}
+                >
+                  {t("return")}
+                </button>
+              </div>
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 };

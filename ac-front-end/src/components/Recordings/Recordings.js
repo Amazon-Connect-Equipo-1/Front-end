@@ -237,7 +237,7 @@ const Recordings = (props) => {
                 />
               ))}
             {arrRecordings.length === 0 && (
-              <p className="re-no-recordings">t("noRecordings")</p>
+              <p className="re-no-recordings">{t("noRecordings")}</p>
             )}
           </div>
         </div>

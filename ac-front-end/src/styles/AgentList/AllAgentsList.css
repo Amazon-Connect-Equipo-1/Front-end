@@ -28,7 +28,7 @@ Style to display HTML elements for AllAgentsList.js.
 }
 
 .aal-main-container::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #00000000;
 }
 
 .aal-main-container::-webkit-scrollbar-thumb {

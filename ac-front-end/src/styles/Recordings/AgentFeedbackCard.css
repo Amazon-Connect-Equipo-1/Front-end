@@ -45,7 +45,6 @@ Style to display HTML elements for AgentFeedbackCard.js.
   font-size: 3rem;
   color: var(--text-color);
   text-align: center;
-  margin-bottom: 1rem;
 }
 
 .afc-container h3 {

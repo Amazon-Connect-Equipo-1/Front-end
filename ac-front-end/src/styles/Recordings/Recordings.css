@@ -88,11 +88,13 @@ Style to display HTML elements for Recordings.js.
   color: var(--text-color);
   border: none;
   border-radius: 6px;
-  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
   cursor: pointer;
+  width: 15rem;
+  height: 4rem;
 }
 .re-refresh-btn:hover {
   transform: translateY(-3px);

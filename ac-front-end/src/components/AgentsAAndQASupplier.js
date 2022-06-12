@@ -32,6 +32,19 @@ const AgentsAAndQASupplier = ({ children }) => {
     },
   ];
 
+  //Recordings Array
+  const [arrAgents, setArrAgents] = useState(dummyAgents);
+  const [selectedAgent, setSelectedAgent] = useState(...dummyAgents); //needs a function if arr is not empty show the first one
+  // console.log("selected agetn", selectedAgent);
+
+  const changeSelectedAgent = (id) => {
+    //verify if list is not empty
+    // console.log(id);
+    const agentInfo = arrAgents.filter((agent) => agent.agent_id === id);
+    // console.log(agentInfo);
+    setSelectedAgent(...agentInfo);
+  };
+
   const getAllAgentsList = (event) => {
     //---------------------------------------------AGENTES EN LINEA, DESCONECTADOS, EN LLAMADA
     const token = window.localStorage.getItem("token");
@@ -54,28 +67,15 @@ const AgentsAAndQASupplier = ({ children }) => {
         const resultJSON = JSON.parse(result).agents;
         // console.log(resultJSON);
         setArrAgents([...resultJSON]);
+        if (resultJSON.length > 0) {
+          if (selectedAgent.agent_id === "1") {
+            setSelectedAgent(resultJSON[0]);
+          } else {
+            changeSelectedAgent(selectedAgent.agent_id);
+          }
+        }
       })
       .catch((error) => console.log("error", error));
-  };
-
-  useEffect(() => getAllAgentsList(), []);
-
-  //Recordings Array
-  const [arrAgents, setArrAgents] = useState(dummyAgents);
-  const [selectedAgent, setSelectedAgent] = useState(...dummyAgents); //needs a function if arr is not empty show the first one
-  // console.log("selected agetn", selectedAgent);
-  const getAllAgents = () => {
-    //Petition to obtain all videos miniatures
-  };
-
-  const getAgent = (videoId) => {};
-
-  const changeSelectedAgent = (id) => {
-    //verify if list is not empty
-    // console.log(id);
-    const agentInfo = arrAgents.filter((agent) => agent.agent_id === id);
-    // console.log(agentInfo);
-    setSelectedAgent(...agentInfo);
   };
 
   const giveFeedback = (commentt, agentEmail, givenRating) => {
@@ -106,6 +106,10 @@ const AgentsAAndQASupplier = ({ children }) => {
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
   };
+
+  useEffect(() => {
+    getAllAgentsList();
+  }, []);
 
   return (
     <AgentAAndQAContext.Provider
