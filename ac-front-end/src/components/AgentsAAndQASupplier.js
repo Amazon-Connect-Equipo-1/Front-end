@@ -79,7 +79,10 @@ const AgentsAAndQASupplier = ({ children }) => {
           }
         }
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        alert(error);
+        console.log("error", error);
+      });
   };
 
   const sendFeedback = (commentt, agentEmail, givenRating) => {
@@ -110,7 +113,10 @@ const AgentsAAndQASupplier = ({ children }) => {
       .then((result) => {
         console.log(result);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        alert(error);
+        console.log("error", error);
+      });
   };
 
   useEffect(() => {
