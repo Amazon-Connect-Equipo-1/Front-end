@@ -26,11 +26,6 @@ import OxxoForm from "./OxxoForm";
 import { saveClick } from "../MonitorModule.js";
 import PoliceForm from "./PoliceForm";
 import { useTranslation } from "react-i18next";
-import Confirmation from "./Confirmation";
-import ConfirmationUber from "./ConfirmationUber";
-import ConfirmationUberEats from "./ConfirmationUberEats";
-import ConfirmationOxxo from "./ConfirmationOxxo";
-import ConfirmationPolice from "./ConfirmationPolice";
 
 const ThirdParty = (props) => {
   const INPUT_NAME = "agent tutorials";

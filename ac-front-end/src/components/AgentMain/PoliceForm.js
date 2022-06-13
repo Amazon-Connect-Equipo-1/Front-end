@@ -20,7 +20,7 @@ import ThirdParty from "./ThirdParty";
 import { saveKeys, saveClick } from "../MonitorModule.js";
 import { useTranslation } from "react-i18next";
 import { useContext, useState } from "react";
-import Confirmation from "./Confirmation";
+
 import ConfirmationPolice from "./ConfirmationPolice";
 import { GlobalContext } from "../GlobalSupplier";
 import toast from "react-hot-toast";
