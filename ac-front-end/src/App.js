@@ -175,7 +175,6 @@ function App() {
                 <Route path="confirm-password" element={<NewPasswordForm />} />
                 {/* <Route path="client" element={<Usuario />} /> */}
                 <Route path="confirm-email" element={<Usuario />} />
-
                 {/*Routes for all types of users*/}
                 <Route
                   element={
