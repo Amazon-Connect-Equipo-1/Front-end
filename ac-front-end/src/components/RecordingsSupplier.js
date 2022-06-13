@@ -13,6 +13,8 @@ Last modification date: 10/06/2022
 //Import Modules
 import { createContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import toast, { Toaster } from "react-hot-toast";
+
 //Create recordings context
 export const RecordingsContext = createContext();
 
@@ -86,7 +88,7 @@ const RecordingsSupplier = ({ children }) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
       });
   };
 
@@ -137,7 +139,7 @@ const RecordingsSupplier = ({ children }) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast(error);
       });
   };
 

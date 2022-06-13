@@ -60,6 +60,7 @@ import DashboardAdmin from "./components/Dashboard/DashboardAdmin";
 import StatisticsAdmin from "./components/Statistics/StatisticsAdmin";
 import StatisticsQA from "./components/Statistics/StatisticsQuality-agent";
 import DashboardQA from "./components/Dashboard/DashboardQuality-agent";
+import toast, { Toaster } from "react-hot-toast";
 
 function App() {
   const deleteObj = () => {
@@ -142,6 +143,16 @@ function App() {
 
   return (
     <div className="App">
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        toastOptions={{
+          duration: "200",
+          style: {
+            background: "#fafafa",
+          },
+        }}
+      />
       {hours === 0 && minutes === 57 && seconds === 59 && refreshSystem()}
 
       {music === "play" && (
