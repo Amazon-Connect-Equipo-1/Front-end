@@ -21,6 +21,7 @@ import { useTranslation } from "react-i18next";
 import { Outlet, useOutlet } from "react-router-dom";
 import RecordingsCard from "../Recordings/RecordingsCard";
 import { RecordingsContext } from "../RecordingsSupplier";
+import { Autocomplete, TextField } from "@mui/material";
 
 const AgentRecordings = () => {
   // Language
@@ -72,6 +73,34 @@ const AgentRecordings = () => {
     }
   };
 
+  const [tagValue, setTagValue] = useState([]);
+
+  const arrayTags = [];
+  {
+    arrAgentRecordings.map((recordInfo) =>
+      recordInfo.tags.map((tag) => {
+        if (arrayTags.includes(tag) === false) {
+          arrayTags.push(tag);
+        }
+      })
+    );
+  }
+
+  const processTagName = (tagName) => {
+    let filteredTagName = tagName.replaceAll("negative", "neg");
+    filteredTagName = filteredTagName.replaceAll("positive", "pos");
+    return filteredTagName.includes("-")
+      ? filteredTagName.replaceAll("-", " ")
+      : filteredTagName;
+  };
+
+  const optionsTags = [];
+  {
+    arrayTags.map((arrTag) => {
+      optionsTags.push({ label: processTagName(t(arrTag)), id: arrTag });
+    });
+  }
+
   return (
     <>
       {outlet || (
@@ -87,6 +116,7 @@ const AgentRecordings = () => {
                 <option value="tag">{t("tag")}</option>
                 <option value="date">{t("date")}</option>
               </select>
+              {/* 
               <input
                 onKeyDown={saveKeys}
                 onClick={() => saveClick(`${INPUT_NAME} input`)}
@@ -99,9 +129,53 @@ const AgentRecordings = () => {
                 onChange={onChangeSearchInput}
                 value={searchInput}
               />
-              <button href="/" className="arc-btn" onClick={onFilterRecordings}>
-                {t("search")}
-              </button>
+              */}
+              {spinnerValue === "tag" && (
+                <Autocomplete
+                  multiple
+                  limitTags={2}
+                  className="arc-search"
+                  id="arc-search"
+                  options={optionsTags}
+                  getOptionLabel={(option) => option.label}
+                  onClick={() => saveClick(`${INPUT_NAME} input`)}
+                  onChange={(event, newValue) => {
+                    setTagValue(newValue);
+                    getRecordsByTags(newValue);
+                  }}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      className="text-field"
+                      id="text-field"
+                      label={t("Tags")}
+                    />
+                  )}
+                />
+              )}
+              {spinnerValue === "date" && (
+                <input
+                  onKeyDown={saveKeys}
+                  onClick={() => saveClick(`${INPUT_NAME} input`)}
+                  className="arc-input"
+                  id="arc-input"
+                  type="date"
+                  placeholder={t("placeholder")}
+                  min="2022-06-01"
+                  max="2029-12-31"
+                  onChange={onChangeSearchInput}
+                  value={searchInput}
+                />
+              )}
+              {spinnerValue === "date" && (
+                <button
+                  href="/"
+                  className="arc-btn"
+                  onClick={onFilterRecordings}
+                >
+                  {t("search")}
+                </button>
+              )}
             </div>
             {arrAgentRecordings.length > 0 &&
               arrAgentRecordings.map((recordInfo) => (

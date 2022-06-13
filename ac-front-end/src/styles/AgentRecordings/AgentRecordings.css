@@ -33,7 +33,12 @@ Style to display HTML elements for AgentRecordings.js.
   grid-column: 1 / -1;
   justify-self: end;
 }
-
+.arc-search {
+  font-size: var(--option-text);
+  border-radius: 0px 6px 6px 0px;
+  width: 35rem;
+  background-color: var(--sub-card-light);
+}
 .arc-input {
   font-size: var(--option-text);
   /* border-radius: 10px; */
