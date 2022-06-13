@@ -75,6 +75,7 @@ Style to display HTML elements for Recordings.js.
   text-align: center;
   font-size: var(--sub-title);
   grid-column: 2 / 3;
+  grid-row: 2 / 3;
   color: var(--text-color);
   margin: 3rem;
 }
@@ -129,27 +130,24 @@ Style to display HTML elements for Recordings.js.
   .re-container {
     grid-template-columns: 1fr 1fr;
   }
+  .re-no-recordings {
+    grid-column: 1 / 2;
+  }
 }
 
 /* BELOW 73*16 = 1180px (Smaller desktops) */
 @media (max-width: 73em) {
-  .rec-main-container {
-    width: 35rem;
-  }
 }
 
 /* BELOW 57*16 = 920px (Smaller desktops) */
 @media (max-width: 57em) {
-  .rec-main-container {
-    width: 35rem;
-  }
-  .re-container {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* BELOW 37*16 = 600px (Smaller desktops) */
 @media (max-width: 37em) {
+  .re-container {
+    grid-template-columns: 1fr;
+  }
   .re-input {
     font-size: 1.2rem;
   }

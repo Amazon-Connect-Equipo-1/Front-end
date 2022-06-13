@@ -55,7 +55,7 @@ const RecordingsSupplier = ({ children }) => {
       .catch((error) => {
         console.log("error", error);
         alert(error);
-    });
+      });
   };
 
   const obtainSelectedVideoInfo = async (recordingId) => {
@@ -116,7 +116,7 @@ const RecordingsSupplier = ({ children }) => {
       .then((response) => response.text())
       .then((result) => {
         const recordingsJSON = JSON.parse(result).recordings;
-        // console.log(recordingsJSON);
+        console.log(recordingsJSON);
         let recordings = recordingsJSON.filter((record) => {
           //Dont include null records if they exist
           if (record) {
@@ -135,7 +135,7 @@ const RecordingsSupplier = ({ children }) => {
         });
         setArrRecordings([...recordings]);
       })
-      .catch((error) =>{ 
+      .catch((error) => {
         console.log("error", error);
         alert(error);
       });

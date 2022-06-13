@@ -48,19 +48,19 @@ Style to display HTML elements for SingleDashboard.js.
 
 @media (max-height: 752px) {
   .sdsb-main-container-dashboard {
-    height: 60rem;
+    height: 55rem;
   }
 
   .sdsb-quicksight-dashboard {
-    height: 55rem;
+    height: 50rem;
   }
 
   .sdsb-main-container-statistics {
-    height: 60rem;
+    height: 55rem;
   }
 
   .sdsb-quicksight-statistics {
-    height: 55rem;
+    height: 50rem;
   }
 }
 

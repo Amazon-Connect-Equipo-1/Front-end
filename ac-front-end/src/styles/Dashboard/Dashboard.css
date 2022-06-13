@@ -31,3 +31,9 @@ Style to display HTML elements for Dashboard.js.
   padding: 2rem 0 2rem 0;
   min-height: max-content;
 }
+
+@media (max-height: 800px) {
+  .dsb-main-container {
+    height: max-content;
+  }
+}

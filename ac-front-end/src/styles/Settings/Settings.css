@@ -24,7 +24,7 @@ Style to display HTML elements for Settings.js.
 }
 
 .stngs-container {
-  width: 80%;
+  width: 50rem;
   align-items: center;
 }
 
@@ -42,7 +42,7 @@ Style to display HTML elements for Settings.js.
   font-weight: bold;
   border-radius: 6px;
   border-color: transparent;
-  width: 30%;
+  width: 25rem;
   padding: 1.2rem;
   background-color: var(--sub-card-background);
   color: var(--text-color);

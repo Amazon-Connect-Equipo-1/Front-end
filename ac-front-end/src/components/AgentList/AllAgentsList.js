@@ -33,7 +33,7 @@ const AllAgentList = (props) => {
   return (
     <div className="aal-main-container">
       <p className="aal-title">{t("allAgents")}</p>
-      <div>
+      <div className="aal-rows-container">
         {arrAgents.map((agent) => (
           <AgentRow
             id={agent.agent_id}
