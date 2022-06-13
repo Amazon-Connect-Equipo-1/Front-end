@@ -44,7 +44,7 @@ const AuthenticationProvider = ({ children }) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        //alert(error);
       });
   };
   // State for Authentication

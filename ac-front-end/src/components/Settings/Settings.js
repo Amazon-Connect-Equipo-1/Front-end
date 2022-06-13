@@ -23,7 +23,6 @@ import { useTranslation } from "react-i18next";
 import LocaleContext from "../../LocaleContext";
 import i18n from "../../i18n";
 import { saveKeys, saveClick } from "../MonitorModule.js";
-import musica from "../../music/mii.mp3";
 import { useNavigate } from "react-router-dom";
 
 //Creates functions Settings and its constants
@@ -131,7 +130,7 @@ function Settings() {
       .catch((error) => {
         console.log("error", error);
         alert(error);
-    });
+      });
   }
 
   // Switch current text size

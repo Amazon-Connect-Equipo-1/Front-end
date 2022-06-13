@@ -12,11 +12,11 @@ Last modification date: 10/06/2022
 
 //Import Modules
 import "../../styles/Profile/Profile.css";
-import prfl_ic from "../../images/profile_icon.png";
+//import prfl_ic from "../../images/profile_icon.png";
 import { useContext } from "react";
 import { GlobalContext } from "../GlobalSupplier";
 import { AuthenticationContext } from "../Authentication";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { Avatar } from "@mui/material";
 import { useTranslation } from "react-i18next";
 

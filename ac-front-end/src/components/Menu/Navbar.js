@@ -9,12 +9,12 @@ import { AdminSidebarData } from "./AdminSidebarData";
 import { AgentSidebarData } from "./AgentSidebarData";
 import "../../styles/Menu/Navbar.css";
 import { IconContext } from "react-icons";
-import { FaUserCircle } from "react-icons/fa";
 import { t } from "i18next";
 import React, { useContext, useState } from "react";
 import ReactTooltip from "react-tooltip";
 import { GlobalContext } from "../GlobalSupplier";
 import { useTranslation } from "react-i18next";
+import { Avatar } from "@mui/material";
 
 const Navbar = (props) => {
   //Obtain the status
@@ -69,8 +69,22 @@ const Navbar = (props) => {
             onClick={(e) => {
               setText(t("welcomeText") + ", " + username);
             }}
+            style={{
+              textDecoration: "none",
+              textDecorationLine: "none",
+            }}
           >
-            <FaUserCircle className="nav-user-icon" />
+            <Avatar
+              alt={window.localStorage.getItem("name")}
+              src={window.localStorage.getItem("profile_picture")}
+              className="nav-user-icon"
+              sx={{
+                bgcolor: "var(--highlight-color)",
+                height: 60,
+                width: 60,
+                fontSize: 20,
+              }}
+            />
           </Link>
         </div>
         <nav className="nav-menu">
