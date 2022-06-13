@@ -77,6 +77,8 @@ const About = (props) => {
 
               <p className="abo-text">Ariel Ortiz Ramirez</p>
             </div>
+          </div>
+          <div className="abo-row-container">
             <div className="abo-img-container">
               <img src={Humberto} className="abo-img" />
 
