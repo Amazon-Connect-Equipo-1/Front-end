@@ -21,6 +21,7 @@ import { useTranslation } from "react-i18next";
 import { useContext, useState } from "react";
 import ConfirmationUberEats from "./ConfirmationUberEats";
 import { GlobalContext } from "../GlobalSupplier";
+import toast from "react-hot-toast";
 
 const UberEatsForm = (props) => {
   const { t } = useTranslation();
@@ -133,7 +134,7 @@ const UberEatsForm = (props) => {
       })
       .catch((error) =>{
         console.log("error", error);
-        alert(error);
+        toast.error(error);
     });
   };
 

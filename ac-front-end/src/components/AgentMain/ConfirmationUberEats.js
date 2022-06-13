@@ -15,6 +15,7 @@ import "../../styles/AgentMain/ThirdParty.css";
 import uberlogo from "../../images/uber.png";
 import { createContext, Suspense, useState } from "react";
 import { useTranslation } from "react-i18next";
+import toast from "react-hot-toast";
 
 const ConfirmationUberEats = (props) => {
   const token = window.localStorage.getItem("token");
@@ -86,7 +87,7 @@ const ConfirmationUberEats = (props) => {
       .then((result) => console.log(result))
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
     });
   };
   // Language

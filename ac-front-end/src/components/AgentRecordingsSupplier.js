@@ -12,6 +12,7 @@ Last modification date: 06/06/2022
 
 //Import Modules
 import { createContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 
 //Create agetn recordings context
@@ -173,7 +174,7 @@ const AgentRecordingsSupplier = ({ children }) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
       });
   };
 

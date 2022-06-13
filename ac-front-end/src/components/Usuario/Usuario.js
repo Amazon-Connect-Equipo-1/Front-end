@@ -8,6 +8,7 @@ import logo from "../../images/logo_bbva.png";
 import "../../styles/Login/Login.css";
 import Card from "../UI/Card";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 //Verify if the user is on a Call or no
 const Usuario = (props) => {
@@ -60,7 +61,7 @@ const Usuario = (props) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
     });
   };
   return (

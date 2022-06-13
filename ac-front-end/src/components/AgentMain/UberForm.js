@@ -19,6 +19,7 @@ import { useTranslation } from "react-i18next";
 import { createContext, Suspense, useContext, useState } from "react";
 import ConfirmationUber from "./ConfirmationUber";
 import { GlobalContext } from "../GlobalSupplier";
+import toast from "react-hot-toast";
 
 const UberForm = (props) => {
   const [, , , callId] = useContext(GlobalContext);
@@ -117,7 +118,7 @@ const UberForm = (props) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
     });
   };
   if (solconf === "yes") {

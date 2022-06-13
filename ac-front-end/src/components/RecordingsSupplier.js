@@ -56,7 +56,7 @@ const RecordingsSupplier = ({ children }) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
       });
   };
 
@@ -174,7 +174,7 @@ const RecordingsSupplier = ({ children }) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
       });
   };
 
@@ -230,7 +230,7 @@ const RecordingsSupplier = ({ children }) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
       });
   };
 
@@ -289,7 +289,7 @@ const RecordingsSupplier = ({ children }) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
       });
   };
 

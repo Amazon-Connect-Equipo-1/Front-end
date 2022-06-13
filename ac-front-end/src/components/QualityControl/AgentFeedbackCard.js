@@ -17,6 +17,7 @@ import Card from "../UI/Card";
 import "../../styles/Recordings/AgentFeedbackCard.css";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const AgentFeedbackCard = (props) => {
   // Language
@@ -62,7 +63,7 @@ const AgentFeedbackCard = (props) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
     });
   };
 
@@ -96,7 +97,7 @@ const AgentFeedbackCard = (props) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
     });
   };
 

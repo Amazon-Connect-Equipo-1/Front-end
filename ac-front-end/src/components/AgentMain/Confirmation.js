@@ -15,6 +15,7 @@ import "../../styles/AgentMain/ThirdParty.css";
 import { useTranslation } from "react-i18next";
 import uberlogo from "../../images/uber.png";
 import { createContext, Suspense, useState } from "react";
+import toast from "react-hot-toast";
 
 const Confirmation = (props) => {
   const recordByAgent = (event) => {
@@ -44,7 +45,7 @@ const Confirmation = (props) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
     });
   };
 
@@ -80,7 +81,7 @@ const Confirmation = (props) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
     });
   };
   const recordByDate = (event) => {
@@ -116,7 +117,7 @@ const Confirmation = (props) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
     });
   };
   // Language

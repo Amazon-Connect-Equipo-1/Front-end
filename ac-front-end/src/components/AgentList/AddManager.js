@@ -14,6 +14,7 @@ import React from "react";
 import "../../styles/AgentList/AddUser.css";
 import { useTranslation } from "react-i18next";
 import { createContext, Suspense, useState } from "react";
+import toast from "react-hot-toast";
 
 const AddManager = (props) => {
   //input handlers-----------------------------------
@@ -105,7 +106,7 @@ const AddManager = (props) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
     });
   };
   return (

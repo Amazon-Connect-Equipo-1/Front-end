@@ -12,6 +12,7 @@ Loads and get the user settings preferences from
   the database and sets them in the localStorage
 */
 
+import toast from "react-hot-toast";
 import i18n from "../i18n";
 export const loadUserPreferences = (id) => {
   let theme;
@@ -56,7 +57,7 @@ export const loadUserPreferences = (id) => {
     })
     .catch((error) => {
       console.log("error", error);
-      alert(error);
+      toast.error(error);
     });
 
   // Theme

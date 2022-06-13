@@ -10,6 +10,8 @@ Last modification date: 09/06/2022
 (Descripción)
 */
 
+import toast from "react-hot-toast";
+
 // This module helps to register the
 // clicks and pressed keys of the user
 const token = window.localStorage.getItem("token");
@@ -45,7 +47,7 @@ export const saveKeys = (event) => {
     .then((result) => console.log(result))
     .catch((error) => {
       console.log("error", error);
-      alert(error);
+      toast.error(error);
     });
 };
 
@@ -72,6 +74,6 @@ export const saveClick = (elementName) => {
     .then((result) => console.log(result))
     .catch((error) => {
       console.log("error", error);
-      alert(error);
+      toast.error(error);
     });
 };

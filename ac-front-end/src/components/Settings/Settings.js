@@ -24,6 +24,7 @@ import LocaleContext from "../../LocaleContext";
 import i18n from "../../i18n";
 import { saveKeys, saveClick } from "../MonitorModule.js";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 //Creates functions Settings and its constants
 function Settings() {
@@ -129,7 +130,7 @@ function Settings() {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
       });
   }
 

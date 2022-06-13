@@ -19,6 +19,7 @@ import { useTranslation } from "react-i18next";
 import Card from "../UI/Card";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const NewPasswordForm = (props) => {
   // Language
@@ -71,18 +72,18 @@ const NewPasswordForm = (props) => {
           const resultJSON = JSON.parse(result);
           console.log(Object.keys(resultJSON).includes("errors"));
           if (Object.keys(resultJSON).includes("errors")) {
-            alert(t("invalidToken"));
+            toast.error(t("invalidToken"));
           } else {
-            alert(t("changePasswordSuccessful"));
+            toast.success(t("changePasswordSuccessful"));
             navigate("/login", { replace: true });
           }
         })
         .catch((error) => {
           console.log("error", error);
-          alert(error);
+          toast.error(error);
       });
     } else {
-      alert(t("differentPasswords"));
+      toast.error(t("differentPasswords"));
     }
   };
 

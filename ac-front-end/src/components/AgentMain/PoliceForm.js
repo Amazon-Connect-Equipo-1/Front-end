@@ -20,6 +20,7 @@ import { useContext, useState } from "react";
 import Confirmation from "./Confirmation";
 import ConfirmationPolice from "./ConfirmationPolice";
 import { GlobalContext } from "../GlobalSupplier";
+import toast from "react-hot-toast";
 
 //Creates the Police Form
 const PoliceForm = (props) => {
@@ -134,7 +135,7 @@ const PoliceForm = (props) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
     });
   };
 

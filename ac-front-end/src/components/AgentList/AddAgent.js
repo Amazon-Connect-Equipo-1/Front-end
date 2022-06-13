@@ -11,6 +11,7 @@ Last modification date: 10/06/2022
 */
 
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 import "../../styles/AgentList/AddUser.css";
 
@@ -99,7 +100,7 @@ const AddAgent = (props) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
     });
   };
 
