@@ -7,7 +7,7 @@ Authors:
 Creation date: 17/05/2022
 Last modification date: 10/06/2022
 
-(Descripción)
+Program that contains the QA information.
 */
 
 //Import Modules

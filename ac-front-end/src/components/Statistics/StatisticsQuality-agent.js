@@ -3,11 +3,13 @@ StatisticsQuality-agent.js
 
 Authors:
 - A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01749448 Jorge Chávez Badillo
+- A01750185 Amy Murakami Tsutsumi
 
 Creation date: 09/06/2022
 Last modification date: 09/06/2022
 
-(Decripción)
+Program that displays the statistics for a QA using Amazon QuickSight. 
 */
 
 //Import Modules

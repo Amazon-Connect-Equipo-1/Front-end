@@ -8,7 +8,7 @@ Authors:
 Creation date: 15/05/2022
 Last modification date: 15/05/2022
 
-(Decripción)
+Program that displays the sidebar of an QA account.
 */
 
 //Import Modules

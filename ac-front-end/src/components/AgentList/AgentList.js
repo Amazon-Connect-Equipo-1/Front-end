@@ -4,6 +4,7 @@ AgentList.js
 Authors:
 - A01749448 Jorge Chávez Badillo
 - A01378688 Daniel Garcia Barajas
+- A01750145 Miguel Ángel Pérez López
 
 Creation date: 02/05/2022
 Last modification date: 09/06/2022

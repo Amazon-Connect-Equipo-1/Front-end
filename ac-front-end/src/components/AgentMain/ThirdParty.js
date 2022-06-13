@@ -3,11 +3,14 @@ ThirdParty.js
 
 Authors:
 - A01379868 Jared Abraham Flores Guarneros
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750185 Amy Murakami Tsutsumi
 
 Creation date: 17/05/2022
 Last modification date: 17/05/2022
 
-(Descripción)
+Program that contains the different buttons of the third-party-services.
 */
 
 //Import Modules

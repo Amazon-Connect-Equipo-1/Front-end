@@ -7,7 +7,7 @@ Authors:
 Creation date: 26/05/2022
 Last modification date: 26/05/2022
 
-(Descripción)
+Program that checks if the user is authenticated to show the routes. 
 */
 
 import { useContext } from "react";

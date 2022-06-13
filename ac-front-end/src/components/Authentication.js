@@ -8,7 +8,7 @@ Authors:
 Creation date: 22/05/2022
 Last modification date: 08/06/2022
 
-(Descripción)
+Program that validates if the user exists on the database and allows him/her to sign in. 
 */
 
 //Import Modules

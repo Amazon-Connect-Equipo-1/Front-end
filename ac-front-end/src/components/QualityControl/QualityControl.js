@@ -8,7 +8,7 @@ Authors:
 Creation date: 16/05/2022
 Last modification date: 10/06/2022
 
-(Decripción)
+Program that contains all the recording cards. 
 */
 
 import AgentRecordings from "../AgentRecordings/AgentRecordings";

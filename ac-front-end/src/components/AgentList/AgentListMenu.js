@@ -5,11 +5,12 @@ Authors:
 - A01749448 Jorge Chávez Badillo
 - A01749373 Ariadna Jocelyn Guzmán Jiménez
 - A01750145 Miguel Ángel Pérez López
+- A01750185 Amy Murakami Tsutsumi
 
 Creation date: 02/05/2022
 Last modification date: 10/06/2022
 
-(Descripción)
+Program that contains the top menu of the interface of Agent List. 
 */
 
 //Import Modules

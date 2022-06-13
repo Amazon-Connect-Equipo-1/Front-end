@@ -5,6 +5,7 @@ Authors:
 - A01749448 Jorge Chávez Badillo
 - A01750185 Amy Murakami Tsutsumi
 - A01750145 Miguel Ángel Pérez López
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
 
 Creation date: 01/05/2022
 Last modification date: 10/06/2022
@@ -64,7 +65,7 @@ const AgentFeedbackCard = (props) => {
       .catch((error) => {
         console.log("error", error);
         toast.error(error);
-    });
+      });
   };
 
   const acceptFeedback = () => {
@@ -98,7 +99,7 @@ const AgentFeedbackCard = (props) => {
       .catch((error) => {
         console.log("error", error);
         toast.error(error);
-    });
+      });
   };
 
   return (

@@ -6,11 +6,12 @@ Authors:
 - A01378688 Daniel Garcia Barajas
 - A01749448 Jorge Chávez Badillo
 - A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750185 Amy Murakami Tsutsumi
 
 Creation date: 04/05/2022
 Last modification date: 10/06/2022
 
-(Decripción)
+Program that displays the settings interface. 
 */
 
 //Import Modules
