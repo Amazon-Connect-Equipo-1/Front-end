@@ -115,7 +115,10 @@ const UberForm = (props) => {
         window.localStorage.setItem("url", resultJSON.body.url);
         window.localStorage.setItem("timestamp", resultJSON.body.timestamp);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+    });
   };
   if (solconf === "yes") {
     return (

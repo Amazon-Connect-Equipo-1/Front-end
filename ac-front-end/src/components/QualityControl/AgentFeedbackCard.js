@@ -60,7 +60,10 @@ const AgentFeedbackCard = (props) => {
           setCommentDate(`${resultJSON[commentsLength - 1].date.slice(0, 10)}`);
         }
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+    });
   };
 
   const acceptFeedback = () => {
@@ -91,7 +94,10 @@ const AgentFeedbackCard = (props) => {
         console.log(result);
         setFeedbackAccepted(true);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+    });
   };
 
   return (

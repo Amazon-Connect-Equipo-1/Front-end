@@ -43,7 +43,10 @@ export const saveKeys = (event) => {
   )
     .then((response) => response.text())
     .then((result) => console.log(result))
-    .catch((error) => console.log("error", error));
+    .catch((error) => {
+      console.log("error", error);
+      alert(error);
+    });
 };
 
 export const saveClick = (elementName) => {
@@ -67,5 +70,8 @@ export const saveClick = (elementName) => {
   fetch("https://backtest.bankonnect.link/keyclick/addClick", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
-    .catch((error) => console.log("error", error));
+    .catch((error) => {
+      console.log("error", error);
+      alert(error);
+    });
 };

@@ -132,11 +132,13 @@ const LoginForm = (props) => {
               window.localStorage.setItem("music", "pause");
               navigate("/qa", { replace: true });
             })
-            .catch((error) => console.log("error", error));
+            .catch((error) => {
+              console.log("error", error);
+              alert(error);
+          });
           navigate("/admin", { replace: true });
         }
         if (resultJSON.role === USER.QA) {
-          console.log("Mikeeee");
           const myHeadersToken = new Headers();
           myHeadersToken.append(
             "Authorization",
@@ -168,7 +170,10 @@ const LoginForm = (props) => {
               window.localStorage.setItem("music", "pause");
               navigate("/qa", { replace: true });
             })
-            .catch((error) => console.log("error", error));
+            .catch((error) =>{
+              console.log("error", error);
+              alert(error);
+          });
         }
         if (resultJSON.role === USER.Agent) {
           const myHeadersToken = new Headers();
@@ -190,10 +195,8 @@ const LoginForm = (props) => {
             .then((response) => response.text())
             .then((result) => {
               const resultJSON = JSON.parse(result);
-              console.log("mike");
               console.log(resultJSON);
               // console.log(resultJSON.body);
-              console.log("mike");
               window.localStorage.setItem("id", resultJSON.agent_id);
               window.localStorage.setItem(
                 "agent_admin_token",
@@ -212,10 +215,16 @@ const LoginForm = (props) => {
               window.localStorage.setItem("music", "pause");
               navigate("/agent", { replace: true });
             })
-            .catch((error) => console.log("error", error));
+            .catch((error) => {
+              console.log("error", error);
+              alert(error);
+          });
         }
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+    });
 
     console.log(user);
     console.log(userType);

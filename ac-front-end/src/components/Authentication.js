@@ -42,7 +42,10 @@ const AuthenticationProvider = ({ children }) => {
         const resultJSON = JSON.parse(result);
         console.log(resultJSON);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+      });
   };
   // State for Authentication
   const [user, setUser] = useState(null);

@@ -69,7 +69,10 @@ const ForgottenPasswordForm = (props) => {
             navigate("/confirm-password", { replace: true });
           }
         })
-        .catch((error) => console.log("error", error));
+        .catch((error) => {
+          console.log("error", error);
+          alert(error);
+      });
     } else {
       alert(t("validateEmail"));
     }

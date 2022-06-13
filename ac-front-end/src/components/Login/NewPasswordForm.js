@@ -77,7 +77,10 @@ const NewPasswordForm = (props) => {
             navigate("/login", { replace: true });
           }
         })
-        .catch((error) => console.log("error", error));
+        .catch((error) => {
+          console.log("error", error);
+          alert(error);
+      });
     } else {
       alert(t("differentPasswords"));
     }

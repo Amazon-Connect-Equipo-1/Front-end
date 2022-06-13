@@ -54,7 +54,10 @@ export const loadUserPreferences = (id) => {
         body.classList.add("medium");
       }
     })
-    .catch((error) => console.log("error", error));
+    .catch((error) => {
+      console.log("error", error);
+      alert(error);
+    });
 
   // Theme
   const lightTheme = "light";

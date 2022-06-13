@@ -128,7 +128,10 @@ function Settings() {
         const resultJSON = JSON.parse(result);
         console.log(resultJSON);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+    });
   }
 
   // Switch current text size

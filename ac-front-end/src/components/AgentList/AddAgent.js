@@ -97,7 +97,10 @@ const AddAgent = (props) => {
         console.log(result);
         console.log(resultJSON);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+    });
   };
 
   return (

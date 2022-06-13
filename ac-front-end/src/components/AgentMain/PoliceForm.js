@@ -132,7 +132,10 @@ const PoliceForm = (props) => {
         window.localStorage.setItem("folio", resultJSON.body.folio);
         window.localStorage.setItem("timestamp", resultJSON.body.timestamp);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+    });
   };
 
   // console.log(emailInput.includes("@"));

@@ -42,7 +42,10 @@ const Confirmation = (props) => {
         console.log(result);
         console.log(resultJSON);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+    });
   };
 
   const recordByTag = (event) => {
@@ -75,7 +78,10 @@ const Confirmation = (props) => {
         console.log(result);
         console.log(resultJSON);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+    });
   };
   const recordByDate = (event) => {
     const email = "luiszamarripam@bankonnect.link";
@@ -108,7 +114,10 @@ const Confirmation = (props) => {
         console.log(result);
         console.log(resultJSON);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+    });
   };
   // Language
   const { t } = useTranslation();

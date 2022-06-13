@@ -167,7 +167,10 @@ const OxxoForm = (props) => {
         );
         window.localStorage.setItem("timestamp", resultJSON.body.timestamp);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+    });
   };
 
   if (solconf === "yes") {
@@ -206,7 +209,7 @@ const OxxoForm = (props) => {
             />
           </label>
           <label className="tp-name-label">
-            {t("cellphone")}
+            {t("cellPhone")}
             <input
               type="text"
               onKeyDown={saveKeys}

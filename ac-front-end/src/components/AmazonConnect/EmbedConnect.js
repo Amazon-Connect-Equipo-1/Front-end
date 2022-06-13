@@ -63,6 +63,7 @@ const EmbedConnect = (props) => {
       })
       .catch((error) => {
         console.error("Error fetching uploading URL", error);
+        alert("Error fetching uploading URL", error);
       });
     console.log(response.fileName);
 
@@ -206,6 +207,7 @@ const EmbedConnect = (props) => {
           })
           .catch((error) => {
             console.error("Error fetching uploading URL", error);
+            alert("Error fetching uploading URL", error);
           });
       });
     });

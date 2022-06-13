@@ -171,7 +171,10 @@ const AgentRecordingsSupplier = ({ children }) => {
         console.log(resultJSON);
         setArrRecordings([...resultJSON]);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+      });
   };
 
   useEffect(() => getRecordsByAgent(), []);

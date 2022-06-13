@@ -131,7 +131,10 @@ const UberEatsForm = (props) => {
         );
         window.localStorage.setItem("timestamp", resultJSON.body.timestamp);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) =>{
+        console.log("error", error);
+        alert(error);
+    });
   };
 
   const sodaForm = () => {

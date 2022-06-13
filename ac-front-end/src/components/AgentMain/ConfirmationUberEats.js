@@ -84,7 +84,10 @@ const ConfirmationUberEats = (props) => {
     fetch("https://backtest.bankonnect.link/tps/sendService", requestOptions)
       .then((response) => response.text())
       .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+    });
   };
   // Language
   const { t } = useTranslation();

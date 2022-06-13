@@ -52,7 +52,10 @@ const RecordingsSupplier = ({ children }) => {
         console.log(result);
         console.log(JSON.parse(result));
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+    });
   };
 
   const obtainSelectedVideoInfo = async (recordingId) => {
@@ -81,7 +84,10 @@ const RecordingsSupplier = ({ children }) => {
         window.localStorage.setItem("selectedVideoInfo", result);
         setSelectedVideoInfo(JSON.parse(result));
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+      });
   };
 
   const getLastRecordings = (showOrder = "DESC") => {
@@ -129,7 +135,10 @@ const RecordingsSupplier = ({ children }) => {
         });
         setArrRecordings([...recordings]);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) =>{ 
+        console.log("error", error);
+        alert(error);
+      });
   };
 
   const getRecordsByAgent = (selectedEmail) => {
@@ -161,7 +170,10 @@ const RecordingsSupplier = ({ children }) => {
           setArrAgentRecordings([...resultJSON]);
         }
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+      });
   };
 
   const getRecordingsByDate = (selectedDate, agentEmail = "") => {
@@ -214,7 +226,10 @@ const RecordingsSupplier = ({ children }) => {
           }
         }
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+      });
   };
 
   const getVideos = () => {
@@ -270,7 +285,10 @@ const RecordingsSupplier = ({ children }) => {
           setArrRecordings([...recordings]);
         }
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+      });
   };
 
   useEffect(() => {
