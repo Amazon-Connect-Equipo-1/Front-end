@@ -42,7 +42,17 @@ import Raul from "../../images/Collabs/Victor.jpg";
 import LoginForm from "./LoginForm";
 
 const About = (props) => {
-  return <div className="abo-main-container"></div>;
+  return (
+    <div className="abo-main-container">
+      <button
+        className="abo-btn"
+        style={{ width: "8rem" }}
+        onClick={props.onChangeShow}
+      >
+        return
+      </button>
+    </div>
+  );
 };
 
 export default About;
