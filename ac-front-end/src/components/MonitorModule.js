@@ -1,6 +1,14 @@
-/* Monitor Module
+/* 
+MonitorModule.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 15/05/2022
+Last modification date: 09/06/2022
+
+(Descripción)
+*/
 
 // This module helps to register the
 // clicks and pressed keys of the user
@@ -35,7 +43,10 @@ export const saveKeys = (event) => {
   )
     .then((response) => response.text())
     .then((result) => console.log(result))
-    .catch((error) => console.log("error", error));
+    .catch((error) => {
+      console.log("error", error);
+      alert(error);
+    });
 };
 
 export const saveClick = (elementName) => {
@@ -59,5 +70,8 @@ export const saveClick = (elementName) => {
   fetch("https://backtest.bankonnect.link/keyclick/addClick", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
-    .catch((error) => console.log("error", error));
+    .catch((error) => {
+      console.log("error", error);
+      alert(error);
+    });
 };

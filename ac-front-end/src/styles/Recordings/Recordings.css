@@ -1,8 +1,17 @@
-/* CSS of Recordings
-Authors:
-        A01777771 Stephen Strange*/
-/* Initials: re */
+/*
+Recordings.css
 
+Authors:
+- A01750145 Miguel Ángel Pérez López
+- A01378688 Daniel Garcia Barajas
+
+Creation date: 30/04/2022
+Last modification date: 10/06/2022
+
+Style to display HTML elements for Recordings.js.
+*/
+
+/* Initials: re */
 .re-main-container {
   display: flex;
   flex-direction: column;
@@ -21,12 +30,20 @@ Authors:
   align-items: center;
   margin: 3rem 0 3rem 0;
 }
-
-.re-search-container {
+.re-menu-container {
   display: flex;
-  grid-column: 1 / -1;
+  grid-column: 1/ -1;
   /* gap: 1.5rem; */
   justify-self: end;
+  width: 100%;
+}
+.re-search-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  width: 100%;
 }
 
 .re-input {
@@ -45,13 +62,50 @@ Authors:
   border-radius: 10px 0 0 10px;
   background-color: var(--highlight-color);
   color: var(--text-color);
+  cursor: pointer;
 }
 
-.re-btn {
-  color: var(--text-color);
+.re-search-btn {
+  border-radius: 0px 6px 6px 0px;
   background-color: var(--sub-card-background);
-  border-radius: 0 10px 10px 0;
+}
+
+.re-no-recordings {
+  justify-self: center;
+  text-align: center;
+  font-size: var(--sub-title);
+  grid-column: 2 / 3;
+  color: var(--text-color);
+  margin: 3rem;
+}
+
+.re-search {
+  font-size: var(--option-text);
+  border-radius: 0px 6px 6px 0px;
+  width: 35rem;
+  background-color: var(--sub-card-light);
+}
+
+.re-refresh-btn {
+  background-color: var(--highlight-color);
+  font-size: var(--sub-option-text);
+  font-weight: bold;
+  color: var(--text-color);
+  border: none;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
   cursor: pointer;
+  width: 15rem;
+  height: 4rem;
+}
+.re-refresh-btn:hover {
+  transform: translateY(-3px);
+  transition: 0.3s ease-out;
+  opacity: 0.9;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /*Media queries for Recordings*/

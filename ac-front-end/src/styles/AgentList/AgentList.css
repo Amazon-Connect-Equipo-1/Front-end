@@ -1,8 +1,17 @@
-/* CSS of AgentList
-Authors:
-        A01777771 Stephen Strange*/
-/* Initials: agl*/
+/*
+AgentList.css
 
+Authors:
+- A01378688 Daniel Garcia Barajas
+- A01749448 Jorge Chávez Badillo
+
+Creation date: 02/05/2022
+Last modification date: 05/06/2022
+
+Style to display HTML elements for AgentList.js.
+*/
+
+/* Initials: agl*/
 .agl-main-container {
   background-color: var(--main-card-background);
   border-radius: 10px;

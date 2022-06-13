@@ -1,6 +1,14 @@
-/* Recordings Video
+/* 
+RecordingsVideo.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 03/05/2022
+Last modification date: 09/06/2022
+
+(Decripción)
+*/
 
 //Import Modules
 import "../../styles/Recordings/RecordingsVideo.css";
@@ -76,6 +84,7 @@ const RecordingsVideo = (props) => {
             className="rev-video"
             src={videoInfo.processedRecording} //proccessed recording no jala
             allowFullScreen
+            id="rec-frame"
           />
         </div>
         {cardName === "About" && <AboutCard onChangeCard={changeCardHandler} />}

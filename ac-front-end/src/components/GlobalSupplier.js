@@ -1,6 +1,14 @@
-/* Global Supplier
+/* 
+GlobalSupplier.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 20/05/2022
+Last modification date: 20/05/2022
+
+(Descripción)
+*/
 
 //Import Modules
 import { createContext, useState } from "react";
@@ -30,8 +38,25 @@ const GlobalSupplier = ({ children }) => {
   // Info of the QA or Admin
   const [userInfo, setUserInfo] = useState(dummyUser);
 
+  //Info when an agent starts a call
+  const [callId, setCallId] = useState("");
+
+  //Status of the agent (Active, Inactive, In call)
+  //this can be seen in EmbedConnect.js line 155-173
+  const [agentStatus, setAgentStatus] = useState("");
+
   return (
-    <GlobalContext.Provider value={[recordingInfo, setRecordingInfo, userInfo]}>
+    <GlobalContext.Provider
+      value={[
+        recordingInfo,
+        setRecordingInfo,
+        userInfo,
+        callId,
+        setCallId,
+        agentStatus,
+        setAgentStatus,
+      ]}
+    >
       {children}
     </GlobalContext.Provider>
   );

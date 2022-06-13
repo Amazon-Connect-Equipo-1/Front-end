@@ -1,16 +1,33 @@
-/* Oxxo Form
+/*
+OxxoForm.js
+
 Authors:
-        A01379868 Jared Abraham Flores Guarneros*/
+- A01379868 Jared Abraham Flores Guarneros
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 17/05/2022
+Last modification date: 10/06/2022
+
+(Descripción)
+*/
 
 //Import Modules
 import "../../styles/AgentMain/ThirdParty.css";
 import ThirdParty from "./ThirdParty";
 import { saveKeys, saveClick } from "../MonitorModule.js";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ConfirmationOxxo from "./ConfirmationOxxo";
+import { GlobalContext } from "../GlobalSupplier";
 //Creates Oxxo Form
 const OxxoForm = (props) => {
+  // Language
+  const { t } = useTranslation();
+  const [solconf, setSolConf] = useState("no");
+  const [, , , callId] = useContext(GlobalContext);
+  const INPUT_NAME = "Oxxo form";
+  // console.log("Callll id", callId);
+
   //input handlers-----------------------------------
   const [clientInput, setClientInput] = useState("");
   const [emailInput, setEmailInput] = useState("");
@@ -20,22 +37,28 @@ const OxxoForm = (props) => {
   const [accountInput, setAccountInput] = useState("");
 
   const clientChangeHandler = (event) => {
-    window.localStorage.setItem("client", event.target.value);
+    setClientInput(event.target.value);
+    // window.localStorage.setItem("client", event.target.value);
   };
   const emailChangeHandler = (event) => {
-    window.localStorage.setItem("email", event.target.value);
+    setEmailInput(event.target.value);
+    // window.localStorage.setItem("email", event.target.value);
   };
   const cellphoneChangeHandler = (event) => {
-    window.localStorage.setItem("cellphone", event.target.value);
+    setCellphoneInput(event.target.value);
+    // window.localStorage.setItem("cellphone", event.target.value);
   };
   const clientLocationChangeHandler = (event) => {
-    window.localStorage.setItem("clientLocation", event.target.value);
+    setLocationInput(event.target.value);
+    // window.localStorage.setItem("clientLocation", event.target.value);
   };
   const quantityChangeHandler = (event) => {
-    window.localStorage.setItem("quantity", event.target.value);
+    setQuantityInput(event.target.value);
+    // window.localStorage.setItem("quantity", event.target.value);
   };
   const accountNumberChangeHandler = (event) => {
-    window.localStorage.setItem("accountNumber", event.target.value);
+    setAccountInput(event.target.value);
+    // window.localStorage.setItem("accountNumber", event.target.value);
   };
 
   //-----------------------------------------
@@ -58,49 +81,50 @@ const OxxoForm = (props) => {
     window.localStorage.removeItem("timestamp");
   };
 
-  //--------------------------------------------
-  const INPUT_NAME = "Oxxo form";
-
-  const onSubmitHandler = (event) => {
-    event.preventDefault();
+  //SAVE DATA-----------------------------------
+  const SaveData = () => {
+    window.localStorage.setItem("client", clientInput);
+    window.localStorage.setItem("email", emailInput);
+    window.localStorage.setItem("cellphone", cellphoneInput);
+    window.localStorage.setItem("clientLocation", locationInput);
+    window.localStorage.setItem("quantity", quantityInput);
+    window.localStorage.setItem("accountNumber", accountInput);
   };
 
-  // Language
-  const { t } = useTranslation();
-  const [solconf, setSolConf] = useState("no");
+  //--------------------------------------------
+
   const Confirm = () => {
     setSolConf("yes");
   };
+
   const DisConfirm = () => {
     setSolConf("no");
     props.onChange();
   };
+
   const getBack = () => {
     props.onChange();
   };
-  const token = window.localStorage.getItem("token");
+
   const askOxxo = (event) => {
-    const client = window.localStorage.getItem("client");
-    const email = window.localStorage.getItem("email");
-    const cellphone = window.localStorage.getItem("cellphone");
-    const clientLocation = window.localStorage.getItem("clientLocation");
-    const quantity = window.localStorage.getItem("quantity");
-    const accountNumber = window.localStorage.getItem("accountNumber");
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("Authorization", `Bearer ${token}`);
+    myHeaders.append(
+      "Authorization",
+      `Bearer ${window.localStorage.getItem("token")}`
+    );
 
     const raw = JSON.stringify({
       service: "Oxxo", //CONSTANTE
       service_data: {
-        client: client,
-        email: email,
-        cellphone: cellphone,
-        client_location: clientLocation,
-        quantity: quantity,
-        account_number: accountNumber,
+        client: clientInput,
+        email: emailInput,
+        cellphone: cellphoneInput,
+        client_location: locationInput,
+        quantity: quantityInput,
+        account_number: accountInput,
       },
-      call_id: "192810a0-0sop-ori3-p210-ospem309e0", //NO SE SABE COMO OBTENER AUN
+      call_id: callId, //Verificar si funciona
     });
 
     const requestOptions = {
@@ -143,15 +167,20 @@ const OxxoForm = (props) => {
         );
         window.localStorage.setItem("timestamp", resultJSON.body.timestamp);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+    });
   };
+
   if (solconf === "yes") {
     return (
       <div>
-        <ConfirmationOxxo onChange={DisConfirm} />
+        <ConfirmationOxxo onChange={DisConfirm} orderInformation={""} />
       </div>
     );
   }
+
   if (solconf === "no") {
     return (
       <div>
@@ -164,36 +193,30 @@ const OxxoForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={(e) => {
-                setClientInput(e.target.value);
-                clientChangeHandler(e.target.value);
-              }}
+              onChange={clientChangeHandler}
+              value={clientInput}
             />
           </label>
           <label className="tp-name-label">
             {t("email")}
             <input
-              type="text"
+              type="email"
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={(e) => {
-                setEmailInput(e.target.value);
-                emailChangeHandler(e.target.value);
-              }}
+              onChange={emailChangeHandler}
+              value={emailInput}
             />
           </label>
           <label className="tp-name-label">
-            {t("cellphone")}
+            {t("cellPhone")}
             <input
               type="text"
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={(e) => {
-                setCellphoneInput(e.target.value);
-                cellphoneChangeHandler(e.target.value);
-              }}
+              onChange={cellphoneChangeHandler}
+              value={cellphoneInput}
             />
           </label>
           <label className="tp-name-label">
@@ -203,10 +226,8 @@ const OxxoForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={(e) => {
-                setLocationInput(e.target.value);
-                clientLocationChangeHandler(e.target.value);
-              }}
+              onChange={clientLocationChangeHandler}
+              value={locationInput}
             />
           </label>
           <label className="tp-name-label">
@@ -216,10 +237,8 @@ const OxxoForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={(e) => {
-                setQuantityInput(e.target.value);
-                quantityChangeHandler(e.target.value);
-              }}
+              onChange={quantityChangeHandler}
+              value={quantityInput}
             />
           </label>
           <label className="tp-name-label">
@@ -229,25 +248,16 @@ const OxxoForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={(e) => {
-                setAccountInput(e.target.value);
-                accountNumberChangeHandler(e.target.value);
-              }}
+              onChange={accountNumberChangeHandler}
+              value={accountInput}
             />
           </label>
           <div className="tp-submit">
             <input
               type="submit"
-              disabled={
-                clientInput === "" ||
-                emailInput === "" ||
-                cellphoneInput === "" ||
-                locationInput === "" ||
-                quantityInput === "" ||
-                accountInput === ""
-              }
               style={{
                 opacity:
+                  emailInput.includes("@") &&
                   clientInput &&
                   emailInput &&
                   cellphoneInput &&
@@ -256,11 +266,22 @@ const OxxoForm = (props) => {
                   accountInput
                     ? "1.0"
                     : "0.5",
+                pointerEvents:
+                  emailInput.includes("@") &&
+                  clientInput &&
+                  emailInput &&
+                  cellphoneInput &&
+                  locationInput &&
+                  quantityInput &&
+                  accountInput
+                    ? "all"
+                    : "none",
               }}
               onKeyDown={saveKeys}
               onClick={(e) => {
                 e.preventDefault();
                 askOxxo();
+                SaveData();
                 Confirm();
                 saveClick(`${INPUT_NAME} input`);
               }}
@@ -274,8 +295,8 @@ const OxxoForm = (props) => {
               onKeyDown={saveKeys}
               onClick={(e) => {
                 e.preventDefault();
-                getBack();
                 saveClick(`${INPUT_NAME} input`);
+                getBack();
               }}
               value={t("Cancel")}
               className="tp-submit-button"

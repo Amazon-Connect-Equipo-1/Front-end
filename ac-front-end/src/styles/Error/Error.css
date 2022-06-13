@@ -1,8 +1,16 @@
-/* CSS of Error
-Authors:
-        A01777771 Stephen Strange*/
-/* Initials: err */
+/*
+Error.css
 
+Authors:
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 26/05/2022
+Last modification date: 05/06/2022
+
+Style to display HTML elements for Error.js.
+*/
+
+/* Initials: err */
 .err-container {
   display: flex;
   flex-direction: column;

@@ -1,6 +1,14 @@
-/* Recordings Suppliers
+/* 
+RecordingsSupplier.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 15/05/2022
+Last modification date: 10/06/2022
+
+(Descripción)
+*/
 
 //Import Modules
 import { createContext, useEffect, useState } from "react";
@@ -44,7 +52,10 @@ const RecordingsSupplier = ({ children }) => {
         console.log(result);
         console.log(JSON.parse(result));
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+    });
   };
 
   const obtainSelectedVideoInfo = async (recordingId) => {
@@ -64,7 +75,7 @@ const RecordingsSupplier = ({ children }) => {
     };
 
     await fetch(
-      `http://35.88.250.238:8080/manager/showRecording?recording_id=${recordingId}`,
+      `https://backtest.bankonnect.link/manager/showRecording?recording_id=${recordingId}`,
       requestOptions
     )
       .then((response) => response.text())
@@ -73,7 +84,10 @@ const RecordingsSupplier = ({ children }) => {
         window.localStorage.setItem("selectedVideoInfo", result);
         setSelectedVideoInfo(JSON.parse(result));
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+      });
   };
 
   const getLastRecordings = (showOrder = "DESC") => {
@@ -121,7 +135,10 @@ const RecordingsSupplier = ({ children }) => {
         });
         setArrRecordings([...recordings]);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) =>{ 
+        console.log("error", error);
+        alert(error);
+      });
   };
 
   const getRecordsByAgent = (selectedEmail) => {
@@ -153,7 +170,10 @@ const RecordingsSupplier = ({ children }) => {
           setArrAgentRecordings([...resultJSON]);
         }
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+      });
   };
 
   const getRecordingsByDate = (selectedDate, agentEmail = "") => {
@@ -206,7 +226,10 @@ const RecordingsSupplier = ({ children }) => {
           }
         }
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+      });
   };
 
   const getVideos = () => {
@@ -225,9 +248,16 @@ const RecordingsSupplier = ({ children }) => {
     myHeadersToken.append("Content-Type", "application/json");
     myHeadersToken.append("Authorization", `Bearer ${token}`);
 
+    const tagArr = [];
+    {
+      tagName.map((tag) => {
+        tagArr.push(tag.id);
+      });
+    }
+
     const raw = JSON.stringify({
       email: agentEmail,
-      tags: tagName,
+      tags: tagArr,
     });
 
     const requestOptions = {
@@ -255,7 +285,10 @@ const RecordingsSupplier = ({ children }) => {
           setArrRecordings([...recordings]);
         }
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+      });
   };
 
   useEffect(() => {
@@ -264,7 +297,6 @@ const RecordingsSupplier = ({ children }) => {
       getRecordsByAgent();
     } else {
       getLastRecordings();
-      // getVideos();
     }
     console.log("use effect");
   }, []);

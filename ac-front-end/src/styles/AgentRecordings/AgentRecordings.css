@@ -1,5 +1,17 @@
-/* Initials: arc */
+/*
+AgentRecordings.css
 
+Authors:
+- A01378688 Daniel Garcia Barajas
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 25/05/2022
+Last modification date: 09/06/2022
+
+Style to display HTML elements for AgentRecordings.js.
+*/
+
+/* Initials: arc */
 .arc-main-container {
   display: flex;
   flex-direction: column;
@@ -19,7 +31,6 @@
 .arc-search-container {
   display: flex;
   grid-column: 1 / -1;
-  /* gap: 1.5rem; */
   justify-self: end;
 }
 
@@ -44,10 +55,19 @@
 }
 
 .arc-btn {
-  color: var(--text-color);
-  background-color: var(--sub-card-background);
+  color: white;
+  background-color: #415164;
   border-radius: 0 10px 10px 0;
   cursor: pointer;
+}
+
+.arc-no-recordings {
+  justify-self: center;
+  text-align: center;
+  font-size: var(--sub-title);
+  grid-column: 1 / -1;
+  color: var(--text-color);
+  margin: 3rem;
 }
 
 /*Media queries for Recordings*/

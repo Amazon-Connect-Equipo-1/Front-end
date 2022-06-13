@@ -1,18 +1,33 @@
-/* Police From
+/*
+PoliceForm.js
+
 Authors:
-        A01379868 Jared Abraham Flores Guarneros*/
+- A01379868 Jared Abraham Flores Guarneros
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 17/05/2022
+Last modification date: 10/06/2022
+
+(Descripción)
+*/
 
 //Import Modules
 import "../../styles/AgentMain/ThirdParty.css";
 import ThirdParty from "./ThirdParty";
 import { saveKeys, saveClick } from "../MonitorModule.js";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Confirmation from "./Confirmation";
 import ConfirmationPolice from "./ConfirmationPolice";
+import { GlobalContext } from "../GlobalSupplier";
 
 //Creates the Police Form
 const PoliceForm = (props) => {
+  // Language
+  const { t } = useTranslation();
+  const [solconf, setSolConf] = useState("no");
+  const [, , , callId] = useContext(GlobalContext);
+  const INPUT_NAME = "police form";
   //input handlers-----------------------------------
   const [clientInput, setClientInput] = useState("");
   const [emailInput, setEmailInput] = useState("");
@@ -22,22 +37,28 @@ const PoliceForm = (props) => {
   const [statementInput, setStatementInput] = useState("");
 
   const clientChangeHandler = (event) => {
-    window.localStorage.setItem("client", event.target.value);
+    setClientInput(event.target.value);
+    // window.localStorage.setItem("client", event.target.value);
   };
   const emailChangeHandler = (event) => {
-    window.localStorage.setItem("email", event.target.value);
+    setEmailInput(event.target.value);
+    // window.localStorage.setItem("email", event.target.value);
   };
   const cellphoneChangeHandler = (event) => {
-    window.localStorage.setItem("cellphone", event.target.value);
+    setCellphoneInput(event.target.value);
+    // window.localStorage.setItem("cellphone", event.target.value);
   };
   const clientLocationChangeHandler = (event) => {
-    window.localStorage.setItem("clientLocation", event.target.value);
+    setLocationInput(event.target.value);
+    // window.localStorage.setItem("clientLocation", event.target.value);
   };
   const clientLocationReferenceChangeHandler = (event) => {
-    window.localStorage.setItem("clientLocationReference", event.target.value);
+    setReferenceInput(event.target.value);
+    // window.localStorage.setItem("clientLocationReference", event.target.value);
   };
   const clientStatementChangeHandler = (event) => {
-    window.localStorage.setItem("clientStatement", event.target.value);
+    setStatementInput(event.target.value);
+    // window.localStorage.setItem("clientStatement", event.target.value);
   };
 
   //-----------------------------------------
@@ -54,11 +75,18 @@ const PoliceForm = (props) => {
     window.localStorage.removeItem("timestamp");
   };
 
+  //SAVE DATA-----------------------------------
+  const SaveData = () => {
+    window.localStorage.setItem("client", clientInput);
+    window.localStorage.setItem("email", emailInput);
+    window.localStorage.setItem("cellphone", cellphoneInput);
+    window.localStorage.setItem("clientLocation", locationInput);
+    window.localStorage.setItem("clientStatement", statementInput);
+    window.localStorage.setItem("clientLocationReference", referenceInput);
+  };
+
   //--------------------------------------------
-  const INPUT_NAME = "police form";
-  // Language
-  const { t } = useTranslation();
-  const [solconf, setSolConf] = useState("no");
+
   const Confirm = () => {
     setSolConf("yes");
   };
@@ -71,14 +99,6 @@ const PoliceForm = (props) => {
   };
   const token = window.localStorage.getItem("token");
   const askPolice = (event) => {
-    const client = window.localStorage.getItem("client");
-    const email = window.localStorage.getItem("email");
-    const cellphone = window.localStorage.getItem("cellphone");
-    const clientLocation = window.localStorage.getItem("clientLocation");
-    const clientLocationReference = window.localStorage.getItem(
-      "clientLocationReference"
-    );
-    const clientStatement = window.localStorage.getItem("clientStatement");
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", `Bearer ${token}`);
@@ -86,14 +106,14 @@ const PoliceForm = (props) => {
     const raw = JSON.stringify({
       service: "Report", //CONSTANTE
       service_data: {
-        client: client,
-        email: email,
-        cellphone: cellphone,
-        client_location: clientLocation,
-        client_location_reference: clientLocationReference,
-        client_statement: clientStatement,
+        client: clientInput,
+        email: emailInput,
+        cellphone: cellphoneInput,
+        client_location: locationInput,
+        client_location_reference: referenceInput,
+        client_statement: statementInput,
       },
-      call_id: "192810a0-0sop-ori3-p210-ospem309e0", //SIGO SIN SABER DE DONDE SALE
+      call_id: callId, //SIGO SIN SABER DE DONDE SALE
     });
 
     const requestOptions = {
@@ -112,8 +132,13 @@ const PoliceForm = (props) => {
         window.localStorage.setItem("folio", resultJSON.body.folio);
         window.localStorage.setItem("timestamp", resultJSON.body.timestamp);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+    });
   };
+
+  // console.log(emailInput.includes("@"));
   if (solconf === "yes") {
     return (
       <div>
@@ -133,90 +158,71 @@ const PoliceForm = (props) => {
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={(e) => {
-                setClientInput(e.target.value);
-                clientChangeHandler(e.target.value);
-              }}
+              onChange={clientChangeHandler}
+              value={clientInput}
             />
           </label>
           <label className="tp-name-label">
             {t("email")}
             <input
-              type="text"
+              type="email"
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={(e) => {
-                setEmailInput(e.target.value);
-                emailChangeHandler(e.target.value);
-              }}
+              onChange={emailChangeHandler}
+              value={emailInput}
             />
           </label>
           <label className="tp-name-label">
-            {t("cellphone")}
+            {t("cellPhone")}
             <input
               type="text"
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={(e) => {
-                setCellphoneInput(e.target.value);
-                cellphoneChangeHandler(e.target.value);
-              }}
+              onChange={cellphoneChangeHandler}
+              value={cellphoneInput}
             />
           </label>
           <label className="tp-name-label">
-            {t("client location")}
+            {t("clientLocation")}
             <input
               type="text"
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={(e) => {
-                setLocationInput(e.target.value);
-                clientLocationChangeHandler(e.target.value);
-              }}
+              onChange={clientLocationChangeHandler}
+              value={locationInput}
             />
           </label>
           <label className="tp-name-label">
-            {t("client location reference")}
+            {t("clientLocationReference")}
             <input
               type="text"
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={(e) => {
-                setReferenceInput(e.target.value);
-                clientLocationReferenceChangeHandler(e.target.value);
-              }}
+              onChange={clientLocationReferenceChangeHandler}
+              value={referenceInput}
             />
           </label>
           <label className="tp-name-label">
-            {t("client statement")}
+            {t("clientStatement")}
             <input
               type="text"
               onKeyDown={saveKeys}
               onClick={() => saveClick(`${INPUT_NAME} input`)}
               className="tp-input-label"
-              onChange={(e) => {
-                setStatementInput(e.target.value);
-                clientStatementChangeHandler(e.target.value);
-              }}
+              onChange={clientStatementChangeHandler}
+              value={statementInput}
             />
           </label>
           <div className="tp-submit">
             <input
               type="submit"
-              disabled={
-                clientInput === "" ||
-                emailInput === "" ||
-                cellphoneInput === "" ||
-                locationInput === "" ||
-                referenceInput === "" ||
-                statementInput === ""
-              }
               style={{
                 opacity:
+                  emailInput.includes("@") &&
                   clientInput &&
                   emailInput &&
                   cellphoneInput &&
@@ -225,12 +231,20 @@ const PoliceForm = (props) => {
                   statementInput
                     ? "1.0"
                     : "0.5",
+                pointerEvents:
+                  emailInput.includes("@") &&
+                  clientInput &&
+                  emailInput &&
+                  cellphoneInput &&
+                  referenceInput &&
+                  statementInput
+                    ? "all"
+                    : "none",
               }}
               onKeyDown={saveKeys}
               onClick={(e) => {
-                e.preventDefault();
-
                 askPolice();
+                SaveData();
                 Confirm();
                 saveClick(`${INPUT_NAME} input`);
               }}
@@ -247,7 +261,7 @@ const PoliceForm = (props) => {
                 getBack();
                 saveClick(`${INPUT_NAME} input`);
               }}
-              value={t("Cancel")}
+              value={t("cancel")}
               className="tp-submit-button"
             />
           </div>

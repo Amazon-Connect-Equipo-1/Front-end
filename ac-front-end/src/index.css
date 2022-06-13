@@ -1,13 +1,40 @@
-/* CSS of Index
-Authors:
-        A01378688 Daniel Garcia Barajas
+/*
+index.css
 
-/* Import Amazon Ember Font*/
-@import url("https://cdn.jsdelivr.net/gh/GoCloudHub/font-amazon-ember/fonts/amazonember/amazonember.css");
+Authors:
+- A01378688 Daniel Garcia Barajas
+- A01750145 Miguel Ángel Pérez López
+- A01378705 Israel Sánchez Miranda
+
+Creation date: 10/04/2022
+Last modification date: 09/06/2022
+
+Style to display HTML elements for index.js.
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Karla:wght@400;500;600;700&family=Montserrat:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap");
 
 * {
   margin: 0;
   box-sizing: border-box;
+  font-family: "Karla", "Montserrat", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff00;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 :root {

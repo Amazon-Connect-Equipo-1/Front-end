@@ -1,6 +1,15 @@
-/* Agent Active Calls
+/*
+AgentActiveCalls.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+
+Creation date: 02/05/2022
+Last modification date: 10/06/2022
+
+Program that displays agents who are on an active call.
+*/
 
 //Import Modules
 import "../../styles/AgentList/AllAgentsList.css";
@@ -19,7 +28,7 @@ const AgentActiveCalls = (props) => {
   const [arrAgents] = useContext(AgentAAndQAContext);
 
   const arrAgentsWorking = arrAgents.filter((agent) => {
-    return agent.status === "Active" || agent.status === "In call";
+    return agent.status === "In call";
   });
 
   return (
@@ -32,11 +41,12 @@ const AgentActiveCalls = (props) => {
             key={uuidv4()}
             name={agent.name}
             isActiveCalls={props.isActiveCalls}
+            profile_picture={agent.profile_picture}
             status={agent.status}
           />
         ))}
       {arrAgentsWorking.length === 0 && (
-        <p className="no-active-agents">No active calls</p>
+        <p className="no-active-agents">{t("noActiveCalls")}</p>
       )}
       {/* </div> */}
     </div>

@@ -1,10 +1,24 @@
+/*
+SingleDashboard.css
+
+Authors:
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01749448 Jorge Chávez Badillo
+- A01750185 Amy Murakami Tsutsumi
+
+Creation date: 26/05/2022
+Last modification date: 05/06/2022
+
+Style to display HTML elements for SingleDashboard.js.
+*/
+
 .sdsb-main-container-dashboard {
-  width: 85rem;
+  width: 120rem;
   background-color: var(--sub-card-background);
   color: var(--text-color);
   border-radius: 10px;
   box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
-  height: 65rem;
+  height: 60rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,8 +37,8 @@
 }
 
 .sdsb-quicksight-dashboard {
-  width: 80rem;
-  height: 60rem;
+  width: 90%;
+  height: 55rem;
 }
 
 .sdsb-quicksight-statistics {
@@ -65,5 +79,58 @@
 
   .sdsb-quicksight-statistics {
     height: 40rem;
+  }
+}
+
+/*Media queries*/
+/*****************************/
+/* BELOW 90*16 = 1450px (Smaller desktops) */
+/*****************************/
+@media (max-width: 90em) {
+  .sdsb-main-container-dashboard {
+    width: 110rem;
+  }
+  .sdsb-main-container-statistics {
+    width: 110rem;
+  }
+}
+
+/* BELOW 80*16 = 1280px (Smaller desktops) */
+@media (max-width: 80em) {
+  .sdsb-main-container-dashboard {
+    width: 110rem;
+  }
+  .sdsb-main-container-statistics {
+    width: 110rem;
+  }
+}
+
+/* BELOW 73*16 = 1180px (Smaller desktops) */
+@media (max-width: 73em) {
+  .sdsb-main-container-dashboard {
+    width: 80rem;
+  }
+  .sdsb-main-container-statistics {
+    width: 80rem;
+  }
+}
+
+/* BELOW 57*16 = 920px (Smaller desktops) */
+@media (max-width: 57em) {
+  .sdsb-main-container-dashboard {
+    width: 50rem;
+  }
+  .sdsb-main-container-statistics {
+    width: 50rem;
+  }
+}
+
+/* BELOW 37*16 = 600px (Smaller desktops) */
+@media (max-width: 37em) {
+  .sdsb-main-container-dashboard {
+    width: 30rem;
+  }
+  .sdsb-main-container-statistics {
+    width: 30rem;
   }
 }

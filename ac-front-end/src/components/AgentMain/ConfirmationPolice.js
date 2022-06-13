@@ -1,10 +1,19 @@
-/* O
+/*
+ConfirmationPolice.js
+
 Authors:
-        A01379868 Jared Abraham Flores Guarneros*/
+- A01379868 Jared Abraham Flores Guarneros
+
+Creation date: 30/05/2022
+Last modification date: 10/06/2022
+
+(Descripción)
+*/
 
 //Import Modules
 import "../../styles/AgentMain/ThirdParty.css";
 import uberlogo from "../../images/uber.png";
+import { useTranslation } from "react-i18next";
 import { createContext, Suspense, useState } from "react";
 
 const ConfirmationPolice = (props) => {
@@ -67,61 +76,75 @@ const ConfirmationPolice = (props) => {
     fetch("https://backtest.bankonnect.link/tps/sendService", requestOptions)
       .then((response) => response.text())
       .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+    });
   };
+  // Language
+  const { t } = useTranslation();
 
   return (
     <div className="tp-confirmation">
-      <div className="tp-title">
-        Service Confirmation
-        {conf === "yes" && (
-          <div>
-            <div className="tp-confirmation-text">Informacion Enviada!</div>
-            <div className="tp-confirmation-button-container">
-              <button
-                className="tp-confirmation-button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  pruebaBackTPS();
-                  restart();
-                  props.onChange();
-                }}
-              >
-                confirmado
-              </button>
-            </div>
+      <div className="tp-title">{t("serviceConfirmation")}</div>
+      {conf === "yes" && (
+        <div>
+          <div className="tp-confirmation-text">{t("informationSent")}</div>
+          <div className="tp-confirmation-button-container">
+            <button
+              className="tp-submit-button"
+              onClick={(e) => {
+                pruebaBackTPS();
+                restart();
+                props.onChange();
+              }}
+            >
+              {t("confirmed")}
+            </button>
           </div>
-        )}
-        {conf === "no" && (
-          <div>
-            <div className="tp-confirmation-text">
-              Client: {client}
-              <br />
-              mail: {email}
-              <br />
-              Cellphone: {cellphone}
-              <br />
-              Client location: {clientLocation}
-              <br />
-              Client location reference: {clientLocationReference}
-              <br />
-              Client statement: {clientStatement}
-              <br />
-            </div>
-            <div className="tp-confirmation-button-container">
-              <button
-                className="tp-confirmation-button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  changeConfig();
-                }}
-              >
-                Mandar info
-              </button>
-            </div>
+        </div>
+      )}
+      {conf === "no" && (
+        <>
+          <div className="tp-confirmation-container">
+            <p>
+              {t("client")}
+              <span className="tp-confirmation-text">{client}</span>
+            </p>
+            <p>
+              {t("email")}
+              <span className="tp-confirmation-text">{email}</span>
+            </p>
+            <p>
+              {t("cellPhone")}
+              <span className="tp-confirmation-text">{cellphone}</span>
+            </p>
+            <p>
+              {t("clientLocation")}
+              <span className="tp-confirmation-text">{clientLocation}</span>
+            </p>
+            <p>
+              {t("clientLocationReference")}
+              <span className="tp-confirmation-text">
+                {clientLocationReference}
+              </span>
+            </p>
+            <p>
+              {t("clientStatement")}
+              <span className="tp-confirmation-text">{clientStatement}</span>
+            </p>
           </div>
-        )}
-      </div>
+
+          <button
+            className="tp-submit-button"
+            onClick={(e) => {
+              changeConfig();
+            }}
+          >
+            {t("sendInfo")}
+          </button>
+        </>
+      )}
     </div>
   );
 };

@@ -1,6 +1,21 @@
-/* APP
+/* 
+App.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01750145 Miguel Ángel Pérez López
+- A01749448 Jorge Chávez Badillo
+- A01378688 Daniel Garcia Barajas
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01379868 Jared Abraham Flores Guarneros
+- A01750185 Amy Murakami Tsutsumi
+
+
+Creation date: 10/04/2022
+Last modification date: 10/06/2022
+
+Program that stores the web application and 
+its components to deploy them.
+*/
 
 //Import Modules
 import "./App.css";
@@ -13,8 +28,8 @@ import Usuario from "./components/Usuario/Usuario";
 import UserType from "./components/UserType/UserType";
 import RecordingsVideo from "./components/Recordings/RecordingsVideo";
 import Navbar from "./components/Menu/Navbar";
-import Dashboard from "./components/Dashboard/Dashboard";
-import Statistics from "./components/Statistics/Statistics";
+import Dashboard from "./components/Dashboard/DashboardQuality-agent";
+import Statistics from "./components/Statistics/StatisticsQuality-agent";
 import Settings from "./components/Settings/Settings";
 import AgentList from "./components/AgentList/AgentList";
 import { Fragment, Suspense, useContext, useEffect, useState } from "react";
@@ -41,6 +56,10 @@ import AgentRecordings from "./components/AgentRecordings/AgentRecordings";
 import { loadUserPreferences } from "./components/UserPreferences";
 import { useTime } from "react-timer-hook";
 import musica from "./music/mii.mp3";
+import DashboardAdmin from "./components/Dashboard/DashboardAdmin";
+import StatisticsAdmin from "./components/Statistics/StatisticsAdmin";
+import StatisticsQA from "./components/Statistics/StatisticsQuality-agent";
+import DashboardQA from "./components/Dashboard/DashboardQuality-agent";
 
 function App() {
   const deleteObj = () => {
@@ -61,7 +80,10 @@ function App() {
     )
       .then((response) => response.text())
       .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+      });
   };
   const refreshSystem = () => {
     deleteObj();
@@ -178,7 +200,7 @@ function App() {
                     <RequireAuthentication allowedUsers={[USER.Admin]} />
                   }
                 >
-                  <Route path="admin" element={<Dashboard />} />
+                  <Route path="admin" element={<DashboardAdmin />} />
                 </Route>
 
                 {/*Routes shared by QA and Admin*/}
@@ -197,14 +219,20 @@ function App() {
                       </AgentsAAndQASupplier>
                     }
                   />
-                  <Route path="statistics" element={<Statistics />} />
+                  <Route
+                    path="statistics"
+                    element={
+                      (getUserType === USER.Admin && <StatisticsAdmin />) ||
+                      (getUserType === USER.QA && <StatisticsQA />)
+                    }
+                  />
                 </Route>
 
                 {/*QA Routes*/}
                 <Route
                   element={<RequireAuthentication allowedUsers={[USER.QA]} />}
                 >
-                  <Route path="qa" element={<Dashboard />} />
+                  <Route path="qa" element={<DashboardQA />} />
                   <Route
                     path="recordings"
                     element={

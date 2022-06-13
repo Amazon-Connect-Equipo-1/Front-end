@@ -1,6 +1,15 @@
-/* Admin Side Bar Data
+/* 
+AdminSidebarData.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01750145 Miguel Ángel Pérez López
+- A01749448 Jorge Chávez Badillo
+
+Creation date: 15/05/2022
+Last modification date: 15/05/2022
+
+(Decripción)
+*/
 
 //Import Modules
 import React from "react";

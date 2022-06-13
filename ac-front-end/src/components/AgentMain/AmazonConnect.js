@@ -1,17 +1,21 @@
+/*
+AmazonConnect.js
+
+Authors:
+- A01378688 Daniel Garcia Barajas
+- A01749448 Jorge Chávez Badillo
+
+Creation date: 19/05/2022
+Last modification date: 09/06/2022
+
+Component that embeds the EmbedConnect component.
+*/
+
 import "amazon-connect-streams";
 import "../../styles/AgentMain/AmazonConnect.css";
 import ThirdParty from "./ThirdParty";
 import { createContext, Suspense, useEffect, useState } from "react";
 import EmbedConnect from "../AmazonConnect/EmbedConnect";
-
-/*
-
-  Component that embeds the EmbedConnect component.
-
-  Authors:
-    Daniel García
-
-*/
 
 const AmazonConnect = (props) => {
   const [auth, setAuth] = useState("");

@@ -1,6 +1,16 @@
-/* Settings
+/* 
+Settings.js
+
 Authors:
-        A01378688 Daniel Garcia
+- A01750145 Miguel Ángel Pérez López
+- A01378688 Daniel Garcia Barajas
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+
+Creation date: 04/05/2022
+Last modification date: 10/06/2022
+
+(Decripción)
 */
 
 //Import Modules
@@ -13,11 +23,15 @@ import { useTranslation } from "react-i18next";
 import LocaleContext from "../../LocaleContext";
 import i18n from "../../i18n";
 import { saveKeys, saveClick } from "../MonitorModule.js";
-import musica from "../../music/mii.mp3";
 import { useNavigate } from "react-router-dom";
 
 //Creates functions Settings and its constants
 function Settings() {
+  //Local storage for making a reload in agent main
+  if (window.localStorage.getItem("userType") === "Agent") {
+    window.localStorage.setItem("needRefresh", true);
+  }
+
   const navigate = useNavigate();
 
   const toggleMusic = () => {
@@ -113,7 +127,10 @@ function Settings() {
         const resultJSON = JSON.parse(result);
         console.log(resultJSON);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+      });
   }
 
   // Switch current text size
@@ -223,7 +240,7 @@ function Settings() {
               postPreferences();
             }}
           >
-            Restore to default
+            {t("restoreToDefault")}
           </button>
           <div className="stngs-restore-container">
             <div>

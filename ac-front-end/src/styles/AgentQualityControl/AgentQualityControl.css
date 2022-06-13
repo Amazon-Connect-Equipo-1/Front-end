@@ -1,5 +1,18 @@
-/* Initials: aqc */
+/*
+AgentQualityControl.css
 
+Authors:
+- A01378688 Daniel Garcia Barajas
+- A01379868 Jared Abraham Flores Guarneros
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 17/05/2022
+Last modification date: 06/06/2022
+
+Style to display HTML elements for AgentQualityControl.js.
+*/
+
+/* Initials: aqc */
 .aqc-main-container {
   display: flex;
   justify-content: center;
@@ -9,6 +22,7 @@
   margin: 1rem 2rem 2rem 100px;
   height: max-content;
   min-height: 85vh;
+  padding-top: 2rem;
 }
 
 .aqc-container {

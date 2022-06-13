@@ -6,8 +6,8 @@ Authors:
 - A01750185 Amy Murakami Tsutsumi
 - A01749373 Ariadna Jocelyn Guzmán Jiménez
 
-Start Date: 2022-05-26
-End Date: 2022-06-01
+Creation date: 26/05/2022
+Last modification date: 08/06/2022
 
 Program that displays the change password form interface.
 */
@@ -77,7 +77,10 @@ const NewPasswordForm = (props) => {
             navigate("/login", { replace: true });
           }
         })
-        .catch((error) => console.log("error", error));
+        .catch((error) => {
+          console.log("error", error);
+          alert(error);
+      });
     } else {
       alert(t("differentPasswords"));
     }

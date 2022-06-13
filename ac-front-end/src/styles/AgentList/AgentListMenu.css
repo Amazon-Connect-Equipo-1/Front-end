@@ -1,13 +1,22 @@
-/* CSS of AgentListMenu
-Authors:
-        A01777771 Stephen Strange*/
-/* Initials: aglm*/
+/*
+AgentListMenu.css
 
+Authors:
+- A01378688 Daniel Garcia Barajas
+- A01749448 Jorge Chávez Badillo
+
+Creation date: 05/05/2022
+Last modification date: 10/06/2022
+
+Style to display HTML elements for AgentListMenu.js.
+*/
+
+/* Initials: aglm*/
 .aglm-menu-container {
   display: flex;
   justify-content: end;
   align-items: center;
-  margin: 0 2.5rem 0 2rem;
+  margin: 0 6rem 0 6rem;
   gap: 2rem;
 }
 
@@ -22,19 +31,11 @@ Authors:
 
 .aglm-search-container {
   display: flex;
-  margin: 4.5rem 1rem 1rem 0;
-}
-
-.aglm-add {
-  font-size: var(--option-text);
-  font-weight: bold;
-  border-color: transparent;
-  padding: 1.2rem;
-  color: white;
-  background-color: #415164;
-  border-radius: 10px;
-  margin: 3.5rem auto 1rem 1rem;
-  cursor: pointer;
+  margin: 3.5rem 1rem 1rem 0;
+  padding-right: 1rem;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .aglm-search-btn {
@@ -51,10 +52,47 @@ Authors:
 
 .aglm-search {
   font-size: var(--option-text);
-  border-radius: 10px 0 0 10px;
-  padding: 1rem 1rem 1rem 2rem;
+  border-radius: 6px;
+  width: 30rem;
+  background-color: var(--sub-card-light);
 }
 
+.aglm-add,
+.aglm-refresh-btn {
+  background-color: var(--highlight-color);
+  font-size: var(--sub-option-text);
+  font-weight: bold;
+  color: var(--text-color);
+  border: none;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 15rem;
+  height: 4rem;
+}
+
+.aglm-refresh-btn:hover,
+.aglm-add:hover {
+  transform: translateY(-3px);
+  transition: 0.3s ease-out;
+  opacity: 0.9;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.aglm-add {
+  color: white;
+  margin: 3.5rem auto 1rem 1rem;
+  cursor: pointer;
+  width: 18rem;
+}
+
+.aglm-add-icon,
+.aglm-refresh-icon {
+  margin-left: 2rem;
+  font-size: var(--option-text);
+}
 .aglm-select {
   font-size: var(--option-text);
   font-weight: bold;
@@ -82,14 +120,4 @@ Authors:
   color: gray;
   font-size: var(--sub-title);
   font-weight: bold;
-}
-
-/*Media queries for AgentMenu*/
-/*****************************/
-/* BELOW 47*16 = 752px (Smaller desktops) */
-/*****************************/
-@media (max-height: 47em) {
-  .aglm-search-container {
-    margin: 3.5rem 1rem 1rem 0;
-  }
 }

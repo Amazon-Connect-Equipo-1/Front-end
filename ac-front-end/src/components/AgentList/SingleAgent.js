@@ -1,6 +1,14 @@
-/* Single Agent
+/*
+SingleAgent.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01749448 Jorge Chávez Badillo
+
+Creation date: 02/05/2022
+Last modification date: 10/06/2022
+
+(Descripción)
+*/
 
 //Import Modules
 import "../../styles/AgentList/SingleAgent.css";
@@ -16,9 +24,11 @@ import { Avatar } from "@mui/material";
 const SingleAgent = (props) => {
   const { t } = useTranslation();
 
-  const [, selectedAgent, , sendFeedback] = useContext(AgentAAndQAContext);
+  const [, selectedAgent, , sendFeedback, getAllAgentsList] =
+    useContext(AgentAAndQAContext);
   const [comment, setComment] = useState("");
   const [value, setValue] = useState(0);
+  const [giveFeedback, setGiveFeedback] = useState(false);
 
   const StyledRating = styled(Rating)({
     "& .MuiRating-iconFilled": {
@@ -34,10 +44,10 @@ const SingleAgent = (props) => {
     setComment(event.target.value);
   };
 
-  console.log("selected agent", selectedAgent);
+  // console.log("selected agent", selectedAgent);
 
   const data = {
-    labels: [t("Rating")],
+    labels: [t("rating")],
     datasets: [
       {
         data: [selectedAgent.rating, 5.0 - selectedAgent.rating],
@@ -48,14 +58,6 @@ const SingleAgent = (props) => {
     ],
   };
 
-  const getProfilePicture = () => {
-    if (props.profile_picture !== "") {
-      return props.profile_picture;
-    }
-    return profile_picture;
-  };
-
-  console.log("aofpvmrvm", selectedAgent);
   return (
     <div className="sa-main-container">
       <p className="sa-title">{selectedAgent.name}</p>
@@ -72,47 +74,74 @@ const SingleAgent = (props) => {
           }}
         />
         <div className="sa-rating-chart">
-          {/*<Doughnut data={[4.0]} />*/}
           <Pie data={data} />
         </div>
       </div>
-      <div className="sa-info-container">
-        <p className="sa-text sa-give-feedback">Give feedback:</p>
-        <div className="sa-rating-container">
-          <p className="sa-text">Rating:</p>
-          <StyledRating
-            name="sa-rating"
-            className="sa-rating"
-            value={value}
-            onChange={(event, newValue) => {
-              setValue(newValue);
-              console.log(newValue);
-            }}
-            size="large"
-          />
-        </div>
-        <p className="sa-text">{selectedAgent.description}</p>
-        {window.localStorage.getItem("userType") === "Quality-agent" && (
-          <div className="sa-feedback">
-            <textarea
-              className="sa-input"
-              type="text"
-              onChange={onChangeComment}
-              value={comment}
-            />
+      <p className="sa-text">{selectedAgent.email}</p>
+
+      {window.localStorage.getItem("userType") === "Quality-agent" && (
+        <div className="sa-info-container">
+          {!giveFeedback && (
             <button
-              className="sa-send-btn"
+              className="sa-give-feedback-btn"
               onClick={() => {
-                console.log("clcik en email de agent", selectedAgent.email);
-                sendFeedback(comment, selectedAgent.email, value);
-                setComment("");
+                setGiveFeedback(true);
               }}
             >
-              Send
+              {t("giveFeedback")}
             </button>
-          </div>
-        )}
-      </div>
+          )}
+          {giveFeedback && (
+            <>
+              <div className="sa-feedback">
+                <textarea
+                  className="sa-input"
+                  type="text"
+                  onChange={onChangeComment}
+                  value={comment}
+                  placeholder="Give Feedback"
+                />{" "}
+                <div className="sa-rating-container">
+                  <p className="sa-text">{t("rating")}</p>
+                  <StyledRating
+                    name="sa-rating"
+                    className="sa-rating"
+                    value={value}
+                    onChange={(event, newValue) => {
+                      setValue(newValue);
+                      console.log(newValue);
+                    }}
+                    size="large"
+                  />
+                </div>
+                <button
+                  className="sa-send-btn"
+                  onClick={() => {
+                    //Verify that an agent was selected and a comment was written
+                    if (selectedAgent.agent_id !== "1" && comment !== "") {
+                      getAllAgentsList();
+                      sendFeedback(comment, selectedAgent.email, value);
+                      setComment("");
+                      setGiveFeedback(false);
+                    }
+                    //else mostrat un pop up
+                  }}
+                >
+                  {t("send")}
+                </button>
+                <button
+                  className="sa-return-btn"
+                  onClick={() => {
+                    setGiveFeedback(false);
+                  }}
+                >
+                  {t("return")}
+                </button>
+              </div>
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 };

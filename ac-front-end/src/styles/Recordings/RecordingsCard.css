@@ -1,8 +1,17 @@
-/* CSS of RecordingsCard
-Authors:
-        A01777771 Stephen Strange*/
-/* Initials: rec */
+/*
+RecordingsCard.css
 
+Authors:
+- A01750145 Miguel Ángel Pérez López
+- A01378688 Daniel Garcia Barajas
+
+Creation date: 30/04/2022
+Last modification date: 10/06/2022
+
+Style to display HTML elements for RecordingsCard.js.
+*/
+
+/* Initials: rec */
 .link {
   text-decoration: none;
   font-size: inherit;
@@ -19,21 +28,9 @@ Authors:
   overflow: hidden;
   min-height: 20rem;
 }
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+.rec-main-container:hover {
+  transition: 0.3s ease-out;
+  opacity: 0.9;
 }
 
 .rec-container {
@@ -42,6 +39,22 @@ Authors:
   justify-content: center;
   gap: 3rem;
   padding: 2rem;
+}
+
+.rec-container::-webkit-scrollbar {
+  width: 3px;
+}
+
+.rec-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.rec-container::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.rec-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .rec-video-section {
@@ -110,7 +123,7 @@ Authors:
   column-gap: 2rem;
   row-gap: 1rem;
   margin-bottom: 1rem;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   overflow-x: auto;
   padding: 1rem 0 1rem 0;
 }

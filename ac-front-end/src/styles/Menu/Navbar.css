@@ -1,8 +1,17 @@
-/* CSS of NavBar
-Authors:
-        A01777771 Stephen Strange*/
-/* Initials: nav */
+/*
+Navbar.css
 
+Authors:
+- A01378688 Daniel Garcia Barajas
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 04/05/2022
+Last modification date: 01/06/2022
+
+Style to display HTML elements for Navbar.js.
+*/
+
+/* Initials: nav */
 .nav-container {
   position: relative;
   margin-bottom: 10rem;

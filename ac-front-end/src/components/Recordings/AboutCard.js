@@ -1,6 +1,14 @@
-/* About Card
+/* 
+AboutCard.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 01/05/2022
+Last modification date: 10/06/2022
+
+(Decripción)
+*/
 
 //Import Modules
 import React from "react";
@@ -63,47 +71,65 @@ const AboutCard = (props) => {
   useEffect(() => getRecordingData(), []);
 
   return (
-    <Card className="abc-main-container">
+    <div
+      className="abc-main-container"
+      style={{
+        justifyContent:
+          window.localStorage.getItem("txtSize") === "big" ? "start" : "center",
+      }}
+    >
       <div className="abc-container">
         <div className="abc-navbar">
           <h2 className="abc-title">{t("about")}</h2>
           <h2 className="abc-title" onClick={props.onChangeCard}>
-            Analysis
+            {t("analysis")}
           </h2>
         </div>
         <h2>{t("call")}</h2>
-        <h3>
-          ID: <span>{videoInfo.RecordingId}</span>
-        </h3>
-        <h3>
-          {t("duration")} <span>{videoInfo.duration}</span>
-        </h3>
-        <h3>
-          {t("startCall")} <span>{videoInfo.initialTimestamp}</span>
-        </h3>
-        <h3>
-          {t("endCall")} <span>{videoInfo.disconnectTimestamp}</span>
-        </h3>
-        <h3 className="margin-top-md">
-          {t("agent")} <span>{videoInfo.agentName}</span>
-        </h3>
-        <h2>{t("analysis")}</h2>
-        <h3>
+        <p className="abc-info-title">
+          ID: <span className="abc-call-info">{videoInfo.RecordingId}</span>
+        </p>
+        <p className="abc-info-title">
+          {t("duration")}{" "}
+          <span className="abc-call-info">{videoInfo.duration}</span>
+        </p>
+        <p className="abc-info-title">
+          {t("startCall")}{" "}
+          <span className="abc-call-info">{videoInfo.initialTimestamp}</span>
+        </p>
+        <p className="abc-info-title">
+          {t("endCall")}{" "}
+          <span className="abc-call-info">{videoInfo.disconnectTimestamp}</span>
+        </p>
+        <p className="margin-top-md abc-info-title">
+          {t("agent")}{" "}
+          <span className="abc-call-info">{videoInfo.agentName}</span>
+        </p>
+        <h2 className="abc-margin-top-md">{t("analysis")}</h2>
+        <p className="abc-info-title">
           {t("agentInterruptions")}{" "}
-          <span>{videoInfo.recordingData.AgentInterruptions}</span>
-        </h3>
-        <h3>
+          <span className="abc-call-info">
+            {videoInfo.recordingData.AgentInterruptions}
+          </span>
+        </p>
+        <p className="abc-info-title">
           {t("userInterruptions")}{" "}
-          <span>{videoInfo.recordingData.CustomerInterruptions}</span>
-        </h3>
-        <h3>
+          <span className="abc-call-info">
+            {videoInfo.recordingData.CustomerInterruptions}
+          </span>
+        </p>
+        <p className="abc-info-title">
           {t("agentSentiment")}{" "}
-          <span>{videoInfo.recordingData.OverallAgentSentiment}</span>
-        </h3>
-        <h3>
+          <span className="abc-call-info">
+            {videoInfo.recordingData.OverallAgentSentiment}
+          </span>
+        </p>
+        <p className="abc-info-title">
           {t("userSentiment")}{" "}
-          <span>{videoInfo.recordingData.OverallCustomerSentiment}</span>
-        </h3>
+          <span className="abc-call-info">
+            {videoInfo.recordingData.OverallCustomerSentiment}
+          </span>
+        </p>
         <div className="abc-tag-section">
           {getTags().map((tag) => (
             <Card key={uuidv4()} className={`rec-tag ${processTagCss(tag)} `}>
@@ -112,7 +138,7 @@ const AboutCard = (props) => {
           ))}
         </div>
       </div>
-    </Card>
+    </div>
   );
 };
 

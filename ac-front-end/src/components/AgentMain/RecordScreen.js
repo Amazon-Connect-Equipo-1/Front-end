@@ -1,3 +1,15 @@
+/*
+RecordScreen.js
+
+Authors:
+- A01378688 Daniel Garcia Barajas
+
+Creation date: 24/05/2022
+Last modification date: 24/05/2022
+
+(Descripción)
+*/
+
 import React from "react";
 import "../../styles/AgentMain/RecordScreen.css";
 import { VscRecord } from "react-icons/vsc";

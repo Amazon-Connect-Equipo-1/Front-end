@@ -1,6 +1,16 @@
-/* Recordings
+/*
+AgentRecordings.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01750145 Miguel Ángel Pérez López
+- A01750145 Miguel Ángel Pérez López
+- A01379868 Jared  Abraham Flores Guarneros
+
+Creation date: 25/05/2022
+Last modification date: 10/06/2022
+
+(Descripción)
+*/
 
 //Import Modules
 
@@ -93,18 +103,22 @@ const AgentRecordings = () => {
                 {t("search")}
               </button>
             </div>
-            {arrAgentRecordings.map((recordInfo) => (
-              <RecordingsCard
-                recordingId={recordInfo.RecordingId}
-                agentId={recordInfo.agentId}
-                key={recordInfo.RecordingId}
-                date={recordInfo.initialTimestamp}
-                agentName={recordInfo.agentName}
-                thumbnail={recordInfo.thumbnail}
-                tags={recordInfo.tags}
-                origin="agentRecordings"
-              />
-            ))}
+            {arrAgentRecordings.length > 0 &&
+              arrAgentRecordings.map((recordInfo) => (
+                <RecordingsCard
+                  recordingId={recordInfo.RecordingId}
+                  agentId={recordInfo.agentId}
+                  key={recordInfo.RecordingId}
+                  date={recordInfo.initialTimestamp}
+                  agentName={recordInfo.agentName}
+                  thumbnail={recordInfo.thumbnail}
+                  tags={recordInfo.tags}
+                  origin="agentRecordings"
+                />
+              ))}
+            {arrAgentRecordings.length === 0 && (
+              <p className="arc-no-recordings">{t("noRecordings")}</p>
+            )}
           </div>
         </div>
       )}

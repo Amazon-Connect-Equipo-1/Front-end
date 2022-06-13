@@ -1,6 +1,16 @@
-/* CSS of Tutorials
+/*
+Tutorials.css
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01378688 Daniel Garcia Barajas
+- A01750185 Amy Murakami Tsutsumi
+
+Creation date: 14/05/2022
+Last modification date: 10/06/2022
+
+Style to display HTML elements for TutorialsContainer.js.
+*/
+
 /*
 form {
   margin: 30px 0px;
@@ -89,7 +99,7 @@ span {
   cursor: pointer;
 }
 .t-select {
-  background-color: var(--highlight-color);
+  background-color: var(--sub-card-light);
   font-size: var(--option-text);
   font-weight: bold;
   border-radius: 6px;

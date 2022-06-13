@@ -9,16 +9,17 @@ import { AdminSidebarData } from "./AdminSidebarData";
 import { AgentSidebarData } from "./AgentSidebarData";
 import "../../styles/Menu/Navbar.css";
 import { IconContext } from "react-icons";
-import { FaUserCircle } from "react-icons/fa";
 import { t } from "i18next";
 import React, { useContext, useState } from "react";
 import ReactTooltip from "react-tooltip";
 import { GlobalContext } from "../GlobalSupplier";
 import { useTranslation } from "react-i18next";
+import { Avatar } from "@mui/material";
 
 const Navbar = (props) => {
-  //funcion para poner el nombre del admin o quality analyst
-  // const [, , userInfo] = useContext(GlobalContext);
+  //Obtain the status
+  //If the agent status == "In call", the navbar should dissapear
+  const [, , , , , agentStatus] = useContext(GlobalContext);
 
   const getSidebarData = () => {
     const sidebarData = props.sidebarData + "SidebarData";
@@ -68,11 +69,27 @@ const Navbar = (props) => {
             onClick={(e) => {
               setText(t("welcomeText") + ", " + username);
             }}
+            style={{
+              textDecoration: "none",
+              textDecorationLine: "none",
+            }}
           >
-            <FaUserCircle className="nav-user-icon" />
+            <Avatar
+              alt={window.localStorage.getItem("name")}
+              src={window.localStorage.getItem("profile_picture")}
+              className="nav-user-icon"
+              sx={{
+                bgcolor: "var(--highlight-color)",
+                height: 60,
+                width: 60,
+                fontSize: 20,
+              }}
+            />
           </Link>
         </div>
         <nav className="nav-menu">
+          {/* If the agent is in call this will hide the navbar */}
+
           <ul className="nav-menu-items">
             {getSidebarData().map((item, index) => {
               return (
@@ -91,10 +108,15 @@ const Navbar = (props) => {
                         setText(t("welcomeText") + ", " + username);
                       }
                     }}
+                    style={{
+                      pointerEvents:
+                        agentStatus === "" || agentStatus !== "Active"
+                          ? "all"
+                          : "none",
+                    }}
                   >
                     {item.icon}
                   </Link>
-
                   <ReactTooltip
                     classname="tool-tip"
                     id={item.title}

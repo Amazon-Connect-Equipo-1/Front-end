@@ -1,13 +1,21 @@
-/* Statistics
+/* 
+StatisticsQuality-agent.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+
+Creation date: 09/06/2022
+Last modification date: 09/06/2022
+
+(Decripción)
+*/
 
 //Import Modules
 import React from "react";
 import "../../styles/Dashboard/SingleDashboard.css";
 import "../../styles/Dashboard/Dashboard.css";
 
-const Statistics = (props) => {
+const StatisticsQA = (props) => {
   return (
     <div className="dsb-main-container" data-aos="fade-up">
       <div
@@ -18,7 +26,7 @@ const Statistics = (props) => {
         <div className="sdsb-main-container-statistics">
           <iframe
             className="sdsb-quicksight-statistics"
-            src="https://us-west-2.quicksight.aws.amazon.com/sn/embed/share/accounts/559202700801/dashboards/3299fbda-f0a9-4aa1-98fc-b9dbcb57a7e0?directory_alias=amazonconnectbancos"
+            src="https://us-west-2.quicksight.aws.amazon.com/sn/embed/share/accounts/559202700801/dashboards/5b9ac8c9-d9e4-4a28-a93b-b1ea030d9dec?directory_alias=amazonconnectbancos"
           ></iframe>
         </div>
       </div>
@@ -26,4 +34,4 @@ const Statistics = (props) => {
   );
 };
 
-export default Statistics;
+export default StatisticsQA;

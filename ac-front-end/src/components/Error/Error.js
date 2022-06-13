@@ -1,6 +1,14 @@
-/* Error
+/*
+Error.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 15/05/2022
+Last modification date: 15/05/2022
+
+(Descripción)
+*/
 
 //Import Modules
 import React from "react";

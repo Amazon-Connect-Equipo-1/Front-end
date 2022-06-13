@@ -1,6 +1,15 @@
-/* CSS of App
+/*
+App.css
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01378705 Israel Sánchez Miranda
+
+Creation date: 10/04/2022
+Last modification date: 10/04/2022
+
+Style to display HTML elements for App.js.
+*/
+
 * {
   margin: 0;
   box-sizing: border-box;

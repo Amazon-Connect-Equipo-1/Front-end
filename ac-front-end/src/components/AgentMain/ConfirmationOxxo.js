@@ -1,9 +1,18 @@
-/* O
+/*
+ConfirmationOxxo.js
+
 Authors:
-        A01379868 Jared Abraham Flores Guarneros*/
+- A01379868 Jared Abraham Flores Guarneros
+
+Creation date: 30/05/2022
+Last modification date: 10/06/2022
+
+(Descripción)
+*/
 
 //Import Modules
 import "../../styles/AgentMain/ThirdParty.css";
+import { useTranslation } from "react-i18next";
 import uberlogo from "../../images/uber.png";
 import { createContext, Suspense, useState } from "react";
 
@@ -87,75 +96,99 @@ const ConfirmationOxxo = (props) => {
     fetch("https://backtest.bankonnect.link/tps/sendService", requestOptions)
       .then((response) => response.text())
       .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+    });
   };
+  // Language
+  const { t } = useTranslation();
 
   return (
     <div className="tp-confirmation">
-      <div className="tp-title">
-        Service Confirmation
-        {conf === "yes" && (
-          <div>
-            <div className="tp-confirmation-text">Informacion Enviada!</div>
-            <div className="tp-confirmation-button-container">
-              <button
-                className="tp-confirmation-button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  pruebaBackTPS();
-                  restart();
-                  props.onChange();
-                }}
-              >
-                confirmado
-              </button>
-            </div>
+      <div className="tp-title">{t("serviceConfirmation")}</div>
+      {conf === "yes" && (
+        <div>
+          <div className="tp-confirmation-text">{t("informationSent")}</div>
+          <div className="tp-confirmation-button-container">
+            <button
+              className="tp-submit-button"
+              onClick={(e) => {
+                e.preventDefault();
+                pruebaBackTPS();
+                restart();
+                props.onChange();
+              }}
+            >
+              {t("return")}
+            </button>
           </div>
-        )}
-        {conf === "no" && (
-          <div>
-            <div className="tp-confirmation-text">
-              Client: {client}
-              <br />
-              mail: {email}
-              <br />
-              Cellphone: {cellphone}
-              <br />
-              Client location: {clientLocation}
-              <br />
-              OXXO INFO:
-              <br />
-              Street: {street}
-              <br />
-              State: {state}
-              <br />
-              Colony: {colony}
-              <br />
-              Zip Code: {zipCode}
-              <br />
-              Country: {country}
-              <br />
-              Quantity: {quantity}
-              <br />
-              Account Number: {accountNumber}
-              <br />
-              Reference: {reference}
-              <br />
-            </div>
-            <div className="tp-confirmation-button-container">
-              <button
-                className="tp-confirmation-button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  changeConfig();
-                }}
-              >
-                Mandar info
-              </button>
-            </div>
+        </div>
+      )}
+      {conf === "no" && (
+        <>
+          <div className="tp-confirmation-container">
+            <p>
+              {t("client")}
+              <span className="tp-confirmation-text">{client}</span>
+            </p>
+            <p>
+              {t("email")}
+              <span className="tp-confirmation-text">{email}</span>
+            </p>
+            <p>
+              {t("cellPhone")}
+              <span className="tp-confirmation-text">{cellphone}</span>
+            </p>
+            <p>
+              {t("clientLocation")}
+              <span className="tp-confirmation-text">{clientLocation}</span>
+            </p>
+            <p>{t("oxxoInfo")}</p>
+            <p>
+              {t("street")}
+              <span className="tp-confirmation-text">{street}</span>
+            </p>
+            <p>
+              {t("state")}
+              <span className="tp-confirmation-text">{state}</span>
+            </p>
+            <p>
+              {t("colony")}
+              <span className="tp-confirmation-text">{colony}</span>
+            </p>
+            <p>
+              {t("zipCode")}
+              <span className="tp-confirmation-text">{zipCode}</span>
+            </p>
+            <p>
+              {t("country")}
+              <span className="tp-confirmation-text">{country}</span>
+            </p>
+            <p>
+              {t("quantity")}
+              <span className="tp-confirmation-text">{quantity}</span>
+            </p>
+            <p>
+              {t("accountNumber")}
+              <span className="tp-confirmation-text">{accountNumber}</span>
+            </p>
+            <p>
+              {t("reference")}
+              <span className="tp-confirmation-text">{reference}</span>
+            </p>
           </div>
-        )}
-      </div>
+          <button
+            className="tp-submit-button"
+            onClick={(e) => {
+              e.preventDefault();
+              changeConfig();
+            }}
+          >
+            {t("sendInfo")}
+          </button>
+        </>
+      )}
     </div>
   );
 };

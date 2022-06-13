@@ -1,6 +1,16 @@
-/* CSS of Settings
+/*
+Settings.css
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01750145 Miguel Ángel Pérez López
+- A01378688 Daniel Garcia Barajas
+
+Creation date: 04/05/2022
+Last modification date: 10/06/2022
+
+Style to display HTML elements for Settings.js.
+*/
+
 .stngs-main-container {
   display: flex;
   flex-direction: column;
@@ -36,6 +46,7 @@ Authors:
   padding: 1.2rem;
   background-color: var(--sub-card-background);
   color: var(--text-color);
+  cursor: pointer;
 }
 .stngs-restore-container {
   padding: 2rem;
@@ -63,6 +74,12 @@ Authors:
   align-items: center;
   justify-content: center;
   border-radius: 10px;
+}
+.stngs-music-btn:hover {
+  transform: translateY(-3px);
+  transition: 0.3s ease-out;
+  opacity: 0.9;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 .stngs-music {
   font-size: var(--option-text);

@@ -1,9 +1,18 @@
-/* O
+/*
+Confirmation.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01379868 Jared Abraham Flores Guarneros
+
+Creation date: 10/06/2022
+Last modification date: 10/06/2022
+
+(Descripción)
+*/
 
 //Import Modules
 import "../../styles/AgentMain/ThirdParty.css";
+import { useTranslation } from "react-i18next";
 import uberlogo from "../../images/uber.png";
 import { createContext, Suspense, useState } from "react";
 
@@ -33,7 +42,10 @@ const Confirmation = (props) => {
         console.log(result);
         console.log(resultJSON);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+    });
   };
 
   const recordByTag = (event) => {
@@ -66,7 +78,10 @@ const Confirmation = (props) => {
         console.log(result);
         console.log(resultJSON);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+    });
   };
   const recordByDate = (event) => {
     const email = "luiszamarripam@bankonnect.link";
@@ -99,14 +114,19 @@ const Confirmation = (props) => {
         console.log(result);
         console.log(resultJSON);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+    });
   };
+  // Language
+  const { t } = useTranslation();
 
   return (
     <div className="tp-confirmation">
-      <div className="tp-title">Service Confirmation</div>
-      <button onClick={recordByAgent}>agent</button>
-      <button onClick={recordByTag}>tags</button>
+      <div className="tp-title">{t("serviceConfirmation")}</div>
+      <button onClick={recordByAgent}>{t("agentBtn")}</button>
+      <button onClick={recordByTag}>{t("tags")}</button>
     </div>
   );
 };

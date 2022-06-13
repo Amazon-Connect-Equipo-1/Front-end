@@ -1,8 +1,16 @@
-/* CSS of UserTypeForm
-Authors:
-        A01777771 Stephen Strange*/
-/*Initials: utf*/
+/*
+UserTypeForm.css
 
+Authors:
+- A01750185 Amy Murakami Tsutsumi
+
+Creation date: 02/05/2022
+Last modification date: 02/05/2022
+
+Style to display HTML elements for UserTypeForm.js.
+*/
+
+/*Initials: utf*/
 /* Main tags */
 .utf-button {
   font-size: 2rem;

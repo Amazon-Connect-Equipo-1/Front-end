@@ -1,6 +1,14 @@
-/* AgentsAAndQASupplier
+/* 
+AgentRecordingsSupplier.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 17/05/2022
+Last modification date: 10/06/2022
+
+(Descripción)
+*/
 
 //Import Modules
 import { use } from "i18next";
@@ -18,11 +26,24 @@ const AgentsAAndQASupplier = ({ children }) => {
   const dummyAgents = [
     {
       agent_id: "1",
-      name: "Select one agent",
+      name: t("selectAgent"),
       description: "",
       status: true,
     },
   ];
+
+  //Recordings Array
+  const [arrAgents, setArrAgents] = useState(dummyAgents);
+  const [selectedAgent, setSelectedAgent] = useState(...dummyAgents); //needs a function if arr is not empty show the first one
+  // console.log("selected agetn", selectedAgent);
+
+  const changeSelectedAgent = (id) => {
+    //verify if list is not empty
+    // console.log(id);
+    const agentInfo = arrAgents.filter((agent) => agent.agent_id === id);
+    // console.log(agentInfo);
+    setSelectedAgent(...agentInfo);
+  };
 
   const getAllAgentsList = (event) => {
     //---------------------------------------------AGENTES EN LINEA, DESCONECTADOS, EN LLAMADA
@@ -44,33 +65,27 @@ const AgentsAAndQASupplier = ({ children }) => {
       .then((response) => response.text())
       .then((result) => {
         const resultJSON = JSON.parse(result).agents;
-        console.log(resultJSON);
+        // console.log(resultJSON);
         setArrAgents([...resultJSON]);
+        console.log(resultJSON);
+        if (resultJSON.length > 0) {
+          if (selectedAgent.agent_id === "1") {
+            console.log("oh no");
+            setSelectedAgent(resultJSON[0]);
+          } else {
+            console.log("oh si");
+            console.log(selectedAgent);
+            changeSelectedAgent(selectedAgent.agent_id);
+          }
+        }
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        alert(error);
+        console.log("error", error);
+      });
   };
 
-  useEffect(() => getAllAgentsList(), []);
-
-  //Recordings Array
-  const [arrAgents, setArrAgents] = useState(dummyAgents);
-  const [selectedAgent, setSelectedAgent] = useState(...dummyAgents); //needs a function if arr is not empty show the first one
-  console.log("selected agetn", selectedAgent);
-  const getAllAgents = () => {
-    //Petition to obtain all videos miniatures
-  };
-
-  const getAgent = (videoId) => {};
-
-  const changeSelectedAgent = (id) => {
-    //verify if list is not empty
-    console.log(id);
-    const agentInfo = arrAgents.filter((agent) => agent.agent_id === id);
-    console.log(agentInfo);
-    setSelectedAgent(...agentInfo);
-  };
-
-  const giveFeedback = (commentt, agentEmail, givenRating) => {
+  const sendFeedback = (commentt, agentEmail, givenRating) => {
     const myHeaders = new Headers();
     const token = window.localStorage.getItem("token");
     myHeaders.append("Authorization", `Bearer ${token}`);
@@ -95,9 +110,18 @@ const AgentsAAndQASupplier = ({ children }) => {
       requestOptions
     )
       .then((response) => response.text())
-      .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        alert(error);
+        console.log("error", error);
+      });
   };
+
+  useEffect(() => {
+    getAllAgentsList();
+  }, []);
 
   return (
     <AgentAAndQAContext.Provider
@@ -105,7 +129,7 @@ const AgentsAAndQASupplier = ({ children }) => {
         arrAgents,
         selectedAgent,
         changeSelectedAgent,
-        giveFeedback,
+        sendFeedback,
         getAllAgentsList,
       ]}
     >

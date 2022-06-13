@@ -1,8 +1,17 @@
-/* CSS of SingleAgent
-Authors:
-        A01777771 Stephen Strange*/
-/*Initials: sa*/
+/*
+SingleAgent.css
 
+Authors:
+- A01378688 Daniel Garcia Barajas
+- A01749448 Jorge Chávez Badillo
+
+Creation date: 02/05/2022
+Last modification date: 10/06/2022
+
+Style to display HTML elements for SingleAgent.js.
+*/
+
+/*Initials: sa*/
 .sa-main-container {
   width: 40rem;
   background-color: var(--sub-card-background);
@@ -10,7 +19,7 @@ Authors:
   border-radius: 10px;
   box-shadow: 0 2.4rem 4.8rem rgb(0 0 0 / 15%);
   height: 50rem;
-  padding: 1rem;
+  padding: 2rem;
   overflow-y: auto;
 }
 
@@ -27,6 +36,7 @@ Authors:
   align-items: center;
   gap: 1rem;
   margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .sa-rating-chart {
@@ -52,19 +62,16 @@ Authors:
   grid-template-columns: 1fr 1fr;
 }
 
-.sa-give-feedback {
+.sa-email {
+  font-size: var(--sub-option-text);
+  font-weight: 300;
   margin-top: 2rem;
-}
-
-.sa-rating {
-  align-self: center;
+  /* text-align: center; */
 }
 
 .sa-text {
   font-size: var(--sub-option-text);
   font-weight: 300;
-  margin-left: 2rem;
-  margin-right: 2rem;
   text-align: center;
 }
 
@@ -74,20 +81,23 @@ Authors:
   justify-content: center;
   align-items: stretch;
   gap: 2rem;
-  padding: 0 2rem 0 2rem;
+  margin-top: 2rem;
+  padding: 0 1rem;
 }
 
 .sa-rating-container {
   display: flex;
-  gap: 1rem;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
 }
 
 .sa-feedback {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
+  padding: 2rem;
 }
 
 .sa-input {
@@ -96,14 +106,16 @@ Authors:
   /* display: block; */
   padding: 1rem 0.6rem 0.6rem 1.2rem;
   border: none;
-  font-size: 2rem;
+  font-size: var(--sub-option-text);
   border-radius: 10px;
   border: 2px solid var(--highlight-color) !important;
   /* transition: width 0.4s ease-in-out; */
 }
 
-.sa-send-btn {
-  font-size: var(--sub-option-text);
+.sa-send-btn,
+.sa-give-feedback-btn,
+.sa-return-btn {
+  font-size: var(--option-text);
   font-weight: 700;
   text-align: center;
   background-color: var(--highlight-color);
@@ -113,13 +125,29 @@ Authors:
   color: var(--text-color);
   border: none;
 }
+
+.sa-give-feedback-btn {
+  margin-top: 2rem;
+  height: 6rem;
+}
+
+.sa-return-btn {
+  margin-top: 1rem;
+}
+
+.sa-send-btn:hover {
+  transform: translateY(-3px);
+  transition: 0.3s ease-out;
+  opacity: 0.9;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
 /*Media queries for SingleAgent*/
 /*****************************/
 /* BELOW 47*16 = 752px (Smaller desktops) */
 /*****************************/
 @media (max-height: 47em) {
   .sa-main-container {
-    min-height: 45rem;
+    height: 45rem;
   }
 }
 
@@ -128,6 +156,6 @@ Authors:
 /*****************************/
 @media (max-height: 42.5em) {
   .sa-main-container {
-    min-height: 40rem;
+    height: 40rem;
   }
 }

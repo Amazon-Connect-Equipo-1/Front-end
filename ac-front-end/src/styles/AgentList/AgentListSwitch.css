@@ -1,6 +1,15 @@
-/* CSS of AgentListSwitch
+/*
+AgentListSwitch.css
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01379868 Jared Abraham Flores Guarneros
+
+Creation date: 04/05/2022
+Last modification date: 04/05/2022
+
+Style to display HTML elements for AgentListSwitch.js.
+*/
+
 .al-switch {
   position: relative;
   display: inline-block;

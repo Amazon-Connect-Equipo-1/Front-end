@@ -1,6 +1,15 @@
-/* About Card
+/* 
+RecordingsCharts.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01750145 Miguel Ángel Pérez López
+- A01378688 Daniel Garcia Barajas
+
+Creation date: 09/06/2022
+Last modification date: 10/06/2022
+
+(Decripción)
+*/
 
 //Import Modules
 
@@ -39,9 +48,9 @@ const RecordingsChart = (props) => {
     labels: sentimentOverall,
     datasets: [
       {
-        label: t("labelOverall"),
-        backgroundColor: "#FFFFFF",
-        borderColor: "#000000",
+        backgroundColor: "#9facbd",
+        borderColor: "#9facbd",
+        label: t("labelPer"),
         borderWidth: 1,
         data: dataSentimentOverall,
       },
@@ -49,14 +58,14 @@ const RecordingsChart = (props) => {
   };
 
   const stateLine = {
-    labels: [0, 1, 2, 3],
+    labels: ["Q1", "Q2", "Q3", "Q4"],
     datasets: [
       {
-        label: t("labelQuarter"),
+        label: t("labelSent"),
         fill: false,
         lineTension: 0.5,
-        backgroundColor: "#FFFFFF",
-        borderColor: "#FFFFFF",
+        backgroundColor: "#9facbd",
+        borderColor: "#9facbd",
         borderWidth: 1,
         data: props.sentimentByQuarter,
       },
@@ -65,47 +74,54 @@ const RecordingsChart = (props) => {
 
   return (
     <Card className="recc-main-container">
-      <div className="recc-navbar">
-        <h2 className="recc-title" onClick={props.onChangeCard}>
-          {t("about")}
-        </h2>
-        <h2 className="recc-title">Analysis</h2>
-      </div>
       <div className="recc-container">
+        <div className="recc-navbar">
+          <h2 className="recc-title" onClick={props.onChangeCard}>
+            {t("about")}
+          </h2>
+          <h2 className="recc-title">{t("analysis")}</h2>
+        </div>
         <div>
           <Bar
+            style={{ height: "20rem" }}
             data={stateBar}
             options={{
-              title: {
-                display: true,
-                text: "Sentiments analysis",
-                fontSize: 20,
-                fontColor: "#FFFFFF",
-              },
-              legend: {
-                display: true,
-                position: "right",
-              },
               responsive: true,
               maintainAspectRatio: false,
+              plugins: {
+                legend: {
+                  display: false,
+                  position: "up",
+                },
+                title: {
+                  display: true,
+                  fontSize: 20,
+                  text: t("labelOverall"),
+                  fontColor: "#9facbd",
+                },
+              },
             }}
           />
         </div>
         <div>
           <Line
+            style={{ height: "20rem" }}
             data={stateLine}
             options={{
-              title: {
-                display: true,
-                text: "Sentiment analysis",
-                fontSize: 20,
-              },
-              legend: {
-                display: true,
-                position: "right",
-              },
               responsive: true,
               maintainAspectRatio: false,
+              plugins: {
+                legend: {
+                  display: true,
+                  position: "bottom",
+                },
+                title: {
+                  display: true,
+                  fontSize: 20,
+                  text: t("labelQuarter"),
+                  fontColor: "#FFFFFF",
+                },
+              },
             }}
           />
         </div>

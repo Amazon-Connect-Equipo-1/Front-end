@@ -1,6 +1,14 @@
-/* Recordings Suppliers
+/* 
+AgentRecordingsSupplier.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01750145 Miguel Ángel Pérez López
+
+Creation date: 25/05/2022
+Last modification date: 06/06/2022
+
+(Descripción)
+*/
 
 //Import Modules
 import { createContext, useEffect, useState } from "react";
@@ -163,7 +171,10 @@ const AgentRecordingsSupplier = ({ children }) => {
         console.log(resultJSON);
         setArrRecordings([...resultJSON]);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        alert(error);
+      });
   };
 
   useEffect(() => getRecordsByAgent(), []);
