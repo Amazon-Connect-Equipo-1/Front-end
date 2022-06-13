@@ -64,12 +64,12 @@ const AddManager = (props) => {
   const changeConfigRoleA = () => {
     setRoleA("adu-AdminP-btn");
     setRoleQ("adu-QA-btn");
-    setRole(true);
+    setRole(false);
   };
   const changeConfigRoleQ = () => {
     setRoleA("adu-Admin-btn");
     setRoleQ("adu-QAP-btn");
-    setRole(false);
+    setRole(true);
   };
   const addManager = (event) => {
     const name = window.localStorage.getItem("name");
@@ -107,7 +107,7 @@ const AddManager = (props) => {
       .catch((error) => {
         console.log("error", error);
         toast.error(error);
-    });
+      });
   };
   return (
     <div className="adu-container">
