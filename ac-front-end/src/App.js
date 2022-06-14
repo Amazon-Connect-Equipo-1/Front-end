@@ -24,14 +24,11 @@ import RecoverPassword from "./components/Login/RecoverPassword";
 import Profile from "./components/Profile/Profile";
 import Recordings from "./components/Recordings/Recordings";
 import Usuario from "./components/Usuario/Usuario";
-import UserType from "./components/UserType/UserType";
 import RecordingsVideo from "./components/Recordings/RecordingsVideo";
 import Navbar from "./components/Menu/Navbar";
-import Dashboard from "./components/Dashboard/DashboardQuality-agent";
-import Statistics from "./components/Statistics/StatisticsQuality-agent";
 import Settings from "./components/Settings/Settings";
 import AgentList from "./components/AgentList/AgentList";
-import { Fragment, Suspense, useContext, useEffect, useState } from "react";
+import { Suspense, useContext, useEffect, useState } from "react";
 import LocaleContext from "./LocaleContext";
 import i18n from "./i18n";
 import Loading from "./components/Loading";
@@ -40,18 +37,15 @@ import Error from "./components/Error/Error";
 import AgentMain from "./components/AgentMain/AgentMain";
 import QualityControl from "./components/QualityControl/QualityControl";
 import AgentsAAndQASupplier from "./components/AgentsAAndQASupplier";
-import GlobalSupplier, { GlobalContext } from "./components/GlobalSupplier";
-import NewPassword from "./components/Login/NewPassword";
+import GlobalSupplier from "./components/GlobalSupplier";
 import "amazon-connect-streams";
-import { Navigate, Route, Router, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { AuthenticationContext } from "./components/Authentication";
-import AgentRecordingsSupplier from "./components/AgentRecordingsSupplier";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Layout from "./components/Layout";
 import RequireAuthentication from "./components/RequireAuthentication";
 import NewPasswordForm from "./components/Login/NewPasswordForm";
-import AgentRecordings from "./components/AgentRecordings/AgentRecordings";
 import { loadUserPreferences } from "./components/UserPreferences";
 import { useTime } from "react-timer-hook";
 import musica from "./music/mii.mp3";
@@ -60,6 +54,7 @@ import StatisticsAdmin from "./components/Statistics/StatisticsAdmin";
 import StatisticsQA from "./components/Statistics/StatisticsQuality-agent";
 import DashboardQA from "./components/Dashboard/DashboardQuality-agent";
 import toast, { Toaster } from "react-hot-toast";
+import About from "./components/Login/About";
 
 function App() {
   const deleteObj = () => {
@@ -116,8 +111,6 @@ function App() {
   // Authentication
   const [user, , userType, , logout] = useContext(AuthenticationContext);
 
-  //console.log(user);
-  //console.log(userType);
   const getUserType = window.localStorage.getItem("userType");
 
   const location = useLocation();
@@ -136,7 +129,6 @@ function App() {
     ) {
       loadUserPreferences(window.localStorage.getItem("id"));
     }
-    //const music = window.localStorage.setItem("music", "pause");
     music = localStorage.getItem("music");
   }, []);
 
@@ -171,6 +163,7 @@ function App() {
               <Route path="/" element={<Layout />}>
                 {/*Public Routes*/}
                 <Route path="login" element={<Login />} />
+                <Route path="login/about" element={<About />} />
                 <Route path="forgot-password" element={<RecoverPassword />} />
                 <Route path="confirm-password" element={<NewPasswordForm />} />
                 {/* <Route path="client" element={<Usuario />} /> */}

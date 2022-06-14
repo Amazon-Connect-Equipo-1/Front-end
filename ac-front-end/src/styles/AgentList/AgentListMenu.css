@@ -71,6 +71,7 @@ Style to display HTML elements for AgentListMenu.js.
   cursor: pointer;
   width: 15rem;
   height: 4rem;
+  transition: all 0.3s ease-out;
 }
 
 .aglm-refresh-btn:hover,

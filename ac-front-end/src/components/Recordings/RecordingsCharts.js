@@ -106,7 +106,7 @@ const RecordingsChart = (props) => {
             }}
           />
         </div>
-        <div>
+        <div className="recc-margin-top-lg">
           <Line
             style={{ height: "20rem" }}
             data={stateLine}

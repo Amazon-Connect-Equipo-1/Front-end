@@ -17,7 +17,6 @@ import { MdDashboard } from "react-icons/md";
 import { FiUsers, FiTrendingUp } from "react-icons/fi";
 import { IoSettingsSharp } from "react-icons/io5";
 import { VscRecord } from "react-icons/vsc";
-import { t } from "i18next";
 
 export const QASidebarData = [
   {

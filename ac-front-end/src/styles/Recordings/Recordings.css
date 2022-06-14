@@ -101,10 +101,11 @@ Style to display HTML elements for Recordings.js.
   cursor: pointer;
   width: 15rem;
   height: 4rem;
+  transition: all 0.3s ease-out;
 }
 .re-refresh-btn:hover {
   transform: translateY(-3px);
-  transition: 0.3s ease-out;
+  transition: all 0.3s ease-out;
   opacity: 0.9;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }

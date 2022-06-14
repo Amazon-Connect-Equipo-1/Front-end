@@ -124,22 +124,28 @@ Style to display HTML elements for SingleAgent.js.
   cursor: pointer;
   color: var(--text-color);
   border: none;
+  transition: all 0.3s ease-out;
 }
 
 .sa-give-feedback-btn {
   margin-top: 2rem;
   height: 6rem;
+  transition: all 0.3s ease-out;
 }
 
 .sa-return-btn {
   margin-top: 1rem;
+  transition: all 0.3s ease-out;
 }
 
+.sa-return-btn:hover,
+.sa-give-feedback-btn:hover,
 .sa-send-btn:hover {
   transform: translateY(-3px);
   transition: 0.3s ease-out;
   opacity: 0.9;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-out;
 }
 /*Media queries for SingleAgent*/
 /*****************************/

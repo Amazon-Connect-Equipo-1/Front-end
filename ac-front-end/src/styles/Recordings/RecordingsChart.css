@@ -54,3 +54,7 @@ Style to display HTML elements for RecordingsChart.js.
   color: var(--highlight-color);
   cursor: pointer;
 }
+
+.recc-margin-top-lg {
+  margin-top: 5rem;
+}

@@ -74,12 +74,14 @@ Style to display HTML elements for Settings.js.
   align-items: center;
   justify-content: center;
   border-radius: 10px;
+  transition: all 0.3s ease-out;
 }
 .stngs-music-btn:hover {
   transform: translateY(-3px);
   transition: 0.3s ease-out;
   opacity: 0.9;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-out;
 }
 .stngs-music {
   font-size: var(--option-text);

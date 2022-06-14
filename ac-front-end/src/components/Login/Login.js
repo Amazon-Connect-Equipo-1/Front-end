@@ -18,15 +18,17 @@ import logo from "../../images/logo_bbva.png";
 import LoginForm from "./LoginForm";
 import About from "./About";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Login = (props) => {
   document.body.classList.add("dark");
   const [showAbout, setShowAbout] = useState(false);
-  //poner página de jared
   const onShowAbout = () => {
     setShowAbout(!showAbout);
   };
-
+  // Language
+  const { t } = useTranslation();
   if (!showAbout) {
     return (
       <div className="log-main-container">
@@ -34,9 +36,9 @@ const Login = (props) => {
           <img src={logo} alt="logo" className="log-logo" />
           <LoginForm />
         </div>
-        <button className="log-about" onClick={onShowAbout}>
-          About
-        </button>
+        <Link to="about" className="log-about" onClick={onShowAbout}>
+          {t("about")}
+        </Link>
       </div>
     );
   } else {
