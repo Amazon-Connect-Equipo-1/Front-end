@@ -7,7 +7,7 @@ Authors:
 Creation date: 12/05/2022
 Last modification date: 12/05/2022
 
-(Descripción)
+Program that shows the language selected. 
 */
 
 //Import Modules

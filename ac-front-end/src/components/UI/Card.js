@@ -7,7 +7,7 @@ Authors:
 Creation date: 29/04/2022
 Last modification date: 29/04/2022
 
-(Decripción)
+Program that contains the template of a card. 
 */
 
 //Import Modules

@@ -3,11 +3,14 @@ AgentRow.js
 
 Authors:
 - A01749448 Jorge Chávez Badillo
+- A01378688 Daniel Garcia Barajas
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750185 Amy Murakami Tsutsumi
 
 Creation date: 02/05/2022
 Last modification date: 09/06/2022
 
-(Descripción)
+Component that contains the information of an agent.
 */
 
 //Import Modules

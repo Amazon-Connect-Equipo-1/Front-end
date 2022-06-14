@@ -23,7 +23,7 @@ import Jared from "../../images/Collabs/Jared.jpg";
 import AriadnaH from "../../images/Collabs/AriadnaH.jpg";
 import Liam from "../../images/Collabs/Liam.jpg";
 import David from "../../images/Collabs/David.jpg";
-import ErickH from "../../images/Collabs/Victor.jpg";
+import ErickH from "../../images/Collabs/ErikH.jpg";
 import Mike from "../../images/Collabs/Mike.jpg";
 import Dany from "../../images/Collabs/Dany.jpg";
 import Jorge from "../../images/Collabs/Jorge.jpg";

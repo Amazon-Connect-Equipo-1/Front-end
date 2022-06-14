@@ -4,11 +4,14 @@ PoliceForm.js
 Authors:
 - A01379868 Jared Abraham Flores Guarneros
 - A01750145 Miguel Ángel Pérez López
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750185 Amy Murakami Tsutsumi
 
 Creation date: 17/05/2022
 Last modification date: 10/06/2022
 
-(Descripción)
+Component that displays the fields to be filled in by the agent to use the Police service. 
 */
 
 //Import Modules
@@ -17,7 +20,6 @@ import ThirdParty from "./ThirdParty";
 import { saveKeys, saveClick } from "../MonitorModule.js";
 import { useTranslation } from "react-i18next";
 import { useContext, useState } from "react";
-import Confirmation from "./Confirmation";
 import ConfirmationPolice from "./ConfirmationPolice";
 import { GlobalContext } from "../GlobalSupplier";
 import toast from "react-hot-toast";
@@ -136,7 +138,7 @@ const PoliceForm = (props) => {
       .catch((error) => {
         console.log("error", error);
         toast.error(error);
-    });
+      });
   };
 
   // console.log(emailInput.includes("@"));

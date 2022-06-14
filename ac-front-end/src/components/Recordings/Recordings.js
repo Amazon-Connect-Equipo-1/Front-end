@@ -4,11 +4,14 @@ Recordings.js
 Authors:
 - A01750145 Miguel Ángel Pérez López
 - A01378688 Daniel Garcia Barajas
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750185 Amy Murakami Tsutsumi
 
 Creation date: 30/04/2022
 Last modification date: 10/06/2022
 
-(Decripción)
+Program that allows the QA to search for a recording with different tags. 
 */
 
 //Import Modules
@@ -199,26 +202,25 @@ const Recordings = (props) => {
                   </button>
                 )}
                 {spinnerValue === "email" && (
-                  <Autocomplete
-                    disablePortal
-                    className="re-search"
-                    id="re-search"
-                    options={optionName}
-                    value={value}
+                  <input
+                    onKeyDown={saveKeys}
                     onClick={() => saveClick(`${INPUT_NAME} input`)}
-                    onChange={(event, newValue) => {
-                      setValue(newValue);
-                      getRecordsByAgent([newValue.id]);
-                    }}
-                    renderInput={(params) => (
-                      <TextField
-                        {...params}
-                        className="text-field"
-                        id="text-field"
-                        label="Email"
-                      />
-                    )}
+                    className="re-input"
+                    id="re-input"
+                    type="email"
+                    placeholder={t("search")}
+                    onChange={onChangeSearchInput}
+                    value={searchInput}
                   />
+                )}
+                {spinnerValue === "email" && (
+                  <button
+                    href="/"
+                    className="re-btn re-search-btn"
+                    onClick={onFilterRecordings}
+                  >
+                    {t("search")}
+                  </button>
                 )}
               </div>
             </div>

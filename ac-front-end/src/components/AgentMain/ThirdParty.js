@@ -3,11 +3,14 @@ ThirdParty.js
 
 Authors:
 - A01379868 Jared Abraham Flores Guarneros
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750185 Amy Murakami Tsutsumi
 
 Creation date: 17/05/2022
 Last modification date: 17/05/2022
 
-(Descripción)
+Program that contains the different buttons of the third-party-services.
 */
 
 //Import Modules
@@ -23,11 +26,6 @@ import OxxoForm from "./OxxoForm";
 import { saveClick } from "../MonitorModule.js";
 import PoliceForm from "./PoliceForm";
 import { useTranslation } from "react-i18next";
-import Confirmation from "./Confirmation";
-import ConfirmationUber from "./ConfirmationUber";
-import ConfirmationUberEats from "./ConfirmationUberEats";
-import ConfirmationOxxo from "./ConfirmationOxxo";
-import ConfirmationPolice from "./ConfirmationPolice";
 
 const ThirdParty = (props) => {
   const INPUT_NAME = "agent tutorials";

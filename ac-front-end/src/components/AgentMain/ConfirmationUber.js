@@ -3,11 +3,13 @@ ConfirmationUber.js
 
 Authors:
 - A01379868 Jared Abraham Flores Guarneros
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750185 Amy Murakami Tsutsumi
 
 Creation date: 30/05/2022
-Last modification date: 10/06/2022
 
-(Descripción)
+Component that displays the confirmation data of the Uber service. 
 */
 
 //Import Modules
@@ -96,7 +98,7 @@ const ConfirmationUber = (props) => {
       .catch((error) => {
         console.log("error", error);
         toast.error(error);
-    });
+      });
   };
   // Language
   const { t } = useTranslation();

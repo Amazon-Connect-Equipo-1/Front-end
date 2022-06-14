@@ -7,7 +7,7 @@ Authors:
 Creation date: 15/05/2022
 Last modification date: 09/06/2022
 
-(Descripción)
+Program that counts the clicks made in the App. 
 */
 
 import toast from "react-hot-toast";

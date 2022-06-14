@@ -3,11 +3,14 @@ RecordingsCard.js
 
 Authors:
 - A01750145 Miguel Ángel Pérez López
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750185 Amy Murakami Tsutsumi
 
 Creation date: 30/04/2022
 Last modification date: 09/06/2022
 
-(Decripción)
+Program that displays an individual recording card. 
 */
 
 //Import Modules

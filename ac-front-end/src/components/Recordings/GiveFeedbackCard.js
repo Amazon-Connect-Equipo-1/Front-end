@@ -3,11 +3,14 @@ GiveFeedbackCard.js
 
 Authors:
 - A01750145 Miguel Ángel Pérez López
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750185 Amy Murakami Tsutsumi
 
 Creation date: 03/05/2022
 Last modification date: 03/05/2022
 
-(Decripción)
+Program that allows the QA to comment on a recording 
 */
 
 //Import Modules

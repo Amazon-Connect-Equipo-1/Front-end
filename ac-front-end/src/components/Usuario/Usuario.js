@@ -1,6 +1,17 @@
-/* User verification
+/* 
+Usuario.js
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01379868 Jared Abraham Flores Guarneros
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750185 Amy Murakami Tsutsumi
+
+Creation date: 10/04/2022
+Last modification date: 09/06/2022
+
+Program that handles the user verification. 
+*/
 
 //Import Modules
 import "../../styles/Usuario/Usuario.css";
@@ -62,7 +73,7 @@ const Usuario = (props) => {
       .catch((error) => {
         console.log("error", error);
         toast.error(error);
-    });
+      });
   };
   return (
     <div className="log-main-container">

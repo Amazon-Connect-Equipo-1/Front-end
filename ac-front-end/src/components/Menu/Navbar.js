@@ -1,6 +1,16 @@
-/* Navigation Bar
+/* Navibar
+
 Authors:
-        A01777771 Stephen Strange*/
+- A01378688 Daniel Garcia Barajas
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750185 Amy Murakami Tsutsumi
+
+Creation date: 30/05/2022
+Last modification date: 10/06/2022
+
+Program that contains the navigation icons to use the App. 
+*/
 
 //Import Modules
 import { Link } from "react-router-dom";
