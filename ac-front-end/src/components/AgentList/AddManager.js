@@ -4,12 +4,13 @@ AddManager.js
 Authors:
 - A01379868 Jared Abraham Flores Guarneros
 - A01750145 Miguel Ángel Pérez López
+traduction:
 - A01749448 Jorge Chávez Badillo
 - A01749373 Ariadna Jocelyn Guzmán Jiménez
 - A01750185 Amy Murakami Tsutsumi
 
 Creation date: 02/06/2022
-Last modification date: 10/06/2022
+Last modification date: 14/06/2022
 
 Program that allows the creation of a manager in a manager account. 
 */
@@ -85,7 +86,7 @@ const AddManager = (props) => {
       redirect: "follow",
     };
 
-    fetch("https://backtest.bankonnect.link/auth/signUpManager", requestOptions)
+    fetch(process.env.ENDPOINT_BACK_END + "auth/signUpManager", requestOptions)
       .then((response) => response.text())
       .then((result) => {
         const resultJSON = JSON.parse(result);

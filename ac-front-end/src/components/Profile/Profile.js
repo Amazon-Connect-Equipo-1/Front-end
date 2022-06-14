@@ -4,8 +4,9 @@ Profile.js
 Authors:
 - A01378688 Daniel Garcia Barajas
 - A01750145 Miguel Ángel Pérez López
-- A01749448 Jorge Chávez Badillo
 - A01379868 Jared Abraham Flores Guarneros
+traduction:
+- A01749448 Jorge Chávez Badillo
 - A01749373 Ariadna Jocelyn Guzmán Jiménez
 - A01750185 Amy Murakami Tsutsumi
 

@@ -184,7 +184,7 @@ const EmbedConnect = (props) => {
         };
 
         const responseAgent = fetch(
-          "https://backtest.bankonnect.link/agent/updateAgentStatus",
+          process.env.ENDPOINT_BACK_END +"agent/updateAgentStatus",
           requestOptions
         )
           .then((responseAgent) => responseAgent.json())

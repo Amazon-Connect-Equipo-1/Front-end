@@ -126,7 +126,7 @@ const PoliceForm = (props) => {
       redirect: "follow",
     };
 
-    fetch("https://backtest.bankonnect.link/tps/askService", requestOptions)
+    fetch(process.env.ENDPOINT_BACK_END + "tps/askService", requestOptions)
       .then((response) => response.text())
       .then((result) => {
         const resultJSON = JSON.parse(result);
