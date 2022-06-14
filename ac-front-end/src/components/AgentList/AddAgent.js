@@ -30,63 +30,46 @@ const AddAgent = (props) => {
   const [pictureInput, setPictureInput] = useState("");
 
   const nameChangeHandler = (event) => {
-    window.localStorage.setItem("name", event.target.value);
+    //window.localStorage.setItem("name", event.target.value);
     setNameInput(event.target.value);
   };
   const passwordChangeHandler = (event) => {
-    window.localStorage.setItem("password", event.target.value);
+    //window.localStorage.setItem("password", event.target.value);
     setPasswordInput(event.target.value);
   };
   const emailChangeHandler = (event) => {
-    window.localStorage.setItem("email", event.target.value);
+    //window.localStorage.setItem("email", event.target.value);
     setEmailInput(event.target.value);
   };
   const phoneNumberChangeHandler = (event) => {
-    window.localStorage.setItem("phoneNumber", event.target.value);
+    //window.localStorage.setItem("phoneNumber", event.target.value);
     setPhoneInput(event.target.value);
   };
   const superEmailChangeHandler = (event) => {
-    window.localStorage.setItem("superEmail", event.target.value);
+    //window.localStorage.setItem("superEmail", event.target.value);
     setSupEmailInput(event.target.value);
   };
   const pictureChangeHandler = (event) => {
-    window.localStorage.setItem("picture", event.target.value);
+    //window.localStorage.setItem("picture", event.target.value);
     setPictureInput(event.target.value);
   };
   // Language
   const { t } = useTranslation();
 
-  //-----------------------------------------
-  //RESTART DATA--------------------------------
-  const restart = () => {
-    window.localStorage.removeItem("name");
-    window.localStorage.removeItem("password");
-    window.localStorage.removeItem("email");
-    window.localStorage.removeItem("phoneNumber");
-    window.localStorage.removeItem("superEmail");
-    window.localStorage.removeItem("picture");
-  };
-
   //--------------------------------------------
   const addAgents = (event) => {
     const token = window.localStorage.getItem("token");
-    const name = window.localStorage.getItem("name");
-    const password = window.localStorage.getItem("password");
-    const email = window.localStorage.getItem("email");
-    const phoneNumber = window.localStorage.getItem("phoneNumber");
-    const superEmail = window.localStorage.getItem("superEmail");
-    const picture = window.localStorage.getItem("picture");
 
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
     const raw = JSON.stringify({
-      super_email: superEmail,
-      name: name,
-      password: password,
-      email: email,
-      phone_number: phoneNumber,
-      profile_picture: picture,
+      super_email: supEmailInput,
+      name: nameInput,
+      password: passwordInput,
+      email: emailInput,
+      phone_number: phoneInput,
+      profile_picture: pictureInput,
     });
 
     const requestOptions = {
@@ -195,7 +178,7 @@ const AddAgent = (props) => {
         }}
         onClick={(e) => {
           addAgents();
-          restart();
+
           props.onChange();
         }}
       >
