@@ -121,7 +121,7 @@ const AddManager = (props) => {
         className="adu-input"
         id="name"
         type="text"
-        placeholder="Name"
+        placeholder={t("name")}
         onChange={nameChangeHandler}
         value={nameInput}
       />
@@ -130,7 +130,7 @@ const AddManager = (props) => {
         className="adu-input"
         id="email"
         type="email"
-        placeholder="Email"
+        placeholder={t("emailManager")}
         onChange={emailChangeHandler}
         value={emailInput}
       />
@@ -139,7 +139,7 @@ const AddManager = (props) => {
         className="adu-input"
         id="password"
         type="text"
-        placeholder="Password"
+        placeholder={t("passwordManager")}
         onChange={passwordChangeHandler}
         value={passwordInput}
       />
@@ -148,7 +148,7 @@ const AddManager = (props) => {
         className="adu-input"
         id="phoneNumber"
         type="text"
-        placeholder="Phone Number"
+        placeholder={t("phoneNumber")}
         onChange={phoneNumberChangeHandler}
         value={phoneInput}
       />
@@ -157,7 +157,7 @@ const AddManager = (props) => {
         className="adu-input"
         id="profilePicture"
         type="text"
-        placeholder="Profile Picture"
+        placeholder={t("profilePicture")}
         onChange={pictureChangeHandler}
         value={pictureInput}
       />

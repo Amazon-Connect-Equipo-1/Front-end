@@ -117,16 +117,16 @@ const AddAgent = (props) => {
         className="adu-input"
         id="name"
         type="text"
-        placeholder="Name"
+        placeholder={t("name")}
         onChange={nameChangeHandler}
         value={nameInput}
       />
-      <label className="adu-label">{t("email")}</label>
+      <label className="adu-label">{t("emailAgent")}</label>
       <input
         className="adu-input"
         id="email"
         type="email"
-        placeholder="Email"
+        placeholder={t("emailAgent")}
         onChange={emailChangeHandler}
         value={emailInput}
       />
@@ -135,7 +135,7 @@ const AddAgent = (props) => {
         className="adu-input"
         id="password"
         type="text"
-        placeholder="Password"
+        placeholder={t("password")}
         onChange={passwordChangeHandler}
         value={passwordInput}
       />
@@ -144,7 +144,7 @@ const AddAgent = (props) => {
         className="adu-input"
         id="phoneNumber"
         type="text"
-        placeholder="Phone Number"
+        placeholder={t("phoneNumber")}
         onChange={phoneNumberChangeHandler}
         value={phoneInput}
       />
@@ -154,7 +154,7 @@ const AddAgent = (props) => {
         className="adu-input"
         id="AdministratorEmail"
         type="email"
-        placeholder="Administrator Email"
+        placeholder={t("administratorEmail")}
         onChange={superEmailChangeHandler}
         value={supEmailInput}
       />
@@ -163,7 +163,7 @@ const AddAgent = (props) => {
         className="adu-input"
         id="profilePicture"
         type="text"
-        placeholder="Profile Picture"
+        placeholder={t("profilePicture")}
         onChange={pictureChangeHandler}
         value={pictureInput}
       />

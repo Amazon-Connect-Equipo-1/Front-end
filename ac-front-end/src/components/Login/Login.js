@@ -19,6 +19,7 @@ import LoginForm from "./LoginForm";
 import About from "./About";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Login = (props) => {
   document.body.classList.add("dark");
@@ -26,7 +27,8 @@ const Login = (props) => {
   const onShowAbout = () => {
     setShowAbout(!showAbout);
   };
-
+  // Language
+  const { t } = useTranslation();
   if (!showAbout) {
     return (
       <div className="log-main-container">
@@ -35,7 +37,7 @@ const Login = (props) => {
           <LoginForm />
         </div>
         <Link to="about" className="log-about" onClick={onShowAbout}>
-          About
+          {t("about")}
         </Link>
       </div>
     );

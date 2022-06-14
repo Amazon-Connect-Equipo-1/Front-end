@@ -2,7 +2,11 @@
 Login.js
 
 Authors:
--Jared Abraham Flores Guarneros A01379868
+- A01379868 Jared Abraham Flores Guarneros
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750185 Amy Murakami Tsutsumi
+
 
 Creation date: 26/05/2022
 Last modification date: 11/06/2022
@@ -40,8 +44,11 @@ import Eduardo from "../../images/Collabs/Eduardo.jpg";
 import Raul from "../../images/Collabs/Raul.jpg";
 import bk from "../../images/Collabs/logo.jpg";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const About = (props) => {
+  // Language
+  const { t } = useTranslation();
   return (
     <div className="abo-main-container">
       <Link
@@ -50,17 +57,17 @@ const About = (props) => {
         style={{ width: "8rem" }}
         onClick={props.onChangeShow}
       >
-        return
+        {t("return")}
       </Link>
       <div className="abo-about-container">
         <div className="abo-card">
           <img className="abo-logo" src={bk}></img>
           <h1 className="abo-main-title">Bankonnect</h1>
-          <h1 className="abo-sub-title">Development Team</h1>
+          <h1 className="abo-sub-title">{t("developmentTeam")}</h1>
         </div>
 
         <div className="abo-contain">
-          <p className="abo-title">Collaborating teachers</p>
+          <p className="abo-title">{t("teachers")}</p>
           <div className="abo-row-container">
             <div className="abo-img-container">
               <img src={Alvaro} className="abo-img" />
@@ -96,13 +103,11 @@ const About = (props) => {
           </div>
         </div>
         <div className="abo-contain">
-          <h1 className="abo-title"> Project Managers</h1>
+          <h1 className="abo-title">{t("projectManagers")}</h1>
           <div className="abo-row-container">
             <div className="abo-img-container">
               <img src={Isra} className="abo-img" />
-              <p className="abo-text-large">
-                Project Manager in charge of BackEnd
-              </p>
+              <p className="abo-text-large">{t("projectManagerBackEnd")}</p>
               <p className="abo-text">Israel Sanchez Miranda</p>
 
               <a className="abo-text" href="mailto:A01378705@tec.mx">
@@ -117,9 +122,7 @@ const About = (props) => {
             </div>
             <div className="abo-img-container">
               <img src={Jared} className="abo-img" />
-              <p className="abo-text-large">
-                Project Manager in charge of FrontEnd
-              </p>
+              <p className="abo-text-large">{t("projectManagerFrontEnd")}</p>
               <p className="abo-text">Jared Abraham Flores Guarneros</p>
 
               <a className="abo-text" href="mailto:A01379868@tec.mx">
@@ -134,7 +137,7 @@ const About = (props) => {
             </div>
             <div className="abo-img-container">
               <img src={Liam} className="abo-img" />
-              <p className="abo-text-large">Project Manager in charge of AWS</p>
+              <p className="abo-text-large">{t("projectManagerAWS")}</p>
               <p className="abo-text">Liam Garay Monroy</p>
 
               <a className="abo-text" href="mailto:A01750632@tec.mx">
@@ -150,9 +153,9 @@ const About = (props) => {
             <div className="abo-img-container">
               <img src={AriadnaH} className="abo-img" />
               <p className="abo-text-large">
-                Project Manager in charge of Documentation
+                {t("projectManagerDocumentation")}
               </p>
-              <p className="abo-text">Arianda Huesca Coronado</p>
+              <p className="abo-text">Ariadna Huesca Coronado</p>
 
               <a className="abo-text" href="mailto:A01749161@tec.mx">
                 A01749161@tec.mx
@@ -167,11 +170,11 @@ const About = (props) => {
           </div>
         </div>
         <div className="abo-contain">
-          <h1 className="abo-title">Backend functionality managers</h1>
+          <h1 className="abo-title">{t("backendManagers")}</h1>
           <div className="abo-row-container">
             <div className="abo-img-container">
               <img src={David} className="abo-img" />
-              <p className="abo-text-large">ThirdParty services module</p>
+              <p className="abo-text-large">{t("thirdPartyModule")}</p>
               <p className="abo-text">David Rodiguez Fragoso</p>
 
               <a className="abo-text" href="mailto:A01748760@tec.mx">
@@ -186,7 +189,7 @@ const About = (props) => {
             </div>
             <div className="abo-img-container">
               <img src={ErickH} className="abo-img" />
-              <p className="abo-text-large">Email notification service</p>
+              <p className="abo-text-large">{t("emailNotification")}</p>
               <p className="abo-text">Erick Hernandez Silva</p>
 
               <a className="abo-text" href="mailto:A01750170@tec.mx">
@@ -202,11 +205,11 @@ const About = (props) => {
           </div>
         </div>
         <div className="abo-contain">
-          <h2 className="abo-title">Backend work team</h2>
+          <h2 className="abo-title">{t("backendWorkTeam")}</h2>
           <div className="abo-row-container">
             <div className="abo-img-container">
               <img src={Eduardo} className="abo-img" />
-              <p className="abo-text-large">Documentation</p>
+              <p className="abo-text-large">{t("documentation")}</p>
               <p className="abo-text">Eduardo Rodriguez Lopez</p>
 
               <a className="abo-text" href="mailto:A01749381@tec.mx">
@@ -221,7 +224,7 @@ const About = (props) => {
             </div>
             <div className="abo-img-container">
               <img src={Raul} className="abo-img" />
-              <p className="abo-text-large">Documentation</p>
+              <p className="abo-text-large">{t("documentation")}</p>
               <p className="abo-text">Raul Youthan Irigoyen Osorio</p>
 
               <a className="abo-text" href="mailto:A01750476@tec.mx">
@@ -237,11 +240,11 @@ const About = (props) => {
           </div>
         </div>
         <div className="abo-contain">
-          <h1 className="abo-title">Frontend functionality managers</h1>
+          <h1 className="abo-title">{t("frontendManagers")}</h1>
           <div className="abo-row-container">
             <div className="abo-img-container">
               <img src={Mike} className="abo-img" />
-              <p className="abo-text-large">Development of interfaces</p>
+              <p className="abo-text-large">{t("developmentInterfaces")}</p>
               <p className="abo-text">Miguel Angel Perez Lopez</p>
 
               <a className="abo-text" href="mailto:A01750145@tec.mx">
@@ -256,7 +259,7 @@ const About = (props) => {
             </div>
             <div className="abo-img-container">
               <img src={Dany} className="abo-img" />
-              <p className="abo-text-large">Design and testing</p>
+              <p className="abo-text-large">{t("designTesting")}</p>
               <p className="abo-text">Daniel Garcia Barajas</p>
 
               <a className="abo-text" href="mailto:A01378688@tec.mx">
@@ -272,13 +275,11 @@ const About = (props) => {
           </div>
         </div>
         <div className="abo-contain">
-          <h2 className="abo-title">Frontend work team</h2>
+          <h2 className="abo-title">{t("frontendWorkTeam")}</h2>
           <div className="abo-row-container">
             <div className="abo-img-container">
               <img src={AriadnaJ} className="abo-img" />
-              <p className="abo-text-large">
-                Dashboard creation, documentation
-              </p>
+              <p className="abo-text-large">{t("dashboardDocumentation")}</p>
               <p className="abo-text">Ariadna Jocelyn Guzman Jimenez</p>
 
               <a className="abo-text" href="mailto:A01749373@tec.mx">
@@ -293,7 +294,7 @@ const About = (props) => {
             </div>
             <div className="abo-img-container">
               <img src={Amy} className="abo-img" />
-              <p className="abo-text-large">Tutorials, documentation</p>
+              <p className="abo-text-large">{t("tutorialsDocumentation")}</p>
               <p className="abo-text">Amy Murakami Tsutsumi</p>
 
               <a className="abo-text" href="mailto:A01750185@tec.mx">
@@ -308,9 +309,7 @@ const About = (props) => {
             </div>
             <div className="abo-img-container">
               <img src={Jorge} className="abo-img" />
-              <p className="abo-text-large">
-                System translation, documentation
-              </p>
+              <p className="abo-text-large">{t("systemTranslation")}</p>
               <p className="abo-text">Jorge Chavez Badillo</p>
 
               <a className="abo-text" href="mailto:A01749448@tec.mx">
@@ -326,11 +325,11 @@ const About = (props) => {
           </div>
         </div>
         <div className="abo-contain">
-          <h1 className="abo-title">AWS functionality managers</h1>
+          <h1 className="abo-title">{t("AWSManagers")}</h1>
           <div className="abo-row-container">
             <div className="abo-img-container">
               <img src={ErickB} className="abo-img" />
-              <p className="abo-text-large">Video data processing</p>
+              <p className="abo-text-large">{t("videoData")}</p>
               <p className="abo-text">Erick Alberto Bustos Cruz</p>
 
               <a className="abo-text" href="mailto:A01378966@tec.mx">
@@ -345,7 +344,7 @@ const About = (props) => {
             </div>
             <div className="abo-img-container">
               <img src={Diego} className="abo-img" />
-              <p className="abo-text-large">Screen recording, voice ID</p>
+              <p className="abo-text-large">{t("screenRecording")}</p>
               <p className="abo-text">Diego Alejandro Juarez Ruiz</p>
 
               <a className="abo-text" href="mailto:A01379566@tec.mx">
@@ -360,7 +359,7 @@ const About = (props) => {
             </div>
             <div className="abo-img-container">
               <img src={Edna} className="abo-img" />
-              <p className="abo-text-large">Screen recording, voice ID</p>
+              <p className="abo-text-large">{t("screenRecording")}</p>
               <p className="abo-text">Edna Jacqueline Zavala Ortega</p>
 
               <a className="abo-text" href="mailto:A01750480@tec.mx">
@@ -375,7 +374,7 @@ const About = (props) => {
             </div>
             <div className="abo-img-container">
               <img src={Luis} className="abo-img" />
-              <p className="abo-text-large">Video processing</p>
+              <p className="abo-text-large">{t("videoProcessing")}</p>
               <p className="abo-text">Luis Enrique Zamarripa Marin</p>
 
               <a className="abo-text" href="mailto:A01379918@tec.mx">
@@ -391,11 +390,11 @@ const About = (props) => {
           </div>
         </div>
         <div className="abo-contain">
-          <h1 className="abo-title">Documentation managers</h1>
+          <h1 className="abo-title">{t("documentationManagers")}</h1>
           <div className="abo-row-container">
             <div className="abo-img-container">
               <img src={Sara} className="abo-img" />
-              <p className="abo-text-large">Test reports, test plans</p>
+              <p className="abo-text-large">{t("testReports")}</p>
               <p className="abo-text">Claudia Sarahi Armenta Maya</p>
 
               <a className="abo-text" href="mailto:A01378067@tec.mx">
@@ -410,7 +409,7 @@ const About = (props) => {
             </div>
             <div className="abo-img-container">
               <img src={Rebeca} className="abo-img" />
-              <p className="abo-text-large">Wiki, documentation</p>
+              <p className="abo-text-large">{t("wiki")}</p>
               <p className="abo-text">Rebeca Rojas Perez</p>
 
               <a className="abo-text" href="mailto:A01751192@tec.mx">
@@ -425,7 +424,7 @@ const About = (props) => {
             </div>
             <div className="abo-img-container">
               <img src={Acosta} className="abo-img" />
-              <p className="abo-text-large">Wiki, documentation</p>
+              <p className="abo-text-large">{t("wiki")}</p>
               <p className="abo-text">Eduardo Acosta Hernandez</p>
 
               <a className="abo-text" href="mailto:A01375206@tec.mx">
