@@ -3,11 +3,13 @@ SingleAgent.js
 
 Authors:
 - A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750185 Amy Murakami Tsutsumi
 
 Creation date: 02/05/2022
 Last modification date: 10/06/2022
 
-(Descripción)
+Program that displays an agent's profile and allows the QA to comment on the agent. 
 */
 
 //Import Modules

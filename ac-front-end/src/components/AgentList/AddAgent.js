@@ -3,14 +3,20 @@ AddAgent.js
 
 Authors:
 - A01379868 Jared Abraham Flores Guarneros
+- A01750145 Miguel Ángel Pérez López
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750185 Amy Murakami Tsutsumi
+
 
 Creation date: 02/06/2022
 Last modification date: 10/06/2022
 
-(Descripción)
+Program that allows the creation of an agent in a manager account. 
 */
 
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 import "../../styles/AgentList/AddUser.css";
 
@@ -99,8 +105,8 @@ const AddAgent = (props) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
-    });
+        toast.error(error);
+      });
   };
 
   return (

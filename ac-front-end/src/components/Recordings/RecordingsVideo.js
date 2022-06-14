@@ -7,7 +7,7 @@ Authors:
 Creation date: 03/05/2022
 Last modification date: 09/06/2022
 
-(Decripción)
+Program that contains the information of a recording. 
 */
 
 //Import Modules

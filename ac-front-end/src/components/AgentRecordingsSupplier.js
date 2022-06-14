@@ -3,15 +3,19 @@ AgentRecordingsSupplier.js
 
 Authors:
 - A01750145 Miguel Ángel Pérez López
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750185 Amy Murakami Tsutsumi
 
 Creation date: 25/05/2022
 Last modification date: 06/06/2022
 
-(Descripción)
+Program that contains the recordings information.
 */
 
 //Import Modules
 import { createContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 
 //Create agetn recordings context
@@ -173,7 +177,7 @@ const AgentRecordingsSupplier = ({ children }) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
       });
   };
 

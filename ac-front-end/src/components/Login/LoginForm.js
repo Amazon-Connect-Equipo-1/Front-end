@@ -23,6 +23,7 @@ import { AuthenticationContext } from "../Authentication";
 import { loadUserPreferences } from "../UserPreferences";
 import { FiEye } from "react-icons/fi";
 import { FiEyeOff } from "react-icons/fi";
+import toast from "react-hot-toast";
 
 const LoginForm = (props) => {
   // Language
@@ -85,14 +86,14 @@ const LoginForm = (props) => {
         const resultJSON = JSON.parse(result);
         console.log(resultJSON);
         if (Object.keys(resultJSON).includes("errors")) {
-          alert(t("validEmailPwd"));
+          toast.error(t("validEmailPwd"));
         }
         if (resultJSON.code === "NotAuthorizedException") {
-          alert(t("failedLoginPassword"));
+          toast.error(t("failedLoginPassword"));
           console.log("Contraseña incorrecta");
         }
         if (resultJSON.code === "UserNotFoundException") {
-          alert(t("failedLoginEmail"));
+          toast.error(t("failedLoginEmail"));
           console.log("Usuario no encontrado");
         }
         window.localStorage.setItem("userType", resultJSON.role);
@@ -134,7 +135,7 @@ const LoginForm = (props) => {
             })
             .catch((error) => {
               console.log("error", error);
-              alert(error);
+              toast.error(error);
           });
           navigate("/admin", { replace: true });
         }
@@ -172,7 +173,7 @@ const LoginForm = (props) => {
             })
             .catch((error) =>{
               console.log("error", error);
-              alert(error);
+              toast.error(error);
           });
         }
         if (resultJSON.role === USER.Agent) {
@@ -217,13 +218,13 @@ const LoginForm = (props) => {
             })
             .catch((error) => {
               console.log("error", error);
-              alert(error);
+              toast.error(error);
           });
         }
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
     });
 
     console.log(user);

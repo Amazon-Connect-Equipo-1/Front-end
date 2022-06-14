@@ -3,11 +3,15 @@ AboutCard.js
 
 Authors:
 - A01750145 Miguel Ángel Pérez López
+- A01379868 Jared Abraham Flores Guarneros
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750185 Amy Murakami Tsutsumi
 
 Creation date: 01/05/2022
 Last modification date: 10/06/2022
 
-(Decripción)
+Program that displays the information of the selected recording. 
 */
 
 //Import Modules

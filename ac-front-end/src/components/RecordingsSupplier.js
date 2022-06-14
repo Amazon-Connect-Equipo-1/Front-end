@@ -3,16 +3,21 @@ RecordingsSupplier.js
 
 Authors:
 - A01750145 Miguel Ángel Pérez López
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750185 Amy Murakami Tsutsumi
 
 Creation date: 15/05/2022
 Last modification date: 10/06/2022
 
-(Descripción)
+Program that contains the recordings information.
 */
 
 //Import Modules
 import { createContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import toast, { Toaster } from "react-hot-toast";
+
 //Create recordings context
 export const RecordingsContext = createContext();
 
@@ -54,8 +59,8 @@ const RecordingsSupplier = ({ children }) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
-    });
+        toast.error(error);
+      });
   };
 
   const obtainSelectedVideoInfo = async (recordingId) => {
@@ -86,7 +91,7 @@ const RecordingsSupplier = ({ children }) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
       });
   };
 
@@ -116,7 +121,7 @@ const RecordingsSupplier = ({ children }) => {
       .then((response) => response.text())
       .then((result) => {
         const recordingsJSON = JSON.parse(result).recordings;
-        // console.log(recordingsJSON);
+        console.log(recordingsJSON);
         let recordings = recordingsJSON.filter((record) => {
           //Dont include null records if they exist
           if (record) {
@@ -135,9 +140,9 @@ const RecordingsSupplier = ({ children }) => {
         });
         setArrRecordings([...recordings]);
       })
-      .catch((error) =>{ 
+      .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast(error);
       });
   };
 
@@ -172,7 +177,7 @@ const RecordingsSupplier = ({ children }) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
       });
   };
 
@@ -228,7 +233,7 @@ const RecordingsSupplier = ({ children }) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
       });
   };
 
@@ -287,7 +292,7 @@ const RecordingsSupplier = ({ children }) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
       });
   };
 

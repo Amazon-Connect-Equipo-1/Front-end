@@ -3,11 +3,14 @@ AddUser.js
 
 Authors:
 - A01750145 Miguel Ángel Pérez López
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750185 Amy Murakami Tsutsumi
 
 Creation date: 01/06/2022
 Last modification date: 06/06/2022
 
-(Descripción)
+Program that allows the creation of a user in a manager account. 
 */
 
 import React from "react";

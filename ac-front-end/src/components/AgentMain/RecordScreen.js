@@ -3,11 +3,14 @@ RecordScreen.js
 
 Authors:
 - A01378688 Daniel Garcia Barajas
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750185 Amy Murakami Tsutsumi
 
 Creation date: 24/05/2022
 Last modification date: 24/05/2022
 
-(Descripción)
+Program that allows to record the screen when the agent is on a call.
 */
 
 import React from "react";

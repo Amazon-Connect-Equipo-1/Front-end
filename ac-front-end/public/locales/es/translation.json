@@ -244,5 +244,9 @@
   "logOut": "Cerrar sesión",
 
   "__QualityControl__": "----------------Quality Control interface--------------",
-  "noFeedbackAvailable": "No hay comentarios disponibles"
+  "noFeedbackAvailable": "No hay comentarios disponibles",
+
+  "__Error__": "----------------Error interface--------------",
+  "notFound": "No encontrado",
+  "source": "¡La fuente solicitada no se pudo encontrar en este servidor!"
 }

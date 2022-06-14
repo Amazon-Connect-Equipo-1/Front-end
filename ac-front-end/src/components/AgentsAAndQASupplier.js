@@ -7,12 +7,13 @@ Authors:
 Creation date: 17/05/2022
 Last modification date: 10/06/2022
 
-(Descripción)
+Program that contains the QA information.
 */
 
 //Import Modules
 import { use } from "i18next";
 import { createContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 import { useTranslation } from "react-i18next";
 
@@ -80,7 +81,7 @@ const AgentsAAndQASupplier = ({ children }) => {
         }
       })
       .catch((error) => {
-        alert(error);
+        toast.error(error);
         console.log("error", error);
       });
   };
@@ -114,7 +115,7 @@ const AgentsAAndQASupplier = ({ children }) => {
         console.log(result);
       })
       .catch((error) => {
-        alert(error);
+        toast.error(error);
         console.log("error", error);
       });
   };

@@ -15,7 +15,8 @@ Style to display HTML elements for AgentList.js.
 .agl-main-container {
   background-color: var(--main-card-background);
   border-radius: 10px;
-  height: 84vh;
+  min-height: 84vh;
+  height: max-content;
   margin: 1rem 2rem 2rem 100px;
 }
 
@@ -55,4 +56,43 @@ Style to display HTML elements for AgentList.js.
   .agl-main-container {
     height: max-content;
   }
+}
+
+/*Media queries for Recordings*/
+/*****************************/
+/* BELOW 90*16 = 1450px (Smaller desktops) */
+/*****************************/
+@media (max-width: 90em) {
+}
+
+/* BELOW 80*16 = 1280px (Smaller desktops) */
+@media (max-width: 80em) {
+  .agl-card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 4rem;
+    justify-content: center;
+    align-items: center;
+    height: max-content;
+  }
+  .sa-main-container,
+  .aal-main-container {
+    align-self: center;
+    justify-self: center;
+  }
+}
+
+/* BELOW 73*16 = 1180px (Smaller desktops) */
+@media (max-width: 73em) {
+}
+
+/* BELOW 57*16 = 920px (Smaller desktops) */
+@media (max-width: 57em) {
+  .agl-card-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* BELOW 37*16 = 600px (Smaller desktops) */
+@media (max-width: 37em) {
 }

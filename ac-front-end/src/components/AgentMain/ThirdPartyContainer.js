@@ -3,11 +3,12 @@ ThirdPartyContainer.js
 
 Authors:
 - A01379868 Jared Abraham Flores Guarneros
+- A01750145 Miguel Ángel Pérez López
 
 Creation date: 17/05/2022
 Last modification date: 17/05/2022
 
-(Descripción)
+Program that displays the Third-Party-Services component.
 */
 
 //Import Modules

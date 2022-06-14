@@ -46,6 +46,12 @@ Style to display HTML elements for AllAgentsList.js.
   text-align: center;
 }
 
+.aal-rows-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .aal-profile-picture {
   width: auto;
   margin-left: 2rem;

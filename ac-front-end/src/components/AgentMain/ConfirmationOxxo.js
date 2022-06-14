@@ -3,11 +3,14 @@ ConfirmationOxxo.js
 
 Authors:
 - A01379868 Jared Abraham Flores Guarneros
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750185 Amy Murakami Tsutsumi
 
 Creation date: 30/05/2022
 Last modification date: 10/06/2022
 
-(Descripción)
+Component that displays the confirmation data of the Oxxo service. 
 */
 
 //Import Modules
@@ -15,6 +18,7 @@ import "../../styles/AgentMain/ThirdParty.css";
 import { useTranslation } from "react-i18next";
 import uberlogo from "../../images/uber.png";
 import { createContext, Suspense, useState } from "react";
+import toast from "react-hot-toast";
 
 const ConfirmationOxxo = (props) => {
   const token = window.localStorage.getItem("token");
@@ -98,8 +102,8 @@ const ConfirmationOxxo = (props) => {
       .then((result) => console.log(result))
       .catch((error) => {
         console.log("error", error);
-        alert(error);
-    });
+        toast.error(error);
+      });
   };
   // Language
   const { t } = useTranslation();

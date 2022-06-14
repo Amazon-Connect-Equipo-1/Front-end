@@ -3,17 +3,22 @@ AddManager.js
 
 Authors:
 - A01379868 Jared Abraham Flores Guarneros
+- A01750145 Miguel Ángel Pérez López
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750185 Amy Murakami Tsutsumi
 
 Creation date: 02/06/2022
 Last modification date: 10/06/2022
 
-(Descripción)
+Program that allows the creation of a manager in a manager account. 
 */
 
 import React from "react";
 import "../../styles/AgentList/AddUser.css";
 import { useTranslation } from "react-i18next";
 import { createContext, Suspense, useState } from "react";
+import toast from "react-hot-toast";
 
 const AddManager = (props) => {
   //input handlers-----------------------------------
@@ -63,12 +68,12 @@ const AddManager = (props) => {
   const changeConfigRoleA = () => {
     setRoleA("adu-AdminP-btn");
     setRoleQ("adu-QA-btn");
-    setRole(true);
+    setRole(false);
   };
   const changeConfigRoleQ = () => {
     setRoleA("adu-Admin-btn");
     setRoleQ("adu-QAP-btn");
-    setRole(false);
+    setRole(true);
   };
   const addManager = (event) => {
     const name = window.localStorage.getItem("name");
@@ -105,8 +110,8 @@ const AddManager = (props) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
-    });
+        toast.error(error);
+      });
   };
   return (
     <div className="adu-container">

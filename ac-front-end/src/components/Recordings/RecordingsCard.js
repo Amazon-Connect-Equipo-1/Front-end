@@ -3,11 +3,14 @@ RecordingsCard.js
 
 Authors:
 - A01750145 Miguel Ángel Pérez López
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750185 Amy Murakami Tsutsumi
 
 Creation date: 30/04/2022
 Last modification date: 09/06/2022
 
-(Decripción)
+Program that displays an individual recording card. 
 */
 
 //Import Modules
@@ -67,33 +70,31 @@ const RecordingsCard = (props) => {
   };
 
   return (
-    <button onClick={onSelectCard} className="link">
-      <Card className="rec-main-container">
-        <div className="rec-container">
-          <div className="rec-video-section">
-            <div className="rec-video">
-              <img
-                src={props.thumbnail}
-                className="rec-video-img"
-                onClick={props.onClickCard}
-              ></img>
-            </div>
-            <div className="rec-video-info" onClick={props.onClickCard}>
-              <h2 className={`rec-agent-name ${adaptFontSize()}`}>
-                {props.agentName}
-              </h2>
-              <h3 className="rec-date">{props.date}</h3>
-            </div>
+    <button onClick={onSelectCard} className="link rec-main-container">
+      <div className="rec-container">
+        <div className="rec-video-section">
+          <div className="rec-video">
+            <img
+              src={props.thumbnail}
+              className="rec-video-img"
+              onClick={props.onClickCard}
+            ></img>
           </div>
-          <div className="rec-tag-section">
-            {getTags().map((tag) => (
-              <Card key={uuidv4()} className={`rec-tag ${processTagCss(tag)} `}>
-                {processTagName(t(tag))}
-              </Card>
-            ))}
+          <div className="rec-video-info" onClick={props.onClickCard}>
+            <h2 className={`rec-agent-name ${adaptFontSize()}`}>
+              {props.agentName}
+            </h2>
+            <h3 className="rec-date">{props.date}</h3>
           </div>
         </div>
-      </Card>
+        <div className="rec-tag-section">
+          {getTags().map((tag) => (
+            <Card key={uuidv4()} className={`rec-tag ${processTagCss(tag)} `}>
+              {processTagName(t(tag))}
+            </Card>
+          ))}
+        </div>
+      </div>
     </button>
   );
 };

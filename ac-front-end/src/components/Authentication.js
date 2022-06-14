@@ -8,11 +8,12 @@ Authors:
 Creation date: 22/05/2022
 Last modification date: 08/06/2022
 
-(Descripción)
+Program that validates if the user exists on the database and allows him/her to sign in. 
 */
 
 //Import Modules
 import { createContext, useState } from "react";
+import toast from "react-hot-toast";
 
 export const AuthenticationContext = createContext();
 
@@ -44,7 +45,7 @@ const AuthenticationProvider = ({ children }) => {
       })
       .catch((error) => {
         console.log("error", error);
-        //alert(error);
+        toast.error(error);
       });
   };
   // State for Authentication

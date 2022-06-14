@@ -244,5 +244,9 @@
   "logOut": "Log Out",
 
   "__QualityControl__": "----------------Quality Control interface--------------",
-  "noFeedbackAvailable": "No feedback available"
+  "noFeedbackAvailable": "No feedback available",
+
+  "__Error__": "----------------Error interface--------------",
+  "notFound": "Not found",
+  "source": "The source requested could not be found on this server!"
 }

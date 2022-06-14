@@ -4,11 +4,14 @@ UberForm.js
 Authors:
 - A01379868 Jared Abraham Flores Guarneros
 - A01750145 Miguel Ángel Pérez López
+- A01749448 Jorge Chávez Badillo
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750185 Amy Murakami Tsutsumi
 
 Creation date: 17/05/2022
 Last modification date: 10/06/2022
 
-(Descripción)
+Component that displays the fields to be filled in by the agent to use the Uber service. 
 */
 
 //Import Modules
@@ -19,6 +22,7 @@ import { useTranslation } from "react-i18next";
 import { createContext, Suspense, useContext, useState } from "react";
 import ConfirmationUber from "./ConfirmationUber";
 import { GlobalContext } from "../GlobalSupplier";
+import toast from "react-hot-toast";
 
 const UberForm = (props) => {
   const [, , , callId] = useContext(GlobalContext);
@@ -117,8 +121,8 @@ const UberForm = (props) => {
       })
       .catch((error) => {
         console.log("error", error);
-        alert(error);
-    });
+        toast.error(error);
+      });
   };
   if (solconf === "yes") {
     return (

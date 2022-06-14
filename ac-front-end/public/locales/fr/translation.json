@@ -244,5 +244,9 @@
   "logOut": "Déconnexion",
 
   "__QualityControl__": "----------------Quality Control interface--------------",
-  "noFeedbackAvailable": "Aucun feedback disponible"
+  "noFeedbackAvailable": "Aucun feedback disponible",
+
+  "__Error__": "----------------Error interface--------------",
+  "notFound": "Pas trouvé",
+  "source": "La source demandée est introuvable sur ce serveur!"
 }

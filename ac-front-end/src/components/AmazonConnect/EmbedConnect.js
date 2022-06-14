@@ -23,6 +23,7 @@ import { useEffect, React, useState, useContext } from "react";
 import "../../styles/AgentMain/RecordScreen.css";
 import { useReactMediaRecorder } from "react-media-recorder";
 import { GlobalContext } from "../GlobalSupplier";
+import toast from "react-hot-toast";
 
 const EmbedConnect = (props) => {
   //Variables to assing the call id and the status of the call
@@ -63,7 +64,7 @@ const EmbedConnect = (props) => {
       })
       .catch((error) => {
         console.error("Error fetching uploading URL", error);
-        alert("Error fetching uploading URL", error);
+        toast.error("Error fetching uploading URL", error);
       });
     console.log(response.fileName);
 
@@ -126,30 +127,16 @@ const EmbedConnect = (props) => {
       contact.onConnected(async function (contact) {
         cid = contact.getContactId();
         setCallId(cid);
-        //window.alert(cid);
         startRecording();
         var attributeMap = contact.getAttributes();
         console.log(attributeMap);
-        //window.alert(auth)
         auth = JSON.stringify(attributeMap["boolAuth"]["value"]);
         props.onChangeAuth(auth);
-        //window.alert(auth)
         console.log(auth);
         clientId = JSON.stringify(attributeMap["clientId"]["value"]);
         props.onChangeClientId(clientId);
         console.log(clientId);
-        /*if (auth === '"You were not authenticated"') {
-          window.alert("Not Authenticated PIN");
-        } else if (auth === '"Not authenticated. Tried Voice ID."') {
-          window.alert("Attempted Voice ID");
-        } else if (auth === '"You were authenticated"') {
-          window.alert("Authenticated PIN\n" + clientId);
-        } else if (auth === '"Authenticated by Voice ID"') {
-          window.alert("Authenticated by Voice ID");
-        } else {
-          window.alert("Not Authenticated");
-        }
-        console.log("Estado de la variable Auth: " + auth);*/
+
       });
     });
 
@@ -207,7 +194,7 @@ const EmbedConnect = (props) => {
           })
           .catch((error) => {
             console.error("Error fetching uploading URL", error);
-            alert("Error fetching uploading URL", error);
+            toast.error("Error fetching uploading URL", error);
           });
       });
     });

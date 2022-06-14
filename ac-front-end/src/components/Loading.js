@@ -7,7 +7,7 @@ Authors:
 Creation date: 12/05/2022
 Last modification date: 10/06/2022
 
-(Descripción)
+Program that displays a spinner when loading the App. 
 */
 
 //Import Modules

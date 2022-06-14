@@ -3,11 +3,16 @@ Profile.js
 
 Authors:
 - A01378688 Daniel Garcia Barajas
+- A01750145 Miguel Ángel Pérez López
+- A01749448 Jorge Chávez Badillo
+- A01379868 Jared Abraham Flores Guarneros
+- A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750185 Amy Murakami Tsutsumi
 
 Creation date: 30/04/2022
 Last modification date: 10/06/2022
 
-(Decripción)
+Program that displays the profile of the user, it contains the logout.
 */
 
 //Import Modules

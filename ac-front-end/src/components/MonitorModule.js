@@ -7,8 +7,10 @@ Authors:
 Creation date: 15/05/2022
 Last modification date: 09/06/2022
 
-(Descripción)
+Program that counts the clicks made in the App. 
 */
+
+import toast from "react-hot-toast";
 
 // This module helps to register the
 // clicks and pressed keys of the user
@@ -45,7 +47,7 @@ export const saveKeys = (event) => {
     .then((result) => console.log(result))
     .catch((error) => {
       console.log("error", error);
-      alert(error);
+      toast.error(error);
     });
 };
 
@@ -72,6 +74,6 @@ export const saveClick = (elementName) => {
     .then((result) => console.log(result))
     .catch((error) => {
       console.log("error", error);
-      alert(error);
+      toast.error(error);
     });
 };

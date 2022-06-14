@@ -4,6 +4,8 @@ AllAgentsList.js
 Authors:
 - A01749448 Jorge Chávez Badillo
 - A01749373 Ariadna Jocelyn Guzmán Jiménez
+- A01750145 Miguel Ángel Pérez López
+- A01750185 Amy Murakami Tsutsumi
 
 Creation date: 02/05/2022
 Last modification date: 09/06/2022
@@ -33,7 +35,7 @@ const AllAgentList = (props) => {
   return (
     <div className="aal-main-container">
       <p className="aal-title">{t("allAgents")}</p>
-      <div>
+      <div className="aal-rows-container">
         {arrAgents.map((agent) => (
           <AgentRow
             id={agent.agent_id}

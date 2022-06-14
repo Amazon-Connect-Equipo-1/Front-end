@@ -8,7 +8,7 @@ Authors:
 Creation date: 10/04/2022
 Last modification date: 09/06/2022
 
-(Descripción)
+Program that renders the main component of the application 
 */
 
 //Import Modules

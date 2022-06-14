@@ -19,6 +19,7 @@ import { useTranslation } from "react-i18next";
 import Card from "../UI/Card";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 // Creates the constant Forgotten Password
 const ForgottenPasswordForm = (props) => {
@@ -62,19 +63,19 @@ const ForgottenPasswordForm = (props) => {
           const resultJSON = JSON.parse(result);
           console.log(Object.keys(resultJSON).length);
           if (Object.keys(resultJSON).length > 1) {
-            alert(resultJSON.message);
+            toast.error(resultJSON.message);
           } else {
-            alert(t("confirmPassword"));
+            toast.success(t("confirmPassword"));
             // If the user exists in db, navigates to the other form interface
             navigate("/confirm-password", { replace: true });
           }
         })
         .catch((error) => {
           console.log("error", error);
-          alert(error);
+          toast.error(error);
       });
     } else {
-      alert(t("validateEmail"));
+      toast.error(t("validateEmail"));
     }
   };
 

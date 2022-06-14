@@ -21,7 +21,6 @@ its components to deploy them.
 import "./App.css";
 import Login from "./components/Login/Login";
 import RecoverPassword from "./components/Login/RecoverPassword";
-import Register from "./components/Login/Register";
 import Profile from "./components/Profile/Profile";
 import Recordings from "./components/Recordings/Recordings";
 import Usuario from "./components/Usuario/Usuario";
@@ -60,6 +59,7 @@ import DashboardAdmin from "./components/Dashboard/DashboardAdmin";
 import StatisticsAdmin from "./components/Statistics/StatisticsAdmin";
 import StatisticsQA from "./components/Statistics/StatisticsQuality-agent";
 import DashboardQA from "./components/Dashboard/DashboardQuality-agent";
+import toast, { Toaster } from "react-hot-toast";
 
 function App() {
   const deleteObj = () => {
@@ -82,7 +82,7 @@ function App() {
       .then((result) => console.log(result))
       .catch((error) => {
         console.log("error", error);
-        alert(error);
+        toast.error(error);
       });
   };
   const refreshSystem = () => {
@@ -142,6 +142,16 @@ function App() {
 
   return (
     <div className="App">
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        toastOptions={{
+          duration: "200",
+          style: {
+            background: "#fafafa",
+          },
+        }}
+      />
       {hours === 0 && minutes === 57 && seconds === 59 && refreshSystem()}
 
       {music === "play" && (
@@ -164,9 +174,7 @@ function App() {
                 <Route path="forgot-password" element={<RecoverPassword />} />
                 <Route path="confirm-password" element={<NewPasswordForm />} />
                 {/* <Route path="client" element={<Usuario />} /> */}
-                <Route path="register-user" element={<Register />} />
                 <Route path="confirm-email" element={<Usuario />} />
-
                 {/*Routes for all types of users*/}
                 <Route
                   element={
