@@ -3,6 +3,7 @@ AgentRecordingsSupplier.js
 
 Authors:
 - A01750145 Miguel Ángel Pérez López
+traduction:
 - A01749448 Jorge Chávez Badillo
 - A01749373 Ariadna Jocelyn Guzmán Jiménez
 - A01750185 Amy Murakami Tsutsumi
@@ -166,7 +167,7 @@ const AgentRecordingsSupplier = ({ children }) => {
     };
 
     fetch(
-      `https://backtest.bankonnect.link/manager/agentRecordings?email=${email}`,
+      process.env.ENDPOINT_BACK_END + `manager/agentRecordings?email=${email}`,
       requestOptionsGET
     )
       .then((response) => response.text())

@@ -2,9 +2,11 @@
 AgentFeedbackCard.js
 
 Authors:
+- A01750145 Miguel Ángel Pérez López
+traduction:
 - A01749448 Jorge Chávez Badillo
 - A01750185 Amy Murakami Tsutsumi
-- A01750145 Miguel Ángel Pérez López
+
 - A01749373 Ariadna Jocelyn Guzmán Jiménez
 
 Creation date: 01/05/2022
@@ -45,7 +47,7 @@ const AgentFeedbackCard = (props) => {
     };
 
     fetch(
-      `https://backtest.bankonnect.link/agent/getFeedback?email=${email}`,
+      process.env.ENDPOINT_BACK_END + `agent/getFeedback?email=${email}`,
       requestOptions
     )
       .then((response) => response.text())
@@ -88,7 +90,7 @@ const AgentFeedbackCard = (props) => {
     };
 
     fetch(
-      "https://backtest.bankonnect.link/agent/acceptFeedback",
+      process.env.ENDPOINT_BACK_END + "agent/acceptFeedback",
       requestOptions
     )
       .then((response) => response.text())

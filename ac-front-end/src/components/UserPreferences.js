@@ -33,7 +33,7 @@ export const loadUserPreferences = (id) => {
   };
 
   fetch(
-    `https://backtest.bankonnect.link/userConfig/getUserConfig?id=${id}`,
+    process.env.ENDPOINT_BACK_END + `userConfig/getUserConfig?id=${id}`,
     requestOptions
   )
     .then((response) => response.text())

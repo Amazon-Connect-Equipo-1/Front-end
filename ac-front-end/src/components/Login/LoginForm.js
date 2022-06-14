@@ -3,6 +3,7 @@ LoginForm.js
 
 Authors:
 - A01750145 Miguel Ángel Pérez López
+traduction:
 - A01749448 Jorge Chávez Badillo
 - A01750185 Amy Murakami Tsutsumi
 - A01749373 Ariadna Jocelyn Guzmán Jiménez
@@ -79,7 +80,7 @@ const LoginForm = (props) => {
       redirect: "follow",
     };
 
-    fetch("https://backtest.bankonnect.link/auth/signIn", requestOptions)
+    fetch(process.env.ENDPOINT_BACK_END + "auth/signIn", requestOptions)
       .then((response) => response.text())
       .then((result) => {
         window.localStorage.setItem("isLoggedIn", true);
@@ -115,7 +116,8 @@ const LoginForm = (props) => {
 
           // Save manager info in local storage
           fetch(
-            `https://backtest.bankonnect.link/manager/managerProfile?email=${email}`,
+            process.env.ENDPOINT_BACK_END +
+              `manager/managerProfile?email=${email}`,
             requestOptionsGET
           )
             .then((response) => response.text())
@@ -136,7 +138,7 @@ const LoginForm = (props) => {
             .catch((error) => {
               console.log("error", error);
               toast.error(error);
-          });
+            });
           navigate("/admin", { replace: true });
         }
         if (resultJSON.role === USER.QA) {
@@ -153,7 +155,8 @@ const LoginForm = (props) => {
 
           // Save manager info in local storage
           fetch(
-            `https://backtest.bankonnect.link/manager/managerProfile?email=${email}`,
+            process.env.ENDPOINT_BACK_END +
+              `manager/managerProfile?email=${email}`,
             requestOptionsGET
           )
             .then((response) => response.text())
@@ -171,10 +174,10 @@ const LoginForm = (props) => {
               window.localStorage.setItem("music", "pause");
               navigate("/qa", { replace: true });
             })
-            .catch((error) =>{
+            .catch((error) => {
               console.log("error", error);
               toast.error(error);
-          });
+            });
         }
         if (resultJSON.role === USER.Agent) {
           const myHeadersToken = new Headers();
@@ -190,7 +193,7 @@ const LoginForm = (props) => {
 
           // Save manager info in local storage
           fetch(
-            `https://backtest.bankonnect.link/agent/agentProfile?email=${email}`,
+            process.env.ENDPOINT_BACK_END + `agent/agentProfile?email=${email}`,
             requestOptionsGET
           )
             .then((response) => response.text())
@@ -219,13 +222,13 @@ const LoginForm = (props) => {
             .catch((error) => {
               console.log("error", error);
               toast.error(error);
-          });
+            });
         }
       })
       .catch((error) => {
         console.log("error", error);
         toast.error(error);
-    });
+      });
 
     console.log(user);
     console.log(userType);

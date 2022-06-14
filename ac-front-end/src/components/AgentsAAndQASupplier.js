@@ -60,7 +60,7 @@ const AgentsAAndQASupplier = ({ children }) => {
     };
 
     fetch(
-      "https://backtest.bankonnect.link/manager/agentList",
+      process.env.ENDPOINT_BACK_END + "manager/agentList",
       requestOptionsGET
     )
       .then((response) => response.text())
@@ -106,10 +106,7 @@ const AgentsAAndQASupplier = ({ children }) => {
       redirect: "follow",
     };
 
-    fetch(
-      "https://backtest.bankonnect.link/manager/postComment",
-      requestOptions
-    )
+    fetch(process.env.ENDPOINT_BACK_END + "manager/postComment", requestOptions)
       .then((response) => response.text())
       .then((result) => {
         console.log(result);

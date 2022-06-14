@@ -4,6 +4,7 @@ AddAgent.js
 Authors:
 - A01379868 Jared Abraham Flores Guarneros
 - A01750145 Miguel Ángel Pérez López
+traduction:
 - A01749448 Jorge Chávez Badillo
 - A01749373 Ariadna Jocelyn Guzmán Jiménez
 - A01750185 Amy Murakami Tsutsumi
@@ -79,7 +80,7 @@ const AddAgent = (props) => {
       redirect: "follow",
     };
 
-    fetch("https://backtest.bankonnect.link/auth/signUpAgent", requestOptions)
+    fetch(process.env.ENDPOINT_BACK_END + "auth/signUpAgent", requestOptions)
       .then((response) => response.text())
       .then((result) => {
         const resultJSON = JSON.parse(result);

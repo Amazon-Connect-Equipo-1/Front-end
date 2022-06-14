@@ -144,7 +144,7 @@ function App() {
           },
         }}
       />
-      {hours === 0 && minutes === 57 && seconds === 59 && refreshSystem()}
+      {hours === 0 && minutes === 59 && seconds === 59 && refreshSystem()}
 
       {music === "play" && (
         <div>

@@ -3,6 +3,7 @@ RecordingsSupplier.js
 
 Authors:
 - A01750145 Miguel Ángel Pérez López
+traduction:
 - A01749448 Jorge Chávez Badillo
 - A01749373 Ariadna Jocelyn Guzmán Jiménez
 - A01750185 Amy Murakami Tsutsumi
@@ -49,7 +50,7 @@ const RecordingsSupplier = ({ children }) => {
     };
 
     fetch(
-      "https://backtest.bankonnect.link/manager/topRecordings",
+      process.env.ENDPOINT_BACK_END + "manager/topRecordings",
       requestOptions
     )
       .then((response) => response.text())
@@ -80,7 +81,8 @@ const RecordingsSupplier = ({ children }) => {
     };
 
     await fetch(
-      `https://backtest.bankonnect.link/manager/showRecording?recording_id=${recordingId}`,
+      process.env.ENDPOINT_BACK_END +
+        `manager/showRecording?recording_id=${recordingId}`,
       requestOptions
     )
       .then((response) => response.text())
@@ -115,7 +117,7 @@ const RecordingsSupplier = ({ children }) => {
     };
 
     fetch(
-      "https://backtest.bankonnect.link/manager/showLastRecordings",
+      process.env.ENDPOINT_BACK_END + "manager/showLastRecordings",
       requestOptions
     )
       .then((response) => response.text())
@@ -163,7 +165,7 @@ const RecordingsSupplier = ({ children }) => {
     };
 
     fetch(
-      `https://backtest.bankonnect.link/manager/agentRecordings?email=${email}`,
+      process.env.ENDPOINT_BACK_END + `manager/agentRecordings?email=${email}`,
       requestOptionsGET
     )
       .then((response) => response.text())
@@ -211,7 +213,7 @@ const RecordingsSupplier = ({ children }) => {
     };
 
     fetch(
-      "https://backtest.bankonnect.link/manager/filterRecordingsByDate",
+      process.env.ENDPOINT_BACK_END + "manager/filterRecordingsByDate",
       requestOptions
     )
       .then((response) => response.text())
@@ -273,7 +275,7 @@ const RecordingsSupplier = ({ children }) => {
     };
 
     fetch(
-      "https://backtest.bankonnect.link/manager/filterRecordings",
+      process.env.ENDPOINT_BACK_END + "manager/filterRecordings",
       requestOptions
     )
       .then((response) => response.text())

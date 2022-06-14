@@ -39,10 +39,7 @@ export const saveKeys = (event) => {
     redirect: "follow",
   };
 
-  fetch(
-    "https://backtest.bankonnect.link/keyclick/addKeystroke",
-    requestOptions
-  )
+  fetch(process.env.ENDPOINT_BACK_END + "keyclick/addKeystroke", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => {
@@ -69,7 +66,7 @@ export const saveClick = (elementName) => {
     redirect: "follow",
   };
 
-  fetch("https://backtest.bankonnect.link/keyclick/addClick", requestOptions)
+  fetch(process.env.ENDPOINT_BACK_END + "keyclick/addClick", requestOptions)
     .then((response) => response.text())
     .then((result) => console.log(result))
     .catch((error) => {

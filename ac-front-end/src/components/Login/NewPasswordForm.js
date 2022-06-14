@@ -63,7 +63,7 @@ const NewPasswordForm = (props) => {
       };
 
       fetch(
-        "https://backtest.bankonnect.link/auth/confirmPassword",
+        process.env.ENDPOINT_BACK_END +"auth/confirmPassword",
         requestOptions
       )
         .then((response) => response.text())

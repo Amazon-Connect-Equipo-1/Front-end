@@ -3,6 +3,7 @@ ConfirmationPolice.js
 
 Authors:
 - A01379868 Jared Abraham Flores Guarneros
+traduction:
 - A01749448 Jorge Chávez Badillo
 - A01749373 Ariadna Jocelyn Guzmán Jiménez
 - A01750185 Amy Murakami Tsutsumi
@@ -77,7 +78,7 @@ const ConfirmationPolice = (props) => {
       redirect: "follow",
     };
 
-    fetch("https://backtest.bankonnect.link/tps/sendService", requestOptions)
+    fetch(process.env.ENDPOINT_BACK_END + "tps/sendService", requestOptions)
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => {

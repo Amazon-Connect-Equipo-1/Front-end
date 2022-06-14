@@ -121,7 +121,7 @@ function Settings() {
 
     //Save manager info in local storage
     fetch(
-      `https://backtest.bankonnect.link/userConfig/updateUserConfig`,
+      process.env.ENDPOINT_BACK_END + `userConfig/updateUserConfig`,
       requestOptions
     )
       .then((response) => response.text())

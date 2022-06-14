@@ -54,7 +54,7 @@ const ForgottenPasswordForm = (props) => {
       };
       // Makes the request to backend routes to evaluate data in the db
       fetch(
-        "https://backtest.bankonnect.link/auth/forgotPassword",
+        process.env.ENDPOINT_BACK_END + "auth/forgotPassword",
         requestOptions
       )
         .then((response) => response.text())
@@ -73,7 +73,7 @@ const ForgottenPasswordForm = (props) => {
         .catch((error) => {
           console.log("error", error);
           toast.error(error);
-      });
+        });
     } else {
       toast.error(t("validateEmail"));
     }

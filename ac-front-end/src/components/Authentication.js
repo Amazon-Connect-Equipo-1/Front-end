@@ -37,7 +37,7 @@ const AuthenticationProvider = ({ children }) => {
       redirect: "follow",
     };
 
-    fetch("https://backtest.bankonnect.link/auth/signout", requestOptions)
+    fetch(process.env.ENDPOINT_BACK_END + "auth/signout", requestOptions)
       .then((response) => response.text())
       .then((result) => {
         const resultJSON = JSON.parse(result);
