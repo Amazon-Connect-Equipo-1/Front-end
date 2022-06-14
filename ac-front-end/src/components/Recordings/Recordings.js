@@ -202,26 +202,25 @@ const Recordings = (props) => {
                   </button>
                 )}
                 {spinnerValue === "email" && (
-                  <Autocomplete
-                    disablePortal
-                    className="re-search"
-                    id="re-search"
-                    options={optionName}
-                    value={value}
+                  <input
+                    onKeyDown={saveKeys}
                     onClick={() => saveClick(`${INPUT_NAME} input`)}
-                    onChange={(event, newValue) => {
-                      setValue(newValue);
-                      getRecordsByAgent([newValue.id]);
-                    }}
-                    renderInput={(params) => (
-                      <TextField
-                        {...params}
-                        className="text-field"
-                        id="text-field"
-                        label="Email"
-                      />
-                    )}
+                    className="re-input"
+                    id="re-input"
+                    type="email"
+                    placeholder={t("search")}
+                    onChange={onChangeSearchInput}
+                    value={searchInput}
                   />
+                )}
+                {spinnerValue === "email" && (
+                  <button
+                    href="/"
+                    className="re-btn re-search-btn"
+                    onClick={onFilterRecordings}
+                  >
+                    {t("search")}
+                  </button>
                 )}
               </div>
             </div>
