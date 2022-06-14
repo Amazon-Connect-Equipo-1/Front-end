@@ -39,19 +39,19 @@ import Rebeca from "../../images/Collabs/Rebeca.jpg";
 import Eduardo from "../../images/Collabs/Eduardo.jpg";
 import Raul from "../../images/Collabs/Raul.jpg";
 import bk from "../../images/Collabs/logo.jpg";
-
-import LoginForm from "./LoginForm";
+import { Link } from "react-router-dom";
 
 const About = (props) => {
   return (
     <div className="abo-main-container">
-      <button
+      <Link
+        to={"../login"}
         className="abo-btn"
         style={{ width: "8rem" }}
         onClick={props.onChangeShow}
       >
         return
-      </button>
+      </Link>
       <div className="abo-about-container">
         <div className="abo-card">
           <img className="abo-logo" src={bk}></img>

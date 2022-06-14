@@ -18,11 +18,11 @@ import logo from "../../images/logo_bbva.png";
 import LoginForm from "./LoginForm";
 import About from "./About";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Login = (props) => {
   document.body.classList.add("dark");
   const [showAbout, setShowAbout] = useState(false);
-  //poner página de jared
   const onShowAbout = () => {
     setShowAbout(!showAbout);
   };
@@ -34,9 +34,9 @@ const Login = (props) => {
           <img src={logo} alt="logo" className="log-logo" />
           <LoginForm />
         </div>
-        <button className="log-about" onClick={onShowAbout}>
+        <Link to="about" className="log-about" onClick={onShowAbout}>
           About
-        </button>
+        </Link>
       </div>
     );
   } else {

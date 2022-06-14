@@ -51,6 +51,7 @@ Style to display HTML elements for Login.js.
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  text-decoration: none;
 }
 .log-about:hover {
   transform: translateY(-3px);

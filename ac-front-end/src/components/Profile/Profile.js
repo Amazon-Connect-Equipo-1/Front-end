@@ -17,11 +17,9 @@ Program that displays the profile of the user, it contains the logout.
 
 //Import Modules
 import "../../styles/Profile/Profile.css";
-//import prfl_ic from "../../images/profile_icon.png";
 import { useContext } from "react";
 import { GlobalContext } from "../GlobalSupplier";
 import { AuthenticationContext } from "../Authentication";
-//import { Link } from "react-router-dom";
 import { Avatar } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
@@ -31,9 +29,9 @@ const Profile = (props) => {
     window.localStorage.setItem("needRefresh", true);
   }
 
-  const [, , userInfo] = useContext(GlobalContext);
-
+  const [, , userInfo, , , agentStatus] = useContext(GlobalContext);
   const [, , , , logout] = useContext(AuthenticationContext);
+  //If the agent status == "In call", the agent icon should be disabled
 
   const logoutHandler = (event) => {
     logout();
@@ -69,12 +67,6 @@ const Profile = (props) => {
           />
           <div className="prfl-info-container">
             <p className="prfl-name">{window.localStorage.getItem("name")}</p>
-            {/* <br />
-            <p className="prfl-label">Id</p>
-            <p className="prfl-label-info">
-              {window.localStorage.getItem("id")}
-            </p>
-            <br /> */}
             <p className="prfl-label">{t("emailProfile")}</p>
             <p className="prfl-label-info">
               {window.localStorage.getItem("email")}

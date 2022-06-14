@@ -62,10 +62,11 @@
 
 .abo-btn {
   position: absolute;
-  left: 10px;
-  top: 10px;
+  left: 30px;
+  top: 30px;
   cursor: pointer;
   z-index: 1000;
+  text-decoration: none;
 }
 
 .abo-img {
@@ -96,7 +97,13 @@
 .abo-text {
   font-size: 1.5rem;
   color: white;
+  text-decoration: none;
 }
+
+.abo-text:hover {
+  color: #9facbd;
+}
+
 .abo-text-large {
   font-size: 1.5rem;
   font-weight: bolder;

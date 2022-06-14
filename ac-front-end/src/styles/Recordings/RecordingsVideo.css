@@ -65,12 +65,14 @@ Style to display HTML elements for RecordingsVideo.js.
   text-decoration: none;
   /* margin-bottom: 1rem; */
   border: none;
+  transition: all 0.3s ease-out;
 }
 .rev-return-btn:hover {
   transform: translateY(-3px);
   transition: 0.3s ease-out;
   opacity: 0.9;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-out;
 }
 
 .rev-video {

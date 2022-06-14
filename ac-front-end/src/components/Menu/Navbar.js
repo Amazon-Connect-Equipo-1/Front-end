@@ -28,7 +28,7 @@ import { Avatar } from "@mui/material";
 
 const Navbar = (props) => {
   //Obtain the status
-  //If the agent status == "In call", the navbar should dissapear
+  //If the agent status == "In call", the navbar should be disabled
   const [, , , , , agentStatus] = useContext(GlobalContext);
 
   const getSidebarData = () => {
@@ -82,6 +82,8 @@ const Navbar = (props) => {
             style={{
               textDecoration: "none",
               textDecorationLine: "none",
+              pointerEvents:
+                agentStatus === "" || agentStatus !== "Active" ? "all" : "none",
             }}
           >
             <Avatar
@@ -99,7 +101,6 @@ const Navbar = (props) => {
         </div>
         <nav className="nav-menu">
           {/* If the agent is in call this will hide the navbar */}
-
           <ul className="nav-menu-items">
             {getSidebarData().map((item, index) => {
               return (
