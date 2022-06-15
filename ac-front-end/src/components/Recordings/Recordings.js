@@ -85,7 +85,7 @@ const Recordings = (props) => {
   };
 
   const arrayTags = [];
-  if (arrRecordings.length === 0) {
+  if (arrRecordings.length !== 0) {
     arrRecordings.map((recordInfo) =>
       recordInfo.tags.map((tag) => {
         if (arrayTags.includes(tag) === false) {
