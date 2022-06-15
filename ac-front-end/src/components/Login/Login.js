@@ -39,7 +39,7 @@ const Login = (props) => {
           <LoginForm />
         </div>
         <Link to="login/about" className="log-about" onClick={onShowAbout}>
-          {t("about")}
+          About
         </Link>
       </div>
     );
