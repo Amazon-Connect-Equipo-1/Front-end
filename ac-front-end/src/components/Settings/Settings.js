@@ -121,7 +121,7 @@ function Settings() {
 
     //Save manager info in local storage
     fetch(
-      process.env.ENDPOINT_BACK_END + `userConfig/updateUserConfig`,
+      process.env.REACT_APP_ENDPOINT_BACK_END + `userConfig/updateUserConfig`,
       requestOptions
     )
       .then((response) => response.text())

@@ -33,7 +33,8 @@ export const loadUserPreferences = (id) => {
   };
 
   fetch(
-    process.env.ENDPOINT_BACK_END + `userConfig/getUserConfig?id=${id}`,
+    process.env.REACT_APP_ENDPOINT_BACK_END +
+      `userConfig/getUserConfig?id=${id}`,
     requestOptions
   )
     .then((response) => response.text())

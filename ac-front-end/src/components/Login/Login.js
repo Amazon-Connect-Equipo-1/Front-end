@@ -31,6 +31,7 @@ const Login = (props) => {
   // Language
   const { t } = useTranslation();
   if (!showAbout) {
+    console.log(process.env.REACT_APP_ENDPOINT_BACK_END);
     return (
       <div className="log-main-container">
         <div className="log-container">

@@ -167,7 +167,8 @@ const AgentRecordingsSupplier = ({ children }) => {
     };
 
     fetch(
-      process.env.ENDPOINT_BACK_END + `manager/agentRecordings?email=${email}`,
+      process.env.REACT_APP_ENDPOINT_BACK_END +
+        `manager/agentRecordings?email=${email}`,
       requestOptionsGET
     )
       .then((response) => response.text())

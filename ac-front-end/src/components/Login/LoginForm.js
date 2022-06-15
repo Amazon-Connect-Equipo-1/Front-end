@@ -27,6 +27,7 @@ import { FiEyeOff } from "react-icons/fi";
 import toast from "react-hot-toast";
 
 const LoginForm = (props) => {
+  console.log(process.env.REACT_APP_ENDPOINT_BACK_END + "auth/signIn");
   // Language
   const { t } = useTranslation();
 
@@ -80,7 +81,10 @@ const LoginForm = (props) => {
       redirect: "follow",
     };
 
-    fetch(process.env.ENDPOINT_BACK_END + "auth/signIn", requestOptions)
+    fetch(
+      process.env.REACT_APP_ENDPOINT_BACK_END + "auth/signIn",
+      requestOptions
+    )
       .then((response) => response.text())
       .then((result) => {
         window.localStorage.setItem("isLoggedIn", true);
@@ -116,7 +120,7 @@ const LoginForm = (props) => {
 
           // Save manager info in local storage
           fetch(
-            process.env.ENDPOINT_BACK_END +
+            process.env.REACT_APP_ENDPOINT_BACK_END +
               `manager/managerProfile?email=${email}`,
             requestOptionsGET
           )
@@ -124,6 +128,7 @@ const LoginForm = (props) => {
             .then((result) => {
               const resultJSON = JSON.parse(result);
               console.log(resultJSON);
+
               window.localStorage.setItem("name", resultJSON.manager_name);
               window.localStorage.setItem("id", resultJSON.manager_id);
               window.localStorage.setItem(
@@ -155,7 +160,7 @@ const LoginForm = (props) => {
 
           // Save manager info in local storage
           fetch(
-            process.env.ENDPOINT_BACK_END +
+            process.env.REACT_APP_ENDPOINT_BACK_END +
               `manager/managerProfile?email=${email}`,
             requestOptionsGET
           )
@@ -193,7 +198,8 @@ const LoginForm = (props) => {
 
           // Save manager info in local storage
           fetch(
-            process.env.ENDPOINT_BACK_END + `agent/agentProfile?email=${email}`,
+            process.env.REACT_APP_ENDPOINT_BACK_END +
+              `agent/agentProfile?email=${email}`,
             requestOptionsGET
           )
             .then((response) => response.text())

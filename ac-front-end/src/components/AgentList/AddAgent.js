@@ -80,7 +80,10 @@ const AddAgent = (props) => {
       redirect: "follow",
     };
 
-    fetch(process.env.ENDPOINT_BACK_END + "auth/signUpAgent", requestOptions)
+    fetch(
+      process.env.REACT_APP_ENDPOINT_BACK_END + "auth/signUpAgent",
+      requestOptions
+    )
       .then((response) => response.text())
       .then((result) => {
         const resultJSON = JSON.parse(result);

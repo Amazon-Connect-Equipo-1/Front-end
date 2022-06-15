@@ -50,7 +50,7 @@ const RecordingsSupplier = ({ children }) => {
     };
 
     fetch(
-      process.env.ENDPOINT_BACK_END + "manager/topRecordings",
+      process.env.REACT_APP_ENDPOINT_BACK_END + "manager/topRecordings",
       requestOptions
     )
       .then((response) => response.text())
@@ -81,7 +81,7 @@ const RecordingsSupplier = ({ children }) => {
     };
 
     await fetch(
-      process.env.ENDPOINT_BACK_END +
+      process.env.REACT_APP_ENDPOINT_BACK_END +
         `manager/showRecording?recording_id=${recordingId}`,
       requestOptions
     )
@@ -117,7 +117,7 @@ const RecordingsSupplier = ({ children }) => {
     };
 
     fetch(
-      process.env.ENDPOINT_BACK_END + "manager/showLastRecordings",
+      process.env.REACT_APP_ENDPOINT_BACK_END + "manager/showLastRecordings",
       requestOptions
     )
       .then((response) => response.text())
@@ -165,7 +165,8 @@ const RecordingsSupplier = ({ children }) => {
     };
 
     fetch(
-      process.env.ENDPOINT_BACK_END + `manager/agentRecordings?email=${email}`,
+      process.env.REACT_APP_ENDPOINT_BACK_END +
+        `manager/agentRecordings?email=${email}`,
       requestOptionsGET
     )
       .then((response) => response.text())
@@ -213,7 +214,8 @@ const RecordingsSupplier = ({ children }) => {
     };
 
     fetch(
-      process.env.ENDPOINT_BACK_END + "manager/filterRecordingsByDate",
+      process.env.REACT_APP_ENDPOINT_BACK_END +
+        "manager/filterRecordingsByDate",
       requestOptions
     )
       .then((response) => response.text())
@@ -275,7 +277,7 @@ const RecordingsSupplier = ({ children }) => {
     };
 
     fetch(
-      process.env.ENDPOINT_BACK_END + "manager/filterRecordings",
+      process.env.REACT_APP_ENDPOINT_BACK_END + "manager/filterRecordings",
       requestOptions
     )
       .then((response) => response.text())
