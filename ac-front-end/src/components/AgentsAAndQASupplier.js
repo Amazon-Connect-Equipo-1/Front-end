@@ -113,7 +113,7 @@ const AgentsAAndQASupplier = ({ children }) => {
       .then((response) => response.text())
       .then((result) => {
         console.log(result);
-        toast.success("Feedback submited successfuly");
+        toast.success(t("feedbackSubmitted"));
       })
       .catch((error) => {
         toast.error(error);

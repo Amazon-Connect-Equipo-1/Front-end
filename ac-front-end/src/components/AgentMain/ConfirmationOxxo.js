@@ -108,7 +108,7 @@ const ConfirmationOxxo = (props) => {
       .then((response) => response.text())
       .then((result) => {
         console.log(result);
-        toast.success("Data submited successfully");
+        toast.success(t("dataSubmitted"));
       })
       .catch((error) => {
         console.log("error", error);

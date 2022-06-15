@@ -274,5 +274,7 @@
 
   "__Error__": "----------------Error interface--------------",
   "notFound": "No encontrado",
-  "source": "¡La fuente solicitada no se pudo encontrar en este servidor!"
+  "source": "¡La fuente solicitada no se pudo encontrar en este servidor!",
+  "feedbackSubmited": "Comentarios enviados con éxito",
+  "dataSubmitted": "Datos enviados con éxito"
 }
