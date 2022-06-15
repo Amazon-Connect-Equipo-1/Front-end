@@ -58,7 +58,7 @@ const About = (props) => {
         style={{ width: "8rem" }}
         onClick={props.onChangeShow}
       >
-        {t("return")}
+        Return
       </Link>
       <div className="abo-about-container">
         <div className="abo-card">
