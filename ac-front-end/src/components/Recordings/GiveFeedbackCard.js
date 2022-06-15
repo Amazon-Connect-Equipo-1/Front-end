@@ -3,7 +3,7 @@ GiveFeedbackCard.js
 
 Authors:
 - A01750145 Miguel Ángel Pérez López
-traduction:
+Translation:
 - A01749448 Jorge Chávez Badillo
 - A01749373 Ariadna Jocelyn Guzmán Jiménez
 - A01750185 Amy Murakami Tsutsumi

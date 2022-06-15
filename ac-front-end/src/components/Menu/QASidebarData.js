@@ -3,7 +3,7 @@ QASidebarData.js
 
 Authors:
 - A01750145 Miguel Ángel Pérez López
-traduction:
+Translation:
 - A01749448 Jorge Chávez Badillo
 
 Creation date: 15/05/2022

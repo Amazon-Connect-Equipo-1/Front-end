@@ -3,7 +3,7 @@ AmazonConnect.js
 
 Authors:
 - A01378688 Daniel Garcia Barajas
-traduction:
+Translation:
 - A01749448 Jorge Chávez Badillo
 
 Creation date: 19/05/2022

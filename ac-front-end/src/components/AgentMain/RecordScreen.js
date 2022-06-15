@@ -5,7 +5,7 @@ Authors:
 - A01378688 Daniel Garcia Barajas
 -A01379566 Diego Juarez Ruiz
 -A1379918 Luis Enrique Zamarrripma Marin
-traduction:
+Translation:
 - A01749448 Jorge Chávez Badillo
 - A01749373 Ariadna Jocelyn Guzmán Jiménez
 - A01750185 Amy Murakami Tsutsumi
