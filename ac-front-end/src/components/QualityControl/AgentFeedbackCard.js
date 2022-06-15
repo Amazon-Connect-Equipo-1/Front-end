@@ -3,10 +3,9 @@ AgentFeedbackCard.js
 
 Authors:
 - A01750145 Miguel Ángel Pérez López
-traduction:
+Translation:
 - A01749448 Jorge Chávez Badillo
 - A01750185 Amy Murakami Tsutsumi
-
 - A01749373 Ariadna Jocelyn Guzmán Jiménez
 
 Creation date: 01/05/2022
@@ -21,6 +20,7 @@ import "../../styles/Recordings/AgentFeedbackCard.css";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { saveClick } from "../MonitorModule.js";
 
 const AgentFeedbackCard = (props) => {
   // Language
@@ -29,6 +29,7 @@ const AgentFeedbackCard = (props) => {
   const [feedbackAccepted, setFeedbackAccepted] = useState(false);
   const [commentId, setCommentId] = useState("");
   const [commentDate, setCommentDate] = useState("");
+  const INPUT_NAME = "agent feedback";
 
   useEffect(() => {
     getFeedback();
@@ -56,7 +57,6 @@ const AgentFeedbackCard = (props) => {
         const resultJSON = JSON.parse(result).comments;
         const commentsLength = resultJSON.length;
         console.log(resultJSON);
-        // console.log(commentsLength);
         if (commentsLength > 0) {
           //Set variable to see if the agent has accepted that feedback
           setFeedbackAccepted(resultJSON[commentsLength - 1].seen);
@@ -66,7 +66,6 @@ const AgentFeedbackCard = (props) => {
         }
       })
       .catch((error) => {
-        console.log("error", error);
         toast.error(error);
       });
   };
@@ -96,11 +95,9 @@ const AgentFeedbackCard = (props) => {
     )
       .then((response) => response.text())
       .then((result) => {
-        console.log(result);
         setFeedbackAccepted(true);
       })
       .catch((error) => {
-        console.log("error", error);
         toast.error(error);
       });
   };
@@ -116,7 +113,13 @@ const AgentFeedbackCard = (props) => {
           </>
         )}
         {comment.length !== 0 && !feedbackAccepted && (
-          <button className="afc-send-btn" onClick={acceptFeedback}>
+          <button
+            className="afc-send-btn"
+            onClick={() => {
+              acceptFeedback();
+              saveClick(`${INPUT_NAME} button`);
+            }}
+          >
             {t("acceptFeedback")}
           </button>
         )}

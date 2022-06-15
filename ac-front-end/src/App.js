@@ -55,6 +55,7 @@ import StatisticsQA from "./components/Statistics/StatisticsQuality-agent";
 import DashboardQA from "./components/Dashboard/DashboardQuality-agent";
 import toast, { Toaster } from "react-hot-toast";
 import About from "./components/Login/About";
+import RequireNoAuthentication from "./components/RequireNoAuthentication";
 
 function App() {
   const deleteObj = () => {
@@ -109,7 +110,7 @@ function App() {
   i18n.on("languageChanged", (lng) => setLocale(i18n.language));
 
   // Authentication
-  const [user, , userType, , logout] = useContext(AuthenticationContext);
+  const [user, , , , logout] = useContext(AuthenticationContext);
 
   const getUserType = window.localStorage.getItem("userType");
 
@@ -162,12 +163,17 @@ function App() {
             <Routes>
               <Route path="/" element={<Layout />}>
                 {/*Public Routes*/}
-                <Route path="login" element={<Login />} />
-                <Route path="login/about" element={<About />} />
-                <Route path="forgot-password" element={<RecoverPassword />} />
-                <Route path="confirm-password" element={<NewPasswordForm />} />
-                {/* <Route path="client" element={<Usuario />} /> */}
-                <Route path="confirm-email" element={<Usuario />} />
+                <Route element={<RequireNoAuthentication />}>
+                  <Route path="login" element={<Login />} />
+                  <Route path="login/about" element={<About />} />
+                  <Route path="forgot-password" element={<RecoverPassword />} />
+                  <Route
+                    path="confirm-password"
+                    element={<NewPasswordForm />}
+                  />
+                  <Route path="confirm-email" element={<Usuario />} />
+                </Route>
+
                 {/*Routes for all types of users*/}
                 <Route
                   element={
@@ -282,7 +288,7 @@ function App() {
                 </Route>
 
                 {/*Catch all*/}
-                <Route path="*" element={<Error interface={userType} />} />
+                <Route path="*" element={<Error interface={getUserType} />} />
               </Route>
             </Routes>
           </Suspense>

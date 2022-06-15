@@ -3,7 +3,7 @@ Usuario.js
 
 Authors:
 - A01379868 Jared Abraham Flores Guarneros
-traduction:
+Translation:
 - A01749448 Jorge Chávez Badillo
 - A01749373 Ariadna Jocelyn Guzmán Jiménez
 - A01750185 Amy Murakami Tsutsumi
@@ -111,7 +111,7 @@ const Usuario = (props) => {
             </div>
           </Card>
         )}
-        {ver == "yes" && (
+        {ver === "yes" && (
           <Card className="lgf-main-container">
             <div className="lgf-ver-container ">
               <p className="lgf-form-title">Verified!</p>

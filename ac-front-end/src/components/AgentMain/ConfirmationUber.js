@@ -3,7 +3,7 @@ ConfirmationUber.js
 
 Authors:
 - A01379868 Jared Abraham Flores Guarneros
-traduction:
+Translation:
 - A01749448 Jorge Chávez Badillo
 - A01749373 Ariadna Jocelyn Guzmán Jiménez
 - A01750185 Amy Murakami Tsutsumi
@@ -19,12 +19,15 @@ import uberlogo from "../../images/uber.png";
 import { createContext, Suspense, useState } from "react";
 import { useTranslation } from "react-i18next";
 import toast from "react-hot-toast";
+import { saveKeys, saveClick } from "../MonitorModule.js";
 
 const ConfirmationUber = (props) => {
+  const INPUT_NAME = "Uber confirmation";
+
   const token = window.localStorage.getItem("token");
   //Data----------------------------------------
   const client = window.localStorage.getItem("client");
-  const email = window.localStorage.getItem("email");
+  const email = window.localStorage.getItem("clientEmail");
   const cellphone = window.localStorage.getItem("cellphone");
   const clientLocation = window.localStorage.getItem("clientLocation");
   const destination = window.localStorage.getItem("destination");
@@ -41,7 +44,7 @@ const ConfirmationUber = (props) => {
   //RESTART DATA--------------------------------
   const restart = () => {
     window.localStorage.removeItem("client");
-    window.localStorage.removeItem("email");
+    window.localStorage.removeItem("clientEmail");
     window.localStorage.removeItem("cellphone");
     window.localStorage.removeItem("clientLocation");
     window.localStorage.removeItem("destination");
@@ -98,7 +101,10 @@ const ConfirmationUber = (props) => {
       requestOptions
     )
       .then((response) => response.text())
-      .then((result) => console.log(result))
+      .then((result) => {
+        console.log(result);
+        toast.success(t("dataSubmitted"));
+      })
       .catch((error) => {
         console.log("error", error);
         toast.error(error);
@@ -118,6 +124,7 @@ const ConfirmationUber = (props) => {
               className="tp-submit-button"
               onClick={(e) => {
                 e.preventDefault();
+                saveClick(`${INPUT_NAME} confirmation button`);
                 pruebaBackTPS();
                 restart();
                 props.onChange();
@@ -180,6 +187,7 @@ const ConfirmationUber = (props) => {
             className="tp-submit-button"
             onClick={(e) => {
               e.preventDefault();
+              saveClick(`${INPUT_NAME} send information button`);
               changeConfig();
             }}
           >

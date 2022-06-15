@@ -4,7 +4,7 @@ AgentSidebarData.js
 Authors:
 - A01750145 Miguel Ángel Pérez López
 - A01379868 Jared Abraham Flores Guarneros
-traduction:
+Translation:
 - A01749448 Jorge Chávez Badillo
 
 Creation date: 15/05/2022

@@ -4,7 +4,7 @@ Login.js
 Authors:
 - A01750145 Miguel Ángel Pérez López
 - A01749448 Jorge Chávez Badillo
-traduction:
+Translation:
 - A01750185 Amy Murakami Tsutsumi
 - A01749373 Ariadna Jocelyn Guzmán Jiménez
 
@@ -38,7 +38,7 @@ const Login = (props) => {
           <img src={logo} alt="logo" className="log-logo" />
           <LoginForm />
         </div>
-        <Link to="about" className="log-about" onClick={onShowAbout}>
+        <Link to="login/about" className="log-about" onClick={onShowAbout}>
           {t("about")}
         </Link>
       </div>

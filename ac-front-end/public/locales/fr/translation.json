@@ -47,7 +47,7 @@
   "frontendWorkTeam": "Équipe de travail frontend",
   "dashboardDocumentation": "Création de tableaux de bord, documentation",
   "tutorialsDocumentation": "Tutoriels, documentation",
-  "systemTranslation": "Traduction du système, documentation",
+  "systemTranslation": "Traduction du système, navigation, documentation",
   "AWSManagers": "Gestionnaires de fonctionnalités AWS",
   "videoData": "Traitement des données vidéo",
   "screenRecording": "Enregistrement d'écran, identification vocale",
@@ -175,7 +175,7 @@
   "agentBtn": "agent",
   "tags": "tags",
   "informationSent": "Information envoyée!",
-  "confirmed": "confirmé",
+  "Confirmed": "confirmé",
   "cellPhone": "Téléphone:",
   "oxxoInfo": "INFO OXXO:",
   "street": "Rue:",
@@ -274,5 +274,7 @@
 
   "__Error__": "----------------Error interface--------------",
   "notFound": "Pas trouvé",
-  "source": "La source demandée est introuvable sur ce serveur!"
+  "source": "La source demandée est introuvable sur ce serveur!",
+  "feedbackSubmitted": "Commentaires soumis avec succès",
+  "dataSubmitted": "Données soumises avec succès"
 }

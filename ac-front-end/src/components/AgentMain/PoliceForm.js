@@ -29,7 +29,7 @@ const PoliceForm = (props) => {
   // Language
   const { t } = useTranslation();
   const [solconf, setSolConf] = useState("no");
-  const [, , , callId] = useContext(GlobalContext);
+  const [, , , callId, , agentStatus] = useContext(GlobalContext);
   const INPUT_NAME = "police form";
   //input handlers-----------------------------------
   const [clientInput, setClientInput] = useState("");
@@ -68,7 +68,7 @@ const PoliceForm = (props) => {
   //RESTART DATA--------------------------------
   const restart = () => {
     window.localStorage.removeItem("client");
-    window.localStorage.removeItem("email");
+    window.localStorage.removeItem("clientEmail");
     window.localStorage.removeItem("cellphone");
     window.localStorage.removeItem("clientLocation");
     window.localStorage.removeItem("clientLocationReference");
@@ -81,7 +81,7 @@ const PoliceForm = (props) => {
   //SAVE DATA-----------------------------------
   const SaveData = () => {
     window.localStorage.setItem("client", clientInput);
-    window.localStorage.setItem("email", emailInput);
+    window.localStorage.setItem("clientEmail", emailInput);
     window.localStorage.setItem("cellphone", cellphoneInput);
     window.localStorage.setItem("clientLocation", locationInput);
     window.localStorage.setItem("clientStatement", statementInput);
@@ -101,6 +101,7 @@ const PoliceForm = (props) => {
     props.onChange();
   };
   const token = window.localStorage.getItem("token");
+
   const askPolice = (event) => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -116,7 +117,7 @@ const PoliceForm = (props) => {
         client_location_reference: referenceInput,
         client_statement: statementInput,
       },
-      call_id: callId, //SIGO SIN SABER DE DONDE SALE
+      call_id: callId,
     });
 
     const requestOptions = {
@@ -228,6 +229,7 @@ const PoliceForm = (props) => {
               type="submit"
               style={{
                 opacity:
+                  (agentStatus === "Active" || agentStatus === "In call") &&
                   emailInput.includes("@") &&
                   clientInput &&
                   emailInput &&
@@ -238,6 +240,7 @@ const PoliceForm = (props) => {
                     ? "1.0"
                     : "0.5",
                 pointerEvents:
+                  (agentStatus === "Active" || agentStatus === "In call") &&
                   emailInput.includes("@") &&
                   clientInput &&
                   emailInput &&
@@ -249,10 +252,10 @@ const PoliceForm = (props) => {
               }}
               onKeyDown={saveKeys}
               onClick={(e) => {
+                saveClick(`${INPUT_NAME} input`);
                 askPolice();
                 SaveData();
                 Confirm();
-                saveClick(`${INPUT_NAME} input`);
               }}
               value={t("askForService")}
               className="tp-submit-button"
@@ -264,8 +267,8 @@ const PoliceForm = (props) => {
               onKeyDown={saveKeys}
               onClick={(e) => {
                 e.preventDefault();
-                getBack();
                 saveClick(`${INPUT_NAME} input`);
+                getBack();
               }}
               value={t("cancel")}
               className="tp-submit-button"

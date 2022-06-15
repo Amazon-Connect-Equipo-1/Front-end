@@ -3,7 +3,6 @@ LoginForm.js
 
 Authors:
 - A01750145 Miguel Ángel Pérez López
-traduction:
 - A01749448 Jorge Chávez Badillo
 - A01750185 Amy Murakami Tsutsumi
 - A01749373 Ariadna Jocelyn Guzmán Jiménez
@@ -138,13 +137,13 @@ const LoginForm = (props) => {
 
               loadUserPreferences(resultJSON.manager_id); // Load user config preferences
               window.localStorage.setItem("music", "pause");
-              navigate("/qa", { replace: true });
+              navigate("/admin", { replace: true });
             })
             .catch((error) => {
               console.log("error", error);
               toast.error(error);
             });
-          navigate("/admin", { replace: true });
+          navigate("/qa", { replace: true });
         }
         if (resultJSON.role === USER.QA) {
           const myHeadersToken = new Headers();

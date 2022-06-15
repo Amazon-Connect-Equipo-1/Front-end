@@ -44,7 +44,6 @@ import { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
-import { MdPermIdentity } from "react-icons/md";
 
 const Tutorials = (props) => {
   const INPUT_NAME = "agent tutorials";
@@ -117,6 +116,7 @@ const Tutorials = (props) => {
             options={options}
             value={value}
             onChange={(event, newValue) => {
+              saveClick(`${INPUT_NAME} scroller`);
               setValue(newValue);
               if (locale === "en") {
                 choosePdf(newValue.idEN);

@@ -47,7 +47,7 @@
   "frontendWorkTeam": "Frontend work team",
   "dashboardDocumentation": "Dashboard creation, documentation",
   "tutorialsDocumentation": "Tutorials, documentation",
-  "systemTranslation": "System translation, documentation",
+  "systemTranslation": "System translation, navigation, documentation",
   "AWSManagers": "AWS functionality managers",
   "videoData": "Video data processing",
   "screenRecording": "Screen recording, voice ID",
@@ -175,7 +175,7 @@
   "agentBtn": "agent",
   "tags": "tags",
   "informationSent": "Information Sent!",
-  "confirmed": "confirmed",
+  "Confirmed": "confirmed",
   "cellPhone": "Cell phone:",
   "oxxoInfo": "OXXO INFO:",
   "street": "Street:",
@@ -274,5 +274,7 @@
 
   "__Error__": "----------------Error interface--------------",
   "notFound": "Not found",
-  "source": "The source requested could not be found on this server!"
+  "source": "The source requested could not be found on this server!",
+  "feedbackSubmitted": "Feedback submited successfuly",
+  "dataSubmitted": "Data submitted successfully"
 }

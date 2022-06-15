@@ -47,7 +47,7 @@
   "frontendWorkTeam": "Equipo de trabajo de frontend",
   "dashboardDocumentation": "Creación de tableros, documentación",
   "tutorialsDocumentation": "Tutoriales, documentación",
-  "systemTranslation": "Traducción del sistema, documentación",
+  "systemTranslation": "Traducción del sistema, navegación, documentación",
   "AWSManagers": "Encargados de la funcionalidad de AWS",
   "videoData": "Procesamiento de datos de vídeo",
   "screenRecording": "Grabación de pantalla, identificación de voz",
@@ -175,7 +175,7 @@
   "agentBtn": "agente",
   "tags": "tags",
   "informationSent": "¡Información enviada!",
-  "confirmed": "confirmado",
+  "Confirmed": "confirmado",
   "cellPhone": "Celular:",
   "oxxoInfo": "INFO OXXO:",
   "street": "Calle:",
@@ -274,5 +274,7 @@
 
   "__Error__": "----------------Error interface--------------",
   "notFound": "No encontrado",
-  "source": "¡La fuente solicitada no se pudo encontrar en este servidor!"
+  "source": "¡La fuente solicitada no se pudo encontrar en este servidor!",
+  "feedbackSubmitted": "Comentarios enviados con éxito",
+  "dataSubmitted": "Datos enviados con éxito"
 }
