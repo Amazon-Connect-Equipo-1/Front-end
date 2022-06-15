@@ -274,5 +274,7 @@
 
   "__Error__": "----------------Error interface--------------",
   "notFound": "Pas trouvé",
-  "source": "La source demandée est introuvable sur ce serveur!"
+  "source": "La source demandée est introuvable sur ce serveur!",
+  "feedbackSubmitted": "Commentaires soumis avec succès",
+  "dataSubmitted": "Données soumises avec succès"
 }
