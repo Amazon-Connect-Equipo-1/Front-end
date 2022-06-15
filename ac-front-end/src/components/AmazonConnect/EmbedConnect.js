@@ -136,7 +136,6 @@ const EmbedConnect = (props) => {
         clientId = JSON.stringify(attributeMap["clientId"]["value"]);
         props.onChangeClientId(clientId);
         console.log(clientId);
-
       });
     });
 
@@ -184,7 +183,7 @@ const EmbedConnect = (props) => {
         };
 
         const responseAgent = fetch(
-          process.env.ENDPOINT_BACK_END +"agent/updateAgentStatus",
+          process.env.REACT_APP_ENDPOINT_BACK_END + "agent/updateAgentStatus",
           requestOptions
         )
           .then((responseAgent) => responseAgent.json())

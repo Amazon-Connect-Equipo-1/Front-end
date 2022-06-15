@@ -70,7 +70,7 @@ function App() {
     };
 
     fetch(
-      "https://backtest.bankonnect.link/keyclick/deleteObjects",
+      process.env.REACT_APPENDPOINT_BACK_END + "keyclick/deleteObjects",
       requestOptions
     )
       .then((response) => response.text())

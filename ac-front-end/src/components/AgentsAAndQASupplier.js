@@ -60,7 +60,7 @@ const AgentsAAndQASupplier = ({ children }) => {
     };
 
     fetch(
-      process.env.ENDPOINT_BACK_END + "manager/agentList",
+      process.env.REACT_APP_ENDPOINT_BACK_END + "manager/agentList",
       requestOptionsGET
     )
       .then((response) => response.text())
@@ -106,7 +106,10 @@ const AgentsAAndQASupplier = ({ children }) => {
       redirect: "follow",
     };
 
-    fetch(process.env.ENDPOINT_BACK_END + "manager/postComment", requestOptions)
+    fetch(
+      process.env.REACT_APP_ENDPOINT_BACK_END + "manager/postComment",
+      requestOptions
+    )
       .then((response) => response.text())
       .then((result) => {
         console.log(result);

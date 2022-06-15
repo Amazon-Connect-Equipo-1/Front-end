@@ -47,7 +47,8 @@ const AgentFeedbackCard = (props) => {
     };
 
     fetch(
-      process.env.ENDPOINT_BACK_END + `agent/getFeedback?email=${email}`,
+      process.env.REACT_APP_ENDPOINT_BACK_END +
+        `agent/getFeedback?email=${email}`,
       requestOptions
     )
       .then((response) => response.text())
@@ -90,7 +91,7 @@ const AgentFeedbackCard = (props) => {
     };
 
     fetch(
-      process.env.ENDPOINT_BACK_END + "agent/acceptFeedback",
+      process.env.REACT_APP_ENDPOINT_BACK_END + "agent/acceptFeedback",
       requestOptions
     )
       .then((response) => response.text())

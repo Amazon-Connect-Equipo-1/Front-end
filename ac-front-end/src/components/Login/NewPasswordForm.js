@@ -63,7 +63,7 @@ const NewPasswordForm = (props) => {
       };
 
       fetch(
-        process.env.ENDPOINT_BACK_END +"auth/confirmPassword",
+        process.env.REACT_APP_ENDPOINT_BACK_END + "auth/confirmPassword",
         requestOptions
       )
         .then((response) => response.text())
@@ -81,7 +81,7 @@ const NewPasswordForm = (props) => {
         .catch((error) => {
           console.log("error", error);
           toast.error(error);
-      });
+        });
     } else {
       toast.error(t("differentPasswords"));
     }

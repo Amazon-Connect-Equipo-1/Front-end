@@ -54,7 +54,7 @@ const ForgottenPasswordForm = (props) => {
       };
       // Makes the request to backend routes to evaluate data in the db
       fetch(
-        process.env.ENDPOINT_BACK_END + "auth/forgotPassword",
+        process.env.REACT_APP_ENDPOINT_BACK_END + "auth/forgotPassword",
         requestOptions
       )
         .then((response) => response.text())

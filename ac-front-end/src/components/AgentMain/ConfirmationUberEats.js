@@ -86,7 +86,10 @@ const ConfirmationUberEats = (props) => {
       redirect: "follow",
     };
 
-    fetch(process.env.ENDPOINT_BACK_END + "tps/sendService", requestOptions)
+    fetch(
+      process.env.REACT_APP_ENDPOINT_BACK_END + "tps/sendService",
+      requestOptions
+    )
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => {

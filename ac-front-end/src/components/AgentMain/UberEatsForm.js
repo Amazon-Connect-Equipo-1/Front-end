@@ -119,7 +119,10 @@ const UberEatsForm = (props) => {
       redirect: "follow",
     };
 
-    fetch(process.env.ENDPOINT_BACK_END + "tps/askService", requestOptions)
+    fetch(
+      process.env.REACT_APP_ENDPOINT_BACK_END + "tps/askService",
+      requestOptions
+    )
       .then((response) => response.text())
       .then((result) => {
         const resultJSON = JSON.parse(result);
