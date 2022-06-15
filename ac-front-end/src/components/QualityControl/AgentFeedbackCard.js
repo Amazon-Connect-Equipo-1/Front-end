@@ -3,6 +3,7 @@ AgentFeedbackCard.js
 
 Authors:
 - A01750145 Miguel Ángel Pérez López
+traduction:
 - A01749448 Jorge Chávez Badillo
 - A01750185 Amy Murakami Tsutsumi
 

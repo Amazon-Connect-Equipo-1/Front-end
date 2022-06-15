@@ -4,6 +4,7 @@ Login.js
 Authors:
 - A01750145 Miguel Ángel Pérez López
 - A01749448 Jorge Chávez Badillo
+traduction:
 - A01750185 Amy Murakami Tsutsumi
 - A01749373 Ariadna Jocelyn Guzmán Jiménez
 
