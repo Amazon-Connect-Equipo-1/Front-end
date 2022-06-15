@@ -29,7 +29,7 @@ const OxxoForm = (props) => {
   // Language
   const { t } = useTranslation();
   const [solconf, setSolConf] = useState("no");
-  const [, , , callId] = useContext(GlobalContext);
+  const [, , , callId, , agentStatus] = useContext(GlobalContext);
   const INPUT_NAME = "Oxxo form";
   // console.log("Callll id", callId);
 
@@ -70,7 +70,7 @@ const OxxoForm = (props) => {
   //RESTART DATA--------------------------------
   const restart = () => {
     window.localStorage.removeItem("client");
-    window.localStorage.removeItem("email");
+    window.localStorage.removeItem("clientEmail");
     window.localStorage.removeItem("cellphone");
     window.localStorage.removeItem("clientLocation");
     window.localStorage.removeItem("quantity");
@@ -89,7 +89,7 @@ const OxxoForm = (props) => {
   //SAVE DATA-----------------------------------
   const SaveData = () => {
     window.localStorage.setItem("client", clientInput);
-    window.localStorage.setItem("email", emailInput);
+    window.localStorage.setItem("clientEmail", emailInput);
     window.localStorage.setItem("cellphone", cellphoneInput);
     window.localStorage.setItem("clientLocation", locationInput);
     window.localStorage.setItem("quantity", quantityInput);
@@ -129,7 +129,7 @@ const OxxoForm = (props) => {
         quantity: quantityInput,
         account_number: accountInput,
       },
-      call_id: callId, //Verificar si funciona
+      call_id: callId,
     });
 
     const requestOptions = {
@@ -265,6 +265,7 @@ const OxxoForm = (props) => {
               type="submit"
               style={{
                 opacity:
+                  (agentStatus === "Active" || agentStatus === "In call") &&
                   emailInput.includes("@") &&
                   clientInput &&
                   emailInput &&
@@ -275,6 +276,7 @@ const OxxoForm = (props) => {
                     ? "1.0"
                     : "0.5",
                 pointerEvents:
+                  (agentStatus === "Active" || agentStatus === "In call") &&
                   emailInput.includes("@") &&
                   clientInput &&
                   emailInput &&

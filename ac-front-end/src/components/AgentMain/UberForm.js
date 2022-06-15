@@ -26,7 +26,7 @@ import { GlobalContext } from "../GlobalSupplier";
 import toast from "react-hot-toast";
 
 const UberForm = (props) => {
-  const [, , , callId] = useContext(GlobalContext);
+  const [, , , callId, , agentStatus] = useContext(GlobalContext);
   //input handlers-----------------------------------
   const [clientInput, setClientInput] = useState("");
   const [emailInput, setEmailInput] = useState("");
@@ -36,7 +36,7 @@ const UberForm = (props) => {
   //SAVE DATA-----------------------------------
   const SaveData = () => {
     window.localStorage.setItem("client", clientInput);
-    window.localStorage.setItem("email", emailInput);
+    window.localStorage.setItem("clientEmail", emailInput);
     window.localStorage.setItem("cellphone", cellphoneInput);
     window.localStorage.setItem("clientLocation", locationInput);
     window.localStorage.setItem("destination", destinationInput);
@@ -108,7 +108,6 @@ const UberForm = (props) => {
     )
       .then((response) => response.text())
       .then((result) => {
-        console.log(result);
         const resultJSON = JSON.parse(result);
         console.log(resultJSON);
         window.localStorage.setItem("rider", resultJSON.body.rider);
@@ -201,6 +200,7 @@ const UberForm = (props) => {
               type="submit"
               style={{
                 opacity:
+                  (agentStatus === "Active" || agentStatus === "In call") &&
                   emailInput.includes("@") &&
                   clientInput &&
                   emailInput &&
@@ -210,6 +210,7 @@ const UberForm = (props) => {
                     ? "1.0"
                     : "0.5",
                 pointerEvents:
+                  (agentStatus === "Active" || agentStatus === "In call") &&
                   emailInput.includes("@") &&
                   clientInput &&
                   emailInput &&
@@ -222,10 +223,10 @@ const UberForm = (props) => {
               onKeyDown={saveKeys}
               onClick={(e) => {
                 e.preventDefault();
+                saveClick(`${INPUT_NAME} input`);
                 askUber();
                 SaveData();
                 Confirm();
-                saveClick(`${INPUT_NAME} input`);
               }}
               value={t("askForService")}
               className="tp-submit-button"
@@ -237,8 +238,8 @@ const UberForm = (props) => {
               onKeyDown={saveKeys}
               onClick={(e) => {
                 e.preventDefault();
-                getBack();
                 saveClick(`${INPUT_NAME} input`);
+                getBack();
               }}
               value={t("cancel")}
               className="tp-submit-button"

@@ -29,7 +29,7 @@ import toast from "react-hot-toast";
 
 const UberEatsForm = (props) => {
   const { t } = useTranslation();
-  const [, , , callId] = useContext(GlobalContext);
+  const [, , , callId, , agentStatus] = useContext(GlobalContext);
   //input handlers-----------------------------------
   const [clientInput, setClientInput] = useState("");
   const [emailInput, setEmailInput] = useState("");
@@ -39,7 +39,7 @@ const UberEatsForm = (props) => {
   //SAVE DATA-----------------------------------
   const SaveData = () => {
     window.localStorage.setItem("client", clientInput);
-    window.localStorage.setItem("email", emailInput);
+    window.localStorage.setItem("clientEmail", emailInput);
     window.localStorage.setItem("cellphone", cellphoneInput);
     window.localStorage.setItem("clientLocation", locationInput);
   };
@@ -58,7 +58,6 @@ const UberEatsForm = (props) => {
   };
   const clientLocationChangeHandler = (event) => {
     setLocationInput(event.target.value);
-    // window.localStorage.setItem("clientLocation", event.target.value);
   };
 
   const INPUT_NAME = "Uber Eats form";
@@ -94,7 +93,7 @@ const UberEatsForm = (props) => {
     );
 
     const raw = JSON.stringify({
-      service: "UberEats", //CONSTANTE
+      service: "UberEats", //CONSTANT
       service_data: {
         client: clientInput,
         email: emailInput,
@@ -109,7 +108,7 @@ const UberEatsForm = (props) => {
           chocolates: { price: 10, quantity: chocolate },
         },
       },
-      call_id: callId, //Probaaaar que sirve
+      call_id: callId,
     });
 
     const requestOptions = {
@@ -258,6 +257,7 @@ const UberEatsForm = (props) => {
               type="submit"
               style={{
                 opacity:
+                  (agentStatus === "Active" || agentStatus === "In call") &&
                   emailInput.includes("@") &&
                   clientInput &&
                   emailInput &&
@@ -268,6 +268,7 @@ const UberEatsForm = (props) => {
                       "1.0"
                     : "0.5",
                 pointerEvents:
+                  (agentStatus === "Active" || agentStatus === "In call") &&
                   emailInput.includes("@") &&
                   clientInput &&
                   emailInput &&

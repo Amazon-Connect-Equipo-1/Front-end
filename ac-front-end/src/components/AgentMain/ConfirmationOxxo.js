@@ -18,14 +18,17 @@ Component that displays the confirmation data of the Oxxo service.
 import "../../styles/AgentMain/ThirdParty.css";
 import { useTranslation } from "react-i18next";
 import uberlogo from "../../images/uber.png";
-import { createContext, Suspense, useState } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
+import { saveKeys, saveClick } from "../MonitorModule.js";
 
 const ConfirmationOxxo = (props) => {
+  const INPUT_NAME = "Oxxo confirmation";
+
   const token = window.localStorage.getItem("token");
   //Data----------------------------------------
   const client = window.localStorage.getItem("client");
-  const email = window.localStorage.getItem("email");
+  const email = window.localStorage.getItem("clientEmail");
   const cellphone = window.localStorage.getItem("cellphone");
   const clientLocation = window.localStorage.getItem("clientLocation");
 
@@ -44,7 +47,7 @@ const ConfirmationOxxo = (props) => {
   //RESTART DATA--------------------------------
   const restart = () => {
     window.localStorage.removeItem("client");
-    window.localStorage.removeItem("email");
+    window.localStorage.removeItem("clientEmail");
     window.localStorage.removeItem("cellphone");
     window.localStorage.removeItem("clientLocation");
 
@@ -103,7 +106,10 @@ const ConfirmationOxxo = (props) => {
       requestOptions
     )
       .then((response) => response.text())
-      .then((result) => console.log(result))
+      .then((result) => {
+        console.log(result);
+        toast.success("Data submited successfully");
+      })
       .catch((error) => {
         console.log("error", error);
         toast.error(error);
@@ -123,6 +129,7 @@ const ConfirmationOxxo = (props) => {
               className="tp-submit-button"
               onClick={(e) => {
                 e.preventDefault();
+                saveClick(`${INPUT_NAME} return button`);
                 pruebaBackTPS();
                 restart();
                 props.onChange();
@@ -190,6 +197,7 @@ const ConfirmationOxxo = (props) => {
             className="tp-submit-button"
             onClick={(e) => {
               e.preventDefault();
+              saveClick(`${INPUT_NAME} submit button`);
               changeConfig();
             }}
           >

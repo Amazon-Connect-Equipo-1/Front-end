@@ -51,15 +51,12 @@ const AgentRecordings = () => {
   };
 
   const onChangeSearchInput = (event) => {
-    console.log(event.target.value);
     setSearchInput(event.target.value);
   };
 
   const onFilterRecordings = () => {
     //Petition for filtering videos
     if (searchInput !== "") {
-      console.log(searchInput);
-
       //Check type of search (date, tag)
       if (spinnerValue === "tag") {
         //Make petition
@@ -67,9 +64,7 @@ const AgentRecordings = () => {
       } else {
         //spinnerValue === "date"
         //Make petition
-        console.log("doing petition");
         getRecordingsByDate(searchInput, window.localStorage.getItem("email"));
-        // setSearchInput("");
       }
     } else {
       console.log("Empty input");
@@ -119,20 +114,6 @@ const AgentRecordings = () => {
                 <option value="tag">{t("tag")}</option>
                 <option value="date">{t("date")}</option>
               </select>
-              {/* 
-              <input
-                onKeyDown={saveKeys}
-                onClick={() => saveClick(`${INPUT_NAME} input`)}
-                className="arc-input"
-                id="arc-input"
-                type="text"
-                placeholder={t("placeholder")}
-                min="2022-06-01"
-                max="2029-12-31"
-                onChange={onChangeSearchInput}
-                value={searchInput}
-              />
-              */}
               {spinnerValue === "tag" && (
                 <Autocomplete
                   multiple
@@ -174,7 +155,10 @@ const AgentRecordings = () => {
                 <button
                   href="/"
                   className="arc-btn"
-                  onClick={onFilterRecordings}
+                  onClick={() => {
+                    onFilterRecordings();
+                    saveClick(`${INPUT_NAME} date search button`);
+                  }}
                 >
                   {t("search")}
                 </button>
