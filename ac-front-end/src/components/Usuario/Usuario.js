@@ -111,7 +111,7 @@ const Usuario = (props) => {
             </div>
           </Card>
         )}
-        {ver == "yes" && (
+        {ver === "yes" && (
           <Card className="lgf-main-container">
             <div className="lgf-ver-container ">
               <p className="lgf-form-title">Verified!</p>

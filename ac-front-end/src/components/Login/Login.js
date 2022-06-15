@@ -38,7 +38,7 @@ const Login = (props) => {
           <img src={logo} alt="logo" className="log-logo" />
           <LoginForm />
         </div>
-        <Link to="about" className="log-about" onClick={onShowAbout}>
+        <Link to="login/about" className="log-about" onClick={onShowAbout}>
           {t("about")}
         </Link>
       </div>
