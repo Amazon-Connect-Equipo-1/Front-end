@@ -75,7 +75,7 @@ const AgentRecordings = () => {
 
   const arrayTags = [];
   console.log(arrAgentRecordings);
-  if (arrAgentRecordings.length === 0) {
+  if (arrAgentRecordings.length !== 0) {
     arrAgentRecordings.map((recordInfo) =>
       recordInfo.tags.map((tag) => {
         if (arrayTags.includes(tag) === false) {
