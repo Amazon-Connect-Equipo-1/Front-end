@@ -126,7 +126,7 @@ const AddManager = (props) => {
       <input
         className="adu-input"
         id="password"
-        type="text"
+        type="password"
         placeholder={t("passwordManager")}
         onChange={passwordChangeHandler}
         value={passwordInput}

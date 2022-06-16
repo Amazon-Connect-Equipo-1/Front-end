@@ -121,7 +121,7 @@ const AddAgent = (props) => {
       <input
         className="adu-input"
         id="password"
-        type="text"
+        type="password"
         placeholder={t("password")}
         onChange={passwordChangeHandler}
         value={passwordInput}
