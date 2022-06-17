@@ -10,8 +10,7 @@ Last modification date: 14/06/2022
 Program that checks if the user is authenticated to restrict login routes. 
 */
 
-import { useEffect } from "react";
-import { Navigate, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import About from "./Login/About";
 import Login from "./Login/Login";
 import NewPasswordForm from "./Login/NewPasswordForm";
@@ -53,7 +52,7 @@ const RequireNoAuthentication = ({ allowedUsers }) => {
     (location.pathname === "/login" && <Login />) ||
       (location.pathname === "/login/about" && <About />) ||
       (location.pathname === "/forgot-password" && <RecoverPassword />) ||
-      (location.pathname === "confirm-password" && <NewPasswordForm />) ||
+      (location.pathname === "/confirm-password" && <NewPasswordForm />) ||
       (location.pathname === "/confirm-email" && <Usuario />)
   );
 };
