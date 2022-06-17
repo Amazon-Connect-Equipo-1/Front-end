@@ -86,7 +86,6 @@ const LoginForm = (props) => {
     )
       .then((response) => response.text())
       .then((result) => {
-        window.localStorage.setItem("isLoggedIn", true);
         const resultJSON = JSON.parse(result);
         console.log(resultJSON);
         if (Object.keys(resultJSON).includes("errors")) {
@@ -106,6 +105,7 @@ const LoginForm = (props) => {
         console.log(resultJSON.AccessToken);
 
         if (resultJSON.role === USER.Admin) {
+          window.localStorage.setItem("isLoggedIn", true);
           const myHeadersToken = new Headers();
           myHeadersToken.append(
             "Authorization",
@@ -146,6 +146,7 @@ const LoginForm = (props) => {
           navigate("/qa", { replace: true });
         }
         if (resultJSON.role === USER.QA) {
+          window.localStorage.setItem("isLoggedIn", true);
           const myHeadersToken = new Headers();
           myHeadersToken.append(
             "Authorization",
@@ -184,6 +185,7 @@ const LoginForm = (props) => {
             });
         }
         if (resultJSON.role === USER.Agent) {
+          window.localStorage.setItem("isLoggedIn", true);
           const myHeadersToken = new Headers();
           myHeadersToken.append(
             "Authorization",
