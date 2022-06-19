@@ -2,16 +2,17 @@
 RecordScreen.js
 
 Authors:
+- A01750480 Edna Jacqueline Zavala Ortega
+- A01379566 Diego Juarez Ruiz
+- A1379918  Luis Enrique Zamarrripma Marin
 - A01378688 Daniel Garcia Barajas
--A01379566 Diego Juarez Ruiz
--A1379918 Luis Enrique Zamarrripma Marin
 Translation:
 - A01749448 Jorge Chávez Badillo
 - A01749373 Ariadna Jocelyn Guzmán Jiménez
 - A01750185 Amy Murakami Tsutsumi
 
 Creation date: 24/05/2022
-Last modification date: 24/05/2022
+Last modification date: 18/06/2022
 
 Program that allows to record the screen when the agent is on a call.
 */
@@ -25,14 +26,14 @@ import { useReactMediaRecorder } from "react-media-recorder";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 
-// Función para grabar pantalla
+// Component to record screen
 const RecordScreen = (props) => {
   const { status, startRecording, stopRecording, mediaBlobUrl } =
     useReactMediaRecorder({ screen: true });
 
-  // Función para detener la grabación de pantalla. Se llama a la función
-  // stopRecording de react media recorder y luego, después de 4 segundos, se presiona
-  // el botón de subir al S3
+  // Function that stops screen recording. Calls the function "stopRecording" from
+  // react-media-recorder and then, after 4 seconds, a click event is executed to upload
+  // the recording to S3.
   function stopRecordFunct() {
     stopRecording();
     console.log("Subiendo----");
@@ -41,25 +42,25 @@ const RecordScreen = (props) => {
     }, 4000);
   }
 
-  // Función para subir video al S3.
-  // Paso 1: Llamar a la función lambda. La lambda regresa un link para subir un archivo directo al S3
-  // Paso 2: Hacer una peticion PUT usando el link que regresa la lambda. Se tiene que agregar el archivo a la petición
+  // Function to upload a recording to S3.
+  // Step 1: Call the corresponding Lambda function. This Lambda returns a presigned URL to upload a file directly to S3.
+  // Step 2: Make a PUT request using the presigned URL obtained as a response from the Lambda function. The file must be added in the body of the request.
   const uploadVideo = async () => {
-    // Link para la función lambda
+    // Presigned URL to upload an object
     const API_ENDPOINT =
       "https://gmfy1qbiac.execute-api.us-west-2.amazonaws.com/default/getSignedURL";
     const mediaBlob = await fetch(mediaBlobUrl).then((response) =>
       response.blob()
     );
 
-    // Petición GET a la lambda.
-    // La variable response trae el link para subir a la S3
+    // GET request to Lambda.
+    // Response variable includes a link to upload it to S3
     const response = await axios({
       method: "GET",
       url: API_ENDPOINT,
     });
 
-    // Creación del archvio mp4
+    // Create the mp4 file
     let file = new File([mediaBlob], response.data.fileName, {
       type: "video/mp4",
       lastModified: Date.now(),
@@ -69,7 +70,7 @@ const RecordScreen = (props) => {
     console.log("Uploading: ", file);
     console.log("Uploading to: ", response.data.uploadURL);
 
-    // Petición PUT para subir el mp4 al S3. El archivo mp4 viene en body
+    // Make a PUT request to upload mp4 file to S3. Mp4 file is sent in the body.
     const result = await fetch(response.data.uploadURL, {
       method: "PUT",
       body: file,
